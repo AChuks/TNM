@@ -1,0 +1,49 @@
+// Header Styling 
+.navbar {
+    background: rgba(0,0,0,0.7);
+		font-weight: 350;
+		font-size: 13px;
+		font-family: georgia;
+			
+		.navbar-header{
+			padding-left: 150px;
+		}	
+		.navbar-brand {
+			color: white;
+			font-size: 14px;
+				
+			}
+		#sub-brands {
+			color: red;
+			font-size: 25px;
+			
+			}			
+		#sub-brand {
+			padding-left: 80px;
+		}	
+		.nav {
+			padding-right: 150px;
+			li a {
+					color: white;
+				}
+		}	
+		.form-group {
+			padding-left: 100px;
+			input{
+				background: rgba(0,0,0,0.7);
+				border-color: gray;
+				border-width: 0.9px;
+				width: 240px;
+				height: 30px;
+				color: white;
+			}
+		}
+	}
+	// Header Styling
+	
+	
+	
+	
+	body {
+		background-color: white;		
+	}
