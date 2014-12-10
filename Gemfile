@@ -15,6 +15,7 @@ gem 'autoprefixer-rails'
 group :development, :test do
     gem 'sqlite3', '1.3.8'
     gem 'rspec-rails', '2.13.1'
+    gem 'debugger'
 end
 
 group :test do 
@@ -38,6 +39,7 @@ gem 'coffee-rails', '4.0.1'
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails', '3.0.4'
+gem 'underscore-rails'
 
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
 gem 'turbolinks', '1.1.1'

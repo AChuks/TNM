@@ -3,19 +3,23 @@
 <html>
   <head>
     <title><%= full_title(yield(:title)) %></title>
-    <%= stylesheet_link_tag "application", media: "all",
+    <%= stylesheet_link_tag "application", media: "screen",
                                            "data-turbolinks-track" => true %>
-    <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
+		<%= javascript_include_tag "application", "data-turbolinks-track" => true %>
+		
     <%= csrf_meta_tags %>
 		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<%= render 'layouts/shim'%>
-		
+		<%= render 'layouts/shim' %>
+
 		
   </head>
-  <body>
-		<%= render 'layouts/header'%>
+  <body class = "small" data-twrr-rendered = "true" >
+		<!--Add Facebook javascript code for Like button or use iFrame-->
+		<!--Add javascript Scripts here-->
+		<!--Add Flash here -->
+		<%= render 'layouts/header' %>
 		<%= yield %>
-		<%= debug(params) if Rails.env.development? %>
-		<%= render 'layouts/footer'%>
+		<!--<%= debug(params) if Rails.env.development? %>-->
+		<%= render 'layouts/footer' %>
   </body>
 </html>

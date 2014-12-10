@@ -1,41 +1,177 @@
 <% provide(:title, 'Home')%>
 
+<div id = "wrap">
+	<!--Investigate what these divs do -->
+	<div id="page-left-shadow" class="z-index-layer-1"></div>
+	<div id="page-right-shadow" class="z-index-layer-1"></div>
+	<div id="background" class="z-index-layer-1  "></div>
+	<!--End investigation-->
+	
+	<div id = "inner-wrap" class = "ad-root">
+		<!--Banner wrapper or header goes here. Already implemented in header partial -->
+		<!--Video Player Section goes here -->
+		
+		<!--Masthead Container or Carousel goes here or below-->
+		<div id="carousel-example-generic" class="carousel slide" data-interval="2000" data-ride="carousel">
+			<!-- Indicators -->
+			<ol class="carousel-indicators">
+				<li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+				<li data-target="#carousel-example-generic" data-slide-to="1"></li>
+				<li data-target="#carousel-example-generic" data-slide-to="2"></li>
+			</ol>
 
-<div id="carousel-example-generic" class="carousel slide" data-interval="2000" data-ride="carousel">
-  <!-- Indicators -->
-  <ol class="carousel-indicators">
-    <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
-    <li data-target="#carousel-example-generic" data-slide-to="1"></li>
-    <li data-target="#carousel-example-generic" data-slide-to="2"></li>
-  </ol>
 
-  <!-- Wrapper for slides -->
-  <div class="carousel-inner" role="listbox">
-    <div class="item active">
-      <%= image_tag('louie.jpg')%>
-      <div class="carousel-caption">
-        ...
-      </div>
-    </div>
-    <div class="item">
-       <%= image_tag('louie.jpg')%>
-      <div class="carousel-caption">
-        ...
-      </div>
-    </div>
-    ...
-  </div>
+			<!-- Wrapper for slides -->
+			<div class="carousel-inner" role="listbox">
+				<div class="item active">
+					<%= image_tag('louie.jpg')%>
+				</div>
+				<div class="item">
+					<%= image_tag('louie.jpg')%>
+				</div>
+			</div>
+			<!-- Controls -->
+			<a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
+				<span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+				<span class="sr-only">Previous</span>
+			</a>
+			<a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
+				<span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+				<span class="sr-only">Next</span>
+			</a>
+		</div>
+		<!--End of Masthead Container or Carousel-->
 
-  <!-- Controls -->
-  <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
-    <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
-    <span class="sr-only">Previous</span>
-  </a>
-  <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
-    <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
-    <span class="sr-only">Next</span>
-  </a>
-</div>
+
+
+		<!--Content-->
+		<div id="contents">	
+			<div id="main">
+				<div class="home">
+			 
+					<!-- THIS CONTAINER ENCLOSES TWITTER AND FACEBOOK F0LLOW ICONS-->
+					<div id="tool-item-container">
+						<div class="tool-bar">
+							<div class="follow-icons">
+								<!-- TWITTER'S ICON  --> 
+								<span class="twitter-follow-container">
+									<iframe src="//platform.twitter.com/widgets/follow_button.html?screen_name=techcrunch&lang=en&show_count=false" style="width: 60px; height: 20px;" allowtransparency="true" frameborder="0" scrolling="no">
+									</iframe>		
+									<iframe src="https://platform.twitter.com/widgets/tweet_button.html?url=https%3A%2F%2FAfroRenaissance.com&count=none&via=twitterdev&text=Explore!%20Create!%20Influence!&hashtags=Afro%2CRenaissance" title="Twitter Tweet Button" style="width:60px; height: 20px;" allowtransparency="true" frameborder="0" scrolling="no">
+									</iframe>
+								</span> 				
+								<!-- FACEBOOK'S ICON -->
+								<span class="facebook-like-container">
+									<iframe src="//www.facebook.com/plugins/like.php?href=https%3A%2F%2Ffacebook.com%2Ftechcrunch%2F&amp;width&amp;layout=button_count&amp;action=like&amp;show_faces=false&amp;share=true&amp;height=20" scrolling="no" frameborder="0" style=" width: 132px; height:20px;">
+									</iframe>
+								</span>
+							</div> <!-- END OF FOLLOW ICONS -->
+						</div> <!--END OF TOOL-BAR-->
+					</div> <!--END OF TOOL-ITEM CONTAINER-->
+					<div id = "tou-container"></div>
+					
+					
+					<!--Start of Vimeo BoilerPlate-->
+					
+					<div class="container-fluid">
+						<div class="row-fluid">
+							<div class="span12">
+								<div id="content">
+									<div id="header">
+										<h1>Vimeo Boilerplate</h1> 
+						
+										<form class="form-search">
+											<input id="search" type="text" class="input-medium search-query" placeholder="search">
+											<button id="search-button" type="button" class="btn">Search</button><br/>
+											<a href="#" class="btn btn-info" id="search-info">
+												Searching for &ldquo;<span id="search-string">beginner</span>&rdquo;. Show all Videos?
+											</a>
+										</form>
+									</div>
+									<div id="video-container" class="well">
+										
+										<div id="screen" class="glyph">
+											<!-- Change name = "screen" to id ="iframe" -->
+											<iframe name = "screen" src="about:blank" width="100%" height="100%" 
+											frameborder="0">
+										</iframe>
+									</div>
+									
+									<div class="vid-info">
+										<h3 id="title"></h3>
+										<p id="description"></p>		
+									</div>
+									
+								</div>	
+								<!-- end of screen -->
+								<div id="gallery">
+									<ul id="thumbs">
+										<li style="float:none;width:30%;margin:0px auto">
+											<div class="progress progress-success
+											progress-striped active">
+											<div class="bar" style="width: 100%;"></div>
+										</div>
+									</li>
+								</ul>
+								<!-- end of thumbs -->
+							</div>
+
+							<!-- end of gallery -->
+							<!-- end of content -->
+				
+				
+			
+						</div>
+					</div>
+		
+				</div>
+		
+				<!-- js micro templates -->
+				
+				<script type="text/html" id="thumb_tmpl">
+					<li>
+						<form id="{{=id}}" method="get" target="screen" action="http://player.vimeo.com/video/{{=id}}?title=0&amp;byline=0&amp;portrait=0">
+							<input class="vid-thumb glyph" type="submit" style="background-image:url({{=thumbnail_medium}})" value=""/>
+							<h5>{{=title}}</h5>
+						</form>
+					</li>
+				</script>
+				
+				<script type="text/html" id="no_videos_tmpl">
+					<div class="vid-info" id="no-videos" style="text-align:center">
+						<h2>No Videos Found. Please try a different search.</h2>
+					</div>
+				</script>
+		
+				<!-- analytics -->
+				<script>
+
+				var _gaq = _gaq || [];
+				_gaq.push(['_setAccount', 'UA-XXXXX-X']);
+				_gaq.push(['_trackPageview']);
+
+				(function() {
+					var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+					ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+					var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+				})();
+
+				</script>
+				<!--End of VimeoBiolerPlate-->
+		
+		
+			</div> <!--END OF HOME-->
+		</div> <!--END OF MAIN-->
+	</div> <!--END OF CONTENT-->
+</div> <!--End Inner Wrap-->
+</div> <!--End Wrap-->
+				
+
+			
+			
+
+
+
 
 
 

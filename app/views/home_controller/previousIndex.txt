@@ -1,0 +1,177 @@
+<% provide(:title, 'Home')%>
+
+<div id = "wrap">
+	<!--Investigate what these divs do -->
+	<div id="page-left-shadow" class="z-index-layer-1"></div>
+	<div id="page-right-shadow" class="z-index-layer-1"></div>
+	<div id="background" class="z-index-layer-1  "></div>
+	<!--End investigation-->
+	
+	<div id = "inner-wrap" class = "ad-root">
+		<!--Banner wrapper or header goes here. Already implemented in header partial -->
+		<!--Video Player Section goes here -->
+		
+		<!--Masthead Container or Carousel goes here or below-->
+		<div id="carousel-example-generic" class="carousel slide" data-interval="2000" data-ride="carousel">
+			<!-- Indicators -->
+			<ol class="carousel-indicators">
+				<li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+				<li data-target="#carousel-example-generic" data-slide-to="1"></li>
+				<li data-target="#carousel-example-generic" data-slide-to="2"></li>
+			</ol>
+
+			<!-- Wrapper for slides -->
+			<div class="carousel-inner" role="listbox">
+				<div class="item active">
+					<%= image_tag('louie.jpg')%>
+				</div>
+				<div class="item">
+					<%= image_tag('louie.jpg')%>
+				</div>
+			</div>
+			<!-- Controls -->
+			<a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
+				<span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+				<span class="sr-only">Previous</span>
+			</a>
+			<a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
+				<span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+				<span class="sr-only">Next</span>
+			</a>
+		</div>
+		<!--End of Masthead Container or Carousel-->
+
+
+
+		<!--Content-->
+		<div id="content">	
+			<div id="main">
+				<div class="home">
+			 
+					<!-- THIS CONTAINER ENCLOSES TWITTER AND FACEBOOK F0LLOW ICONS-->
+					<div id="tool-item-container">
+						<div class="tool-bar">
+							<div class="follow-icons">
+								<!-- TWITTER'S ICON  --> 
+								<span class="twitter-follow-container">
+									<iframe src="//platform.twitter.com/widgets/follow_button.html?screen_name=techcrunch&lang=en&show_count=false" style="width: 60px; height: 20px;" allowtransparency="true" frameborder="0" scrolling="no">
+									</iframe>		
+									<iframe src="https://platform.twitter.com/widgets/tweet_button.html?url=https%3A%2F%2FAfroRenaissance.com&count=none&via=twitterdev&text=Explore!%20Create!%20Influence!&hashtags=Afro%2CRenaissance" title="Twitter Tweet Button" style="width:60px; height: 20px;" allowtransparency="true" frameborder="0" scrolling="no">
+									</iframe>
+								</span> 				
+								<!-- FACEBOOK'S ICON -->
+								<span class="facebook-like-container">
+									<iframe src="//www.facebook.com/plugins/like.php?href=https%3A%2F%2Ffacebook.com%2Ftechcrunch%2F&amp;width&amp;layout=button_count&amp;action=like&amp;show_faces=false&amp;share=true&amp;height=20" scrolling="no" frameborder="0" style=" width: 132px; height:20px;">
+									</iframe>
+								</span>
+							</div> <!-- END OF FOLLOW ICONS -->
+						</div> <!--END OF TOOL-BAR-->
+					</div> <!--END OF TOOL-ITEM CONTAINER-->
+					<div id = "tou-container"></div>
+		
+		
+					<!--Start Shelf-list-->
+					<div id="shelf-list" class="shelf-list-container" style="opacity: 1;">
+						<div id="trays" class="tray-list-container"> 
+		 
+							<!--Container 1 -->
+							<div class="tray-container beacon beacon-root" shelf-index="0" beacon-attr-tempoid="mozart/shows~sort=popular_today" beacon-attr-sorting="popular_today" beacon-attr-regionname="popular_shows" beacon-attr-zone="0" beacon-attr-scrollnumber="1">
+								<div id="popular_shows" class="tray TYPE_S_TWO_ROWS_ONE_SPOTLIGHT TYPE_DEFAULT_OVERLAY">
+									<div class="inner"> 
+										<div class="mask" style="position: relative; overflow: visible;">
+						
+											<div class="tray-title" style="position: relative;"> 
+												<h3>  <a href="/tv/popular/shows" class="beacon-click toggle" click-event-type="sitetracking,thumbnailclick" beacon-attr-type="link" beacon-attr-clickid="/tv/popular/shows" beacon-attr-position="-1"> POPULAR SHOWS </a>    
+												</h3> 
+											</div> <!--End tray-title--> 
+											
+											<div id="view121_ad" class="tray-ad"> </div>   
+											<div class="filters"> 
+												<div class="filter-component" style="display: block;">
+													<div class="dropdown-wrapper sortby_dropdown">
+														<div class="dropdown" style="right: -39px;">
+															<div class="btn toggle" tabindex="0" value="" style="">Popular Today</div>
+															<div class="drop-wrapper" id="drop-wrapper-undefined" style="height: 0px;">										
+																
+																<!--Viewport-->
+																<div class="viewport has-scrollbar">	
+																	<div class="drop overview" style="top: 0px;">
+																		<div value="0" class="active">Popular Today</div>
+																		<div value="1">Popular This Week</div>
+																		<div value="2">Popular This Month</div>
+																		<div value="3">Popular All Time</div>
+																	</div>	
+																	
+																	<div class="top-shadow"> 
+																		<table cellpadding="0" cellspacing="0" border="0"> 
+																			<tbody>
+																				<tr> 
+																					<td class="left"><div></div></td> 
+																					<td class="middle"><div></div></td> 
+																					<td class="right"><div></div></td>
+																				</tr>
+																			</tbody>
+																		</table> 
+																	</div> 
+																													
+																	<div class="bottom-shadow"> 
+																		<table cellpadding="0" cellspacing="0" border="0"> 
+																			<tbody>
+																				<tr> 
+																					<td class="left"><div></div></td>
+																					<td class="middle"><div></div></td> 
+																					<td class="right"><div></div></td> 				
+																				</tr> 
+																			</tbody>
+																		</table> 
+																	</div>
+																		
+																</div> <!--End Viewport-->	
+																
+																<div class="scrollbar" style="height: 0px;"> 
+																	<div class="track" style="height: 0px;"> 
+																		<div class="thumb"> </div> 
+																	</div>
+																</div>	 
+															</div> <!--End Dropwrapper-->
+														</div> <!--End Dropdown-->
+													</div> <!--Dropdown Wrapper-->
+												</div> <!--Filter-component-->
+											</div> <!--Filters-->  
+											
+											
+											<!--Raste copied code-->
+											 
+										
+										</div> <!--End Mask-->
+									</div>  <!--End Inner-->
+									<a class="prev" href="javascript: void(0);" style="display: none;" onclick="return false;"></a> 
+									<a class="next" href="javascript: void(0);" style="" onclick="return false;"></a>
+								</div> <!--End Popular Shows-->
+							</div> <!--Ends Container 1-->
+				
+							<!--Add containers below-->
+				
+						</div> <!--Ends Trays-->
+						<div id="grids" class="grid-list-container"> </div> 
+					</div> <!--Ends Shelf-list-->
+		
+		
+		
+		
+		
+				</div> <!--END OF HOME-->
+			</div> <!--END OF MAIN-->
+		</div> <!--END OF CONTENT-->
+	</div> <!--End Inner Wrap-->
+</div> <!--End Wrap-->
+				
+
+			
+			
+
+
+
+
+
+
