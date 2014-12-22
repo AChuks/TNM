@@ -1,0 +1,28 @@
+@charset "utf-8";
+/* CSS Document */
+/* -----------------------------------------------------------------------
+
+ Medioworks Tuber Social Video Theme Framework 1.0.1
+ © Copyright 2013 - Design and Sitebuild
+ Web - www.medioworks.com
+ Envato Exclusive Author - http://themeforest.net/user/MedioWorks
+
+----------------------------------------------------------------------- */
+
+/* tabs.css */
+
+#tabs_wrapper { width: auto; height: auto !important; min-height: 100%; height: 100%; position: relative;}
+#tabs_container {float:left; width:100%; top:-40px; position:relative;}
+#tabs { list-style: none; padding: 6px 0 6px 0; margin: 0 0 0 0px; float:left;}
+#tabs li { display: inline;}
+#tabs li a { padding: 14px 10px; text-decoration: none; border-bottom: none; outline: none; color:#fff; text-transform:uppercase; font-size:14px;}
+#tabs li a:hover { background-color: #1a1a1a; padding: 14px 10px;}
+#tabs li.active a { background-color: #1a1a1a; padding: 14px 10px;}
+#tabs li.active a:hover { background-color: #1a1a1a; padding: 14px 10px;}
+#tabs_content_container { padding: 10px; padding-top:0px; margin-bottom:30px; width: 100%; float:left;}
+.tab_content { display: none;}
+.tab_content p {float:left;}
+.tab_content ul {list-style:none; float:left;}
+.tab_content ul li { float:left; width:auto; margin-bottom:25px !important; margin-right:0px !important; width:100% !important; height:100% !important;}
+.tab_content ul li:last-child {margin-bottom:0px !important;}
+.tab_content ul li img {width:100%; height:auto;}

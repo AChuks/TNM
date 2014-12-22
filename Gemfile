@@ -4,6 +4,7 @@ source 'https://rubygems.org'
 gem 'rails', '4.1.6'
 gem 'bootstrap-sass','3.3.1'
 gem 'sprockets','2.11.0'
+gem 'sprockets-rails', '2.0.1'
 gem 'bcrypt-ruby', '3.1.2'
 gem 'faker', '1.1.2'
 gem 'will_paginate', '3.0.4'
@@ -26,6 +27,7 @@ end
 
 # Use SCSS for stylesheets
 #gem 'sass-rails', '>=3.2'
+gem 'sass', '3.2.13'
 gem 'sass-rails', '4.0.1'
 
 # Use Uglifier as compressor for JavaScript assets

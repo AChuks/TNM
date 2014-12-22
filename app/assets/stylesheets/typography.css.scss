@@ -1,0 +1,181 @@
+@charset "utf-8";
+/* CSS Document */
+/* -----------------------------------------------------------------------
+
+ Medioworks Tuber Social Video Theme Framework 1.0.1
+ © Copyright 2013 - Design and Sitebuild
+ Web - www.medioworks.com
+ Envato Exclusive Author - http://themeforest.net/user/MedioWorks
+
+----------------------------------------------------------------------- */
+
+/* typography.css */
+@import url(http://fonts.googleapis.com/css?family=PT+Sans+Narrow);
+@import url(http://fonts.googleapis.com/css?family=PT+Sans:400,700);
+
+@font-face
+{
+font-family: 'PT Sans', sans-serif;
+src: url('http://fonts.googleapis.com/css?family=PT+Sans'),
+     url('http://fonts.googleapis.com/css?family=PT+Sans:400,700'); /* IE9 */
+}
+
+h1, h2, h3, h4, h5, h6 {font-weight:normal;color:#1A1A1A;}
+h1 {font-size:3em;line-height:1;margin-bottom:0.5em;}
+h1 {letter-spacing:-1px;}
+h2 {font-size:2em;margin-bottom:0.75em;}
+h3 {font-size:1.5em;line-height:1;margin-bottom:1em;}
+h4 {font-size:1.2em;line-height:1.25;margin-bottom:1.25em;}
+h5 {font-size:1em;font-weight:bold;margin-bottom:1.5em;}
+h6 {font-size:1em;font-weight:bold; margin-bottom:0.5em;}
+h1 img, h2 img, h3 img, h4 img, h5 img, h6 img {margin:0;}
+p {margin:0 0 1.5em;}
+
+a:focus, a:hover {color:#7F7F7F;}
+a {color:#353535;text-decoration:underline;}
+blockquote {margin:1.5em;color:#404040;font-style:italic; float:left;}
+strong, dfn {font-weight:bold;}
+em, dfn {font-style:italic;}
+sup, sub {line-height:0;}
+abbr, acronym {border-bottom:1px dotted #404040;}
+address {margin:0 0 1.5em;font-style:italic;}
+del {color:#666;}
+pre {margin:1.5em 0;white-space:pre;}
+pre, code, tt {font:1em 'andale mono', 'lucida console', monospace;line-height:1.5;}
+
+ol {list-style-type:decimal;}
+dl {margin:0 0 1.5em 0;}
+dl dt {font-weight:bold;}
+dd {margin-left:1.5em;}
+table {margin-bottom:1.4em;width:100%;}
+th {font-weight:bold;}
+thead th {background:#959595; color:#fff;}
+th, td, caption {padding:4px 10px 4px 5px;}
+tbody tr:nth-child(even) td, tbody tr.even td {background:#efefef;}
+tfoot {font-style:italic;}
+caption {background:#eee;}
+.small {font-size:.8em;margin-bottom:1.875em;line-height:1.875em;}
+.large {font-size:1.2em;line-height:2.5em;margin-bottom:1.25em;}
+.hide {display:none;}
+.quiet {color:#666;}
+.loud {color:#000;}
+.highlight {background:#ff0;}
+.added {background:#060;color:#fff;}
+.removed {background:#900;color:#fff;}
+.first {margin-left:0;padding-left:0;}
+.last {margin-right:0;padding-right:0;}
+.top {margin-top:0;padding-top:0;}
+.bottom {margin-bottom:0;padding-bottom:0;}
+
+#list ul, #list-2 ul {list-style:none !important;}
+#list ul li, #list-2 ul li {margin:0; padding-left:15px; float:left; width: 100%; background:url('../images/gray-arrow.png') no-repeat 2px 7px; margin:0px 0px 8px 0px; }
+#list ul li span, #list-2 ul li span {font-size:12px; color:#404040 !important;}
+
+#list-st ul {list-style:outside;}
+#list-st ul li {margin:0; padding-left:15px; float:left; width: 100%; margin:0px 0px 8px 0px; }
+#list-st ul li span {font-size:12px; color:#404040 !important;}
+
+.span-typo ol {list-style-type:decimal;}
+.span-typo ol li {margin:0; padding-left:15px; float:left; width: 100%; margin:0px 0px 8px 0px; }
+.span-typo ol li span {font-size:12px; color:#404040 !important;}
+
+
+/*--------- BUTTONS --------*/
+.a-right {float:right !important;}
+
+.span-9-content .span-typo a {width:100%; margin-bottom:10px; font-weight:700; font-size:12px; text-decoration:none; float:left;}
+.span-9-content .span-typo a.underline {width:100%; margin-bottom:10px; font-weight:700; font-size:12px; text-decoration:underline; float:left;}
+
+
+a.button-1 {
+	border-radius: 4px 4px 4px 4px;
+	-moz-border-radius: 4px 4px 4px 4px;
+    -webkit-border-radius: 4px 4px 4px 4px;
+	padding: 5px 7px 5px 7px;
+	background:#232323;
+	margin: 0px 8px 12px 0px;
+	float:left;
+	color:#f3f3f3;
+	text-decoration:none;
+	font-weight:bold;
+}
+
+a.button-1:hover {
+	background:#b1d928;
+	color:#353535;
+}
+
+a.button-1 span {
+	font-size:11px;
+}
+
+
+
+a.button-2 {
+	border-radius: 4px 4px 4px 4px;
+	-moz-border-radius: 4px 4px 4px 4px;
+    -webkit-border-radius: 4px 4px 4px 4px;
+	padding: 5px 7px 5px 7px;
+	background:#b1d928;
+	margin: 0px 8px 12px 0px;
+	float:left;
+	color:#353535;
+	text-decoration:none;
+	font-weight:bold;
+}
+
+a.button-2:hover {
+	background:#232323;
+	color:#f3f3f3;
+}
+
+a.button-2 span {
+	font-size:11px;
+}
+
+
+
+a.button-3 {
+	border-radius: 4px 4px 4px 4px;
+	-moz-border-radius: 4px 4px 4px 4px;
+    -webkit-border-radius: 4px 4px 4px 4px;
+	padding: 5px 7px 5px 7px;
+	background:#efefef;
+	margin: 0px 8px 12px 0px;
+	float:left;
+	color:#878787;
+	text-decoration:none;
+	font-weight:bold;
+}
+
+a.button-3:hover {
+	background:#b1d928;
+	color:#232323;
+}
+
+a.button-3 span {
+	font-size:11px;
+}
+
+
+
+a.button-4 {
+	padding: 5px 7px 5px 7px;
+	background:#efefef;
+	margin: 0px 8px 12px 0px;
+	float:left;
+	color:#878787;
+	text-decoration:none;
+	font-weight:bold;
+	border: 1px solid #dadada;
+}
+
+a.button-4:hover {
+	background:#b1d928;
+	color:#232323;
+	border: 1px solid #91b222;
+}
+
+a.button-4 span {
+	font-size:11px;
+}

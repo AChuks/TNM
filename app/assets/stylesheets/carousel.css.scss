@@ -1,0 +1,124 @@
+@charset "utf-8";
+/* CSS Document */
+/* -----------------------------------------------------------------------
+
+ Medioworks Tuber Social Video Theme Framework 1.0.1
+ © Copyright 2013 - Design and Sitebuild
+ Web - www.medioworks.com
+ Envato Exclusive Author - http://themeforest.net/user/MedioWorks
+
+----------------------------------------------------------------------- */
+
+/* carousel.css */
+
+
+.wrapper {
+				width: 100%;
+				min-width:690px;
+				height:auto;
+				min-height:140px;
+				margin: auto;
+				text-align:center;
+				float:left;
+			}
+		
+.carousel_wrapper {
+				width: 100%;
+				min-width:100%;
+				height:auto;
+				
+				margin: auto;
+				text-align:center;
+				float:left;
+			}
+
+.caroufredsel_wrapper {
+    width:100% !important;
+	min-height:170px;
+}
+.carousel.responsive {
+				width: auto;
+				height:auto;
+				margin-left: 0;
+			}
+			.carousel {
+				margin: 0px;
+				height:auto;
+				width: 100%;
+				min-height:100%;
+				position:relative;
+				float:left;
+			}
+			.carousel ul {
+				margin: 0;
+				padding: 0;
+				list-style: none;
+				display: block;
+				
+	
+			}
+			.carousel li {
+				color: #999;
+				text-align: left;
+				width: auto;
+				padding: 0;
+				margin: 0px 15px 0px 0px;
+				display: block;
+				float: left;
+				position:relative;
+			}
+			
+			.carousel li a {
+				font-size:18px;
+				color:#1d1d1d;
+				text-align:left;
+				float:left;
+				padding:5px 0px 10px 0px;
+			}
+
+			.carousel li img {
+				width:100%; height:auto; float:left; display:block;
+			}
+			
+			
+			.clearfix {
+				float: none;
+				clear: both;
+			}
+			
+			a.prev, a.next {
+	background: url("/assets/carousel_control.png") no-repeat transparent;
+	width: 36px;
+	height: 36px;
+	display: block;
+	position: absolute;
+	top: -64px;
+	
+}
+a.prev {right: 36px; background-position: 0 0; }
+a.prev.disabled {background-position: 0 -100px !important;  }
+
+a.next {right: 0px; background-position: -36px 0; }
+a.next.disabled { background-color:#fff;  }
+a.prev.disabled, a.next.disabled { cursor: default;}
+
+a.prev span, a.next span {display: none; }
+		
+			.carousel .carousel_pager {
+				margin:0 auto;
+				text-align: center;
+				margin-top:10px;
+			}
+			.carousel .carousel_pager a {
+				margin: 0 5px 0 0;
+				text-decoration: none;
+				display:inline-block;
+				width:8px;
+				height:8px;
+				background: transparent url('/assets/carousel_control.png') no-repeat -2px -32px;
+				text-indent:-999em;
+			}
+			.carousel .carousel_pager a.selected {
+				text-decoration: underline;
+				background: transparent url('/assets/carousel_control.png') no-repeat -12px -32px;				
+			}

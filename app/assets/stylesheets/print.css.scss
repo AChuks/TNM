@@ -1,0 +1,37 @@
+@charset "utf-8";
+/* CSS Document */
+/* -----------------------------------------------------------------------
+
+ Medioworks Tuber Social Video Theme Framework 1.0.1
+ © Copyright 2013 - Design and Sitebuild
+ Web - www.medioworks.com
+ Envato Exclusive Author - http://themeforest.net/user/MedioWorks
+
+----------------------------------------------------------------------- */
+
+/* print.css */
+@import url(http://fonts.googleapis.com/css?family=PT+Sans+Narrow);
+@import url(http://fonts.googleapis.com/css?family=PT+Sans:400,700);
+
+@font-face
+{
+font-family: 'PT Sans', sans-serif;
+src: url('http://fonts.googleapis.com/css?family=PT+Sans'),
+     url('http://fonts.googleapis.com/css?family=PT+Sans:400,700'); /* IE9 */
+}
+
+body {line-height:1.5; font-family: 'PT Sans', sans-serif; color:#000; background:none;font-size:10pt;}
+.container {background:none;}
+hr {background:#ccc;color:#ccc;width:100%;height:2px;margin:2em 0;padding:0;border:none;}
+hr.space {background:#fff;color:#fff;visibility:hidden;}
+h1, h2, h3, h4, h5, h6 {font-family: 'PT Sans', sans-serif;}
+code {font:.9em "Courier New", Monaco, Courier, monospace;}
+a img {border:none;}
+p img.top {margin-top:0;}
+blockquote {margin:1.5em;padding:1em;font-style:italic;font-size:.9em;}
+.small {font-size:.9em;}
+.large {font-size:1.1em;}
+.quiet {color:#999;}
+.hide {display:none;}
+a:link, a:visited {font-weight:700;text-decoration:underline;}
+a:link:after, a:visited:after {font-size:90%;}

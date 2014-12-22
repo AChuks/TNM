@@ -1,0 +1,183 @@
+@charset "utf-8";
+/* CSS Document */
+/* -----------------------------------------------------------------------
+
+ Medioworks Tuber Social Video Theme Framework 1.0.1
+ © Copyright 2013 - Design and Sitebuild
+ Web - www.medioworks.com
+ Envato Exclusive Author - http://themeforest.net/user/MedioWorks
+
+----------------------------------------------------------------------- */
+
+/* hover-items.css */
+
+
+/* 2 THUMB SIZE */
+.hover-effect-2 .view {
+   width: 100% !important;
+   height: 100% !important;
+   margin: 0px;
+   float: left;
+   border: 0px solid #fff;
+   overflow: hidden;
+   position: relative;
+   text-align: center;
+   cursor: default;
+}
+.hover-effect-2 .view .mask,.view .content {
+   width: 100% !important;
+   height: 100% !important;
+   position: absolute;
+   overflow: hidden;
+   top: 0;
+   left: 0;
+}
+
+
+/* 3 THUMB SIZE */
+.hover-effect-3 .view {
+   width: 100% !important;
+   height: 100% !important;
+   margin: 0px;
+   float: left;
+   border: 0px solid #fff;
+   overflow: hidden;
+   position: relative;
+   text-align: center;
+   cursor: default;
+   margin-bottom:20px;
+}
+.hover-effect-3 .view .mask,.view .content {
+   width: 100% !important;
+   height: 100% !important;
+   position: absolute;
+   overflow: hidden;
+   top: 0;
+   left: 0;
+}
+
+/* 1 THUMB SIZE */
+
+.hover-effect li.view, .hover-effect div.view {
+ 
+   width: auto;
+   height: auto;
+   margin: 0px;
+   float: left;
+   border: 0px solid #fff;
+   overflow: hidden;
+   position: relative;
+   text-align: center;
+   cursor: default;
+}
+.hover-effect li.view .mask,.view .content, .view .mask {
+   width: 100%;
+   height: 100%;
+   position: absolute;
+   overflow: hidden;
+   top: 0;
+   left: 0;
+}
+.hover-effect li.view img, .hover-effect div.view img, .hover-effect-2 .view img, .hover-effect-3 .view img {
+   display: block;
+   position: relative;
+   width:100%;
+   height:auto;
+}
+.hover-effect li.view a.info, .hover-effect div.view a.info {
+   text-decoration: none;
+   padding: 7px 14px;
+   color:#fff;
+   font-size:14px;
+   transition: all 0.2s linear 0s;
+   border-color:transparent;
+   border:0px;
+   margin:0px;
+   bottom:0px;
+   position:absolute;
+   display:block;
+}
+
+.hover-effect li a.icon-link, .hover-effect li a.icon-zoom, .hover-effect div a.icon-link, .hover-effect div a.icon-zoom, .hover-effect-2 a.icon-link, .hover-effect-2 a.icon-zoom, .hover-effect-3 a.icon-link, .hover-effect-3 a.icon-zoom {
+    height: 14px;
+	transition: all 0.2s linear 0s;
+    top: -1px;
+    width: 14px;
+	padding:12px;
+	margin-right:0px;
+	float: left;
+}
+
+
+/* ICONS */
+.hover-effect li a.icon-link, .hover-effect div a.icon-link, .hover-effect-2 a.icon-link, .hover-effect-3 a.icon-link {
+	background:url("../images/icon-link.png") no-repeat scroll center center;
+}
+
+.hover-effect li a.icon-zoom, .hover-effect div a.icon-zoom, .hover-effect-2 a.icon-zoom, .hover-effect-3 a.icon-zoom {
+	background: url("../images/icon-zoom.png") no-repeat scroll center center;
+}
+
+
+.carou-img {width:266px !important; margin-right:15px !important;}
+
+/* MASK */
+.view-first img {
+   -webkit-transition: all 0.2s linear;
+   -moz-transition: all 0.2s linear;
+   -o-transition: all 0.2s linear;
+   -ms-transition: all 0.2s linear;
+   transition: all 0.2s linear;
+}
+.view-first .mask {
+   -ms-filter: "progid: DXImageTransform.Microsoft.Alpha(Opacity=0)";
+   filter: alpha(opacity=0);
+   opacity: 0;
+   -webkit-transition: all 0.4s ease-in-out;
+   -moz-transition: all 0.4s ease-in-out;
+   -o-transition: all 0.4s ease-in-out;
+   -ms-transition: all 0.4s ease-in-out;
+   transition: all 0.4s ease-in-out;
+}
+.view-first:hover img {
+   -webkit-transform: scale(1.1,1.1);
+   -moz-transform: scale(1.1,1.1);
+   -o-transform: scale(1.1,1.1);
+   -ms-transform: scale(1.1,1.1);
+   transform: scale(1.1,1.1);
+}
+.view-first a.info {
+   -ms-filter: "progid: DXImageTransform.Microsoft.Alpha(Opacity=0)";
+   filter: alpha(opacity=0);
+   opacity: 0;
+   -webkit-transition: all 0.2s ease-in-out;
+   -moz-transition: all 0.2s ease-in-out;
+   -o-transition: all 0.2s ease-in-out;
+   -ms-transition: all 0.2s ease-in-out;
+   transition: all 0.2s ease-in-out;
+}
+.view-first:hover .mask {
+   -ms-filter: "progid: DXImageTransform.Microsoft.Alpha(Opacity=100)";
+   filter: alpha(opacity=100);
+   opacity: 1;
+}
+.view-first:hover h2,
+.view-first:hover p,
+.view-first:hover a.info {
+   -ms-filter: "progid: DXImageTransform.Microsoft.Alpha(Opacity=100)";
+   filter: alpha(opacity=100);
+   opacity: 1;
+   -webkit-transform: translateY(0px);
+   -moz-transform: translateY(0px);
+   -o-transform: translateY(0px);
+   -ms-transform: translateY(0px);
+   transform: translateY(0px);
+}
+
+.view-first:hover a.info {
+   -webkit-transition-delay: 0.2s;
+   -moz-transition-delay: 0.2s;
+   -o-transition-delay: 0.2s;
+   -ms-transition-delay: 0.2s;
+   transition-delay: 0.2s;
+}

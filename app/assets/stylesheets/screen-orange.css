@@ -1,0 +1,35 @@
+@charset "utf-8";
+/* CSS Document */
+/* -----------------------------------------------------------------------
+
+ Medioworks Tuber Social Video Theme Framework 1.0.1
+ © Copyright 2013 - Design and Sitebuild
+ Web - www.medioworks.com
+ Envato Exclusive Author - http://themeforest.net/user/MedioWorks
+
+----------------------------------------------------------------------- */
+
+/* screen-orange.css */
+
+a.main-logo {background:url('../images/skins/orange-theme/main_logo_orange.png') no-repeat;}
+
+a.social-1, a.social-2, a.social-3, a.social-4, a.social-5, a.social-6 { background:url('../images/skins/orange-theme/social-sprite-orange.png') no-repeat;}
+#back-top span {background: url('../images/skins/orange-theme/up-arrow-orange.png') no-repeat center center;}
+.sf-sub-indicator {background: url('../images/skins/orange-theme/dropdown-arrow-orange.png') no-repeat -10px -100px;}
+
+.span-8 a:hover, .span-8 a.author, .column-7 a:hover, .column-7 a.author, .span-9-content a:hover, .span-9-content a.author:hover, .span-9-content span, .top_div a:hover, .sf-menu li:hover, .sf-menu li.sfHover, .sf-menu a:focus, .sf-menu a:hover, .sf-menu a:active, .sf-menu li ul li:hover, .sf-menu li.sfHover, .sf-menu li.current a, .sf-menu li li a:hover, .span-9-content p a:hover, .inner-content p a:hover, .inner-content-fw p a:hover, .column-grid a:hover, .column-grid a.author, .inner-content a.author {color:#ff8605 !important;}
+.sidebar-headline, ul.sidebar-catlist li a:hover, ul.sidebar-catlist li a:focus, ul.sidebar-commlist li a:hover, ul.sidebar-commlist li a:focus, .view-first .mask, .hover-effect li.view a.info, .hover-effect li a.icon-link, .hover-effect div.view a.info, .hover-effect div a.icon-link, .hover-effect-2 a.icon-link, .hover-effect-3 a.icon-link, .hover-effect li a.icon-zoom, .hover-effect div a.icon-zoom, .hover-effect-2 a.icon-zoom, .hover-effect-3 a.icon-zoom, a.prev:hover, a.next:hover, .contact-submit-btn, textarea.contact:focus, input.contact:focus {background-color:#ff8605 !important;}
+
+#bottom-menu {border-top:10px solid #ff8605 ;}
+
+ul.sidebar-tags li a:hover, ul.sidebar-tags li a:focus {color:#111111 !important;}
+ul.sidebar-tags li a, #bottom-bar, .span-container {background-color:#111111 !important;}
+
+ul.post-tags li a {background-color:#ffffff !important;}
+ul.post-tags li a:hover, ul.post-tags li a:focus {color:#ffffff !important;}
+ul.post-tags li a:hover, ul.post-tags li a:focus {background-color:#ff8605 !important;}
+
+.span-mainbox-cont h1, .span-8 a.author:hover, .column-7 a.author:hover, .column-grid a.author:hover, .inner-content a.author:hover {color:#1A1A1A !important;} 
+#span-sidebar, .top_div li.sub ul, .hover-effect li.view a.info:hover, .hover-effect li a.icon-link:hover, .hover-effect li a.icon-zoom:hover, .hover-effect div.view a.info:hover, .hover-effect div a.icon-link:hover, .hover-effect div a.icon-zoom:hover, .hover-effect-2 a.icon-link:hover, .hover-effect-2 a.icon-zoom:hover, .hover-effect-3 a.icon-link:hover, .hover-effect-3 a.icon-zoom:hover, .sf-menu li li li, #span-sidebar-right, .contact-submit-btn:hover {background-color:#1A1A1A !important;}
+
+a.prev, a.next, ul.sidebar-tags li a:hover, ul.sidebar-tags li a:focus, textarea.contact, input.contact {background-color:#D2D2D2 !important;}
