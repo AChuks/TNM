@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Url:</strong>
+  <%= @comedy.url %>
+</p>
+
+<p>
+  <strong>Mdata:</strong>
+  <%= @comedy.mdata %>
+</p>
+
+<p>
+  <strong>Img:</strong>
+  <%= @comedy.img %>
+</p>
+
+<%= link_to 'Edit', edit_comedy_path(@comedy) %> |
+<%= link_to 'Back', comedies_path %>

@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Url:</strong>
+  <%= @trend_fashion.url %>
+</p>
+
+<p>
+  <strong>Mdata:</strong>
+  <%= @trend_fashion.mdata %>
+</p>
+
+<p>
+  <strong>Img:</strong>
+  <%= @trend_fashion.img %>
+</p>
+
+<%= link_to 'Edit', edit_trend_fashion_path(@trend_fashion) %> |
+<%= link_to 'Back', trend_fashions_path %>

@@ -1,0 +1,29 @@
+<h1>Listing talent_videos</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Url</th>
+      <th>Mdata</th>
+      <th>Img</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @talent_videos.each do |talent_video| %>
+      <tr>
+        <td><%= talent_video.url %></td>
+        <td><%= talent_video.mdata %></td>
+        <td><%= talent_video.img %></td>
+        <td><%= link_to 'Show', talent_video %></td>
+        <td><%= link_to 'Edit', edit_talent_video_path(talent_video) %></td>
+        <td><%= link_to 'Destroy', talent_video, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Talent video', new_talent_video_path %>

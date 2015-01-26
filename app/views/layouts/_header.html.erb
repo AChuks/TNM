@@ -1,0 +1,48 @@
+<div class="span-container">
+    <div class="span-29 container-blank">
+        <!-- TOP-LEFT MENU -->
+        <div class="top_div">
+            <ul class="top_div">
+                <li><%= link_to "Submit Video", vsubmit_path %></li>
+                <li><%= link_to "Contact", contact_path %></li>
+                <li><%= link_to "Advertise", advertise_path %></li>
+            </ul>
+            <!-- STYLE SWITCHER. TOP-RIGHT -->
+            <div class="span-11">
+                <a class="skin-default-btn"  onclick="chooseStyle('cyan-theme',2060);" ></a>
+                <a class="skin-lime-btn" onclick="chooseStyle('lime-theme',2060);" ></a>
+                <a class="skin-orange-btn" onclick="chooseStyle('orange-theme',2060);" ></a>
+            </div>
+        </div>
+        <div class="span-28">
+            <!-- LOGO -->
+            <div class="span-25">
+                <a href="/" class="main-logo" title="Tuber - Social Video Theme"></a>
+            </div>
+            <div class="span-menu-box top-menu-box">
+                <!-- HEADER MAINMENU -->
+                <ul class="sf-menu">
+                    <li> <%= link_to "Videos", videos_path %>
+                        <ul>
+                            <li><%= link_to "Newest", vnewest_path %></li>
+                            <li><%= link_to "Trending", vtrends_path %></li>
+                            <li><%= link_to "Featured", vfeatured_path %></li>
+                        </ul>
+                    </li>
+                    <li><%= link_to "Fashion", fashion_path %>
+                        <ul>
+                            <li><%= link_to "Newest", fnewest_path %></li>
+                            <li><%= link_to "Trending", ftrends_path %></li>
+                            <li><%= link_to "Upload Your Style", fupload_path %></li>
+                        </ul>
+                    </li>
+                    <li><%= link_to "Forum", forum_path %>
+                        <ul>
+                            <li><%= link_to "Top Stories", top_stories_path %></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
