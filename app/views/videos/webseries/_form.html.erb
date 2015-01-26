@@ -1,0 +1,41 @@
+<%= form_for(@webseries) do |f| %>
+  <% if @webseries.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@webseries.errors.count, "error") %> prohibited this webseries from being saved:</h2>
+
+      <ul>
+      <% @webseries.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :url %><br>
+    <%= f.text_field :url %>
+  </div>
+  <div class="field">
+    <%= f.label :string %><br>
+    <%= f.text_field :string %>
+  </div>
+  <div class="field">
+    <%= f.label :metadata %><br>
+    <%= f.text_field :metadata %>
+  </div>
+  <div class="field">
+    <%= f.label :string %><br>
+    <%= f.text_field :string %>
+  </div>
+  <div class="field">
+    <%= f.label :thumbimg %><br>
+    <%= f.text_field :thumbimg %>
+  </div>
+  <div class="field">
+    <%= f.label :string %><br>
+    <%= f.text_field :string %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

@@ -1,0 +1,2 @@
+module NewestFashionsHelper
+end

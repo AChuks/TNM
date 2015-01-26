@@ -1,0 +1,6 @@
+<div class="mask">
+                                        <a href="http://www.youtube.com/embed/gVe5CxcQEWg" class="icon-zoom" data-rel="prettyPhoto" title="Click to Play Video"></a>
+                                        <a href="#" class="icon-link" title="Link to Post"></a>
+                                        <a href="http://www.youtube.com/embed/gVe5CxcQEWg" class="info" title="Link to Post">Beauty Woman</a>
+                                        <iframe src="http://www.youtube.com/embed/gVe5CxcQEWg" id="widget_video" name="widget_video"></iframe>
+                                    </div>

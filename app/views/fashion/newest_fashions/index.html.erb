@@ -1,0 +1,29 @@
+<h1>Listing newest_fashions</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Url</th>
+      <th>Mdata</th>
+      <th>Img</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @newest_fashions.each do |newest_fashion| %>
+      <tr>
+        <td><%= newest_fashion.url %></td>
+        <td><%= newest_fashion.mdata %></td>
+        <td><%= newest_fashion.img %></td>
+        <td><%= link_to 'Show', newest_fashion %></td>
+        <td><%= link_to 'Edit', edit_newest_fashion_path(newest_fashion) %></td>
+        <td><%= link_to 'Destroy', newest_fashion, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Newest fashion', new_newest_fashion_path %>

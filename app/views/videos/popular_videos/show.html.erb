@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Url:</strong>
+  <%= @popular_video.url %>
+</p>
+
+<p>
+  <strong>Mdata:</strong>
+  <%= @popular_video.mdata %>
+</p>
+
+<p>
+  <strong>Img:</strong>
+  <%= @popular_video.img %>
+</p>
+
+<%= link_to 'Edit', edit_popular_video_path(@popular_video) %> |
+<%= link_to 'Back', popular_videos_path %>

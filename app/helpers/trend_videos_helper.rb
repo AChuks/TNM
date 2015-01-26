@@ -1,0 +1,2 @@
+module TrendVideosHelper
+end

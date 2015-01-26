@@ -1,27 +1,45 @@
 Rails.application.routes.draw do
 
-  root 'pages#home'
+  resources :newest_videos
+  resources :popular_videos
+  resources :trend_videos
+  resources :talent_videos
+  resources :movies
+  resources :musics
+  resources :comedies
+  resources :webseries
 
+  resources :newest_fashions
+  resources :trend_fashions
+
+
+  root 'pages#home'
   match '/videos', to: 'pages#videos', via: 'get'
-  match '/submit_video', to: 'videos#submit_video', via: 'get'
-  match '/trending_videos', to: 'videos#trending_videos', via: 'get'
-  match '/must_viewed_videos', to: 'videos#must_viewed_videos', via: 'get'
-  match '/newest_videos', to: 'videos#newest_videos', via: 'get'
-  match '/featured_videos', to: 'videos#featured_videos', via: 'get'
-  match '/music_videos', to: 'videos#music_videos', via: 'get'
-  match '/comedic_videos', to: 'videos#comedic_videos', via: 'get'
-  match '/movie_videos', to: 'videos#movie_videos', via: 'get'
-  match '/web_series_videos', to: 'videos#web_series_videos', via: 'get'
-  match '/talent_videos', to: 'videos#talent_videos', via: 'get'
+
+  match '/watch', to: 'videos#watch', via: 'get'
+  match '/vsubmit', to: 'videos#submit_video', via: 'get'
+  match '/vfeatured', to: 'videos#featured_videos', via: 'get'
+
+
+  match '/webseries', to: 'webseries#index', via: 'get'
+  match '/comedies', to: 'comedies#index', via: 'get'
+  match '/music', to: 'musics#index', via: 'get'
+  match '/movies', to: 'movies#index', via: 'get'
+  match '/vtalents', to: 'talent_videos#index', via: 'get'
+  match '/vtrends', to: 'trend_videos#index', via: 'get'
+  match '/vpopular', to: 'popular_videos#index', via: 'get'
+  match '/vnewest', to: 'newest_videos#index', via: 'get'
+
 
   match '/fashion', to: 'pages#fashion', via: 'get'
-  match '/newest', to: 'fashion#newest', via: 'get'
-  match '/trending_fashion', to: 'fashion#trending_fashion', via: 'get'
-  match '/upload', to: 'fashion#upload', via: 'get'
+
+  match '/fupload', to: 'fashion#upload', via: 'get'
+  match '/ftrends', to: 'trend_fashions#index', via: 'get'
+  match '/fnewest', to: 'newest_fashions#index', via: 'get'
+
 
   match '/forum', to: 'pages#forum', via: 'get'
   match '/top_stories', to: 'forum#top_stories', via: 'get'
-
   match '/contact', to: 'pages#contact', via: 'get'
   match '/advertise', to: 'pages#advertise', via: 'get'
 

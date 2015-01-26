@@ -8,8 +8,8 @@ gem 'sprockets','2.11.0'
 gem 'sprockets-rails', '2.0.1'
 gem 'bcrypt-ruby', '3.1.2'
 gem 'faker', '1.1.2'
-gem 'will_paginate', '3.0.4'
-gem 'bootstrap-will_paginate', '0.0.9'
+gem 'will_paginate', '3.0.7'
+gem 'bootstrap-will_paginate', '0.0.10'
 gem 'autoprefixer-rails'
 
 
@@ -18,6 +18,8 @@ group :development, :test do
     gem 'sqlite3', '1.3.8'
     gem 'rspec-rails', '2.13.1'
     gem 'debugger'
+    gem 'pry-rails'
+    gem 'hirb'
 end
 
 group :test do 

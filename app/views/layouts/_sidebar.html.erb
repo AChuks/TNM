@@ -1,0 +1,179 @@
+<div id="span-sidebar">
+    <!-- SEARCH FIELD -->
+    <form name="search-submit" method="post" action="#" id="search-submit">
+        <fieldset class="search-fieldset">
+            <legend></legend>
+            <input id="search" type="text" name="search" size="12" class="n-input" onfocus="if (this.value=='Search Video...') this.value = ''" onblur="if (this.value!=this.defaultValue) this.value = this.defaultValue" value="Search Video..."> <input class="search-btn" type="submit" value="" title="Search Videos">
+        </fieldset>
+    </form>
+    <!-- TRENDING LINKS CATEGORY -->
+    <div class="sidebar-headline">
+        <h1>trending</h1>
+        <h2>45.345 video in 36 category</h2>
+    </div>
+    <ul class="sidebar-catlist">
+        <li><a href='musics'>Music Videos<span>20</span></a></li>
+        <li><a href="comedies">Comedic Videos<span>45</span></a></li>
+        <li><a href="movies">Movie Discovery<span>45</span></a></li>
+        <li><a href="webseries">Web Series<span>12</span></a></li>
+        <li><a href="vtalents">Talent Discovery<span>39</span></a></li>
+    </ul>
+    <div class="clear"></div>
+    <!-- SIDEBAR SOCIAL -->
+    <div class="clear"></div>
+    <div class="sidebar-headline">
+        <h1>socialize</h1>
+        <h2>Share & Follow</h2>
+    </div>
+    <ul class="sidebar-social">
+        <li><a href="#" class="social-1 s-rm" title="Facebook"></a></li>
+        <li><a href="#" class="social-2 s-rm" title="LinkedIn"></a></li>
+        <li><a href="#" class="social-3 s-rm" title="Twitter"></a></li>
+        <li><a href="#" class="social-4 s-rm" title="YouTube"></a></li>
+        <li><a href="#" class="social-5 s-rm" title="Vimeo"></a></li>
+        <li><a href="#" class="social-6" title="RSS"></a></li>
+    </ul>
+    <div class="clear"></div>
+    <div class="sidebar-headline">
+        <h1>subscribe</h1>
+        <h2>Subscribe Our Newsletter</h2>
+    </div>
+    <form name="newsletter-submit" method="post" action="#" id="newsletter-submit">
+        <fieldset class="submit-fieldset">
+            <legend></legend>
+            <input id="subscribe" type="text" name="subscribe" class="n-input" size="12" onfocus="if (this.value=='Your email address') this.value = ''" onblur="if (this.value!=this.defaultValue) this.value = this.defaultValue" value="Your email address"> <input class="submit-btn" type="submit" value="" title="Subscribe Submit">
+        </fieldset>
+    </form>
+    <div class="clear"></div>
+    <!-- TABBED -->
+    <div class="sidebar-headline">
+        <h1 style="margin-bottom:1em;">tabbed</h1>
+    </div>
+    <!-- start the tabs wrapper (not necessery, but good to have) -->
+    <div id="tabs_container">
+        <ul id="tabs">
+            <li class="active"><a href="#tab1">popular</a></li>
+            <li><a class="icon_accept" href="#tab2">recent</a></li>
+            <li><a href="#tab3">latest</a></li>
+        </ul>
+    </div>
+    <div id="tabs_content_container">
+        <div id="tab1" class="tab_content" style="display: block;">
+            <ul class="hover-effect">
+                <li class="view view-first">
+                    <%= image_tag('thumbs/small/thumb-1.jpg',alt: '#')%>
+                    <div class="mask">
+                        <a href="http://www.youtube.com/embed/gVe5CxcQEWg" class="icon-zoom" data-rel="prettyPhoto" title="Click to Play Video"></a>
+                        <a href="#" class="icon-link" title="Link to Post"></a>
+                        <a href="http://www.youtube.com/embed/gVe5CxcQEWg" class="info" title="Link to Post">Beauty Woman</a>
+                        <iframe src="http://www.youtube.com/embed/gVe5CxcQEWg" id="widget_video" name="widget_video"></iframe>
+                    </div>
+                </li>
+                <li class="view view-first">
+                    <%= image_tag('thumbs/small/thumb-2.jpg',alt:'#')%>
+                    <div class="mask">
+                        <a href="http://www.youtube.com/watch?v=UX7GycmeQVo" class="icon-zoom" data-rel="prettyPhoto" title="Click to Play Video" ></a>
+                        <a href="#" class="icon-link" title="Link to Post"></a>
+                        <a href="#" class="info" title="Link to Post">Amazing Brunette in bed</a>
+                    </div>
+                </li>
+                <li class="view view-first">
+                    <%= image_tag('thumbs/small/thumb-3.jpg',alt:'#')%>
+                    <div class="mask">
+                        <a href="http://vimeo.com/23534361" class="icon-zoom" data-rel="prettyPhoto" title="Click to Play Video" ></a>
+                        <a href="#" class="icon-link" title="Link to Post"></a>
+                        <a href="#" class="info" title="Link to Post">Hmmm, those are real?</a>
+                        
+                    </div>
+                </li>
+            </ul>
+        </div>
+        <div id="tab2" class="tab_content">
+            <ul class="hover-effect">
+                <li class="view view-first">
+                    <%= image_tag('thumbs/small/thumb-4.jpg',alt:'#')%>
+                    <div class="mask">
+                        <a href="http://www.youtube.com/watch?v=UX7GycmeQVo" class="icon-zoom" data-rel="prettyPhoto" title="Click to Play Video" ></a>
+                        <a href="#" class="icon-link" title="Link to Post"></a>
+                        <a href="#" class="info" title="Link to Post">Carnival mask</a>
+                    </div>
+                </li>
+                <li class="view view-first">
+                    <%= image_tag('thumbs/small/thumb-5.jpg',alt: '#') %>
+                    <div class="mask">
+                        <a href="http://www.youtube.com/watch?v=UX7GycmeQVo" class="icon-zoom" data-rel="prettyPhoto" title="Click to Play Video" ></a>
+                        <a href="#" class="icon-link" title="Link to Post"></a>
+                        <a href="#" class="info" title="Link to Post">Nice sixties at beach</a>
+                    </div>
+                </li>
+                <li class="view view-first">
+                    <%= image_tag('thumbs/small/thumb-6.jpg',alt:'#') %>
+                    <div class="mask">
+                        <a href="http://www.youtube.com/watch?v=UX7GycmeQVo" class="icon-zoom" data-rel="prettyPhoto" title="Click to Play Video" ></a>
+                        <a href="#" class="icon-link" title="Link to Post"></a>
+                        <a href="#" class="info" title="Link to Post">Be quiet!</a>
+                    </div>
+                </li>
+            </ul>
+        </div>
+        <div id="tab3" class="tab_content">
+            <ul class="hover-effect">
+                <li class="view view-first">
+                    <%= image_tag('thumbs/small/thumb-7.jpg',alt:'#') %>
+                    <div class="mask">
+                        <a href="http://www.youtube.com/watch?v=UX7GycmeQVo" class="icon-zoom" data-rel="prettyPhoto" title="Click to Play Video" ></a>
+                        <a href="#" class="icon-link" title="Link to Post"></a>
+                        <a href="#" class="info" title="Link to Post">Oops Mademoiselle</a>
+                    </div>
+                </li>
+                <li class="view view-first">
+                    <%= image_tag('thumbs/small/thumb-8.jpg',alt:'#') %>
+                    <div class="mask">
+                        <a href="http://www.youtube.com/watch?v=UX7GycmeQVo" class="icon-zoom" data-rel="prettyPhoto" title="Click to Play Video" ></a>
+                        <a href="#" class="icon-link" title="Link to Post"></a>
+                        <a href="#" class="info" title="Link to Post">Girls playing</a>
+                    </div>
+                </li>
+                <li class="view view-first">
+                    <%= image_tag('thumbs/small/thumb-9.jpg',alt:'#') %>
+                    <div class="mask">
+                        <a href="http://www.youtube.com/watch?v=UX7GycmeQVo" class="icon-zoom" data-rel="prettyPhoto" title="Click to Play Video" ></a>
+                        <a href="#" class="icon-link" title="Link to Post"></a>
+                        <a href="#" class="info" title="Link to Post">Sensual Look</a>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <!-- End tabs wrapper -->
+    <div class="clear"></div>
+    <!-- SIDEBAR COMMENT -->
+    <div class="clear"></div>
+    <div class="sidebar-headline">
+        <h1>adv place</h1>
+        <h2>Advertise with Us</h2>
+    </div>
+    <a href="#" title="Advertise with Us" class="adv-b"><%= image_tag('adv/banner-240x240px.jpg',alt:'#') %></a>
+    <div class="clear"></div>
+    <!-- SIDEBAR TAGS -->
+    <div class="sidebar-headline">
+        <h1>tags</h1>
+        <h2>Most Popular Topics</h2>
+    </div>
+    <ul class="sidebar-tags">
+        <li><a href="#">Sport</a></li>
+        <li><a href="#">Comedy</a></li>
+        <li><a href="#">Funny</a></li>
+        <li><a href="#">Videos</a></li>
+        <li><a href="#">Music</a></li>
+        <li><a href="#">Clips</a></li>
+        <li><a href="#">Trailers</a></li>
+        <li><a href="#">Celebrity</a></li>
+        <li><a href="#">Audio</a></li>
+        <li><a href="#">Sport</a></li>
+        <li><a href="#">HD</a></li>
+        <li><a href="#">1080p</a></li>
+        <li><a href="#">Games</a></li>
+    </ul>
+    <div class="fix-gap"></div>
+</div>

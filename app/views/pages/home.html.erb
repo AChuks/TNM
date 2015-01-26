@@ -1,589 +1,292 @@
 <% provide(:title, 'Home')%>
-
 <!-- MAIN DIV CONTAINERS -->
-<div class="span-container">
-    <div class="span-29 container-blank">
-
-        <!-- TOP MENU -->
-        <div class="top_div">
-            <ul class="top_div">
-                <%= link_to "Submit Video", submit_video_path %>
-                <li><%= link_to "Contact", contact_path %></li>
-                <li><%= link_to "Advertise", advertise_path %></li>
-            </ul>
-
-
-            <!-- STYLE SWITCHER -->
-            <div class="span-11">
-                <a class="skin-default-btn"  onclick="chooseStyle('cyan-theme',2060);" ></a>
-                <a class="skin-lime-btn" onclick="chooseStyle('lime-theme',2060);" ></a>
-                <a class="skin-orange-btn" onclick="chooseStyle('orange-theme',2060);" ></a>
-            </div>
-        </div>
-
-        <div class="span-28">
-           <!-- LOGO -->
-           <div class="span-25">
-            <a href="/" class="main-logo" title="Tuber - Social Video Theme"></a>
-        </div>
-        <div class="span-menu-box top-menu-box">
-           <!-- MAINMENU -->
-           <ul class="sf-menu">
-            <li><%= link_to "Videos", videos_path %>
-                <ul>
-                   <li><%= link_to "Newest", newest_videos_path %>
-                   <li><%= link_to "Trending", trending_videos_path %>
-                   <li><%= link_to "Featured", featured_videos_path %>
-               </ul>
-           </li>
-
-
-           <li><%= link_to "Fashion", fashion_path %>
-               <ul>
-                <li><%= link_to "Newest", newest_path %></li>
-                <li><%= link_to "Trending", trending_fashion_path %></li>
-                <li><%= link_to "Upload Your Style", upload_path %></li>
-            </ul>
-        </li>
-        <li><%= link_to "Forum", forum_path %>
-            <ul>
-                <li><%= link_to "Top Stories", top_stories_path %></li>
-            </ul>
-        </li>
-    </ul>
-    <!-- END MAINMENU -->
-</div>
-</div>
-<!-- MAINMENU -->
-
-<!-- END -->
-</div>
-</div>
-
-
-<div id="div-container"><!-- DIV CONTAINER -->
-    <div id="main-container"><!-- MAIN CONTAINER -->
-        <div id="content"><!-- CONTENT -->
-            <div id="content-wrapper"><!-- CONTENT WRAPPER -->
-
-
-                <div id="span-sidebar"><!-- SIDEBAR -->
-
-                   <!-- SEARCH FIELD -->
-                   <form name="search-submit" method="post" action="#" id="search-submit">
-                    <fieldset class="search-fieldset">
-                        <legend></legend>
-                        <input id="search" type="text" name="search" size="12" class="n-input" onfocus="if (this.value=='Search Video...') this.value = ''" onblur="if (this.value!=this.defaultValue) this.value = this.defaultValue" value="Search Video..."> <input class="search-btn" type="submit" value="" title="Search Videos"></fieldset>
-                    </form>
-
-                    <!-- TRENDING LINKS CATEGORY -->
-                    <div class="sidebar-headline">
-                        <h1>trending</h1>
-                        <h2>45.345 video in 36 category</h2>
-                    </div>
-
-                    <ul class="sidebar-catlist">
-                       <li><a href='/music_videos'>Music Videos<span>20</span></a></li>
-                       <li><a href="comedic_videos">Comedic Videos<span>45</span></a></li>
-                       <li><a href="movie_videos">Movie Discovery<span>45</span></a></li>
-                       <li><a href="web_series_videos">Web Series<span>12</span></a></li>
-                       <li><a href="talent_videos">Talent Discovery<span>39</span></a></li>
-                   </ul>
-                   <!-- SUBSCRIBE COMMENT -->
-                   <div class="clear"></div>
-                   <div class="sidebar-headline">
-                    <h1>subscribe</h1>
-                    <h2>Subscribe Our Newsletter</h2>
-                </div>
-                <form name="newsletter-submit" method="post" action="#" id="newsletter-submit">
-                    <fieldset class="submit-fieldset">
-                        <legend></legend>
-                        <input id="subscribe" type="text" name="subscribe" class="n-input" size="12" onfocus="if (this.value=='Your email address') this.value = ''" onblur="if (this.value!=this.defaultValue) this.value = this.defaultValue" value="Your email address"> <input class="submit-btn" type="submit" value="" title="Subscribe Submit"></fieldset>
-                    </form>
-                    <div class="clear"></div>
-                    <!-- TABBED -->
-                    <div class="sidebar-headline">
-                        <h1 style="margin-bottom:1em;">tabbed</h1>
-                    </div>
-
-                    <!-- start the tabs wrapper (not necessery, but good to have) -->
-                    <div id="tabs_container">
-                        <ul id="tabs">
-                            <li class="active"><a href="#tab1">popular</a></li>
-                            <li><a class="icon_accept" href="#tab2">recent</a></li>
-                            <li><a href="#tab3">latest</a></li>
-                        </ul>
-                    </div>
-                    <div id="tabs_content_container">
-                        <div id="tab1" class="tab_content" style="display: block;">
-                            <ul class="hover-effect">
-                                <li class="view view-first">
-                                    <%= image_tag('thumbs/small/thumb-1.jpg',alt: '#')%>
-
-                                    <div class="mask">
-                                        <a href="http://www.youtube.com/watch?v=UX7GycmeQVo" class="icon-zoom" data-rel="prettyPhoto" title="Click to Play Video"></a>
-                                        <a href="#" class="icon-link" title="Link to Post"></a>
-                                        <a href="#" class="info" title="Link to Post">Beauty Woman</a>
-                                    </div>
-                                </li>
-                                <li class="view view-first">
-                                    <%= image_tag('thumbs/small/thumb-2.jpg',alt:'#')%>
-
-                                    <div class="mask">
-                                        <a href="http://www.youtube.com/watch?v=UX7GycmeQVo" class="icon-zoom" data-rel="prettyPhoto" title="Click to Play Video" ></a>
-                                        <a href="#" class="icon-link" title="Link to Post"></a>
-                                        <a href="#" class="info" title="Link to Post">Amazing Brunette in bed</a>
-                                    </div>
-                                </li>
-                                <li class="view view-first">
-                                    <%= image_tag('thumbs/small/thumb-3.jpg',alt:'#')%>
-                                    <div class="mask">
-                                        <a href="http://vimeo.com/23534361" class="icon-zoom" data-rel="prettyPhoto" title="Click to Play Video" ></a>
-                                        <a href="#" class="icon-link" title="Link to Post"></a>
-                                        <a href="#" class="info" title="Link to Post">Hmmm, those are real?</a>
-                                    </div>
-                                </li>
-                            </ul>
+<!-- MAIN DIV CONTAINERS -->
+<%= render "layouts/header" %>
+<!-- NEW SECTION-->
+<div id="div-container">
+    <div id="main-container">
+        <div id="content">
+            <div id="content-wrapper">
+                <%= render "layouts/sidebar" %>
+                <!-- Main Content -->
+                <div id="span-mainbox">
+                    <div class="span-mainbox-cont">
+                        <h1>newest videos</h1>
+                        <!-- SLIDER -->
+                        <div class="carousel_wrapper">
+                            <div class="carousel">
+                                <ul id="c-slider" class="hover-effect">
+                                    <li class="view view-first carou-img">
+                                        <div class="masked">
+                                            <a href = "watch?url=nWSo-Yb-mZQ;vid_metadata=Kendrick Lamars Freestyle on Flex 97 Radio Station with Felx Master Flex">
+                                                <%= image_tag('https://s3-eu-west-1.amazonaws.com/afrimages/yt/music_vids/scene00351.png',alt:'#') %>
+                                                Kendrick Lamar Freestyle on Flex 97 Radio Station with Felx Master Flex
+                                            </a>
+                                        </div>
+                                    </li>
+                                    <li class="view view-first carou-img">
+                                        <div class="masked">
+                                            <a href = "watch?url=nWSo-Yb-mZQ">
+                                                <%= image_tag('https://s3-eu-west-1.amazonaws.com/afrimages/yt/music_vids/scene00351.png',alt:'#') %>
+                                                Kendrick Lamar Freestyle on Flex 97 Radio Station with Felx Master Flex
+                                            </a>
+                                        </div>
+                                    </li>
+                                    <li class="view view-first carou-img">
+                                        <div class="masked">
+                                            <a href = "watch?url=nWSo-Yb-mZQ">
+                                                <%= image_tag('https://s3-eu-west-1.amazonaws.com/afrimages/yt/music_vids/scene00351.png',alt:'#') %>
+                                                Kendrick Lamar Freestyle on Flex 97 Radio Station with Felx Master Flex
+                                            </a>
+                                        </div>
+                                    </li>
+                                    <li class="view view-first carou-img">
+                                        <div class="masked">
+                                            <a href = "watch?url=nWSo-Yb-mZQ">
+                                                <%= image_tag('https://s3-eu-west-1.amazonaws.com/afrimages/yt/music_vids/scene00351.png',alt:'#') %>
+                                                Kendrick Lamar Freestyle on Flex 97 Radio Station with Felx Master Flex
+                                            </a>
+                                        </div>
+                                    </li>
+                                    <li class="view view-first carou-img">
+                                        <div class="masked">
+                                            <a href = "watch?url=nWSo-Yb-mZQ">
+                                                <%= image_tag('https://s3-eu-west-1.amazonaws.com/afrimages/yt/music_vids/scene00351.png',alt:'#') %>
+                                                Kendrick Lamar Freestyle on Flex 97 Radio Station with Felx Master Flex
+                                            </a>
+                                        </div>
+                                    </li>
+                                    <li class="view view-first carou-img">
+                                        <div class="masked">
+                                            <a href = "watch?url=nWSo-Yb-mZQ">
+                                                <%= image_tag('https://s3-eu-west-1.amazonaws.com/afrimages/yt/music_vids/scene00351.png',alt:'#') %>
+                                                Kendrick Lamar Freestyle on Flex 97 Radio Station with Felx Master Flex
+                                            </a>
+                                        </div>
+                                    </li>
+                                </ul>
+                                <div class="clearfix"></div>
+                                <!-- NEWEST CAROUSEL NEXT AND PREV -->
+                                <a id="carousel_prev" class="prev" href="#"></a>
+                                <a id="carousel_next" class="next" href="#"></a>
+                            </div>
                         </div>
-                        <div id="tab2" class="tab_content">
-                            <ul class="hover-effect">
-                                <li class="view view-first">
-                                    <%= image_tag('thumbs/small/thumb-4.jpg',alt:'#')%>
-                                    <div class="mask">
-                                        <a href="http://www.youtube.com/watch?v=UX7GycmeQVo" class="icon-zoom" data-rel="prettyPhoto" title="Click to Play Video" ></a>
-                                        <a href="#" class="icon-link" title="Link to Post"></a>
-                                        <a href="#" class="info" title="Link to Post">Carnival mask</a>
-                                    </div>
-                                </li>
-                                <li class="view view-first">
-                                    <%= image_tag('thumbs/small/thumb-5.jpg',alt: '#') %>
-                                    <div class="mask">
-                                        <a href="http://www.youtube.com/watch?v=UX7GycmeQVo" class="icon-zoom" data-rel="prettyPhoto" title="Click to Play Video" ></a>
-                                        <a href="#" class="icon-link" title="Link to Post"></a>
-                                        <a href="#" class="info" title="Link to Post">Nice sixties at beach</a>
-                                    </div>
-                                </li>
-                                <li class="view view-first">
-                                    <%= image_tag('thumbs/small/thumb-6.jpg',alt:'#') %>
-                                    <div class="mask">
-                                        <a href="http://www.youtube.com/watch?v=UX7GycmeQVo" class="icon-zoom" data-rel="prettyPhoto" title="Click to Play Video" ></a>
-                                        <a href="#" class="icon-link" title="Link to Post"></a>
-                                        <a href="#" class="info" title="Link to Post">Be quiet!</a>
-                                    </div>
-                                </li>
-                            </ul>
+                        <!-- END SLIDER -->
+                    </div>
+                    <!-- FEATURED BOX -->
+                    <div class="span-mainbox-cont">
+                        <h1>featured videos</h1>
+                        <div class="iframe-container">
+                            <iframe src="http://www.youtube.com/embed/gVe5CxcQEWg" width="690" height="390" id="widget_video" name="widget_video"></iframe>
                         </div>
-                        <div id="tab3" class="tab_content">
-                            <ul class="hover-effect">
-                                <li class="view view-first">
-                                    <%= image_tag('thumbs/small/thumb-7.jpg',alt:'#') %>
-                                    <div class="mask">
-                                        <a href="http://www.youtube.com/watch?v=UX7GycmeQVo" class="icon-zoom" data-rel="prettyPhoto" title="Click to Play Video" ></a>
-                                        <a href="#" class="icon-link" title="Link to Post"></a>
-                                        <a href="#" class="info" title="Link to Post">Oops Mademoiselle</a>
-                                    </div>
-                                </li>
-                                <li class="view view-first">
-                                    <%= image_tag('thumbs/small/thumb-8.jpg',alt:'#') %>
-                                    <div class="mask">
-                                        <a href="http://www.youtube.com/watch?v=UX7GycmeQVo" class="icon-zoom" data-rel="prettyPhoto" title="Click to Play Video" ></a>
-                                        <a href="#" class="icon-link" title="Link to Post"></a>
-                                        <a href="#" class="info" title="Link to Post">Girls playing</a>
-                                    </div>
-                                </li>
-                                <li class="view view-first">
-                                    <%= image_tag('thumbs/small/thumb-9.jpg',alt:'#') %>
-                                    <div class="mask">
-                                        <a href="http://www.youtube.com/watch?v=UX7GycmeQVo" class="icon-zoom" data-rel="prettyPhoto" title="Click to Play Video" ></a>
-                                        <a href="#" class="icon-link" title="Link to Post"></a>
-                                        <a href="#" class="info" title="Link to Post">Sensual Look</a>
-                                    </div>
-                                </li>
-                            </ul>
+                    </div>
+                    <div class="clear"></div>
+                    <!-- MOST WATCHED BOX -->
+                    <div class="span-mainbox-cont">
+                        <h1>most watched</h1>
+                        <!-- SLIDER -->
+                        <div class="carousel_wrapper">
+                            <div class="carousel">
+                                <ul id="c-slider2" class="hover-effect">
+                                    <li class="view view-first carou-img">
+                                        <%= image_tag('thumbs/small/thumb-7.jpg',alt:'#') %>
+                                        <div class="mask">
+                                            <a href="http://vimeo.com/23534361" class="icon-zoom" data-rel="prettyPhoto" title="Click to Play Video" ></a>
+                                            <a href="#" class="icon-link" title="Link to Post"></a>
+                                            <a href="#" class="info" title="Link to Post">Oops Mademoiselle</a>
+                                        </div>
+                                    </li>
+                                    <li class="view view-first carou-img">
+                                        <%= image_tag('thumbs/small/thumb-8.jpg',alt:'#') %>
+                                        <div class="mask">
+                                            <a href="http://vimeo.com/23534361" class="icon-zoom" data-rel="prettyPhoto" title="Click to Play Video" ></a>
+                                            <a href="#" class="icon-link" title="Link to Post"></a>
+                                            <a href="#" class="info" title="Link to Post">Girls playing</a>
+                                        </div>
+                                    </li>
+                                    <li class="view view-first carou-img">
+                                        <%= image_tag('thumbs/small/thumb-9.jpg',alt:'#') %>
+                                        <div class="mask">
+                                            <a href="http://vimeo.com/23534361" class="icon-zoom" data-rel="prettyPhoto" title="Click to Play Video" ></a>
+                                            <a href="#" class="icon-link" title="Link to Post"></a>
+                                            <a href="#" class="info" title="Link to Post">Sensual Look</a>
+                                        </div>
+                                    </li>
+                                    <li class="view view-first carou-img">
+                                        <%= image_tag('thumbs/small/thumb-10.jpg',alt:'#') %>
+                                        <div class="mask">
+                                            <a href="http://vimeo.com/23534361" class="icon-zoom" data-rel="prettyPhoto" title="Click to Play Video" ></a>
+                                            <a href="#" class="icon-link" title="Link to Post"></a>
+                                            <a href="#" class="info" title="Link to Post">Hot in lingerie</a>
+                                        </div>
+                                    </li>
+                                    <li class="view view-first carou-img">
+                                        <%= image_tag('thumbs/small/thumb-11.jpg',alt:'#') %>
+                                        <div class="mask">
+                                            <a href="http://vimeo.com/23534361" class="icon-zoom" data-rel="prettyPhoto" title="Click to Play Video" ></a>
+                                            <a href="#" class="icon-link" title="Link to Post"></a>
+                                            <a href="#" class="info" title="Link to Post">Fashion Model Video</a>
+                                        </div>
+                                    </li>
+                                    <li class="view view-first carou-img">
+                                        <%= image_tag('thumbs/small/thumb-12.jpg',alt:'#') %>
+                                        <div class="mask">
+                                            <a href="http://vimeo.com/23534361" class="icon-zoom" data-rel="prettyPhoto" title="Click to Play Video" ></a>
+                                            <a href="#" class="icon-link" title="Link to Post"></a>
+                                            <a href="#" class="info" title="Link to Post">Rocker Girl</a>
+                                        </div>
+                                    </li>
+                                </ul>
+                                <div class="clearfix"></div>
+                                <!-- MOST WATCHED CAROUSEL NEXT AND PREV -->
+                                <a id="carousel_prev2" class="prev" href="#"></a>
+                                <a id="carousel_next2" class="next" href="#"></a>
+                            </div>
                         </div>
-                    </div><!-- END TABS -->
-                    <!-- end the tabs wrapper -->
-                    <div class="clear"></div>
-
-                    <!-- SIDEBAR COMMENT -->
-                    <div class="clear"></div>
-                    <div class="sidebar-headline">
-                        <h1>adv place</h1>
-                        <h2>Advertise with Us</h2>
+                        <!-- END SLIDER -->
                     </div>
-                    <a href="#" title="Advertise with Us" class="adv-b"><%= image_tag('adv/banner-240x240px.jpg',alt:'#') %></a>
                     <div class="clear"></div>
-
-                    <!-- SIDEBAR TAGS -->
-                    <div class="sidebar-headline">
-                        <h1>tags</h1>
-                        <h2>Most Popular Topics</h2>
+                    <!-- MAINSTREAM BOX -->
+                    <div class="span-mainbox-cont">
+                        <h1>mainstream</h1>
+                        <!-- SLIDER -->
+                        <div class="carousel_wrapper">
+                            <div class="carousel">
+                                <ul id="c-slider3" class="hover-effect">
+                                    <li class="view view-first carou-img">
+                                        <%= image_tag('thumbs/small/thumb-12.jpg',alt:'#') %>
+                                        <div class="mask">
+                                            <a href="http://vimeo.com/23534361" class="icon-zoom" data-rel="prettyPhoto" title="Click to Play Video" ></a>
+                                            <a href="#" class="icon-link" title="Link to Post"></a>
+                                            <a href="#" class="info" title="Link to Post">Rocker Girl</a>
+                                        </div>
+                                    </li>
+                                    <li class="view view-first carou-img">
+                                        <%= image_tag('thumbs/small/thumb-11.jpg',alt:'#') %>
+                                        <div class="mask">
+                                            <a href="http://vimeo.com/23534361" class="icon-zoom" data-rel="prettyPhoto" title="Click to Play Video" ></a>
+                                            <a href="#" class="icon-link" title="Link to Post"></a>
+                                            <a href="#" class="info" title="Link to Post">Fashion Model Video</a>
+                                        </div>
+                                    </li>
+                                    <li class="view view-first carou-img">
+                                        <%= image_tag('thumbs/small/thumb-10.jpg',alt:'#') %>
+                                        <div class="mask">
+                                            <a href="http://vimeo.com/23534361" class="icon-zoom" data-rel="prettyPhoto" title="Click to Play Video" ></a>
+                                            <a href="#" class="icon-link" title="Link to Post"></a>
+                                            <a href="#" class="info" title="Link to Post">Hot in lingerie</a>
+                                        </div>
+                                    </li>
+                                    <li class="view view-first carou-img">
+                                        <%= image_tag('thumbs/small/thumb-9.jpg',alt:'#') %>
+                                        <div class="mask">
+                                            <a href="http://vimeo.com/23534361" class="icon-zoom" data-rel="prettyPhoto" title="Click to Play Video" ></a>
+                                            <a href="#" class="icon-link" title="Link to Post"></a>
+                                            <a href="#" class="info" title="Link to Post">Sensual Look</a>
+                                        </div>
+                                    </li>
+                                    <li class="view view-first carou-img">
+                                        <%= image_tag('thumbs/small/thumb-8.jpg',alt:'#') %>
+                                        <div class="mask">
+                                            <a href="http://vimeo.com/23534361" class="icon-zoom" data-rel="prettyPhoto" title="Click to Play Video" ></a>
+                                            <a href="#" class="icon-link" title="Link to Post"></a>
+                                            <a href="#" class="info" title="Link to Post">Girls playing</a>
+                                        </div>
+                                    </li>
+                                    <li class="view view-first carou-img">
+                                        <%= image_tag('thumbs/small/thumb-7.jpg',alt:'#') %>
+                                        <div class="mask">
+                                            <a href="http://vimeo.com/23534361" class="icon-zoom" data-rel="prettyPhoto" title="Click to Play Video" ></a>
+                                            <a href="#" class="icon-link" title="Link to Post"></a>
+                                            <a href="#" class="info" title="Link to Post">Oops Mademoiselle</a>
+                                        </div>
+                                    </li>
+                                </ul>
+                                <div class="clearfix"></div>
+                                <a id="carousel_prev3" class="prev" href="#"></a>
+                                <a id="carousel_next3" class="next" href="#"></a>
+                            </div>
+                        </div>
+                        <!-- END SLIDER -->
                     </div>
-
-                    <ul class="sidebar-tags">
-                        <li><a href="#">Sport</a></li>
-                        <li><a href="#">Comedy</a></li>
-                        <li><a href="#">Funny</a></li>
-                        <li><a href="#">Videos</a></li>
-                        <li><a href="#">Music</a></li>
-                        <li><a href="#">Clips</a></li>
-                        <li><a href="#">Trailers</a></li>
-                        <li><a href="#">Celebrity</a></li>
-                        <li><a href="#">Audio</a></li>
-                        <li><a href="#">Sport</a></li>
-                        <li><a href="#">HD</a></li>
-                        <li><a href="#">1080p</a></li>
-                        <li><a href="#">Games</a></li>
-                    </ul>
-
-                    <!-- SIDEBAR SOCIAL -->
                     <div class="clear"></div>
-                    <div class="sidebar-headline">
-                        <h1>socialize</h1>
-                        <h2>Share & Follow</h2>
+                    <!-- EDITOR BOX -->
+                    <div class="span-mainbox-cont">
+                        <h1>editor's choice</h1>
+                        <div class="span-9 mrz">
+                            <!-- IMAGE -->
+                            <div class="hover-effect-2 span-9-img">
+                                <div class="view view-first">
+                                    <%= image_tag('thumbs/large/thumb-1.jpg',alt:'#') %>
+                                    <div class="mask">
+                                        <a href="images/thumbs/original-2.jpg" class="icon-zoom" data-rel="prettyPhoto" title="Click to view image" ></a>
+                                        <a href="#" class="icon-link" title="Link to Editor's review"></a>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- CONTENT -->
+                            <div class="span-9-content">
+                                <a href="#" title="Link to Editor's review">Spot Movie Trailer Review</a>
+                                <a href="#" class="author" title="Link to Editor">Reviewer</a>
+                                <span>43.456.788 View</span>
+                                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
+                            </div>
+                        </div>
                     </div>
-
-                    <ul class="sidebar-social">
-                       <li><a href="#" class="social-1 s-rm" title="Facebook"></a></li>
-                       <li><a href="#" class="social-2 s-rm" title="LinkedIn"></a></li>
-                       <li><a href="#" class="social-3 s-rm" title="Twitter"></a></li>
-                       <li><a href="#" class="social-4 s-rm" title="YouTube"></a></li>
-                       <li><a href="#" class="social-5 s-rm" title="Vimeo"></a></li>
-                       <li><a href="#" class="social-6" title="RSS"></a></li>
-                   </ul>
-                   <div class="fix-gap"></div>
-               </div>
-               <!-- END SIDEBAR -->
-
-
-
-               <div id="span-mainbox"><!-- SPAN MAINBOX -->
-                <div class="span-mainbox-cont">
-                    <h1>newest videos</h1>
-
-                    <!-- SLIDER -->
-                    <div class="carousel_wrapper">
-                      <div class="carousel">
-                         <ul id="c-slider" class="hover-effect"><!-- THREE 3 FEATURED -->
-                            <li class="view view-first carou-img">
-                                <%= image_tag('thumbs/small/thumb-1.jpg',alt:'#') %>
-                                <div class="mask">
-                                    <a href="http://www.youtube.com/watch?v=UX7GycmeQVo" class="icon-zoom" data-rel="prettyPhoto" title="Click to Play Video" ></a>
-                                    <a href="#" class="icon-link" title="Link to Post"></a>
-                                    <a href="#" class="info" title="Link to Post">Beauty Woman</a>
+                    <div class="clear"></div>
+                    <!-- BLOG BOX -->
+                    <div class="span-mainbox-cont noborder">
+                        <h1>latest from blog</h1>
+                        <ul class="category-grid">
+                            <li>
+                                <div class="column-grid">
+                                    <!-- IMAGE -->
+                                    <div class="hover-effect-3">
+                                        <div class="view view-first">
+                                            <%= image_tag('thumbs/middle/thumb-1.jpg',alt:'#') %>
+                                            <div class="mask">
+                                                <a href="http://www.youtube.com/watch?v=UX7GycmeQVo" class="icon-zoom" data-rel="prettyPhoto" title="Click to Play Video" ></a>
+                                                <a href="#" class="icon-link" title="Link to Post"></a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- CONTENT -->
+                                    <div class="cont">
+                                        <a href="#" title="Link to Post">Amazing Brunette with sensual look</a>
+                                        <span>March 05, 2013</span>
+                                        <a href="#" class="author" title="Link to Author">Admin</a>
+                                        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley...</p>
+                                    </div>
                                 </div>
                             </li>
-                            <li class="view view-first carou-img">
-                                <%= image_tag('thumbs/small/thumb-2.jpg',alt:'#') %>
-                                <div class="mask">
-                                    <a href="http://www.youtube.com/watch?v=UX7GycmeQVo" class="icon-zoom" data-rel="prettyPhoto" title="Click to Play Video" ></a>
-                                    <a href="#" class="icon-link" title="Link to Post"></a>
-                                    <a href="#" class="info" title="Link to Post">Amazing Brunette in bed</a>
-                                </div>
-                            </li>
-                            <li class="view view-first carou-img">
-                                <%= image_tag('thumbs/small/thumb-3.jpg',alt:'#') %>
-                                <div class="mask">
-                                    <a href="http://www.youtube.com/watch?v=UX7GycmeQVo" class="icon-zoom" data-rel="prettyPhoto" title="Click to Play Video" ></a>
-                                    <a href="#" class="icon-link" title="Link to Post"></a>
-                                    <a href="#" class="info" title="Link to Post">Hmmm, those are real?</a>
-                                </div>
-                            </li>
-                            <li class="view view-first carou-img">
-                                <%= image_tag('thumbs/small/thumb-4.jpg',alt:'#') %>
-                                <div class="mask">
-                                    <a href="http://www.youtube.com/watch?v=UX7GycmeQVo" class="icon-zoom" data-rel="prettyPhoto" title="Click to Play Video" ></a>
-                                    <a href="#" class="icon-link" title="Link to Post"></a>
-                                    <a href="#" class="info" title="Link to Post">Carnival mask</a>
-                                </div>
-                            </li>
-                            <li class="view view-first carou-img">
-                                <%= image_tag('thumbs/small/thumb-5.jpg',alt:'#') %>
-                                <div class="mask">
-                                    <a href="http://www.youtube.com/watch?v=UX7GycmeQVo" class="icon-zoom" data-rel="prettyPhoto" title="Click to Play Video" ></a>
-                                    <a href="#" class="icon-link" title="Link to Post"></a>
-                                    <a href="#" class="info" title="Link to Post">Nice sixties at beach</a>
-                                </div>
-                            </li>
-                            <li class="view view-first carou-img">
-                                <%= image_tag('thumbs/small/thumb-6.jpg',alt:'#') %>
-                                <div class="mask">
-                                    <a href="http://www.youtube.com/watch?v=UX7GycmeQVo" class="icon-zoom" data-rel="prettyPhoto" title="Click to Play Video" ></a>
-                                    <a href="#" class="icon-link" title="Link to Post"></a>
-                                    <a href="#" class="info" title="Link to Post">Be quiet!</a>
+                            <li>
+                                <div class="column-grid">
+                                    <!-- IMAGE -->
+                                    <div class="hover-effect-3">
+                                        <div class="view view-first">
+                                            <%= image_tag('thumbs/middle/thumb-2.jpg',alt:'#') %>
+                                            <div class="mask">
+                                                <a href="http://www.youtube.com/watch?v=UX7GycmeQVo" class="icon-zoom" data-rel="prettyPhoto" title="Click to Play Video" ></a>
+                                                <a href="#" class="icon-link" title="Link to Post"></a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- CONTENT -->
+                                    <div class="cont">
+                                        <a href="#" title="Link to Post">Hmmm, those are real? (Long video)</a>
+                                        <span>March 05, 2013</span>
+                                        <a href="#" class="author" title="Link to Author">Admin</a>
+                                        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley...</p>
+                                    </div>
                                 </div>
                             </li>
                         </ul>
-                        <div class="clearfix"></div>
-                        <a id="carousel_prev" class="prev" href="#"></a>
-                        <a id="carousel_next" class="next" href="#"></a>
                     </div>
-
-                </div>
-                <!-- END SLIDER -->
-            </div>
-
-            <!-- FEATURED BOX -->
-            <div class="span-mainbox-cont">
-                <h1>featured videos</h1>
-                <div class="iframe-container">
-                   <iframe src="http://player.vimeo.com/video/32397612" width="690" height="390" id="widget_video" name="widget_video"></iframe>
-               </div>
-           </div>
-           <div class="clear"></div>
-
-           <!-- MOST WATCHED BOX -->
-           <div class="span-mainbox-cont">
-            <h1>most watched</h1>
-
-            <!-- SLIDER -->
-            <div class="carousel_wrapper">
-                <div class="carousel"><!-- SLIDER CONTAINER -->
-                    <ul id="c-slider2" class="hover-effect"><!-- THREE 3 FEATURED -->
-                        <li class="view view-first carou-img">
-                            <%= image_tag('thumbs/small/thumb-7.jpg',alt:'#') %>
-                            <div class="mask">
-                                <a href="http://vimeo.com/23534361" class="icon-zoom" data-rel="prettyPhoto" title="Click to Play Video" ></a>
-                                <a href="#" class="icon-link" title="Link to Post"></a>
-                                <a href="#" class="info" title="Link to Post">Oops Mademoiselle</a>
-                            </div>
-                        </li>
-                        <li class="view view-first carou-img">
-                            <%= image_tag('thumbs/small/thumb-8.jpg',alt:'#') %>
-                            <div class="mask">
-                                <a href="http://vimeo.com/23534361" class="icon-zoom" data-rel="prettyPhoto" title="Click to Play Video" ></a>
-                                <a href="#" class="icon-link" title="Link to Post"></a>
-                                <a href="#" class="info" title="Link to Post">Girls playing</a>
-                            </div>
-                        </li>
-                        <li class="view view-first carou-img">
-                            <%= image_tag('thumbs/small/thumb-9.jpg',alt:'#') %>
-                            <div class="mask">
-                                <a href="http://vimeo.com/23534361" class="icon-zoom" data-rel="prettyPhoto" title="Click to Play Video" ></a>
-                                <a href="#" class="icon-link" title="Link to Post"></a>
-                                <a href="#" class="info" title="Link to Post">Sensual Look</a>
-                            </div>
-                        </li>
-                        <li class="view view-first carou-img">
-                            <%= image_tag('thumbs/small/thumb-10.jpg',alt:'#') %>
-                            <div class="mask">
-                                <a href="http://vimeo.com/23534361" class="icon-zoom" data-rel="prettyPhoto" title="Click to Play Video" ></a>
-                                <a href="#" class="icon-link" title="Link to Post"></a>
-                                <a href="#" class="info" title="Link to Post">Hot in lingerie</a>
-                            </div>
-                        </li>
-                        <li class="view view-first carou-img">
-                            <%= image_tag('thumbs/small/thumb-11.jpg',alt:'#') %>
-                            <div class="mask">
-                                <a href="http://vimeo.com/23534361" class="icon-zoom" data-rel="prettyPhoto" title="Click to Play Video" ></a>
-                                <a href="#" class="icon-link" title="Link to Post"></a>
-                                <a href="#" class="info" title="Link to Post">Fashion Model Video</a>
-                            </div>
-                        </li>
-                        <li class="view view-first carou-img">
-                            <%= image_tag('thumbs/small/thumb-12.jpg',alt:'#') %>
-                            <div class="mask">
-                                <a href="http://vimeo.com/23534361" class="icon-zoom" data-rel="prettyPhoto" title="Click to Play Video" ></a>
-                                <a href="#" class="icon-link" title="Link to Post"></a>
-                                <a href="#" class="info" title="Link to Post">Rocker Girl</a>
-                            </div>
-                        </li>
-                    </ul>
-                    <div class="clearfix"></div>
-                    <a id="carousel_prev2" class="prev" href="#"></a>
-                    <a id="carousel_next2" class="next" href="#"></a>
+                    <div class="clear"></div>
+                    <div class="fix-gap"></div>
                 </div>
             </div>
-            <!-- END SLIDER -->
         </div>
-        <div class="clear"></div>
-
-        <!-- MAINSTREAM BOX -->
-        <div class="span-mainbox-cont">
-            <h1>mainstream</h1>
-
-            <!-- SLIDER -->
-            <div class="carousel_wrapper">
-                <div class="carousel"><!-- SLIDER CONTAINER -->
-                    <ul id="c-slider3" class="hover-effect"><!-- THREE 3 FEATURED -->
-                        <li class="view view-first carou-img">
-                            <%= image_tag('thumbs/small/thumb-12.jpg',alt:'#') %>
-                            <div class="mask">
-                                <a href="http://vimeo.com/23534361" class="icon-zoom" data-rel="prettyPhoto" title="Click to Play Video" ></a>
-                                <a href="#" class="icon-link" title="Link to Post"></a>
-                                <a href="#" class="info" title="Link to Post">Rocker Girl</a>
-                            </div>
-                        </li>
-                        <li class="view view-first carou-img">
-                            <%= image_tag('thumbs/small/thumb-11.jpg',alt:'#') %>
-                            <div class="mask">
-                                <a href="http://vimeo.com/23534361" class="icon-zoom" data-rel="prettyPhoto" title="Click to Play Video" ></a>
-                                <a href="#" class="icon-link" title="Link to Post"></a>
-                                <a href="#" class="info" title="Link to Post">Fashion Model Video</a>
-                            </div>
-                        </li>
-                        <li class="view view-first carou-img">
-                            <%= image_tag('thumbs/small/thumb-10.jpg',alt:'#') %>
-                            <div class="mask">
-                                <a href="http://vimeo.com/23534361" class="icon-zoom" data-rel="prettyPhoto" title="Click to Play Video" ></a>
-                                <a href="#" class="icon-link" title="Link to Post"></a>
-                                <a href="#" class="info" title="Link to Post">Hot in lingerie</a>
-                            </div>
-                        </li>
-                        <li class="view view-first carou-img">
-                            <%= image_tag('thumbs/small/thumb-9.jpg',alt:'#') %>
-                            <div class="mask">
-                                <a href="http://vimeo.com/23534361" class="icon-zoom" data-rel="prettyPhoto" title="Click to Play Video" ></a>
-                                <a href="#" class="icon-link" title="Link to Post"></a>
-                                <a href="#" class="info" title="Link to Post">Sensual Look</a>
-                            </div>
-                        </li>
-                        <li class="view view-first carou-img">
-                            <%= image_tag('thumbs/small/thumb-8.jpg',alt:'#') %>
-                            <div class="mask">
-                                <a href="http://vimeo.com/23534361" class="icon-zoom" data-rel="prettyPhoto" title="Click to Play Video" ></a>
-                                <a href="#" class="icon-link" title="Link to Post"></a>
-                                <a href="#" class="info" title="Link to Post">Girls playing</a>
-                            </div>
-                        </li>
-                        <li class="view view-first carou-img">
-                            <%= image_tag('thumbs/small/thumb-7.jpg',alt:'#') %>
-                            <div class="mask">
-                                <a href="http://vimeo.com/23534361" class="icon-zoom" data-rel="prettyPhoto" title="Click to Play Video" ></a>
-                                <a href="#" class="icon-link" title="Link to Post"></a>
-                                <a href="#" class="info" title="Link to Post">Oops Mademoiselle</a>
-                            </div>
-                        </li>
-                    </ul>
-                    <div class="clearfix"></div>
-                    <a id="carousel_prev3" class="prev" href="#"></a>
-                    <a id="carousel_next3" class="next" href="#"></a>
-                </div>
-            </div>
-            <!-- END SLIDER -->
-        </div>
-        <div class="clear"></div>
-
-        <!-- EDITOR BOX -->
-        <div class="span-mainbox-cont">
-            <h1>editor's choice</h1>
-
-            <div class="span-9 mrz">
-             <!-- IMAGE -->
-             <div class="hover-effect-2 span-9-img">
-                 <div class="view view-first">
-                    <%= image_tag('thumbs/large/thumb-1.jpg',alt:'#') %>
-                    <div class="mask">
-                        <a href="images/thumbs/original-2.jpg" class="icon-zoom" data-rel="prettyPhoto" title="Click to view image" ></a>
-                        <a href="#" class="icon-link" title="Link to Editor's review"></a>
-                    </div>
-                </div>
-            </div>
-
-            <!-- CONTENT -->
-            <div class="span-9-content">
-                <a href="#" title="Link to Editor's review">Spot Movie Trailer Review</a>
-                <a href="#" class="author" title="Link to Editor">Reviewer</a>
-                <span>43.456.788 View</span>
-                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
-            </div>
-        </div><!-- END SPAN-9 -->
-
-    </div><!-- END SPAN MAINBOX -->
-    <div class="clear"></div>
-
-    <!-- BLOG BOX -->
-    <div class="span-mainbox-cont noborder">
-        <h1>latest from blog</h1>
-
-        <ul class="category-grid">
-            <li>
-                <div class="column-grid">
-                   <!-- IMAGE -->
-                   <div class="hover-effect-3">
-                    <div class="view view-first">
-                        <%= image_tag('thumbs/middle/thumb-1.jpg',alt:'#') %>
-                        <div class="mask">
-                            <a href="http://www.youtube.com/watch?v=UX7GycmeQVo" class="icon-zoom" data-rel="prettyPhoto" title="Click to Play Video" ></a>
-                            <a href="#" class="icon-link" title="Link to Post"></a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- CONTENT -->
-                <div class="cont">
-                    <a href="#" title="Link to Post">Amazing Brunette with sensual look</a>
-                    <span>March 05, 2013</span>
-                    <a href="#" class="author" title="Link to Author">Admin</a>
-                    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley...</p>
-                </div>
-
-            </div><!-- END column-7 -->
-        </li>
-        <li>
-            <div class="column-grid">
-               <!-- IMAGE -->
-               <div class="hover-effect-3">
-                <div class="view view-first">
-                    <%= image_tag('thumbs/middle/thumb-2.jpg',alt:'#') %>
-                    <div class="mask">
-                        <a href="http://www.youtube.com/watch?v=UX7GycmeQVo" class="icon-zoom" data-rel="prettyPhoto" title="Click to Play Video" ></a>
-                        <a href="#" class="icon-link" title="Link to Post"></a>
-                    </div>
-                </div>
-            </div>
-
-            <!-- CONTENT -->
-            <div class="cont">
-                <a href="#" title="Link to Post">Hmmm, those are real? (Long video)</a>
-                <span>March 05, 2013</span>
-                <a href="#" class="author" title="Link to Author">Admin</a>
-                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley...</p>
-            </div>
-
-        </div><!-- END column-7 -->
-    </li>
-
-</ul>
-
-
-</div><!-- END SPAN MAINBOX -->
-
-<div class="fix-gap"></div>
-
-</div><!-- SPAN MAINBOX -->
-
-</div><!-- CONTENT WRAPPER -->
-</div><!-- CONTENT -->
-</div><!-- MAIN CONTAINER -->
-
-
-
-
-
-<div id="bottom-bar"><!-- BOTTOM BAR -->
-    <!-- BOTTOM MENU -->
-    <div id="bottom-menu" class="box-sizing">
-        <ul class="bottom-menu">
-            <li><a href="#">Home</a></li>
-            <li><a href="#">Categories</a></li>
-            <li><a href="#">Videos</a></li>
-            <li><a href="#">Blog</a></li>
-            <li><a href="#">Pages</a></li>
-            <li><a href="#">Contact</a></li
-                <li><a href="#">Privacy</a></li>
-                <li><a href="#">Creative Commons</a></li>
-            </ul>
-        </div>
-        <!-- COPYRIGHT -->
-        <div class="copyright-box">
-            <div class="span-10">
-                <a href="/" class="main-logo" title="Tuber - Social Video Theme"></a>
-            </div>
-            <div id="back-top"><a href="#top" title="Back top"><span></span></a></div>
-            <div class="copyright">&copy; Copyright 2013. All Rights Reserved. Medioworks Theme.<br>Tuber Social Video HTML Template</div>
-        </div>
-    </div><!-- END BOTTOM BAR -->
-
-
-</div><!-- DIV CONTAINER -->
+        <%= render "layouts/footer" %>
+    </div>
+</div>
