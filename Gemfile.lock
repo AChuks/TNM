@@ -203,7 +203,6 @@ DEPENDENCIES
   pg (= 0.15.1)
 <<<<<<< HEAD
   rack-timeout
-  pry-rails
 =======
   pry-rails
 >>>>>>> afr_br_1
@@ -222,7 +221,7 @@ DEPENDENCIES
   underscore-rails
 <<<<<<< HEAD
   unicorn
-  will_paginate (= 3.0.7)
+  will_paginate (= 3.0.4)
 =======
   will_paginate (= 3.0.7)
 >>>>>>> afr_br_1
