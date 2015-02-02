@@ -32,42 +32,4 @@ Webseries.create([{ :url => 'cNSN8_-PkCg', :metadata => 'Play on Repeat Now (P.O
 	{ :url => 'HbtqHo_Y1wE', :metadata => 'Gidi Up Season 2: Ep.02', :thumbimg => 'gidiupS2E00.png' },
 	{ :url => 'WiDzAZo64Ho', :metadata => 'Gidi Up Season 2: Ep.01', :thumbimg => 'gidiupS2E00.png' },
 
-	{ :url => 'FDR82qo3tdk', :metadata => 'Gidi Up Season 2: Ep.12', :thumbimg => 'gidiupS2E12.png' },
-	{ :url => 'NfP_E25KBZc', :metadata => 'Gidi Up Season 2: Ep.11', :thumbimg => 'gidiupS2E00.png' },
-	{ :url => 'SB-m7bOlMIg', :metadata => 'Gidi Up Season 2: Ep.10', :thumbimg => 'gidiupS2E00.png' },
-	{ :url => 'EjBI-Pkekzg', :metadata => 'Gidi Up Season 2: Ep.09', :thumbimg => 'gidiupS2E00.png' },
-	{ :url => 'Z1OcPkRjVc4', :metadata => 'Gidi Up Season 2: Ep.08', :thumbimg => 'gidiupS2E00.png' },
-	{ :url => '2-qKDOifJZg', :metadata => 'Gidi Up Season 2: Ep.07', :thumbimg => 'gidiupS2E00.png' },
-	{ :url => '8TGOyPDT3yw', :metadata => 'Gidi Up Season 2: Ep.06', :thumbimg => 'gidiupS2E00.png' },
-	{ :url => 'XSySFJcjzQk', :metadata => 'Gidi Up Season 2: Ep.05', :thumbimg => 'gidiupS2E00.png' },
-	{ :url => 'VvTHSKaloCw', :metadata => 'Gidi Up Season 2: Ep.04', :thumbimg => 'gidiupS2E00.png' },
-	{ :url => 'g9P-8tSf5gE', :metadata => 'Gidi Up Season 2: Ep.03', :thumbimg => 'gidiupS2E00.png' },
-	{ :url => 'HbtqHo_Y1wE', :metadata => 'Gidi Up Season 2: Ep.02', :thumbimg => 'gidiupS2E00.png' },
-	{ :url => 'WiDzAZo64Ho', :metadata => 'Gidi Up Season 2: Ep.01', :thumbimg => 'gidiupS2E00.png' },
-
-	{ :url => 'FDR82qo3tdk', :metadata => 'Gidi Up Season 2: Ep.12', :thumbimg => 'gidiupS2E12.png' },
-	{ :url => 'NfP_E25KBZc', :metadata => 'Gidi Up Season 2: Ep.11', :thumbimg => 'gidiupS2E00.png' },
-	{ :url => 'SB-m7bOlMIg', :metadata => 'Gidi Up Season 2: Ep.10', :thumbimg => 'gidiupS2E00.png' },
-	{ :url => 'EjBI-Pkekzg', :metadata => 'Gidi Up Season 2: Ep.09', :thumbimg => 'gidiupS2E00.png' },
-	{ :url => 'Z1OcPkRjVc4', :metadata => 'Gidi Up Season 2: Ep.08', :thumbimg => 'gidiupS2E00.png' },
-	{ :url => '2-qKDOifJZg', :metadata => 'Gidi Up Season 2: Ep.07', :thumbimg => 'gidiupS2E00.png' },
-	{ :url => '8TGOyPDT3yw', :metadata => 'Gidi Up Season 2: Ep.06', :thumbimg => 'gidiupS2E00.png' },
-	{ :url => 'XSySFJcjzQk', :metadata => 'Gidi Up Season 2: Ep.05', :thumbimg => 'gidiupS2E00.png' },
-	{ :url => 'VvTHSKaloCw', :metadata => 'Gidi Up Season 2: Ep.04', :thumbimg => 'gidiupS2E00.png' },
-	{ :url => 'g9P-8tSf5gE', :metadata => 'Gidi Up Season 2: Ep.03', :thumbimg => 'gidiupS2E00.png' },
-	{ :url => 'HbtqHo_Y1wE', :metadata => 'Gidi Up Season 2: Ep.02', :thumbimg => 'gidiupS2E00.png' },
-	{ :url => 'WiDzAZo64Ho', :metadata => 'Gidi Up Season 2: Ep.01', :thumbimg => 'gidiupS2E00.png' },
-
-
-
-
-
-
-
-
-
-
-
-
-
 	])
