@@ -1,4 +1,3 @@
-require 'debugger'
 class VideosController < ApplicationController
 
   def submit_video
