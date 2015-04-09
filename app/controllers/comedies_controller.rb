@@ -5,7 +5,7 @@ class ComediesController < ApplicationController
   # GET /comedies
   # GET /comedies.json
   def index
-    @comedies = Comedy.all
+    @comedies = Comedy.paginate(page: params[:page],:per_page => 30)
   end
 
   # GET /comedies/1
