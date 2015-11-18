@@ -1,17 +1,6 @@
 Rails.application.routes.draw do
 
-  resources :newest_videos
-  resources :popular_videos
-  resources :trend_videos
-  resources :talent_videos
-  resources :movies
-  resources :musics
   resources :comedies
-  resources :webseries
-
-  resources :newest_fashions
-  resources :trend_fashions
-
 
   root 'pages#home'
   match '/videos', to: 'pages#videos', via: 'get'
