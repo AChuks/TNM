@@ -24,6 +24,7 @@ body {
     margin: 0;
     padding: 0;
 }
+
 #div-container, #main-container, #content, #content-wrapper, #span-sidebar, #span-mainbox, #span-sidebar-right, #span-mainbox-left {
     border-spacing: 0px;
     -moz-border-spacing: 0px;
@@ -117,6 +118,11 @@ body {
     margin: 0 auto;
     background: none;
 }
+
+.pagination {
+margin: 0px !important;
+}
+
 //.span-mainbox-cont, .span-mainbox-cont-fw {float:left; width:100%; border-bottom:4px solid #d2d2d2; padding-bottom:30px;}
 // Remove double lines
 .span-mainbox-cont, .span-mainbox-cont-fw {

@@ -1,6 +1,5 @@
 <% provide(:title, 'Home')%>
 <!-- MAIN DIV CONTAINERS -->
-<!-- MAIN DIV CONTAINERS -->
 <%= render "layouts/header" %>
 <!-- NEW SECTION-->
 <div id="div-container">
@@ -81,209 +80,32 @@
                         </div>
                     </div>
                     <div class="clear"></div>
-                    <!-- MOST WATCHED BOX -->
                     <div class="span-mainbox-cont">
-                        <h1><strong>Most Watched</strong></h1>
-                        <!-- SLIDER -->
-                        <div class="carousel_wrapper">
-                            <div class="carousel">
-                                <ul id="c-slider2" class="hover-effect">
-                                    <li class="view view-first carou-img">
-                                        <%= image_tag('thumbs/small/thumb-7.jpg',alt:'#') %>
-                                        <div class="mask">
-                                            <a href="http://vimeo.com/23534361" class="icon-zoom" data-rel="prettyPhoto" title="Click to Play Video" ></a>
-                                            <a href="#" class="icon-link" title="Link to Post"></a>
-                                            <a href="#" class="info" title="Link to Post">Lorem Ipsum</a>
-                                        </div>
-                                    </li>
-                                    <li class="view view-first carou-img">
-                                        <%= image_tag('thumbs/small/thumb-8.jpg',alt:'#') %>
-                                        <div class="mask">
-                                            <a href="http://vimeo.com/23534361" class="icon-zoom" data-rel="prettyPhoto" title="Click to Play Video" ></a>
-                                            <a href="#" class="icon-link" title="Link to Post"></a>
-                                            <a href="#" class="info" title="Link to Post">Lorem Ipsum</a>
-                                        </div>
-                                    </li>
-                                    <li class="view view-first carou-img">
-                                        <%= image_tag('thumbs/small/thumb-9.jpg',alt:'#') %>
-                                        <div class="mask">
-                                            <a href="http://vimeo.com/23534361" class="icon-zoom" data-rel="prettyPhoto" title="Click to Play Video" ></a>
-                                            <a href="#" class="icon-link" title="Link to Post"></a>
-                                            <a href="#" class="info" title="Link to Post">Lorem Ipsum</a>
-                                        </div>
-                                    </li>
-                                    <li class="view view-first carou-img">
-                                        <%= image_tag('thumbs/small/thumb-10.jpg',alt:'#') %>
-                                        <div class="mask">
-                                            <a href="http://vimeo.com/23534361" class="icon-zoom" data-rel="prettyPhoto" title="Click to Play Video" ></a>
-                                            <a href="#" class="icon-link" title="Link to Post"></a>
-                                            <a href="#" class="info" title="Link to Post">Lorem Ipsum</a>
-                                        </div>
-                                    </li>
-                                    <li class="view view-first carou-img">
-                                        <%= image_tag('thumbs/small/thumb-11.jpg',alt:'#') %>
-                                        <div class="mask">
-                                            <a href="http://vimeo.com/23534361" class="icon-zoom" data-rel="prettyPhoto" title="Click to Play Video" ></a>
-                                            <a href="#" class="icon-link" title="Link to Post"></a>
-                                            <a href="#" class="info" title="Link to Post">Lorem Ipsum</a>
-                                        </div>
-                                    </li>
-                                    <li class="view view-first carou-img">
-                                        <%= image_tag('thumbs/small/thumb-12.jpg',alt:'#') %>
-                                        <div class="mask">
-                                            <a href="http://vimeo.com/23534361" class="icon-zoom" data-rel="prettyPhoto" title="Click to Play Video" ></a>
-                                            <a href="#" class="icon-link" title="Link to Post"></a>
-                                            <a href="#" class="info" title="Link to Post">Lorem Ipsum</a>
-                                        </div>
-                                    </li>
-                                </ul>
-                                <div class="clearfix"></div>
-                                <!-- MOST WATCHED CAROUSEL NEXT AND PREV -->
-                                <a id="carousel_prev2" class="prev" href="#"></a>
-                                <a id="carousel_next2" class="next" href="#"></a>
-                            </div>
-                        </div>
-                        <!-- END SLIDER -->
+                        <h1>All Videos</h1>
+                        <div class="span-fullwidth">
+                        <!-- CONTENT -->
+              <ul class="gallery-listed clearfix">
+                <% @videos.each do |videotemplate| %>
+                <li>
+                  <!-- IMAGE -->
+                  <div class="hover-effect">
+                    <div class="view view-first">
+                      <div class="masked">
+                        <a href = "watch?url=<%= videotemplate.url %>;vid_metadata=<%= videotemplate.mdata %>;img=<%= videotemplate.img %>">
+                          <img src = "https://s3-eu-west-1.amazonaws.com/afrimages/yt/ws/<%= videotemplate.img%>">
+                          <%= videotemplate.mdata %>
+                        </a>
+                      </div>
                     </div>
-                    <div class="clear"></div>
-                    <!-- MAINSTREAM BOX -->
-                    <div class="span-mainbox-cont">
-                        <h1><strong>Mainstream</strong></h1>
-                        <!-- SLIDER -->
-                        <div class="carousel_wrapper">
-                            <div class="carousel">
-                                <ul id="c-slider3" class="hover-effect">
-                                    <li class="view view-first carou-img">
-                                        <%= image_tag('thumbs/small/thumb-12.jpg',alt:'#') %>
-                                        <div class="mask">
-                                            <a href="http://vimeo.com/23534361" class="icon-zoom" data-rel="prettyPhoto" title="Click to Play Video" ></a>
-                                            <a href="#" class="icon-link" title="Link to Post"></a>
-                                            <a href="#" class="info" title="Link to Post">Lorem Ipsum</a>
-                                        </div>
-                                    </li>
-                                    <li class="view view-first carou-img">
-                                        <%= image_tag('thumbs/small/thumb-11.jpg',alt:'#') %>
-                                        <div class="mask">
-                                            <a href="http://vimeo.com/23534361" class="icon-zoom" data-rel="prettyPhoto" title="Click to Play Video" ></a>
-                                            <a href="#" class="icon-link" title="Link to Post"></a>
-                                            <a href="#" class="info" title="Link to Post">Lorem Ipsum</a>
-                                        </div>
-                                    </li>
-                                    <li class="view view-first carou-img">
-                                        <%= image_tag('thumbs/small/thumb-10.jpg',alt:'#') %>
-                                        <div class="mask">
-                                            <a href="http://vimeo.com/23534361" class="icon-zoom" data-rel="prettyPhoto" title="Click to Play Video" ></a>
-                                            <a href="#" class="icon-link" title="Link to Post"></a>
-                                            <a href="#" class="info" title="Link to Post">Lorem Ipsum</a>
-                                        </div>
-                                    </li>
-                                    <li class="view view-first carou-img">
-                                        <%= image_tag('thumbs/small/thumb-9.jpg',alt:'#') %>
-                                        <div class="mask">
-                                            <a href="http://vimeo.com/23534361" class="icon-zoom" data-rel="prettyPhoto" title="Click to Play Video" ></a>
-                                            <a href="#" class="icon-link" title="Link to Post"></a>
-                                            <a href="#" class="info" title="Link to Post">Lorem Ipsum</a>
-                                        </div>
-                                    </li>
-                                    <li class="view view-first carou-img">
-                                        <%= image_tag('thumbs/small/thumb-8.jpg',alt:'#') %>
-                                        <div class="mask">
-                                            <a href="http://vimeo.com/23534361" class="icon-zoom" data-rel="prettyPhoto" title="Click to Play Video" ></a>
-                                            <a href="#" class="icon-link" title="Link to Post"></a>
-                                            <a href="#" class="info" title="Link to Post">Lorem Ipsum</a>
-                                        </div>
-                                    </li>
-                                    <li class="view view-first carou-img">
-                                        <%= image_tag('thumbs/small/thumb-7.jpg',alt:'#') %>
-                                        <div class="mask">
-                                            <a href="http://vimeo.com/23534361" class="icon-zoom" data-rel="prettyPhoto" title="Click to Play Video" ></a>
-                                            <a href="#" class="icon-link" title="Link to Post"></a>
-                                            <a href="#" class="info" title="Link to Post">Lorem Ipsum</a>
-                                        </div>
-                                    </li>
-                                </ul>
-                                <div class="clearfix"></div>
-                                <a id="carousel_prev3" class="prev" href="#"></a>
-                                <a id="carousel_next3" class="next" href="#"></a>
-                            </div>
-                        </div>
-                        <!-- END SLIDER -->
-                    </div>
-                    <div class="clear"></div>
-                    <!-- EDITOR BOX -->
-                    <div class="span-mainbox-cont">
-                        <h1><strong>Editor's choice</strong></h1>
-                        <div class="span-9 mrz">
-                            <!-- IMAGE -->
-                            <div class="hover-effect-2 span-9-img">
-                                <div class="view view-first">
-                                    <%= image_tag('thumbs/large/thumb-1.jpg',alt:'#') %>
-                                    <div class="mask">
-                                        <a href="images/thumbs/original-2.jpg" class="icon-zoom" data-rel="prettyPhoto" title="Click to view image" ></a>
-                                        <a href="#" class="icon-link" title="Link to Editor's review"></a>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- CONTENT -->
-                            <div class="span-9-content">
-                                <a href="#" title="Link to Editor's review">Lorem Ipsum</a>
-                                <a href="#" class="author" title="Link to Editor">Reviewer</a>
-                                <span>43.456.788 View</span>
-                                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="clear"></div>
-                    <!-- BLOG BOX -->
-                    <div class="span-mainbox-cont noborder">
-                        <h1><strong>Latest From Blog</strong></h1>
-                        <ul class="category-grid">
-                            <li>
-                                <div class="column-grid">
-                                    <!-- IMAGE -->
-                                    <div class="hover-effect-3">
-                                        <div class="view view-first">
-                                            <%= image_tag('thumbs/middle/thumb-1.jpg',alt:'#') %>
-                                            <div class="mask">
-                                                <a href="http://www.youtube.com/watch?v=UX7GycmeQVo" class="icon-zoom" data-rel="prettyPhoto" title="Click to Play Video" ></a>
-                                                <a href="#" class="icon-link" title="Link to Post"></a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <!-- CONTENT -->
-                                    <div class="cont">
-                                        <a href="#" title="Link to Post">Lorem Ipsum</a>
-                                        <span>March 05, 2013</span>
-                                        <a href="#" class="author" title="Link to Author">Admin</a>
-                                        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley...</p>
-                                    </div>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="column-grid">
-                                    <!-- IMAGE -->
-                                    <div class="hover-effect-3">
-                                        <div class="view view-first">
-                                            <%= image_tag('thumbs/middle/thumb-2.jpg',alt:'#') %>
-                                            <div class="mask">
-                                                <a href="http://www.youtube.com/watch?v=UX7GycmeQVo" class="icon-zoom" data-rel="prettyPhoto" title="Click to Play Video" ></a>
-                                                <a href="#" class="icon-link" title="Link to Post"></a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <!-- CONTENT -->
-                                    <div class="cont">
-                                        <a href="#" title="Link to Post">Lorem Ipsum</a>
-                                        <span>March 05, 2013</span>
-                                        <a href="#" class="author" title="Link to Author">Admin</a>
-                                        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley...</p>
-                                    </div>
-                                </div>
-                            </li>
-                        </ul>
-                    </div>
-                    <div class="clear"></div>
-                    <div class="fix-gap"></div>
+                  </div>
+                </li>
+                <% end %>
+              </ul>
+              <%= will_paginate @videos %>
+            </div>
+          </div>
+          <div class="clear"></div>
+          <div class="fix-gap"></div>
                 </div>
             </div>
         </div>

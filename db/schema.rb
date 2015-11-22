@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150122082219) do
+ActiveRecord::Schema.define(version: 20151122200739) do
 
   create_table "comedies", force: true do |t|
     t.string   "url"
@@ -126,6 +126,14 @@ ActiveRecord::Schema.define(version: 20150122082219) do
   end
 
   create_table "videopopulars", force: true do |t|
+    t.string   "url"
+    t.string   "mdata"
+    t.string   "img"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "videos", force: true do |t|
     t.string   "url"
     t.string   "mdata"
     t.string   "img"
