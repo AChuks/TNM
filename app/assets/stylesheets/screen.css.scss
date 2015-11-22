@@ -1,14 +1,4 @@
 @charset "utf-8";
-/* CSS Document */
-/* -----------------------------------------------------------------------
-
- Medioworks Tuber Social Video Theme Framework 1.0.1
- © Copyright 2013 - Design and Sitebuild
- Web - www.medioworks.com
- Envato Exclusive Author - http://themeforest.net/user/MedioWorks
-
------------------------------------------------------------------------ */
-/* screen.css */
 
 @import url(http://fonts.googleapis.com/css?family=PT+Sans+Narrow);
 @import url(http://fonts.googleapis.com/css?family=PT+Sans:400,700);
@@ -29,7 +19,7 @@ body {
     font-size: 12px;
     color: #888888;
     font-family: 'PT Sans', sans-serif;
-    background: #fff url("/assets/background-tile.jpg") repeat;
+    background: #000000 url("/assets/background-tile.jpg") repeat;
     text-decoration: none;
     margin: 0;
     padding: 0;
@@ -285,12 +275,12 @@ body {
 }
 .span-25 {
     width: 244px;
-    margin: 42px 0px 0px 0px;
+    margin: 0px 0px 0px 0px;
 }
 .span-29 {
     width: 100%;
     max-width: 1180px;
-    height: 180px;
+    height: 50px;
     margin-left: auto;
     margin-right: auto;
     float: none;
@@ -299,7 +289,7 @@ body {
     margin-left: auto;
     margin-right: auto;
     width: 100%;
-    height: 180px;
+    height: 50px;
 }
 .span-typo {
     width: 31%;
@@ -814,44 +804,6 @@ ul.sidebar-social li {
     text-decoration: none;
     display: inline-block;
 }
-/* BOTTOM MENU */
-
-ul.bottom-menu {
-    list-style: none;
-    padding: 0px;
-    margin: 0px;
-    border: none;
-    width: 100%;
-    float: left;
-}
-ul.bottom-menu li {
-    padding: 0px;
-    width: auto;
-    height: auto;
-    list-style: none;
-    display: inline-block;
-    text-decoration: none;
-    margin-right: 20px;
-}
-ul.bottom-menu li a {
-    font-size: 14px;
-    display: inline-block;
-    padding: 12px 16px;
-    margin: 0px;
-    text-decoration: none;
-    color: #737373;
-    width: auto;
-    font-weight: lighter;
-}
-ul.bottom-menu li a:hover, ul.bottom-menu li a:focus {
-    color: #fff;
-}
-ul.bottom-menu li a:hover, ul.bottom-menu li a:hover span {
-    color: #fff;
-}
-ul.bottom-menu li:last-child {
-    margin-right: 0px;
-}
 /* INPUT SETTINGS */
 
 input.span-1, textarea.span-1 {
@@ -1017,7 +969,7 @@ img {
     float: left;
 }
 .top_div ul {
-    float: left;
+    float: right;
     width: auto;
     padding: 0;
     margin: 0px;
@@ -1079,8 +1031,9 @@ img {
 .top_div li.sub:hover ul {
     top: 3em;
 }
-/* MAIN LOGO */
 
+
+/* MAIN LOGO */
 a.main-logo {
     width: 165px;
     height: 49px;
@@ -1243,6 +1196,12 @@ a.social-6:hover {
     width: 100%;
     height: 100%;
 }
+
+
+
+
+
+
 /* Responsive Original Items */
 
 //ul.gallery-listed li:nth-child(4n) {margin-right:0;}
@@ -1312,6 +1271,12 @@ a.s-tag:hover {
     display: inline-block;
     float: right;
 }
+
+
+
+
+
+
 /* RESPONSIVE LINES */
 /**/
 /* Show one image on devices under 540px */
@@ -1496,6 +1461,12 @@ a.s-tag:hover {
         min-height: 110px !important;
     }
 }
+
+
+
+
+
+/* Responsive Design  */
 /* Show one images on devices between 550 and 800px wide */
 
 @media screen and (min-width: 540px) and (max-width: 800px) {
