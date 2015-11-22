@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  get 'videos/watch'
+
   resources :comedies
 
   root 'pages#home'
@@ -31,6 +33,11 @@ Rails.application.routes.draw do
   match '/top_stories', to: 'forum#top_stories', via: 'get'
   match '/contact', to: 'pages#contact', via: 'get'
   match '/advertise', to: 'pages#advertise', via: 'get'
+  match '/about', to: 'pages#about', via: 'get'
+  match '/subscribe', to: 'pages#subscribe', via: 'get'
+  match '/terms', to: 'pages#terms', via: 'get'
+
+
 
 
 

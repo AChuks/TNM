@@ -2,18 +2,19 @@ class PagesController < ApplicationController
   def home
   end
 
-  def videos
-  end
-
-  def fashion
-  end
-
-  def forum
-  end
-
   def contact
   end
 
   def advertise
   end
+
+  def about
+  end
+
+  def subscribe
+  end
+
+  def terms
+  end
+
 end
