@@ -15,55 +15,18 @@
                         <div class="carousel_wrapper">
                             <div class="carousel">
                                 <ul id="c-slider" class="hover-effect">
+                                    <% @trending_videos.each do |videotemplate| %>
                                     <li class="view view-first carou-img">
                                         <div class="masked">
-                                            <a href = "watch?url=j2CyNVOVI1k;vid_metadata= Wizkid - Ojuelegba [Official Video] ">
-                                                <%= image_tag('https://s3-eu-west-1.amazonaws.com/afrimages/yt/ws/wizOjuelegba.png',alt:'#') %>
-                                                Wizkid - Ojuelegba [Official Video]
+                                            <a href = "watch?url=<%= videotemplate.url %>;title=<%= videotemplate.title %>;meta_data=<%= videotemplate.meta_data %>">
+                                                <img src = "https://i.ytimg.com/vi/<%= videotemplate.url %>/mqdefault.jpg">
+                                                 <%= videotemplate.title %>
                                             </a>
                                         </div>
                                     </li>
-                                    <li class="view view-first carou-img">
-                                        <div class="masked">
-                                            <a href = "watch?url=Ndu46ieBvJw">
-                                                <%= image_tag('https://s3-eu-west-1.amazonaws.com/afrimages/yt/ws/miBadbelle.png',alt:'#') %>
-                                                MI Abaga - Bad Belle ft Moti Cakes
-                                            </a>
-                                        </div>
-                                    </li>
-                                    <li class="view view-first carou-img">
-                                        <div class="masked">
-                                            <a href = "watch?url=sqflXTvth3s">
-                                                <%= image_tag('https://s3-eu-west-1.amazonaws.com/afrimages/yt/ws/davidoSkelewu.png',alt:'#') %>
-                                                Davido - Skelewu
-                                            </a>
-                                        </div>
-                                    </li>
-                                    <li class="view view-first carou-img">
-                                        <div class="masked">
-                                            <a href = "watch?url=1vHAPqOTOMs">
-                                                <%= image_tag('https://s3-eu-west-1.amazonaws.com/afrimages/yt/ws/azontoAllstar.png',alt:'#') %>
-                                                Azonto All Star -  London Part 1
-                                            </a>
-                                        </div>
-                                    </li>
-                                    <li class="view view-first carou-img">
-                                        <div class="masked">
-                                            <a href = "watch?url=fxgnycPN_zg">
-                                                <%= image_tag('https://s3-eu-west-1.amazonaws.com/afrimages/yt/ws/azontoAllstar3.png',alt:'#') %>
-                                                Azonto All Star - London Part 3
-                                            </a>
-                                        </div>
-                                    </li>
-                                    <li class="view view-first carou-img">
-                                        <div class="masked">
-                                            <a href = "watch?url=2tTAUMJ2yIc">
-                                                <%= image_tag('https://s3-eu-west-1.amazonaws.com/afrimages/yt/ws/2FaceDancefloor.png',alt:'#') %>
-                                                2Face - Dance Floor
-                                            </a>
-                                        </div>
-                                    </li>
+                                    <% end %>
                                 </ul>
+
                                 <div class="clearfix"></div>
                                 <!-- NEWEST CAROUSEL NEXT AND PREV -->
                                 <a id="carousel_prev" class="prev" href="#"></a>
@@ -75,25 +38,35 @@
                     <!-- FEATURED BOX -->
                     <div class="span-mainbox-cont">
                         <h1><strong>Featured Videos</strong></h1>
-                        <div class="iframe-container">
-                            <iframe src="http://www.youtube.com/embed/gVe5CxcQEWg" width="690" height="390" id="widget_video" name="widget_video"></iframe>
-                        </div>
+                        <div id='playerxOMAufbyCsCE'></div>
+                        <script type='text/javascript'>
+                        jwplayer('playerxOMAufbyCsCE').setup({
+                        file: 'https://www.youtube.com/watch?v=rwmCfxTQiHQ',
+                        image: 'https://i.ytimg.com/vi/rwmCfxTQiHQ/mqdefault.jpg',
+                        width: '100%',
+                        aspectratio: '16:9',
+                        autostart: 'false'
+                        });
+                        </script>
                     </div>
+
                     <div class="clear"></div>
                     <div class="span-mainbox-cont">
-                        <h1>All Videos</h1>
+                        <h1><strong>All Videos</strong></h1>
                         <div class="span-fullwidth">
                         <!-- CONTENT -->
               <ul class="gallery-listed clearfix">
-                <% @videos.each do |videotemplate| %>
+                <% @youtube_videos.each do |videotemplate| %>
                 <li>
                   <!-- IMAGE -->
                   <div class="hover-effect">
                     <div class="view view-first">
                       <div class="masked">
-                        <a href = "watch?url=<%= videotemplate.url %>;vid_metadata=<%= videotemplate.mdata %>;img=<%= videotemplate.img %>">
-                          <img src = "https://s3-eu-west-1.amazonaws.com/afrimages/yt/ws/<%= videotemplate.img%>">
-                          <%= videotemplate.mdata %>
+                        <a href = "watch?url=<%= videotemplate.url %>;title=<%= videotemplate.title %>;meta_data=<%= videotemplate.meta_data %>">
+                          <img src = "https://i.ytimg.com/vi/<%= videotemplate.url %>/mqdefault.jpg">
+                          <%= videotemplate.title %>
+                      </br>
+                          <%= videotemplate.date.to_date %>
                         </a>
                       </div>
                     </div>
@@ -101,7 +74,7 @@
                 </li>
                 <% end %>
               </ul>
-              <%= will_paginate @videos %>
+              <%= will_paginate @youtube_videos %>
             </div>
           </div>
           <div class="clear"></div>

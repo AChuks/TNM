@@ -4,8 +4,8 @@ describe "videos/show" do
   before(:each) do
     @video = assign(:video, stub_model(Video,
       :url => "Url",
-      :mdata => "Mdata",
-      :img => "Img"
+      :title => "Title",
+      :meta_data => "Meta Data"
     ))
   end
 
@@ -13,7 +13,7 @@ describe "videos/show" do
     render
     # Run the generator again with the --webrat flag if you want to use webrat matchers
     rendered.should match(/Url/)
-    rendered.should match(/Mdata/)
-    rendered.should match(/Img/)
+    rendered.should match(/Title/)
+    rendered.should match(/Meta Data/)
   end
 end

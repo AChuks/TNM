@@ -15,7 +15,7 @@
                         <script type='text/javascript'>
                         jwplayer('playerxOMAufbyCsCE').setup({
                         file: 'https://www.youtube.com/watch?v=<%= @url %>',
-                        image: 'https://s3-eu-west-1.amazonaws.com/afrimages/yt/ws/<%= @img %>',
+                        image: 'https://i.ytimg.com/vi/<%= @url %>/mqdefault.jpg',
                         width: '100%',
                         aspectratio: '16:9',
                         autostart: 'true'
@@ -26,7 +26,7 @@
                             <!-- CONTENT -->
                             <div class="inner-content" style="margin-top:10px;">
                                 <div class="video-metadata-container">
-                                    <h2 class="video-metadata"><%= @vid_metadata %> </h2>
+                                    <h2 class="video-metadata"><%= @title %> </h2>
                                 </div>
                                 <div class="social-sharebuttons">
                                     <div class="follow-icons">
@@ -50,63 +50,26 @@
                     <div class="clear"></div>
                     <!-- MOST WATCHED BOX -->
                     <div class="span-mainbox-cont">
-                        <h1>related videos</h1>
+                        <h1>Related Videos</h1>
                         <!-- MOST WATCHED SLIDER -->
                         <div class="carousel_wrapper">
                             <div class="carousel">
-                                <ul id="c-slider2" class="hover-effect">
+                                <ul id="c-slider" class="hover-effect">
+                                    <% @related_videos.each do |videotemplate| %>
                                     <li class="view view-first carou-img">
-                                        <img src="images/thumbs/small/thumb-6.jpg" alt="#">
-                                        <div class="mask">
-                                            <a href="http://vimeo.com/23534361" class="icon-zoom" data-rel="prettyPhoto" title="Click to Play Video" ></a>
-                                            <a href="#" class="icon-link" title="Link to Post"></a>
-                                            <a href="#" class="info" title="Link to Post">Be quiet!</a>
+                                        <div class="masked">
+                                            <a href = "watch?url=<%= videotemplate.url %>;title=<%= videotemplate.title %>;meta_data=<%= videotemplate.meta_data %>">
+                                                <img src = "https://i.ytimg.com/vi/<%= videotemplate.url %>/mqdefault.jpg">
+                                                 <%= videotemplate.title %>
+                                            </a>
                                         </div>
                                     </li>
-                                    <li class="view view-first carou-img">
-                                        <img src="images/thumbs/small/thumb-5.jpg" alt="#">
-                                        <div class="mask">
-                                            <a href="http://vimeo.com/23534361" class="icon-zoom" data-rel="prettyPhoto" title="Click to Play Video" ></a>
-                                            <a href="#" class="icon-link" title="Link to Post"></a>
-                                            <a href="#" class="info" title="Link to Post">Nice sixties at beach</a>
-                                        </div>
-                                    </li>
-                                    <li class="view view-first carou-img">
-                                        <img src="images/thumbs/small/thumb-4.jpg" alt="#">
-                                        <div class="mask">
-                                            <a href="http://vimeo.com/23534361" class="icon-zoom" data-rel="prettyPhoto" title="Click to Play Video" ></a>
-                                            <a href="#" class="icon-link" title="Link to Post"></a>
-                                            <a href="#" class="info" title="Link to Post">Carnival mask</a>
-                                        </div>
-                                    </li>
-                                    <li class="view view-first carou-img">
-                                        <img src="images/thumbs/small/thumb-3.jpg" alt="#">
-                                        <div class="mask">
-                                            <a href="http://vimeo.com/23534361" class="icon-zoom" data-rel="prettyPhoto" title="Click to Play Video" ></a>
-                                            <a href="#" class="icon-link" title="Link to Post"></a>
-                                            <a href="#" class="info" title="Link to Post">Hmmm, those are real?</a>
-                                        </div>
-                                    </li>
-                                    <li class="view view-first carou-img">
-                                        <img src="images/thumbs/small/thumb-2.jpg" alt="#">
-                                        <div class="mask">
-                                            <a href="http://vimeo.com/23534361" class="icon-zoom" data-rel="prettyPhoto" title="Click to Play Video" ></a>
-                                            <a href="#" class="icon-link" title="Link to Post"></a>
-                                            <a href="#" class="info" title="Link to Post">Amazing Brunette in bed</a>
-                                        </div>
-                                    </li>
-                                    <li class="view view-first carou-img">
-                                        <img src="images/thumbs/small/thumb-1.jpg" alt="#">
-                                        <div class="mask">
-                                            <a href="http://vimeo.com/23534361" class="icon-zoom" data-rel="prettyPhoto" title="Click to Play Video" ></a>
-                                            <a href="#" class="icon-link" title="Link to Post"></a>
-                                            <a href="#" class="info" title="Link to Post">Beauty Woman</a>
-                                        </div>
-                                    </li>
+                                    <% end %>
                                 </ul>
                                 <div class="clearfix"></div>
-                                <a id="carousel_prev2" class="prev" href="#"></a>
-                                <a id="carousel_next2" class="next" href="#"></a>
+                                <!-- NEWEST CAROUSEL NEXT AND PREV -->
+                                <a id="carousel_prev" class="prev" href="#"></a>
+                                <a id="carousel_next" class="next" href="#"></a>
                             </div>
                         </div>
                         <!-- END MOST WATCHED SLIDER -->
@@ -115,63 +78,7 @@
                     <!-- BLOG BOX -->
                     <div class="span-mainbox-cont noborder">
                         <div class="inner-content">
-                            <h1>leave comment</h1>
-                            <div class="span-12">
-                                <!-- BLOG CONTENT -->
-                                <div id="comment_form">
-                                    <form name="comment_form1" method="post" action="#" id="comment_form1">
-                                        <fieldset>
-                                            <legend></legend>
-                                            <div class="span-28-2">
-                                                <input type="text" name="name" id="name" value="Your name" class="contact" onfocus="if (this.value=='Your name') this.value = ''">
-                                            </div>
-                                            <div class="span-28-2">
-                                                <input type="text" name="email" id="email" class="contact" value="Enter your email address" onfocus="if (this.value=='Enter your email address') this.value = ''">
-                                            </div>
-                                            <div class="span-28">
-                                                <textarea rows="10" name="comment" id="comment" cols="5" class="contact">Your comment</textarea>
-                                            </div>
-                                            <div class="span-28 top-margin">
-                                                <input class="contact-submit-btn" type="submit" value="Send Comment">
-                                            </div>
-                                        </fieldset>
-                                    </form>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- BLOG BOX -->
-                    <div class="span-mainbox-cont noborder">
-                        <div class="inner-content">
-                            <h1>Comments</h1>
-                            <div class="span-comm-col">
-                                <h4 style="widht:auto; float:left;">John Doe</h4>
-                                <div class="span-comm-date-list">Published on May 7, 2013</div>
-                                <div class="clearfix"></div>
-                                <p>Cras aliquet. Integer faucibus, eros ac molestie placerat, enim tellus varius lacus, nec dictum nunc tortor id urna. Suspendisse dapibus ullamcorper pede. Vivamus ligula ipsum, faucibus at, tincidunt eget, porttitor non, dolor. Ut dui lectus, ultrices ut, sodales tincidunt, viverra sed, nisl. Cras aliquet.</p>
-                                <a href="#" class="author" title="Reply">Reply</a>
-                            </div>
-                            <div class="span-comm-col">
-                                <h4 style="widht:auto; float:left;">John Doe</h4>
-                                <div class="span-comm-date-list">Published on May 7, 2013</div>
-                                <div class="clearfix"></div>
-                                <p>Cras aliquet. Integer faucibus, eros ac molestie placerat, enim tellus varius lacus, nec dictum nunc tortor id urna. Suspendisse dapibus ullamcorper pede. Vivamus ligula ipsum, faucibus at, tincidunt eget, porttitor non, dolor. Ut dui lectus, ultrices ut, sodales tincidunt, viverra sed, nisl. Cras aliquet.</p>
-                                <a href="#" class="author" title="Reply">Reply</a>
-                            </div>
-                            <div class="span-comm-col">
-                                <h4 style="widht:auto; float:left;">John Doe</h4>
-                                <div class="span-comm-date-list">Published on May 7, 2013</div>
-                                <div class="clearfix"></div>
-                                <p>Cras aliquet. Integer faucibus, eros ac molestie placerat, enim tellus varius lacus, nec dictum nunc tortor id urna. Suspendisse dapibus ullamcorper pede. Vivamus ligula ipsum, faucibus at, tincidunt eget, porttitor non, dolor. Ut dui lectus, ultrices ut, sodales tincidunt, viverra sed, nisl. Cras aliquet.</p>
-                                <a href="#" class="author" title="Reply">Reply</a>
-                            </div>
-                            <ul class="post-tags">
-                                <li><a href="#">1</a></li>
-                                <li><a href="#">2</a></li>
-                                <li><a href="#">3</a></li>
-                                <li><a href="#">4</a></li>
-                                <li><a href="#">5</a></li>
-                            </ul>
+                            <%= render :partial => "the_comments/haml/tree", :locals => { :commentable => @current_video, :comments_tree => @comments }%>
                         </div>
                     </div>
                     <div class="fix-gap"></div>
@@ -181,5 +88,4 @@
         <%= render "layouts/footer" %>
     </div>
 </div>
- No newline at end of file
 

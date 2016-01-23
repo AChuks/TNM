@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Url:</strong>
+  <%= @trending.url %>
+</p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @trending.title %>
+</p>
+
+<p>
+  <strong>Date:</strong>
+  <%= @trending.date %>
+</p>
+
+<p>
+  <strong>Meta data:</strong>
+  <%= @trending.meta_data %>
+</p>
+
+<%= link_to 'Edit', edit_trending_path(@trending) %> |
+<%= link_to 'Back', trendings_path %>

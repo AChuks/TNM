@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Url:</strong>
+  <%= @youtube.url %>
+</p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @youtube.title %>
+</p>
+
+<p>
+  <strong>Date:</strong>
+  <%= @youtube.date %>
+</p>
+
+<p>
+  <strong>Meta data:</strong>
+  <%= @youtube.meta_data %>
+</p>
+
+<%= link_to 'Edit', edit_youtube_path(@youtube) %> |
+<%= link_to 'Back', youtubes_path %>

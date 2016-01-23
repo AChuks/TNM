@@ -11,7 +11,11 @@ gem 'faker', '1.1.2'
 gem 'will_paginate', '3.0.7'
 gem 'bootstrap-will_paginate', '0.0.10'
 gem 'autoprefixer-rails'
-
+gem 'yt', '~> 0.25.5'
+gem "the_comments", "~> 2.2.1"
+gem 'haml'                # or gem 'slim'
+gem 'awesome_nested_set'  # or same gem
+gem 'bcrypt',  '3.1.7'
 
 # Use sqlite3 as the database for Active Record
 group :development, :test do
@@ -22,11 +26,12 @@ group :development, :test do
     gem 'hirb'
 end
 
-group :test do 
+group :test do
     gem 'selenium-webdriver', '2.35.1'
     gem 'capybara', '2.1.0'
     gem 'factory_girl_rails', '4.2.1'
-end 
+    gem 'minitest'
+end
 
 # Use SCSS for stylesheets
 #gem 'sass-rails', '>=3.2'

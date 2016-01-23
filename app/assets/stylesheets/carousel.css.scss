@@ -68,8 +68,9 @@
 			}
 			// Style Carousel's <a href> tag
 			.carousel li a {
-				font-size:15px;
+				font-size:14px;
 				color:#00488f;
+				background-color: transparent;
 				text-align:left;
 				float:initial;
 				text-decoration: none;
@@ -92,7 +93,6 @@
 	display: block;
 	position: absolute;
 	top: -64px;
-	
 }
 a.prev {right: 36px; background-position: 0 0; }
 a.prev.disabled {background-position: 0 -100px !important;  }
@@ -102,7 +102,6 @@ a.next.disabled { background-color:#fff;  }
 a.prev.disabled, a.next.disabled { cursor: default;}
 
 a.prev span, a.next span {display: none; }
-		
 			.carousel .carousel_pager {
 				margin:0 auto;
 				text-align: center;
@@ -119,5 +118,5 @@ a.prev span, a.next span {display: none; }
 			}
 			.carousel .carousel_pager a.selected {
 				text-decoration: underline;
-				background: transparent url('/assets/carousel_control.png') no-repeat -12px -32px;				
+				background: transparent url('/assets/carousel_control.png') no-repeat -12px -32px;
 			}

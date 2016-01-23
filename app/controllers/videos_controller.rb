@@ -10,6 +10,8 @@ class VideosController < ApplicationController
   # GET /videos/1
   # GET /videos/1.json
   def show
+  @video   = Video.find params[:id]
+  @comments = @video.comments.with_state([:draft, :published])
   end
 
   # GET /videos/new
@@ -63,8 +65,12 @@ class VideosController < ApplicationController
 
   def watch
     @url = params[:url]
-    @vid_metadata = params[:vid_metadata]
-    @img = params[:img]
+    @title = params[:title]
+    @meta_data = params[:meta_data]
+    @related_videos = view_context.get_related_videos(@meta_data)
+    @current_video_relation =  Youtube.same_url_as(@url)
+    @current_video = @current_video_relation.first
+    @comments = @current_video.comments.with_state([:draft, :published])
   end
 
   private
@@ -75,6 +81,6 @@ class VideosController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def video_params
-      params.require(:video).permit(:url, :mdata, :img)
+      params.require(:video).permit(:url, :title, :date, :meta_data)
     end
 end
