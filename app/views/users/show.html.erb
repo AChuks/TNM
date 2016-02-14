@@ -1,14 +1,33 @@
-<p id="notice"><%= notice %></p>
+<% provide(:title, @user.name)%>
+<!-- MAIN DIV CONTAINERS -->
+<!-- NEW SECTION-->
+<div id="div-container">
+	<div id="main-container">
+		<div id="content">
+			<div id="content-wrapper">
+				<%= render "layouts/sidebar" %>
+				<%= render 'shared/flash_messages' %>
+				<!-- Main Content -->
+				<div id="span-mainbox">
+					<div class="span-mainbox-cont">
+						<div class="row">
+						  <aside class="col-md-4">
+						    <section class="user_info">
+						      <h1>
+						        <%= gravatar_for @user %>
+						        <%= @user.name %>
+						      </h1>
+						    </section>
+						  </aside>
+						</div>
+						<%= link_to 'Edit', edit_user_path(@user) %> |
+						<%= link_to 'Back', users_path %>
 
-<p>
-  <strong>Name:</strong>
-  <%= @user.name %>
-</p>
-
-<p>
-  <strong>Email:</strong>
-  <%= @user.email %>
-</p>
-
-<%= link_to 'Edit', edit_user_path(@user) %> |
-<%= link_to 'Back', users_path %>
+					</div>
+					<div class="clear"></div>
+					<div class="fix-gap"></div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

@@ -1,60 +1,57 @@
 <% provide(:title, 'Home')%>
 <!-- MAIN DIV CONTAINERS -->
-<%= render "layouts/header" %>
 <!-- NEW SECTION-->
 <div id="div-container">
-    <div id="main-container">
-        <div id="content">
-            <div id="content-wrapper">
-                <%= render "layouts/sidebar" %>
-                <!-- Main Content -->
-                <div id="span-mainbox">
-                    <div class="span-mainbox-cont">
-                        <h1><strong>Trending Videos</strong></h1>
-                        <!-- SLIDER -->
-                        <div class="carousel_wrapper">
-                            <div class="carousel">
-                                <ul id="c-slider" class="hover-effect">
-                                    <% @trending_videos.each do |videotemplate| %>
-                                    <li class="view view-first carou-img">
-                                        <div class="masked">
-                                            <a href = "watch?url=<%= videotemplate.url %>;title=<%= videotemplate.title %>;meta_data=<%= videotemplate.meta_data %>">
-                                                <img src = "https://i.ytimg.com/vi/<%= videotemplate.url %>/mqdefault.jpg">
-                                                 <%= videotemplate.title %>
-                                            </a>
-                                        </div>
-                                    </li>
-                                    <% end %>
-                                </ul>
-
-                                <div class="clearfix"></div>
-                                <!-- NEWEST CAROUSEL NEXT AND PREV -->
-                                <a id="carousel_prev" class="prev" href="#"></a>
-                                <a id="carousel_next" class="next" href="#"></a>
-                            </div>
-                        </div>
-                        <!-- END SLIDER -->
+  <div id="main-container">
+    <div id="content">
+      <div id="content-wrapper">
+        <%= render "layouts/sidebar" %>
+        <!-- Main Content -->
+        <div id="span-mainbox">
+          <div class="span-mainbox-cont">
+            <h1><strong>Trending Videos</strong></h1>
+            <!-- SLIDER -->
+            <div class="carousel_wrapper">
+              <div class="carousel">
+                <ul id="c-slider" class="hover-effect">
+                  <% @trending_videos.each do |videotemplate| %>
+                  <li class="view view-first carou-img">
+                    <div class="masked">
+                      <a href = "watch?url=<%= videotemplate.url %>;title=<%= videotemplate.title %>;meta_data=<%= videotemplate.meta_data %>">
+                        <img src = "https://i.ytimg.com/vi/<%= videotemplate.url %>/mqdefault.jpg">
+                        <%= videotemplate.title %>
+                      </a>
                     </div>
-                    <!-- FEATURED BOX -->
-                    <div class="span-mainbox-cont">
-                        <h1><strong>Featured Videos</strong></h1>
-                        <div id='playerxOMAufbyCsCE'></div>
-                        <script type='text/javascript'>
-                        jwplayer('playerxOMAufbyCsCE').setup({
-                        file: 'https://www.youtube.com/watch?v=rwmCfxTQiHQ',
-                        image: 'https://i.ytimg.com/vi/rwmCfxTQiHQ/mqdefault.jpg',
-                        width: '100%',
-                        aspectratio: '16:9',
-                        autostart: 'false'
-                        });
-                        </script>
-                    </div>
-
-                    <div class="clear"></div>
-                    <div class="span-mainbox-cont">
-                        <h1><strong>All Videos</strong></h1>
-                        <div class="span-fullwidth">
-                        <!-- CONTENT -->
+                  </li>
+                  <% end %>
+                </ul>
+                <div class="clearfix"></div>
+                <!-- NEWEST CAROUSEL NEXT AND PREV -->
+                <a id="carousel_prev" class="prev" href="#"></a>
+                <a id="carousel_next" class="next" href="#"></a>
+              </div>
+            </div>
+            <!-- END SLIDER -->
+          </div>
+          <!-- FEATURED BOX -->
+          <div class="span-mainbox-cont">
+            <h1><strong>Featured Videos</strong></h1>
+            <div id='playerxOMAufbyCsCE'></div>
+            <script type='text/javascript'>
+            jwplayer('playerxOMAufbyCsCE').setup({
+            file: 'https://www.youtube.com/watch?v=rwmCfxTQiHQ',
+            image: 'https://i.ytimg.com/vi/rwmCfxTQiHQ/mqdefault.jpg',
+            width: '100%',
+            aspectratio: '16:9',
+            autostart: 'false'
+            });
+            </script>
+          </div>
+          <div class="clear"></div>
+          <div class="span-mainbox-cont">
+            <h1><strong>All Videos</strong></h1>
+            <div class="span-fullwidth">
+              <!-- CONTENT -->
               <ul class="gallery-listed clearfix">
                 <% @youtube_videos.each do |videotemplate| %>
                 <li>
@@ -65,7 +62,7 @@
                         <a href = "watch?url=<%= videotemplate.url %>;title=<%= videotemplate.title %>;meta_data=<%= videotemplate.meta_data %>">
                           <img src = "https://i.ytimg.com/vi/<%= videotemplate.url %>/mqdefault.jpg">
                           <%= videotemplate.title %>
-                      </br>
+                          </br>
                           <%= videotemplate.date.to_date %>
                         </a>
                       </div>
@@ -79,9 +76,8 @@
           </div>
           <div class="clear"></div>
           <div class="fix-gap"></div>
-                </div>
-            </div>
         </div>
-        <%= render "layouts/footer" %>
+      </div>
     </div>
+  </div>
 </div>
