@@ -3,7 +3,7 @@ $(document).ready(function(){
 
 	var owl = $(".owl-carousel");
 	if (initialLoad == true){
-		owl.html(owl.find('.owl-wrapper').html());
+		owl.html(owl.find('.owl-carousel').html());
 	}
 	owl.owlCarousel({
     	autoPlay: true
