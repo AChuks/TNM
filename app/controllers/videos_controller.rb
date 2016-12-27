@@ -11,7 +11,6 @@ class VideosController < ApplicationController
   # GET /videos/1.json
   def show
   @video   = Video.find params[:id]
-  @comments = @video.comments.with_state([:draft, :published])
   end
 
   # GET /videos/new
@@ -67,10 +66,10 @@ class VideosController < ApplicationController
     @url = params[:url]
     @title = params[:title]
     @meta_data = params[:meta_data]
-    @related_videos = view_context.get_related_videos(@meta_data)
+    @related_videos = view_context.get_related_videos(@meta_data).order("RANDOM()")[0,20]
+    @trending_videos = view_context.get_trending_videos()
     @current_video_relation =  Youtube.same_url_as(@url)
     @current_video = @current_video_relation.first
-    @comments = @current_video.comments.with_state([:draft, :published])
   end
 
   private

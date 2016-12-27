@@ -16,7 +16,7 @@ module TrendingsHelper
 
     	if Trending.all.blank?
       		all_channel.each {|each_channel| each_channel= Yt::Channel.new url: each_channel
-      		Trending.create(:url => each_channel.videos.where(order: 'viewCount').map.first.id, :title => each_channel.videos.where(order: 'viewCount').map.first.title, :date => each_channel.videos.where(order: 'viewCount').map.first.published_at, :meta_data => each_channel.videos.where(order: 'viewCount').map.first.channel_id) }
+      		Trending.create(:url => each_channel.videos.where(order: 'viewCount').map.first.id, :title => each_channel.videos.where(order: 'viewCount').map.first.title.tr('#',''), :date => each_channel.videos.where(order: 'viewCount').map.first.published_at, :meta_data => each_channel.videos.where(order: 'viewCount').map.first.channel_id) }
     	end
     	@trending_videos = Trending.all
     	return @trending_videos

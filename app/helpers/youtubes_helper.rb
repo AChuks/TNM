@@ -16,7 +16,9 @@ module YoutubesHelper
 
     	if Youtube.all.blank?
       		all_channel.each {|each_channel| each_channel = Yt::Channel.new url: each_channel
-      		each_channel.videos.map { |e| Youtube.create(:url => e.id, :title => e.title, :date => e.published_at, :meta_data => e.channel_id) }}
+      		each_channel.videos.map { |e| 
+                Youtube.create(:url => e.id, :title => e.title.tr('#',''), :date => e.published_at, :meta_data => e.channel_id)
+            }}
     	end
     	@youtube_videos = Youtube.paginate(page: params[:page],:per_page => 60).order('date DESC')
     	return @youtube_videos

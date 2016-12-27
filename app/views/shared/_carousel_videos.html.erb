@@ -1,0 +1,14 @@
+<div class="owl-carousel">
+    <% carousel_videos.each do |videotemplate| %>
+    <div class ="hover-effect">
+      <div class="view view-first carou-img">
+        <div class="masked">
+          <a href = "watch?url=<%= videotemplate.url %>;title=<%= videotemplate.title %>;meta_data=<%= videotemplate.meta_data %>">
+            <img src = "https://i.ytimg.com/vi/<%= videotemplate.url %>/mqdefault.jpg">
+            <%= videotemplate.title %>
+          </a>
+        </div>
+      </div>
+    </div>
+    <% end %>
+</div>

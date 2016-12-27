@@ -1,62 +1,4 @@
 @charset "utf-8";
-/* CSS Document */
-/* -----------------------------------------------------------------------
-
- Medioworks Tuber Social Video Theme Framework 1.0.1
- © Copyright 2013 - Design and Sitebuild
- Web - www.medioworks.com
- Envato Exclusive Author - http://themeforest.net/user/MedioWorks
-
------------------------------------------------------------------------ */
-
-/* hover-items.css */
-
-
-/* 2 THUMB SIZE */
-.hover-effect-2 .view {
-   width: 100% !important;
-   height: 100% !important;
-   margin: 0px;
-   float: left;
-   border: 0px solid #fff;
-   overflow: hidden;
-   position: relative;
-   text-align: center;
-   cursor: default;
-}
-.hover-effect-2 .view .mask,.view .content {
-   width: 100% !important;
-   height: 100% !important;
-   position: absolute;
-   overflow: hidden;
-   top: 0;
-   left: 0;
-}
-
-
-/* 3 THUMB SIZE */
-.hover-effect-3 .view {
-   width: 100% !important;
-   height: 100% !important;
-   margin: 0px;
-   float: left;
-   border: 0px solid #fff;
-   overflow: hidden;
-   position: relative;
-   text-align: center;
-   cursor: default;
-   margin-bottom:20px;
-}
-.hover-effect-3 .view .mask,.view .content {
-   width: 100% !important;
-   height: 100% !important;
-   position: absolute;
-   overflow: hidden;
-   top: 0;
-   left: 0;
-}
-
-/* 1 THUMB SIZE */
 
 .hover-effect li.view, .hover-effect div.view {
  
@@ -115,20 +57,6 @@
    float: left;
 }
 
-
-/* ICONS */
-.hover-effect li a.icon-link, .hover-effect div a.icon-link, .hover-effect-2 a.icon-link, .hover-effect-3 a.icon-link {
-   background:url("../images/icon-link.png") no-repeat scroll center center;
-}
-
-.hover-effect li a.icon-zoom, .hover-effect div a.icon-zoom, .hover-effect-2 a.icon-zoom, .hover-effect-3 a.icon-zoom {
-   background: url("../images/icon-zoom.png") no-repeat scroll center center;
-}
-
-
-.carou-img {width:266px !important; margin-right:15px !important;}
-
-/* MASK */
 .view-first img {
    -webkit-transition: all 0.2s linear;
    -moz-transition: all 0.2s linear;

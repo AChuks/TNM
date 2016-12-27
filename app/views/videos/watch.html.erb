@@ -1,89 +1,84 @@
 <% provide(:title, 'Watch')%>
-<!-- MAIN DIV CONTAINERS -->
-<!-- NEW SECTION-->
-<div id="div-container">
-    <div id="main-container">
-        <div id="content">
-            <div id="content-wrapper">
-                <%= render "layouts/sidebar"%>
-                <div id="span-mainbox">
-                    <!-- FEATURED BOX -->
-                    <div class="span-mainbox-cont">
-                        <h3></h3>
-                        <div id='playerxOMAufbyCsCE'></div>
-                        <script type='text/javascript'>
-                        jwplayer('playerxOMAufbyCsCE').setup({
-                        file: 'https://www.youtube.com/watch?v=<%= @url %>',
-                        image: 'https://i.ytimg.com/vi/<%= @url %>/mqdefault.jpg',
-                        width: '100%',
-                        aspectratio: '16:9',
-                        autostart: 'true'
-                        });
-                        </script>
-                        <!-- </div> -->
-                        <div class="span-post">
-                            <!-- CONTENT -->
-                            <div class="inner-content" style="margin-top:10px;">
-                                <div class="video-metadata-container">
-                                    <h2 class="video-metadata"><%= @title %> </h2>
-                                </div>
-                                <div class="social-sharebuttons">
-                                    <div class="follow-icons">
-                                        <!-- TWITTER'S ICON  -->
-                                        <span class="twitter-follow-container">
-                                        <iframe src="//platform.twitter.com/widgets/follow_button.html?screen_name=techcrunch&lang=en&show_count=false" style="width: 60px; height: 20px;" allowtransparency="true" frameborder="0" scrolling="no">
-                                        </iframe>
-                                        <iframe src="https://platform.twitter.com/widgets/tweet_button.html?url=https%3A%2F%2FAfroRenaissance.com&count=none&via=twitterdev&text=Explore!%20Create!%20Influence!&hashtags=Afro%2CRenaissance" title="Twitter Tweet Button" style="width:60px; height: 20px;" allowtransparency="true" frameborder="0" scrolling="no">
-                                        </iframe>
-                                        </span>
-                                        <!-- FACEBOOK'S ICON -->
-                                        <span class="facebook-like-container">
-                                        <iframe src="//www.facebook.com/plugins/like.php?href=https%3A%2F%2Ffacebook.com%2Ftechcrunch%2F&amp;width&amp;layout=button_count&amp;action=like&amp;show_faces=false&amp;share=true&amp;height=20" scrolling="no" frameborder="0" style=" width: 132px; height:20px;">
-                                        </iframe>
-                                        </span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="clear"></div>
-                    <!-- MOST WATCHED BOX -->
-                    <div class="span-mainbox-cont">
-                        <h1>Related Videos</h1>
-                        <!-- MOST WATCHED SLIDER -->
-                        <div class="carousel_wrapper">
-                            <div class="carousel">
-                                <ul id="c-slider" class="hover-effect">
-                                    <% @related_videos.each do |videotemplate| %>
-                                    <li class="view view-first carou-img">
-                                        <div class="masked">
-                                            <a href = "watch?url=<%= videotemplate.url %>;title=<%= videotemplate.title %>;meta_data=<%= videotemplate.meta_data %>">
-                                                <img src = "https://i.ytimg.com/vi/<%= videotemplate.url %>/mqdefault.jpg">
-                                                 <%= videotemplate.title %>
-                                            </a>
-                                        </div>
-                                    </li>
-                                    <% end %>
-                                </ul>
-                                <div class="clearfix"></div>
-                                <!-- NEWEST CAROUSEL NEXT AND PREV -->
-                                <a id="carousel_prev" class="prev" href="#"></a>
-                                <a id="carousel_next" class="next" href="#"></a>
-                            </div>
-                        </div>
-                        <!-- END MOST WATCHED SLIDER -->
-                    </div>
-                    <div class="clear"></div>
-                    <!-- BLOG BOX -->
-                    <div class="span-mainbox-cont noborder">
-                        <div class="inner-content">
-                            <%= render :partial => "the_comments/haml/tree", :locals => { :commentable => @current_video, :comments_tree => @comments }%>
-                        </div>
-                    </div>
-                    <div class="fix-gap"></div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
+<%= javascript_include_tag "owl_carousel", "data-turbolinks-track" => true %>
 
+
+<div class = "container-fluid">
+  <div class = "form-inline well">
+
+    <div class = row>
+        <h3>Trending Videos</h3>
+        &nbsp;
+    </div> 
+
+    <div class = "well">
+      <%= render partial: 'shared/carousel_videos',
+        object: @trending_videos
+      %>
+    </div>
+    <br/>
+
+    <div class = "row">
+      <div class = "col-sm-12">
+
+        <div class = "col-sm-9">
+          <div class = "well">
+            <div class="row">
+              <div id='playerxOMAufbyCsCE'></div>
+              <script type='text/javascript'>
+                jwplayer('playerxOMAufbyCsCE').setup({
+                file: 'https://www.youtube.com/watch?v=<%= @url %>',
+                image: 'https://i.ytimg.com/vi/<%= @url %>/mqdefault.jpg',
+                width: '100%',
+                aspectratio: '16:9',
+                autostart: 'true'
+                });
+              </script>              
+            </div>
+          </div>
+
+          <div class = "row">
+            <div id="disqus_thread"></div>
+            <script>
+              (function() { // DON'T EDIT BELOW THIS LINE
+              var d = document, s = d.createElement('script');
+              s.src = '//tnm-1.disqus.com/embed.js';
+              s.setAttribute('data-timestamp', +new Date());
+              (d.head || d.body).appendChild(s);
+              })();
+            </script>
+            <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+            </noscript>
+          </div>
+        </div>
+
+
+        <div class = "col-sm-3">
+          <div class = row>
+            <h4>Related Videos</h4>
+              &nbsp;
+          </div> 
+          <div class = "well">
+            <ul class="list-inline">
+              <% @related_videos.each do |videotemplate| %>
+              <li>
+                <div class="hover-effect">
+                  <div class="view view-first">
+                    <div class="masked">
+                      <a href = "watch?url=<%= videotemplate.url %>;title=<%= videotemplate.title %>;meta_data=<%= videotemplate.meta_data %>">
+                        <img src = "https://i.ytimg.com/vi/<%= videotemplate.url %>/mqdefault.jpg">
+                        <%= videotemplate.title %>
+                        </br>
+                        <%= videotemplate.date.to_date %>
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </li>
+              <% end %>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

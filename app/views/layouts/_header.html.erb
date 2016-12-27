@@ -1,14 +1,15 @@
-<div class="span-container">
-    <div class="span-29 container-blank">
-        <!-- TOP-LEFT MENU -->
-        <div class="top_div">
-            <ul class="top_div">
-                <li><%= link_to "Submit Video", vsubmit_path %></li>
-                <li><%= link_to "Contact", contact_path %></li>
-                <li><%= link_to "Advertise", advertise_path %></li>
-                <li><%= link_to "Sign Up", signup_path %></li>
-            </ul>
-             <a href="/" class="main-logo" title="Tuber - Social Video Theme"></a>
-        </div>
+<nav class="navbar navbar-inverse" role = "navigation">
+    <div class = "container-fluid">
+        <a href="/" class="main-logo"></a>
+        <ul class="nav navbar-nav pull-right">
+        <li><%= link_to vsubmit_path, {:style=>'text-decoration:none;'} do %>
+            <span class = "glyphicon glyphicon-film"></span> Submit Video
+            <% end %>
+        </li>
+        <li><%= link_to contact_path, {:style=>'text-decoration:none;'} do %>
+            <span class = "glyphicon glyphicon-pencil"></span> Contact Us
+            <% end %>
+        </li>
+    </ul>
     </div>
-</div>
+</nav>
