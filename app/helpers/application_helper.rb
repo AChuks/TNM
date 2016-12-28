@@ -1,7 +1,7 @@
 module ApplicationHelper
   
     def full_title(page_title)
-      base_title = "Afro Renaissance "
+      base_title = "TNM"
       if page_title.empty?
         base_title
       else
