@@ -17,4 +17,4 @@
 .env
 
 # Ignore certain Intellij xml files
-.idea/*
+.idea/
