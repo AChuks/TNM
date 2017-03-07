@@ -16,6 +16,7 @@ gem 'haml'                # or gem 'slim'
 gem 'awesome_nested_set'  # or same gem
 gem 'bcrypt',  '3.1.11'
 gem 'owlcarousel-rails'
+gem 'aws-sdk'
 
 # Use sqlite3 as the database for Active Record
 group :development, :test do
@@ -26,6 +27,7 @@ group :development, :test do
     gem 'hirb'
     gem 'browser_sync_rails'
     gem 'pg', '0.19.0'
+    gem 'dotenv-rails'
 end
 
 group :test do

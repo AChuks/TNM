@@ -1,0 +1,313 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dataSource name="Rails afro_renaissance: development">
+  <database-model serializer="dbm" rdbms="POSTGRES" format-version="4.0">
+    <root id="1"/>
+    <database id="2" parent="1" name="TNM_Dev">
+      <ObjectId>16384</ObjectId>
+      <Current>1</Current>
+      <Visible>1</Visible>
+    </database>
+    <schema id="3" parent="2" name="public">
+      <ObjectId>2200</ObjectId>
+      <IntrospectionTimestamp>2017-03-06.21:10:47.885</IntrospectionTimestamp>
+      <IntrospectionStateNumber>2366</IntrospectionStateNumber>
+      <Current>1</Current>
+      <Visible>1</Visible>
+    </schema>
+    <schema id="4" parent="2" name="pg_catalog">
+      <ObjectId>11</ObjectId>
+    </schema>
+    <schema id="5" parent="2" name="pg_toast">
+      <ObjectId>99</ObjectId>
+    </schema>
+    <schema id="6" parent="2" name="pg_temp_1">
+      <ObjectId>11816</ObjectId>
+    </schema>
+    <schema id="7" parent="2" name="pg_toast_temp_1">
+      <ObjectId>11817</ObjectId>
+    </schema>
+    <schema id="8" parent="2" name="information_schema">
+      <ObjectId>12349</ObjectId>
+    </schema>
+    <sequence id="9" parent="3" name="relateds_id_seq">
+      <ObjectId>16427</ObjectId>
+      <StateNumber>948</StateNumber>
+      <SequenceIdentity>1</SequenceIdentity>
+    </sequence>
+    <sequence id="10" parent="3" name="trendings_id_seq">
+      <ObjectId>16394</ObjectId>
+      <StateNumber>945</StateNumber>
+      <SequenceIdentity>1</SequenceIdentity>
+    </sequence>
+    <sequence id="11" parent="3" name="videos_id_seq">
+      <ObjectId>16416</ObjectId>
+      <StateNumber>947</StateNumber>
+      <SequenceIdentity>1</SequenceIdentity>
+    </sequence>
+    <sequence id="12" parent="3" name="youtubes_id_seq">
+      <ObjectId>16405</ObjectId>
+      <StateNumber>946</StateNumber>
+      <SequenceIdentity>1</SequenceIdentity>
+    </sequence>
+    <table id="13" parent="3" name="relateds">
+      <ObjectId>16429</ObjectId>
+      <StateNumber>948</StateNumber>
+    </table>
+    <table id="14" parent="3" name="schema_migrations">
+      <ObjectId>16387</ObjectId>
+      <StateNumber>943</StateNumber>
+    </table>
+    <table id="15" parent="3" name="testtable">
+      <ObjectId>16470</ObjectId>
+      <StateNumber>2348</StateNumber>
+    </table>
+    <table id="16" parent="3" name="trendings">
+      <ObjectId>16396</ObjectId>
+      <StateNumber>945</StateNumber>
+    </table>
+    <table id="17" parent="3" name="videos">
+      <ObjectId>16418</ObjectId>
+      <StateNumber>2366</StateNumber>
+    </table>
+    <table id="18" parent="3" name="youtubes">
+      <ObjectId>16407</ObjectId>
+      <StateNumber>946</StateNumber>
+    </table>
+    <column id="19" parent="13" name="id">
+      <Position>1</Position>
+      <DataType>integer|0</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>948</StateNumber>
+      <DefaultExpression>nextval(&apos;relateds_id_seq&apos;::regclass)</DefaultExpression>
+    </column>
+    <column id="20" parent="13" name="url">
+      <Position>2</Position>
+      <DataType>varchar|0</DataType>
+      <StateNumber>948</StateNumber>
+    </column>
+    <column id="21" parent="13" name="title">
+      <Position>3</Position>
+      <DataType>varchar|0</DataType>
+      <StateNumber>948</StateNumber>
+    </column>
+    <column id="22" parent="13" name="date">
+      <Position>4</Position>
+      <DataType>timestamp|0</DataType>
+      <StateNumber>948</StateNumber>
+    </column>
+    <column id="23" parent="13" name="meta_data">
+      <Position>5</Position>
+      <DataType>varchar|0</DataType>
+      <StateNumber>948</StateNumber>
+    </column>
+    <column id="24" parent="13" name="created_at">
+      <Position>6</Position>
+      <DataType>timestamp|0</DataType>
+      <StateNumber>948</StateNumber>
+    </column>
+    <column id="25" parent="13" name="updated_at">
+      <Position>7</Position>
+      <DataType>timestamp|0</DataType>
+      <StateNumber>948</StateNumber>
+    </column>
+    <index id="26" parent="13" name="relateds_pkey">
+      <ObjectId>16436</ObjectId>
+      <ColNames>id</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <key id="27" parent="13" name="relateds_pkey">
+      <ObjectId>16437</ObjectId>
+      <ColNames>id</ColNames>
+      <UnderlyingIndexName>relateds_pkey</UnderlyingIndexName>
+      <Primary>1</Primary>
+    </key>
+    <column id="28" parent="14" name="version">
+      <Position>1</Position>
+      <DataType>varchar|0</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>943</StateNumber>
+    </column>
+    <index id="29" parent="14" name="unique_schema_migrations">
+      <ObjectId>16393</ObjectId>
+      <ColNames>version</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <column id="30" parent="15" name="t">
+      <Position>1</Position>
+      <DataType>timestamp(0)|0</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>2348</StateNumber>
+      <DefaultExpression>clock_timestamp()</DefaultExpression>
+    </column>
+    <column id="31" parent="15" name="foo">
+      <Position>2</Position>
+      <DataType>bigint|0</DataType>
+      <StateNumber>2348</StateNumber>
+    </column>
+    <index id="32" parent="15" name="testtable_pkey">
+      <ObjectId>16474</ObjectId>
+      <ColNames>t</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <key id="33" parent="15" name="testtable_pkey">
+      <ObjectId>16475</ObjectId>
+      <ColNames>t</ColNames>
+      <UnderlyingIndexName>testtable_pkey</UnderlyingIndexName>
+      <Primary>1</Primary>
+    </key>
+    <column id="34" parent="16" name="id">
+      <Position>1</Position>
+      <DataType>integer|0</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>945</StateNumber>
+      <DefaultExpression>nextval(&apos;trendings_id_seq&apos;::regclass)</DefaultExpression>
+    </column>
+    <column id="35" parent="16" name="url">
+      <Position>2</Position>
+      <DataType>varchar|0</DataType>
+      <StateNumber>945</StateNumber>
+    </column>
+    <column id="36" parent="16" name="title">
+      <Position>3</Position>
+      <DataType>varchar|0</DataType>
+      <StateNumber>945</StateNumber>
+    </column>
+    <column id="37" parent="16" name="date">
+      <Position>4</Position>
+      <DataType>timestamp|0</DataType>
+      <StateNumber>945</StateNumber>
+    </column>
+    <column id="38" parent="16" name="meta_data">
+      <Position>5</Position>
+      <DataType>varchar|0</DataType>
+      <StateNumber>945</StateNumber>
+    </column>
+    <column id="39" parent="16" name="created_at">
+      <Position>6</Position>
+      <DataType>timestamp|0</DataType>
+      <StateNumber>945</StateNumber>
+    </column>
+    <column id="40" parent="16" name="updated_at">
+      <Position>7</Position>
+      <DataType>timestamp|0</DataType>
+      <StateNumber>945</StateNumber>
+    </column>
+    <index id="41" parent="16" name="trendings_pkey">
+      <ObjectId>16403</ObjectId>
+      <ColNames>id</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <key id="42" parent="16" name="trendings_pkey">
+      <ObjectId>16404</ObjectId>
+      <ColNames>id</ColNames>
+      <UnderlyingIndexName>trendings_pkey</UnderlyingIndexName>
+      <Primary>1</Primary>
+    </key>
+    <column id="43" parent="17" name="id">
+      <Position>1</Position>
+      <DataType>integer|0</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>947</StateNumber>
+      <DefaultExpression>nextval(&apos;videos_id_seq&apos;::regclass)</DefaultExpression>
+    </column>
+    <column id="44" parent="17" name="url">
+      <Position>2</Position>
+      <DataType>varchar|0</DataType>
+      <StateNumber>947</StateNumber>
+    </column>
+    <column id="45" parent="17" name="title">
+      <Position>3</Position>
+      <DataType>varchar|0</DataType>
+      <StateNumber>947</StateNumber>
+    </column>
+    <column id="46" parent="17" name="date">
+      <Position>4</Position>
+      <DataType>timestamp|0</DataType>
+      <StateNumber>947</StateNumber>
+    </column>
+    <column id="47" parent="17" name="meta_data">
+      <Position>5</Position>
+      <DataType>varchar|0</DataType>
+      <StateNumber>947</StateNumber>
+    </column>
+    <column id="48" parent="17" name="created_at">
+      <Position>6</Position>
+      <DataType>timestamp|0</DataType>
+      <StateNumber>947</StateNumber>
+    </column>
+    <column id="49" parent="17" name="updated_at">
+      <Position>7</Position>
+      <DataType>timestamp|0</DataType>
+      <StateNumber>947</StateNumber>
+    </column>
+    <column id="50" parent="17" name="description">
+      <Position>8</Position>
+      <DataType>varchar|0</DataType>
+      <StateNumber>2349</StateNumber>
+    </column>
+    <column id="51" parent="17" name="author">
+      <Position>9</Position>
+      <DataType>varchar|0</DataType>
+      <StateNumber>2366</StateNumber>
+    </column>
+    <index id="52" parent="17" name="videos_pkey">
+      <ObjectId>16425</ObjectId>
+      <ColNames>id</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <key id="53" parent="17" name="videos_pkey">
+      <ObjectId>16426</ObjectId>
+      <ColNames>id</ColNames>
+      <UnderlyingIndexName>videos_pkey</UnderlyingIndexName>
+      <Primary>1</Primary>
+    </key>
+    <column id="54" parent="18" name="id">
+      <Position>1</Position>
+      <DataType>integer|0</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>946</StateNumber>
+      <DefaultExpression>nextval(&apos;youtubes_id_seq&apos;::regclass)</DefaultExpression>
+    </column>
+    <column id="55" parent="18" name="url">
+      <Position>2</Position>
+      <DataType>varchar|0</DataType>
+      <StateNumber>946</StateNumber>
+    </column>
+    <column id="56" parent="18" name="title">
+      <Position>3</Position>
+      <DataType>varchar|0</DataType>
+      <StateNumber>946</StateNumber>
+    </column>
+    <column id="57" parent="18" name="date">
+      <Position>4</Position>
+      <DataType>timestamp|0</DataType>
+      <StateNumber>946</StateNumber>
+    </column>
+    <column id="58" parent="18" name="meta_data">
+      <Position>5</Position>
+      <DataType>varchar|0</DataType>
+      <StateNumber>946</StateNumber>
+    </column>
+    <column id="59" parent="18" name="created_at">
+      <Position>6</Position>
+      <DataType>timestamp|0</DataType>
+      <StateNumber>946</StateNumber>
+    </column>
+    <column id="60" parent="18" name="updated_at">
+      <Position>7</Position>
+      <DataType>timestamp|0</DataType>
+      <StateNumber>946</StateNumber>
+    </column>
+    <index id="61" parent="18" name="youtubes_pkey">
+      <ObjectId>16414</ObjectId>
+      <ColNames>id</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <key id="62" parent="18" name="youtubes_pkey">
+      <ObjectId>16415</ObjectId>
+      <ColNames>id</ColNames>
+      <UnderlyingIndexName>youtubes_pkey</UnderlyingIndexName>
+      <Primary>1</Primary>
+    </key>
+  </database-model>
+</dataSource>

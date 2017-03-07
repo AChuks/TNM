@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="dataSourceStorageLocal">
+    <data-source name="Rails afro_renaissance: production" uuid="5e884caf-bb94-439d-bde3-efdae700e3d1">
+      <database-info product="PostgreSQL" version="9.5.2" jdbc-version="4.0" driver-name="PostgreSQL Native Driver" driver-version="PostgreSQL 9.4 JDBC4 (build 1201)">
+        <identifier-quote-string>&quot;</identifier-quote-string>
+      </database-info>
+      <case-sensitivity plain-identifiers="lower" quoted-identifiers="exact" />
+      <resolve-scope>TNM_Prod:public</resolve-scope>
+    </data-source>
+    <data-source name="Rails afro_renaissance: development" uuid="347aed64-8f3f-40a3-87df-0de1f25baaa2">
+      <database-info product="PostgreSQL" version="9.5.2" jdbc-version="4.0" driver-name="PostgreSQL Native Driver" driver-version="PostgreSQL 9.4 JDBC4 (build 1201)">
+        <identifier-quote-string>&quot;</identifier-quote-string>
+      </database-info>
+      <case-sensitivity plain-identifiers="lower" quoted-identifiers="exact" />
+      <resolve-scope>TNM_Dev:public</resolve-scope>
+    </data-source>
+    <data-source name="Rails afro_renaissance: test" uuid="df1623b2-dc9f-4458-9dc2-5d99177e8c38">
+      <database-info product="PostgreSQL" version="9.5.2" jdbc-version="4.0" driver-name="PostgreSQL Native Driver" driver-version="PostgreSQL 9.4 JDBC4 (build 1201)">
+        <identifier-quote-string>&quot;</identifier-quote-string>
+      </database-info>
+      <case-sensitivity plain-identifiers="lower" quoted-identifiers="exact" />
+      <resolve-scope>TNM_Test:public</resolve-scope>
+    </data-source>
+  </component>
+</project>
