@@ -26,10 +26,11 @@ class VideosController < ApplicationController
   # POST /videos.json
   def create
     @video = Video.new(video_params)
+    @video.date = Time.now
 
     respond_to do |format|
       if @video.save
-        format.html { redirect_to @video, notice: 'Video was successfully created.' }
+        format.html { redirect_to @video, notice: 'Video was successfully submitted. Thank You.' }
         format.json { render action: 'show', status: :created, location: @video }
       else
         format.html { render action: 'new' }
@@ -67,9 +68,14 @@ class VideosController < ApplicationController
     @title = params[:title]
     @meta_data = params[:meta_data]
     @related_videos = view_context.get_related_videos(@meta_data).order("RANDOM()")[0,20]
-    @trending_videos = view_context.get_trending_videos()
+    @trending_videos = view_context.get_trending_videos
     @current_video_relation =  Youtube.same_url_as(@url)
     @current_video = @current_video_relation.first
+  end
+
+  def submit_video
+    @video = Video.new
+    @s3_direct_post = S3_BUCKET.presigned_post(key: "videoUploads/#{Time.now.getlocal('-05:00').to_date}/#{SecureRandom.uuid}/${filename}", success_action_status: '201')
   end
 
   private
@@ -80,6 +86,6 @@ class VideosController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def video_params
-      params.require(:video).permit(:url, :title, :date, :meta_data)
+      params.require(:video).permit(:url, :title, :description, :author)
     end
 end

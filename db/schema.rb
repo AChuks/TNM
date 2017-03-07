@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160112202809) do
+ActiveRecord::Schema.define(version: 20170205003654) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -23,6 +23,10 @@ ActiveRecord::Schema.define(version: 20160112202809) do
     t.string   "meta_data"
     t.datetime "created_at"
     t.datetime "updated_at"
+  end
+
+  create_table "testtable", primary_key: "t", force: :cascade do |t|
+    t.integer "foo", limit: 8
   end
 
   create_table "trendings", force: :cascade do |t|
@@ -41,6 +45,8 @@ ActiveRecord::Schema.define(version: 20160112202809) do
     t.string   "meta_data"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "description"
+    t.string   "author"
   end
 
   create_table "youtubes", force: :cascade do |t|
