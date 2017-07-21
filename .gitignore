@@ -16,5 +16,5 @@
 /tmp
 .env
 
-# Ignore certain Intellij xml files
+# Ignore Rubymine project files
 .idea/

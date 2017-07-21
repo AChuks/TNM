@@ -16,6 +16,7 @@ class VideosController < ApplicationController
   # GET /videos/new
   def new
     @video = Video.new
+    @s3_direct_post = S3_BUCKET.presigned_post(key: "videoUploads/#{Time.now.getlocal('-05:00').to_date}/#{SecureRandom.uuid}/${filename}", success_action_status: '201')
   end
 
   # GET /videos/1/edit
@@ -71,11 +72,6 @@ class VideosController < ApplicationController
     @trending_videos = view_context.get_trending_videos
     @current_video_relation =  Youtube.same_url_as(@url)
     @current_video = @current_video_relation.first
-  end
-
-  def submit_video
-    @video = Video.new
-    @s3_direct_post = S3_BUCKET.presigned_post(key: "videoUploads/#{Time.now.getlocal('-05:00').to_date}/#{SecureRandom.uuid}/${filename}", success_action_status: '201')
   end
 
   private

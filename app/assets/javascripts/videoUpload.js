@@ -4,10 +4,17 @@ document.addEventListener("turbolinks:load", function(){
         $('.directUpload').find("input:file").each(function(i, elem) {
             var fileInput    = $(elem);
             var form         = $(fileInput.parents('form:first'));
+            var inputFileName = form.find('input[type="file"]')[0].name;
+            var buttonInput = $('.directUpload').find("button.fileButton");
             var submitButton = form.find('input[type="submit"]');
             var progressBar  = $("<div class='bar'></div>");
-            var barContainer = $("<div class='progress'></div>").append(progressBar);
-            fileInput.after(barContainer);
+            var barContainer = $("<br/><div class='progress'></div>").append(progressBar);
+
+            barContainer.css('width', '50%')
+            barContainer.css('display', 'inline-block')
+            buttonInput.after(barContainer);
+
+            var barContainerWidth = document.getElementsByClassName("progress")[0].offsetWidth;
             fileInput.fileupload({
 
                 fileInput:       fileInput,
@@ -20,41 +27,37 @@ document.addEventListener("turbolinks:load", function(){
                 replaceFileInput: false,
 
                 progressall: function (e, data) {
-                    console.log(e);
-                    var progress = parseInt(data.loaded / data.total * 100, 10);
-                    progressBar.css('width', progress + '%')
+
+                    var progress = Math.round(((barContainerWidth-1)*((data.loaded-1)/(data.total-1))) + 1); 
+                    progressBar.css('width', progress + 'px')
                 },
 
                 start: function (e) {
-                    console.log(e);
                     submitButton.prop('disabled', true);
-
+                    
                     progressBar.
                     css('background', 'green').
                     css('display', 'block').
                     css('width', '0%').
-                    text("Loading...");
+                    text("Uploading video...");
                 },
 
                 done: function(e, data) {
-                    console.log(e);
+
                     submitButton.prop('disabled', false);
-                    progressBar.text("Uploading done");
+                    progressBar.text("Video uploaded !!!");
 
                     // extract key and generate URL from response
                     var key   = $(data.jqXHR.responseXML).find("Key").text();
                     var url   = '//' + form.data('host') + '/' + key;
 
-                    console.log(key);
-                    console.log(url);
-
                     // create hidden field
-                    var input = $("<input />", { type:'hidden', name: fileInput.attr('name'), value: url })
+                    var input = $("<input />", { type:'hidden', name: inputFileName, value: url })
                     form.append(input);
                 },
 
                 fail: function(e, data) {
-                    console.log(e);
+
                     submitButton.prop('disabled', false);
 
                     progressBar.

@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
 
-
+  resources :users
   resources :videos
   resources :youtubes
   resources :trendings
@@ -13,8 +13,12 @@ Rails.application.routes.draw do
   match '/subscribe', to: 'pages#subscribe', via: 'get'
   match '/terms', to: 'pages#terms', via: 'get'
 
-  #  Videos routes
+  # Videos routes
   match '/watch', to: 'videos#watch', via: 'get'
-  match '/vsubmit', to: 'videos#submit_video', via: 'get'
+
+  # Admin routes
+  match '/admin', to: 'admins#index', via: 'get'
+  match '/admin/login', to: 'sessions#new', via: 'get'
+  match '/admin/login', to: 'sessions#create', via: 'post'
 
 end
