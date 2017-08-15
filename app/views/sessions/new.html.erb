@@ -5,8 +5,8 @@
 			<br/>
 			<%= form_for(:session, {class: 'form', role: 'form'}) do |f| %>
 				<div class="form-group">
-					<%= f.label"Username" %><br/>
-					<%= f.text_field :username, {class: 'form-control'} %>
+					<%= f.label"Email" %><br/>
+					<%= f.text_field :email, {class: 'form-control'} %>
 				</div><br/>
 				<div class="form-group">
 					<%= f.label :name, 'Password' %><br/>
@@ -23,6 +23,11 @@
 			<div class="alert alert-warning">
 				<%= link_to 'Register a new account', new_user_path %>
 			</div>
+			<% flash.each do |message_type, message| %>
+        		<div class="alert alert-<%= message_type %>">
+        			<%= message %>
+        		</div>
+    		<% end %>
 		</div>	
 	</div>
 </div>

@@ -19,6 +19,7 @@ Rails.application.routes.draw do
   # Admin routes
   match '/admin', to: 'admins#index', via: 'get'
   match '/admin/login', to: 'sessions#new', via: 'get'
+  match '/admin/logout', to: 'sessions#destroy', via: 'DELETE'
   match '/admin/login', to: 'sessions#create', via: 'post'
 
 end

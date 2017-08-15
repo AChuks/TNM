@@ -5,4 +5,5 @@ class ApplicationController < ActionController::Base
   include VideosHelper
   include YoutubesHelper
   include TrendingsHelper
+  include SessionsHelper
 end

@@ -1,13 +1,11 @@
 class AdminsController < ApplicationController
 	
   def index
-  	debugger;
-  end
-
-  def login
-  end
-
-  def logout 
+  	if !logged_in?
+  		respond_to do |format|
+  			format.html {redirect_to admin_login_path }
+  		end
+  	end
   end
 
 end
