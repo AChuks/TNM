@@ -18,3 +18,5 @@
 
 # Ignore Rubymine project files
 .idea/
+
+/public/assets/*
