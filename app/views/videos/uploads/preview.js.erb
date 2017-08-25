@@ -1,0 +1,3 @@
+$('#video-preview').html("<%= escape_javascript(render :partial => 'videos/uploads/preview', object: @video) %>");
+
+$('#video-preview').modal('show');

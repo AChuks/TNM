@@ -10,10 +10,15 @@
             <span class = "glyphicon glyphicon-pencil"></span> Contact Us
             <% end %>
         </li>
-        <% if logged_in? %>
+         <% if logged_in? %>
+            <li>
+                <%= link_to videos_path, {:style=>'text-decoration:none;', :method => 'get'} do %>
+                        <span class = "glyphicon glyphicon-film"></span> Videos
+                <% end %>
+            </li>
             <li>
                 <%= link_to admin_logout_path, {:style=>'text-decoration:none;', :method => 'delete'} do %>
-                <span class = "glyphicon glyphicon-pencil"></span> Log Out
+                <span class = "glyphicon glyphicon-user"></span> Log Out
                 <% end %>
             </li>
         <% end %>

@@ -4,13 +4,19 @@ class VideosController < ApplicationController
   # GET /videos
   # GET /videos.json
   def index
-    @videos = Video.all
+    if logged_in?
+      @videos = initialize_grid(Video)
+    else 
+      respond_to do |format|
+        format.html { redirect_to root_path }
+      end
+    end
   end
 
   # GET /videos/1
   # GET /videos/1.json
   def show
-  @video   = Video.find params[:id]
+    @video   = Video.find params[:id]
   end
 
   # GET /videos/new
@@ -54,10 +60,10 @@ class VideosController < ApplicationController
     end
   end
 
-  # DELETE /videos/1
-  # DELETE /videos/1.json
+  # Custom behaviour
+  # Marks record as deleted. Doesn't delete record in db
   def destroy
-    @video.destroy
+    @video.update({deleted: true})
     respond_to do |format|
       format.html { redirect_to videos_url }
       format.json { head :no_content }
@@ -72,6 +78,32 @@ class VideosController < ApplicationController
     @trending_videos = view_context.get_trending_videos
     @current_video_relation =  Youtube.same_url_as(@url)
     @current_video = @current_video_relation.first
+  end
+
+  def preview
+    @video = Video.find_by(id: params[:id])
+    respond_to do |format|               
+      format.js {render 'videos/uploads/preview'}
+      format.html { render 'videos/uploads/preview' }
+    end  
+  end
+
+  def accept
+    @video = Video.find_by(id: params[:id])
+    @video.update({accepted: true})
+    respond_to do |format|
+      format.html { redirect_to videos_url }
+      format.json { head :no_content }
+    end
+  end
+
+  def processed
+    @video = Video.find_by(id: params[:id])
+    @video.update({processed: true})
+    respond_to do |format|
+      format.html { redirect_to videos_url }
+      format.json { head :no_content }
+    end
   end
 
   private

@@ -1,0 +1,26 @@
+<div class="modal-content">
+  <div class="modal-header">
+    <button aria-hidden="true" class="close" data-dismiss="modal" id="close-modal"  type="button">×</button>
+    <h3 id="myModalLabel">Modal header</h3>
+  </div>
+
+    <div class="modal-body">
+      <div class = "well">
+        <div class="row">
+          <div id='playerxOMAufbyCsCE'></div>
+            <script type='text/javascript'>
+              jwplayer('playerxOMAufbyCsCE').setup({
+                file: 'https:<%= @video.url %>',
+                width: '100%',
+                aspectratio: '24:10',
+                autostart: 'false'
+              });
+            </script>              
+          </div>
+      </div>
+    </div>
+
+    <div class="modal-footer">
+      <button aria-hidden="true" class="btn btn-primary" data-dismiss="modal">Close</button>
+    </div>
+</div>

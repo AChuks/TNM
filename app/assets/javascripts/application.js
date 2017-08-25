@@ -13,9 +13,9 @@
 //= require jquery
 //= require jquery_ujs
 //= require underscore
-//= require turbolinks
 //= require bootstrap-sprockets
 //= require owl.carousel
+//= require wice_grid
 //= require_tree .
 
 

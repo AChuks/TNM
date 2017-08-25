@@ -57,8 +57,8 @@ document.addEventListener("turbolinks:load", function(){
                 },
 
                 fail: function(e, data) {
-
-                    submitButton.prop('disabled', false);
+                    console.log(e);
+                    submitButton.prop('disabled', true);
 
                     progressBar.
                     css("background", "red").

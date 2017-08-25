@@ -3,16 +3,13 @@
 <html>
 <head>
 	<title><%= full_title(yield(:title)) %></title>
-	<%= stylesheet_link_tag 'application', media: 'screen',
-	'data-turbolinks-track' => true %>
-	<%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-
+	<%= stylesheet_link_tag 'application', media: 'screen' %>
+	<%= javascript_include_tag 'application' %>
 
 	<%= csrf_meta_tags %>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<%= render 'layouts/shim' %>
 	<script src="https://jwpsrv.com/library/0Z+OYJqDEeSP7gp+lcGdIw.js"></script>
-
 
 </head>
 <body class = "small" data-twrr-rendered = "true">
@@ -24,5 +21,3 @@
 
 </body>
 </html>
-
-

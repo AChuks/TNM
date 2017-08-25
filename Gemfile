@@ -17,6 +17,7 @@ gem 'awesome_nested_set'  # or same gem
 gem 'bcrypt',  '3.1.11'
 gem 'owlcarousel-rails'
 gem 'aws-sdk'
+gem 'wice_grid', '~> 3.6', '>= 3.6.2'
 
 # Use sqlite3 as the database for Active Record
 group :development, :test do
@@ -53,6 +54,7 @@ gem 'coffee-rails', '4.2.1'
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails', '4.2.1'
+gem 'jquery-ui-rails'
 gem 'underscore-rails'
 
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks

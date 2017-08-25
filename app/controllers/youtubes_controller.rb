@@ -4,7 +4,13 @@ class YoutubesController < ApplicationController
   # GET /youtubes
   # GET /youtubes.json
   def index
-    @youtubes = Youtube.all
+    if logged_in?
+      @youtubes = Youtube.all
+    else 
+      respond_to do |format|
+        format.html { redirect_to root_path }
+      end
+    end
   end
 
   # GET /youtubes/1
