@@ -16,8 +16,8 @@
 //= require bootstrap-sprockets
 //= require owl.carousel
 //= require wice_grid
+//= require jquery.ui.widget
+//= require z.jquery.fileupload
 //= require_tree .
-
-
 
 
