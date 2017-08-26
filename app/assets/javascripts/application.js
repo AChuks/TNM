@@ -18,6 +18,7 @@
 //= require wice_grid
 //= require jquery.ui.widget
 //= require z.jquery.fileupload
+//= require video_upload
 //= require_tree .
 
 
