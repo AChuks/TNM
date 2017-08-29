@@ -26,6 +26,16 @@ module TNM
     # The default locale is :en and all translations from config/locales/*.rb,yml are auto loaded.
     # config.i18n.load_path += Dir[Rails.root.join('my', 'locales', '*.{rb,yml}').to_s]
     # config.i18n.default_locale = :de
+
+    config.exception_handler = {
+        db:     false, #-> defaults to :errors if true, else use :table_name
+        email:  false, #-> need to integrate
+        dev: true,
+        layouts: {
+            '400' => 'exception',
+            '404' => 'exception'
+        },
+    }
     
   end
 end
