@@ -1,23 +1,17 @@
 class YoutubesController < ApplicationController
+  load_and_authorize_resource
   before_action :set_youtube, only: [:show, :edit, :update, :destroy]
 
   # GET /youtubes
   # GET /youtubes.json
   def index
-    if logged_in?
-      @youtubes = Youtube.all
-    else 
-      respond_to do |format|
-        format.html { redirect_to root_path }
-      end
-    end
+    @youtubes = Youtube.all
   end
 
   # GET /youtubes/1
   # GET /youtubes/1.json
   def show
-  @youtube   = Youtube.find params[:id]
-  @comments = @youtube.comments.with_state([:draft, :published])
+    @youtube   = Youtube.find params[:id]
   end
 
   # GET /youtubes/new

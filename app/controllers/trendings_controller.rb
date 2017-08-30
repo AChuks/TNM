@@ -1,4 +1,5 @@
 class TrendingsController < ApplicationController
+  load_and_authorize_resource
   before_action :set_trending, only: [:show, :edit, :update, :destroy]
 
   # GET /trendings
@@ -10,8 +11,7 @@ class TrendingsController < ApplicationController
   # GET /trendings/1
   # GET /trendings/1.json
   def show
-  @trending   = Trending.find params[:id]
-  @comments = @trending.comments.with_state([:draft, :published])
+    @trending   = Trending.find params[:id]
   end
 
   # GET /trendings/new

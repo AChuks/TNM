@@ -8,8 +8,8 @@
 
 
 Youtube.delete_all
-ActiveRecord::Base.connection.execute("DELETE from sqlite_sequence where name = 'youtube'")
+# ActiveRecord::Base.connection.execute("DELETE from sqlite_sequence where name = 'youtube'")
 
 Trending.delete_all
-ActiveRecord::Base.connection.execute("DELETE from sqlite_sequence where name = 'trending'")
+# ActiveRecord::Base.connection.execute("DELETE from sqlite_sequence where name = 'trending'")
 
