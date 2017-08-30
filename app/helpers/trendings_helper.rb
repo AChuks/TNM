@@ -15,10 +15,15 @@ module TrendingsHelper
     	all_channel = [channel_1, channel_2, channel_3, channel_4, channel_5, channel_6, channel_7, channel_8, channel_9, channel_10]
 
     	if Trending.all.blank?
-      		all_channel.each {|each_channel| each_channel= Yt::Channel.new url: each_channel
-      		Trending.create(:url => each_channel.videos.where(order: 'viewCount').map.first.id, :title => each_channel.videos.where(order: 'viewCount').map.first.title.tr('#',''), :date => each_channel.videos.where(order: 'viewCount').map.first.published_at, :meta_data => each_channel.videos.where(order: 'viewCount').map.first.channel_id) }
+      		all_channel.each {|each_channel| 
+                each_channel= Yt::Channel.new url: each_channel
+                channel_trends = each_channel.videos.where(order: 'date').map.first(2)
+                channel_trends.each {|each_channel_trends| 
+                    Trending.create(:url => each_channel_trends.id, :title => each_channel_trends.title.tr('#',''), :date => each_channel_trends.published_at, :meta_data => each_channel_trends.channel_id) }
+                }
+
     	end
-    	@trending_videos = Trending.all
+    	@trending_videos = Trending.all.shuffle
     	return @trending_videos
 	end
 end
