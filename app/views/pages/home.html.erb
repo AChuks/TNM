@@ -1,24 +1,20 @@
 <% provide(:title, 'Home')%>
 
 <div class = "container-fluid">
-  <div class = "form-inline well">
-    <div class = row>
-        <h3>Trending Videos</h3>
-        &nbsp;
-    </div> 
-
-
+  <div>
+    <br/>
+    <div>
+        <h4 style="float: left; color: #1d86b5;">Trending Now</h4>
+    </div>
 
     <div class = "well">
+      <br/>
       <%= render partial: 'shared/carousel_videos',
         object: @trending_videos
       %>
     </div>
-    <br/>
-
-    <div class = "row">
-      <h3>Featured Video</h3>
-        &nbsp;
+    <div>
+      <h4 style="float: left; color: #1d86b5;">Featured Video</h4>
     </div>
     <div class = "well">
       <div class = "row">
@@ -34,13 +30,12 @@
          </script>
       </div>
     </div>
-    <br/>
-
-    <div class = "row">
-      <h3>All Videos</h3>
-        &nbsp;
+    <div>
+      <h4 style="float: left; color: #1d86b5;">All Videos</h4>
     </div>
-    <div class = "row">
+    <div class="form-inline well">
+      <br/>
+      <div class = "row">
       <ul class="list-inline">
       <% @youtube_videos.each do |videotemplate| %>
         <li>
@@ -60,6 +55,8 @@
         <% end %>
       </ul>
       <%= will_paginate @youtube_videos %>
+    </div>
+      
     </div>
   </div>
 </div>
