@@ -15,7 +15,6 @@ gem 'yt', '~> 0.28.1'
 gem 'haml'                # or gem 'slim'
 gem 'awesome_nested_set'  # or same gem
 gem 'bcrypt',  '3.1.11'
-gem 'owlcarousel-rails'
 gem 'aws-sdk'
 gem 'wice_grid', '~> 3.6', '>= 3.6.2'
 gem 'exception_handler', '~> 0.5.1'

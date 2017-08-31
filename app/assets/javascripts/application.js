@@ -14,11 +14,12 @@
 //= require jquery_ujs
 //= require underscore
 //= require bootstrap-sprockets
-//= require owl.carousel
+//= require owl.carousel.min
 //= require wice_grid
 //= require jquery.ui.widget
 //= require z.jquery.fileupload
 //= require video_upload
+//= require owl_carousel
 //= require_tree .
 
 

@@ -30,7 +30,7 @@ class Ability
     # https://github.com/CanCanCommunity/cancancan/wiki/Defining-Abilities
 
     alias_action :update, :destroy, :to => :modify
-    can [:create, :read], Video
+    can [:create, :read, :watch], Video
 
     if user.nil?
         p 'User is nil'

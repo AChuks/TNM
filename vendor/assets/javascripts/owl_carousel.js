@@ -1,12 +1,14 @@
-var initialLoad = true;
 $(document).ready(function(){
+  $('.owl-carousel').owlCarousel({
+  		// rtl: true,
+  		margin: 10,
+  		autoWidth:true,
+  		loop:true,
 
-	var owl = $(".owl-carousel");
-	if (initialLoad == true){
-		owl.html(owl.find('.owl-wrapper').html());
-	}
-	owl.owlCarousel({
-    	autoPlay: true
-    });
-   initialLoad = false;
+    	autoplay: true,
+    	autoplayHoverPause:true,
+    	autoplayTimeout:1000,
+
+    	touchDrag: true
+  });
 });
