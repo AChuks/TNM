@@ -6,8 +6,13 @@
 <%= form_for(@video, html: { class: 'directUpload', data: { 'form-data' => (@s3_direct_post.fields), 'url' => @s3_direct_post.url, 'host' => URI.parse(@s3_direct_post.url).host } }) do |f| %>
 
   <div class="form-group">
-    <%= f.label :Your_Name, 'Your Name' %><br>
+    <%= f.label :Author, 'Author' %><br>
     <%= f.text_field :author, :class => 'form-control' %>
+  </div>
+  <br/>
+  <div class="form-group">
+    <%= f.label :Author_Email, 'Author Email' %><br>
+    <%= f.text_field :author_email, :class => 'form-control' %>
   </div>
   <br/>
   <div class="form-group">
@@ -32,8 +37,6 @@
 
   <% if @video.errors.any? %>
     <div class="alert alert-danger">
-      <span><%= pluralize(@video.errors.count, 'error') %> prevented your video from being submitted:</span>
-
       <ul>
       <% @video.errors.full_messages.each do |message| %>
         <li><%= message %></li>
