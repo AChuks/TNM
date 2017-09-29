@@ -2,11 +2,12 @@ require "mandrill"
 
 class MandrillMailer < ApplicationMailer
 	default(
-    from: "support@topnoisemakers.com",
-    reply_to: "support@topnoisemakers.com"
+    from: "TopNoiseMakers <support@topnoisemakers.com>",
+    reply_to: "TopNoiseMakers <support@topnoisemakers.com>"
   )
 
   def video_received(video)
+    video.author = video.author.gsub(/\s.+/, '')
     subject = "#{video.author}, we have received your video"
     merge_vars = {:AUTHOR => video.author}
     email_body = mandrill_template("video_uploads_received", merge_vars)
