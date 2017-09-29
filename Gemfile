@@ -20,6 +20,7 @@ gem 'wice_grid', '~> 3.6', '>= 3.6.2'
 gem 'exception_handler', '~> 0.5.1'
 gem 'responders', '~> 2.0'
 gem 'cancancan', '~> 2.0'
+gem 'mandrill-api', '~> 1.0', '>= 1.0.53'
 
 
 # Use sqlite3 as the database for Active Record
