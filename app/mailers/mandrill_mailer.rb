@@ -2,8 +2,8 @@ require "mandrill"
 
 class MandrillMailer < ApplicationMailer
 	default(
-    from: "support@example.com",
-    reply_to: "support@example.com"
+    from: "support@topnoisemakers.com",
+    reply_to: "support@topnoisemakers.com"
   )
 
   def video_received(video)
