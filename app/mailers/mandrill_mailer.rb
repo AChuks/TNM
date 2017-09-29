@@ -7,6 +7,7 @@ class MandrillMailer < ApplicationMailer
   )
 
   def video_received(video)
+    video.author = video.author.gsub(/\s.+/, '')
     subject = "#{video.author}, we have received your video"
     merge_vars = {:AUTHOR => video.author}
     email_body = mandrill_template("video_uploads_received", merge_vars)
