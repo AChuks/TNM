@@ -38,6 +38,10 @@ class VideosController < ApplicationController
 
     respond_to do |format|
       if @video.save
+
+        # Send Mandrill email
+        MandrillMailer.video_received(@video).deliver_now
+
         format.html { redirect_to @video, notice: 'Video was successfully submitted. Thank You.' }
         format.json { render action: 'show', status: :created, location: @video }
       else
