@@ -17,7 +17,7 @@ gem 'awesome_nested_set'  # or same gem
 gem 'bcrypt',  '3.1.11'
 gem 'aws-sdk'
 gem 'wice_grid', '~> 3.6', '>= 3.6.2'
-gem 'exception_handler', '~> 0.5.1'
+gem 'exception_handler', '~> 0.7.7.0'
 gem 'responders', '~> 2.0'
 gem 'cancancan', '~> 2.0'
 gem 'mandrill-api', '~> 1.0', '>= 1.0.53'

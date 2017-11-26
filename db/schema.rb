@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170927164527) do
+ActiveRecord::Schema.define(version: 20171123160125) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -63,6 +63,7 @@ ActiveRecord::Schema.define(version: 20170927164527) do
     t.boolean  "processed",    default: false
     t.boolean  "accepted",     default: false
     t.string   "author_email"
+    t.string   "youtube_url"
   end
 
   create_table "youtubes", force: :cascade do |t|

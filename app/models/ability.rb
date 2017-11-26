@@ -33,16 +33,18 @@ class Ability
     can [:create, :read, :watch], Video
 
     if user.nil?
-        p 'User is nil'
+        p 'User is not logged in'
         cannot :manage, [Trending, Youtube, User]
-    else
-        p 'User is not nil'
-        can :read, [Trending, Youtube, User]
-        cannot [:create, :update, :modify], [Trending, Youtube, User]
+    end
+    if user && user.super_admin
+        p 'User is a super admin'
+        can :manage, :all
     end
 
-    if user && user.super_admin
-        can :manage, [Trending, Youtube, User, Video]
+    if user && !user.super_admin
+        p 'User is not a super admin'
+        can :read, [Trending, Youtube, User]
+        cannot [:create, :modify], [Trending, Youtube, User]
     end
   end
 end

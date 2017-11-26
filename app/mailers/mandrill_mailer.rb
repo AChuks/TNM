@@ -6,11 +6,19 @@ class MandrillMailer < ApplicationMailer
     reply_to: "TopNoiseMakers <support@topnoisemakers.com>"
   )
 
-  def video_received(video)
+  def send_video_received_email(video)
     video.author = video.author.gsub(/\s.+/, '')
-    subject = "#{video.author}, we have received your video"
+    subject = "#{video.author}, we've received your video"
     merge_vars = {:AUTHOR => video.author}
     email_body = mandrill_template("video_uploads_received", merge_vars)
+    mail(to: video.author_email, subject: subject, body: email_body, content_type: "text/html")
+  end
+
+  def send_video_accepted_email(video)
+    video.author = video.author.gsub(/\s.+/, '')
+    subject = "#{video.author}, we've reviewed and accepted your video."
+    merge_vars = {:AUTHOR => video.author}
+    email_body = mandrill_template("video_uploads_accepted", merge_vars)
     mail(to: video.author_email, subject: subject, body: email_body, content_type: "text/html")
   end
 

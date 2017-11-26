@@ -5,45 +5,55 @@
 
 <%= form_for(@video, html: { class: 'directUpload', data: { 'form-data' => (@s3_direct_post.fields), 'url' => @s3_direct_post.url, 'host' => URI.parse(@s3_direct_post.url).host } }) do |f| %>
 
-  <div class="form-group">
-    <%= f.label :Author, 'Author' %><br>
-    <%= f.text_field :author, :class => 'form-control' %>
-  </div>
-  <br/>
-  <div class="form-group">
-    <%= f.label :Author_Email, 'Author Email' %><br>
-    <%= f.text_field :author_email, :class => 'form-control' %>
-  </div>
-  <br/>
-  <div class="form-group">
-    <%= f.label :title, 'Video Title' %><br>
-    <%= f.text_field :title, :class => 'form-control'%>
-  </div>
-  <br/>
-  <div class="form-group">
-    <%= f.label :description, 'Video Description' %><br>
-    <%= f.text_area :description, :class => 'form-control' %>
-  </div>
-  <br/>
-  <div class="field">
-    <%= f.file_field :url %>
-    <%= button_tag "Select a video file", :type => 'button', :class => "btn btn-xs btn-info fileButton"%>
-  </div>
-  <br/>
-  <br/>
-  <div class="actions">
-    <%= f.submit 'Submit Video', :class => "btn btn-primary" %>
-  </div>
-
-  <% if @video.errors.any? %>
-    <div class="alert alert-danger">
-      <ul>
-      <% @video.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-        <br/>
-      <% end %>
-      </ul>
+  <div>
+    <div class="form-group">
+      <%= f.label :Author, 'Author' %><br>
+      <%= f.text_field :author, :class => 'form-control' %>
     </div>
-  <% end %>
+    <br/>
+    <div class="form-group">
+      <%= f.label :Author_Email, 'Author Email' %><br>
+      <%= f.text_field :author_email, :class => 'form-control' %>
+    </div>
+    <br/>
+    <div class="form-group">
+      <%= f.label :title, 'Video Title' %><br>
+      <%= f.text_field :title, :class => 'form-control'%>
+    </div>
+    <br/>
+    <div class="form-group">
+      <%= f.label :description, 'Video Description' %><br>
+      <%= f.text_area :description, :class => 'form-control' %>
+    </div>
+    <br/>
+    <% if !@video.author_email.nil?  %>
+      <div class="field">
+      <%= f.label :youtube_url, 'Youtube Url' %><br>
+        <%= f.text_area :youtube_url, :class => 'form-control' %>
+      </div>
+      <br/>
+    <% end %>
+    <% if @video.author_email.nil?  %>
+      <div class="field">
+        <%= f.file_field :url %>
+        <%= button_tag "Select a video file", :type => 'button', :class => "btn btn-xs btn-info fileButton"%>
+      </div>
+      <br/>
+    <% end %>
+    <br/>
+    <div class="actions">
+      <%= f.submit 'Submit Video', :class => "btn btn-primary" %>
+    </div>
 
+    <% if @video.errors.any? %>
+      <div class="alert alert-danger">
+        <ul>
+          <% @video.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+            <br/>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>  
+  </div> 
 <% end %>

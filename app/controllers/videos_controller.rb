@@ -1,6 +1,6 @@
 class VideosController < ApplicationController
-  load_and_authorize_resource
   before_action :set_video, only: [:show, :edit, :update, :destroy]
+  load_and_authorize_resource
 
   # GET /videos
   # GET /videos.json
@@ -17,7 +17,12 @@ class VideosController < ApplicationController
   # GET /videos/1
   # GET /videos/1.json
   def show
-    @video   = Video.find params[:id]
+    #  Only redirect to root if video was created within 2 minutes
+    if (Time.now - @video.created_at)/60 > 2
+      respond_to do |format|
+        format.html { redirect_to root_path }
+      end
+    end
   end
 
   # GET /videos/new
@@ -39,8 +44,8 @@ class VideosController < ApplicationController
     respond_to do |format|
       if @video.save
 
-        # Send Mandrill email
-        MandrillMailer.video_received(@video).deliver_now
+        # Send video received email
+        MandrillMailer.send_video_received_email(@video).deliver_now
 
         format.html { redirect_to @video, notice: 'Video was successfully submitted. Thank You.' }
         format.json { render action: 'show', status: :created, location: @video }
@@ -68,7 +73,12 @@ class VideosController < ApplicationController
   # Custom behaviour
   # Marks record as deleted. Doesn't delete record in db
   def destroy
-    @video.update({deleted: true})
+    @vide.update({deleted: true})
+    S3.delete_object({
+      bucket: ENV['S3_BUCKET_NAME'],
+      # Fix this regex if bucket name/folders gets changed in s3
+      key: @video.url[@video.url.index('/v')+1..@video.url.length]
+    })
     respond_to do |format|
       format.html { redirect_to videos_url }
       format.json { head :no_content }
@@ -95,7 +105,11 @@ class VideosController < ApplicationController
 
   def accept
     @video = Video.find_by(id: params[:id])
-    @video.update({accepted: true})
+    # Send video accepted email
+    if !@video.accepted 
+      MandrillMailer.send_video_accepted_email(@video).deliver_now
+      @video.update({accepted: true})
+    end
     respond_to do |format|
       format.html { redirect_to videos_url }
       format.json { head :no_content }
@@ -119,6 +133,6 @@ class VideosController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def video_params
-      params.require(:video).permit(:url, :title, :description, :author, :author_email)
+      params.require(:video).permit(:url, :title, :description, :author, :author_email, :youtube_url)
     end
 end
