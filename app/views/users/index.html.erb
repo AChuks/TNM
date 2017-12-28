@@ -1,29 +1,63 @@
-<p id="notice"><%= notice %></p>
+<%= provide(:title, 'users') %>
+<div class="container-fluid">
+  <%= define_grid(@users, hide_submit_button: true, hide_reset_button: true, show_filters: :always) do |g|
 
-<h1>Listing Users</h1>
+    g.column name: 'ID' do |task|
+      link_to(task.id, edit_user_path(task))
+    end
 
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Email</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+    g.column name: 'Username', attribute: 'user_name', detach_with_id: :user_name_filter  do |task|
+      task.user_name
+    end
 
-  <tbody>
-    <% @users.each do |user| %>
-      <tr>
-        <td><%= user.name %></td>
-        <td><%= user.email %></td>
-        <td><%= link_to 'Show', user %></td>
-        <td><%= link_to 'Edit', edit_user_path(user) %></td>
-        <td><%= link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+    g.column name: 'Email', attribute: 'email', detach_with_id: :email_filter  do |task|
+      task.email
+    end
 
-<br>
+    g.column name: 'Super Admin', attribute: 'super_admin', detach_with_id: :super_admin_filter  do |task|
+      task.super_admin
+    end
 
-<%= link_to 'New User', new_user_path %>
+    end -%>
+    <br/>
+    <br/>
+
+    <div class="row">
+      <div class="col-xs-1">
+        Username:
+      </div>
+      <div class="col-xs-2">
+        <%= grid_filter @users, :user_name_filter %>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-xs-1">
+        Email:
+      </div>
+      <div class="col-xs-2">
+        <%= grid_filter @users, :email_filter %>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-xs-1">
+        Super Admin:
+      </div>
+      <div class="col-xs-2">
+        <%= grid_filter @users, :super_admin_filter %>
+      </div>
+    </div>
+    <br/>
+
+    <div class="row col-xs-4">
+    <%= submit_tag "Submit", :class => "btn btn-primary wg-external-submit-button", "data-grid-name":"grid"  %>
+
+    <%= submit_tag "Reset", :class => "btn btn-default wg-external-reset-button", "data-grid-name":"grid"  %>
+    </div>
+    <br/>
+    <br/>
+    <br/>
+
+    <%= render_grid(@users) %>
+</div>

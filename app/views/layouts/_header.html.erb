@@ -23,6 +23,11 @@
                 <% end %>
             </li>
             <li>
+                <%= link_to users_path, {:style=>'text-decoration:none; color: black;', :method => 'get'} do %>
+                        <span class = "glyphicon glyphicon-film"></span> Users
+                <% end %>
+            </li>
+            <li>
                 <%= link_to admin_logout_path, {:style=>'text-decoration:none; color: black;', :method => 'delete'} do %>
                 <span class = "glyphicon glyphicon-user"></span> Log Out
                 <% end %>

@@ -29,12 +29,13 @@ module TNM
 
     config.exception_handler = {
         db:     false, #-> defaults to :errors if true, else use :table_name
-        email:  false, #-> need to integrate
         dev: true,
         layouts: {
             '400' => 'exception',
-            '404' => 'exception'
+            '404' => 'exception',
+            '500' => 'exception'
         },
+        email: 'support@topnoisemakers.com'
     }
     
   end

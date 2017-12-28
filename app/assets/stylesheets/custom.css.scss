@@ -69,6 +69,8 @@ $gray-medium-light: #eaeaea;
 
 .navbar {
     margin-bottom:0;
+    background-color: #31A7CF;
+    border-radius: 0px !important;
 }
 ul {
     list-style:none;
@@ -127,9 +129,6 @@ input[type="file"]{
 .progress .bar {
   height:  1.2em;
   color:   white;
-}
-.navbar {
-  background-color: #1d86b5;
 }
 .well {
   background-color: #FFFFFF;
