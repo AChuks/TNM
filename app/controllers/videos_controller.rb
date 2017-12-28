@@ -73,7 +73,7 @@ class VideosController < ApplicationController
   # Custom behaviour
   # Marks record as deleted. Doesn't delete record in db
   def destroy
-    @vide.update({deleted: true})
+    @video.update({deleted: true})
     S3.delete_object({
       bucket: ENV['S3_BUCKET_NAME'],
       # Fix this regex if bucket name/folders gets changed in s3

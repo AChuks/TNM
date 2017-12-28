@@ -5,7 +5,13 @@ class UsersController < ApplicationController
   # GET /users
   # GET /users.json
   def index
-    @users = User.all
+    if logged_in?
+      @users = initialize_grid(User)
+    else 
+      respond_to do |format|
+        format.html { redirect_to root_path }
+      end
+    end
   end
 
   # GET /users/1
@@ -41,6 +47,9 @@ class UsersController < ApplicationController
   # PATCH/PUT /users/1
   # PATCH/PUT /users/1.json
   def update
+    if !user_params.password.blank? && user_params.password_confirmation.blank? && user_params.current_password.blank?
+      raise Exception.new('You must enter your current password to change password')
+    end
     respond_to do |format|
       if @user.update(user_params)
         format.html { redirect_to @user, notice: 'User was successfully updated.' }
@@ -70,6 +79,6 @@ class UsersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def user_params
-      params.require(:user).permit(:user_name, :email, :password, :password_confirmation)
+      params.require(:user).permit(:user_name, :email, :password, :password_confirmation, :super_admin)
     end
 end
