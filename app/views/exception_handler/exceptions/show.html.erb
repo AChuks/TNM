@@ -1,3 +1,3 @@
 <%= content_tag :div, class: "exception", data: { status: @exception.status, response: @exception.response.to_s.humanize, rails: Rails.version }, onclick: ("location.href=\"#{root_path}\";" if @exception.status == 500 && Rails.application.routes.recognize_path("/")), title: ("Return Home" if @exception.status == 500 && Rails.application.routes.recognize_path("/")) do %>
-  <%= content_tag :span, @exception.status == 500 && "<strong>We don shit for church!</strong>We're now working to fix this!<p>Return home</p>".html_safe || @exception.description.html_safe %>
+  <%= content_tag :span, @exception.status == 500 && "<strong>Oops! Something went wrong!</strong>We're now working to fix this!<p>Return home</p>".html_safe || @exception.description.html_safe %>
 <% end %>
