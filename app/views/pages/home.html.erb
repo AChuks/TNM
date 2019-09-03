@@ -1,62 +1,50 @@
 <% provide(:title, 'Home')%>
-
-<div class = "container-fluid">
-  <div>
-    <br/>
-    <div>
-        <h4 style="float: left; color: #1d86b5;">&nbsp;Trending Now</h4>
-    </div>
-
-    <div class = "well">
-      <br/>
+<div class = "content">
+  <div class="content-looping-video-div">
+    <%= video_tag "background_video.mov", :autoplay => true, :loop => true, :mute => true, class: "content-looping-video" %>
+  </div>
+  <div class='content-videos'>
+    <div class='content-videos-header'>TRENDING AROUND THE WEB</div>
+    <div class = "col-xs-12">
       <%= render partial: 'shared/carousel_videos',
         object: @trending_videos
       %>
     </div>
-    <div>
-      <h4 style="float: left; color: #1d86b5;">&nbsp;Featured Video</h4>
-    </div>
-    <div class = "well">
-      <div class = "row">
-        <div id='playerxOMAufbyCsCE'></div>
-          <script type='text/javascript'>
-            jwplayer('playerxOMAufbyCsCE').setup({
-            file: 'https://www.youtube.com/watch?v=rwmCfxTQiHQ',
-            image: 'https://i.ytimg.com/vi/rwmCfxTQiHQ/mqdefault.jpg',
-            width: '100%',
-            aspectratio: '16:9',
-            autostart: 'false'
-          });
-         </script>
+    <div class='content-videos-header content-videos-header-featured'>FEATURED VIDEO</div>
+    <div class='col-xs-12'>
+      <div>
+        <div class = "col-xs-12">
+          <video
+            id="vid1"
+            class="video-js vjs-default-skin featured-video"
+            controls
+            width="1200" height="700"
+            data-setup='{ "techOrder": ["youtube", "html5"], "sources": [{ "type": "video/youtube", "src": "https://www.youtube.com/watch?v=nCWZyGwLYII"}] }'
+          >
+          </video>
+        </div>
       </div>
     </div>
-    <div>
-      <h4 style="float: left; color: #1d86b5;">&nbsp;All Videos</h4>
-    </div>
-    <div class="form-inline well">
-      <br/>
-      <div class = "row">
-      <ul class="list-inline">
-      <% @youtube_videos.each do |videotemplate| %>
-        <li>
+    <div class='content-videos-header content-videos-header-featured'>ALL VIDEOS</div>
+      <section class="col-xs-12 content-videos-header-videos-section">
+        <% @youtube_videos.each do |videotemplate| %>
+        <section class="content-videos-header-videos-section-item">
           <div class="hover-effect">
             <div class="view view-first">
               <div class="masked">
-                <a href = "watch?url=<%= videotemplate.url %>;title=<%= videotemplate.title %>;meta_data=<%= videotemplate.meta_data %>">
+                <a href = "watch?url=<%= videotemplate.url %>;title=<%= videotemplate.title   %>;meta_data=<%= videotemplate.meta_data %>"> 
                   <img src = "https://i.ytimg.com/vi/<%= videotemplate.url %>/mqdefault.jpg">
-                  <%= videotemplate.title %>
-                  </br>
-                  <%= videotemplate.date.to_date %>
+                  <div class='video-title'><%= videotemplate.title %></div>
+                  <div class='video-date-time'><%= videotemplate.date.to_date %></div>
                 </a>
               </div>
             </div>
           </div>
-        </li>
-        <% end %>
-      </ul>
+        </section>
+      <% end %>
+    </section>
+    <div class="col-xs-12">
       <%= will_paginate @youtube_videos %>
-    </div>
-      
     </div>
   </div>
 </div>

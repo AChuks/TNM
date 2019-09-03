@@ -1,6 +1,7 @@
 $(window).on("load", function(){
 
     $(function() {
+        console.log("test");
         $('.directUpload').find("input:file").each(function(i, elem) {
             var fileInput    = $(elem);
             var form         = $(fileInput.parents('form:first'));
@@ -69,3 +70,31 @@ $(window).on("load", function(){
     });
 
 })
+
+$(window).on("scroll", function() {
+    var navBar = document.getElementsByClassName("navbar-container")[0];
+    var scrollPos = document.scrollingElement.scrollTop;
+    if (scrollPos > 0) {
+        navBar.style.background = 'linear-gradient(rgba(0,0,0,.9) 1%,rgba(0,0,0,.8) 15%,rgba(0,0,0,.7) 30%,rgba(0,0,0,.6) 45%,rgba(0,0,0,.5) 60%,rgba(0,0,0,.3) 75%,transparent)'
+    } else if (scrollPos === 0) {
+        navBar.style.background = 'transparent';
+    }
+})
+
+$(document).ready(function(){
+  $('.owl-carousel').owlCarousel({
+        // rtl: true,
+        margin: 10,
+        autoWidth:true,
+        loop:true,
+        navText : ["<i class='fa fa-chevron-left'></i>","<i class='fa fa-chevron-right'></i>"],
+
+        autoplay: true,
+        autoplayHoverPause:true,
+        autoplayTimeout:1000,
+
+        touchDrag: true,
+        nav : true,
+        dots: false,
+  });
+});
