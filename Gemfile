@@ -1,5 +1,5 @@
 source 'https://rubygems.org'
-ruby "2.3.0"
+ruby "2.3.1"
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.7'
@@ -21,18 +21,23 @@ gem 'exception_handler', '~> 0.7.7.0'
 gem 'responders', '~> 2.0'
 gem 'cancancan', '~> 2.0'
 gem 'mandrill-api', '~> 1.0', '>= 1.0.53'
-
+gem "font-awesome-rails"
 
 # Use sqlite3 as the database for Active Record
 group :development, :test do
-    gem 'sqlite3', '1.3.12'
+    gem 'sqlite3', '1.4.1'
     gem 'rspec-rails', '3.5.2'
     gem 'pry-rails'
     gem 'pry-byebug'
     gem 'hirb'
     gem 'browser_sync_rails'
-    gem 'pg', '0.19.0'
+    gem 'pg', '0.21'
     gem 'dotenv-rails'
+    gem 'rb-readline'
+    # gem 'guard', '>= 2.15.0', require: false
+    # gem 'guard-livereload', require: false
+    # gem 'rack-livereload'
+    # gem 'rb-fsevent', require: false
 end
 
 group :test do
@@ -58,6 +63,7 @@ gem 'coffee-rails', '4.2.1'
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails', '4.2.1'
+gem 'jquery-validation-rails'
 gem 'jquery-ui-rails'
 gem 'underscore-rails'
 
@@ -74,7 +80,7 @@ end
 
 
 group :production do
-    gem 'pg', '0.19.0'
+    gem 'pg', '0.21'
     gem 'rails_12factor', '0.0.3'
     gem 'puma',           '3.6.0'
 end

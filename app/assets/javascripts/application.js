@@ -12,14 +12,15 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require jquery.validate
 //= require underscore
 //= require bootstrap-sprockets
 //= require owl.carousel.min
 //= require wice_grid
 //= require jquery.ui.widget
 //= require z.jquery.fileupload
-//= require video_upload
-//= require owl_carousel
+//= require initialize_javascript_helpers
+//= require Youtube.min
 //= require_tree .
 
 

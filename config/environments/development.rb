@@ -45,5 +45,7 @@ Rails.application.configure do
     :user_name => ENV.fetch("SMTP_USERNAME")
   }
   config.action_mailer.default_url_options = { host: ENV["SMTP_DOMAIN"] }
+  
+  # config.middleware.insert_after(ActionDispatch::Static, Rack::LiveReload)
 
 end

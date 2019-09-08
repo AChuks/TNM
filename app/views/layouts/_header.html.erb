@@ -1,38 +1,46 @@
 <nav class="navbar" role = "navigation">
-    <div class = "container-fluid">
-        <!-- <a href="/" class="main-logo"></a> -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-id">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>                        
+      </button>
+    </div>
+    <div class="navbar-container">
         <ul class="nav navbar-nav pull-left">
-            <li><%= link_to root_path, {:style=>'text-decoration:none; color: black;'} do %>
-                TNM
-            <% end %>
-            </li>
-        </ul>
-        <ul class="nav navbar-nav pull-right">
-        <li><%= link_to new_video_path, {:style=>'text-decoration:none; color: black;'} do %>
-            <span class = "glyphicon glyphicon-film"></span> Submit Video
+        <li><%= link_to root_path, {:class => 'navbar-logo'} do %>
+            <%= show_svg('super_comedian.svg') %>
             <% end %>
         </li>
-        <li><%= link_to contact_path, {:style=>'text-decoration:none; color: black;'} do %>
-            <span class = "glyphicon glyphicon-pencil"></span> Contact Us
+        </ul>
+        <div class="collapse navbar-collapse" id="navbar-id">
+          <ul class="nav navbar-nav pull-right">
+        <li><%= link_to new_video_path, {:class => 'navbar-links'} do %>
+            Submit Video
+            <% end %>
+        </li>
+        <li><%= link_to contact_path, {:class => 'navbar-links'} do %>
+            Contact Us
             <% end %>
         </li>
          <% if logged_in? %>
             <li>
-                <%= link_to videos_path, {:style=>'text-decoration:none; color: black;', :method => 'get'} do %>
-                        <span class = "glyphicon glyphicon-film"></span> Videos
+                <%= link_to videos_path, {:class => 'navbar-links', :method => 'get'} do %>
+                Videos
                 <% end %>
             </li>
             <li>
-                <%= link_to users_path, {:style=>'text-decoration:none; color: black;', :method => 'get'} do %>
-                        <span class = "glyphicon glyphicon-film"></span> Users
+                <%= link_to users_path, {:class => 'navbar-links', :method => 'get'} do %>
+                 Users
                 <% end %>
             </li>
             <li>
-                <%= link_to admin_logout_path, {:style=>'text-decoration:none; color: black;', :method => 'delete'} do %>
-                <span class = "glyphicon glyphicon-user"></span> Log Out
+                <%= link_to admin_logout_path, {:class => 'navbar-links', :method => 'delete'} do %>
+                Log Out
                 <% end %>
             </li>
         <% end %>
-    </ul>
+    </ul>  
+        </div>
     </div>
 </nav>

@@ -1,0 +1,39 @@
+<% provide(:title, 'Contact Us')%>
+<div class = "container-fluid container-upload-video">
+  <div class = "row">
+    <div class = "col-md-4 col-md-offset-4">
+      <% if notice.nil? %>
+        <%= form_tag url_for(:controller => 'pages', :action => 'submit_contact_info'), :method => 'post', :id => 'contact-form' do %>
+        <div>
+          <div class="form-group form-group-custom-margin">
+            <%= label_tag :FirstName, 'First Name' %>
+            <%= text_field_tag :first_name, nil, :class => 'form-control' %>
+          </div>
+          <div class="form-group form-group-custom-margin">
+            <%= label_tag :LastName, 'Last Name' %>
+            <%= text_field_tag :last_name, nil, :class => 'form-control' %>
+          </div>
+          <div class="form-group form-group-custom-margin">
+            <%= label_tag :Email, 'Email' %>
+            <%= text_field_tag :email, nil, :class => 'form-control' %>
+          </div>
+          <div class="form-group form-group-custom-margin">
+            <%= label_tag :Message, 'Message' %>
+            <%= text_area_tag :message, nil, size: "5x12", :class => 'form-control' %>
+          </div>
+          <div class="actions">
+          <%= submit_tag 'Send Message', :class => "btn btn-primary" %>
+          </div>
+        </div> 
+        <% end %>
+      <% end %>
+      <% if !notice.nil? && notice == 'success' %>
+        <div class='submit-contact-message'>We have received your message and would like to thank you for writing to us. We will reply by email as soon as possible</div>
+      <% end %>
+      <% if !notice.nil? && notice == 'error' %>
+        <div class='error'>We encountered some errors processing your message. Please try again later</div>
+      <% end %>
+    </div>
+  </div>
+</div>
+

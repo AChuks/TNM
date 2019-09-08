@@ -8,10 +8,11 @@ $(window).on("load", function(){
             var buttonInput = $('.directUpload').find("button.fileButton");
             var submitButton = form.find('input[type="submit"]');
             var progressBar  = $("<div class='bar'></div>");
-            var barContainer = $("<br/><div class='progress'></div>").append(progressBar);
+            var barContainer = $("<div class='progress'></div>").append(progressBar);
 
-            barContainer.css('width', '50%')
+            barContainer.css('width', '80%')
             barContainer.css('display', 'inline-block')
+            barContainer.css('visibility', 'hidden')
             buttonInput.after(barContainer);
 
             var barContainerWidth = document.getElementsByClassName("progress")[0].offsetWidth;
@@ -27,6 +28,7 @@ $(window).on("load", function(){
                 replaceFileInput: false,
 
                 progressall: function (e, data) {
+                    barContainer.css('visibility', 'visible')
 
                     var progress = Math.round(((barContainerWidth-1)*((data.loaded-1)/(data.total-1))) + 1); 
                     progressBar.css('width', progress + 'px')
@@ -34,11 +36,16 @@ $(window).on("load", function(){
 
                 start: function (e) {
                     submitButton.prop('disabled', true);
+
+                    barContainer.css('visibility', 'visible')
                     
                     progressBar.
                     css('background', 'green').
+                    css('height', '20px').
                     css('display', 'block').
                     css('width', '0%').
+                    css('border-radius', '4px').
+                    css('overflow-x', 'hidden').
                     text("Uploading video...");
                 },
 
@@ -69,3 +76,54 @@ $(window).on("load", function(){
     });
 
 })
+
+$(window).on("scroll", function() {
+    var navBar = document.getElementsByClassName("navbar-container")[0];
+    var scrollPos = document.scrollingElement.scrollTop;
+    if (scrollPos > 0) {
+        navBar.style.background = 'linear-gradient(rgba(0,0,0,.9) 1%,rgba(0,0,0,.8) 15%,rgba(0,0,0,.7) 30%,rgba(0,0,0,.6) 45%,rgba(0,0,0,.5) 60%,rgba(0,0,0,.3) 75%,transparent)'
+    } else if (scrollPos === 0) {
+        navBar.style.background = 'transparent';
+    }
+
+    var relatedVideo = document.getElementsByClassName("content-videos-header-videos-section-related")[0];
+    var disqusThread = document.getElementsByClassName("disqus-thread")[0];
+    if (relatedVideo && disqusThread && relatedVideo.offsetHeight !== disqusThread.scrollHeight) {
+        console.log(disqusThread.scrollHeight);
+        relatedVideo.style.height = disqusThread.scrollHeight + 'px';
+    }
+})
+
+$(document).ready(function(){
+  $('.owl-carousel').owlCarousel({
+        // rtl: true,
+        margin: 10,
+        autoWidth:true,
+        loop:true,
+        navText : ["<i class='fa fa-chevron-left'></i>","<i class='fa fa-chevron-right'></i>"],
+
+        autoplay: true,
+        autoplayHoverPause:true,
+        autoplayTimeout:1000,
+
+        touchDrag: true,
+        nav : true,
+        dots: false,
+  });
+
+  $("#contact-form").validate({
+    debug: false,
+    rules: {
+        first_name: {required: true, minlength: 2},  
+        last_name: {required: true, minlength: 2},  
+        "email": {required: true, email: true},        
+        "message": {required: true, minlength: 2},  
+    },
+    messages: {
+        first_name: "Please enter your first name",
+        last_name: "Please enter your last name",
+        email: "Please enter a valid email address",
+        message: "Please enter your message"
+    }   
+  });
+});

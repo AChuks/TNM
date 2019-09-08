@@ -25,10 +25,6 @@ ActiveRecord::Schema.define(version: 20171123160125) do
     t.datetime "updated_at"
   end
 
-  create_table "testtable", primary_key: "t", force: :cascade do |t|
-    t.integer "foo", limit: 8
-  end
-
   create_table "trendings", force: :cascade do |t|
     t.string   "url"
     t.string   "title"

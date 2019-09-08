@@ -15,8 +15,8 @@
 
 // Pad thumbnail image to make room for img description.
 .hover-effect li.view img, .hover-effect div.view img {
-   padding-bottom: 10px;
    border-radius: 20px;
+   /*border: 2px solid #66b2b2;*/
 }
 
 .hover-effect li.view .mask,.view .content, .view .mask {

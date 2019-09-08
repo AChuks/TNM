@@ -34,13 +34,11 @@
       <br/>
     <% end %>
     <% if @video.author_email.nil?  %>
-      <div class="field">
+      <div class="field file">
         <%= f.file_field :url %>
         <%= button_tag "Select a video file", :type => 'button', :class => "btn btn-xs btn-info fileButton"%>
       </div>
-      <br/>
     <% end %>
-    <br/>
     <div class="actions">
       <%= f.submit 'Submit Video', :class => "btn btn-primary" %>
     </div>

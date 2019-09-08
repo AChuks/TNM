@@ -35,7 +35,7 @@ module TNM
             '404' => 'exception',
             '500' => 'exception'
         },
-        email: 'support@topnoisemakers.com'
+        email: 'support@supercomedian.com'
     }
     
   end

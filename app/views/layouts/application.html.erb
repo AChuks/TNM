@@ -4,23 +4,21 @@
 <head>
 	<title><%= full_title(yield(:title)) %></title>
 	<%= stylesheet_link_tag 'application', media: 'screen' %>
+	<script src='https://vjs.zencdn.net/7.6.0/video.js'></script>
+	<link href="https://vjs.zencdn.net/7.6.0/video-js.css" rel="stylesheet">
 	<%= javascript_include_tag 'application' %>
 
 	<%= csrf_meta_tags %>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta name="google-site-verification" content="Vey2AcN92WhAXmZ3SAcgJ3k3xFelrafnYim0Bh4xeYA">
 	<%= render 'layouts/shim' %>
-	<!-- <script src="https://jwpsrv.com/library/0Z+OYJqDEeSP7gp+lcGdIw.js"></script>script> -->
-	<script src="https://content.jwplatform.com/libraries/ZesOZ3ap.js"></script>
-
 
 </head>
 <body class = "small" data-twrr-rendered = "true">
-
 	<%= render 'layouts/header' %>
 	<%= yield %>
 	<%# <%= debug(params) if Rails.env.development? %>
 	<%= render 'layouts/footer' %>
-
+	<script id="dsq-count-scr" src="//supercomedian.disqus.com/count.js" async></script>
 </body>
 </html>
