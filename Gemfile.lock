@@ -877,6 +877,7 @@ GEM
       thor (>= 0.14, < 2.0)
     jquery-ui-rails (6.0.1)
       railties (>= 3.2.16)
+    jquery-validation-rails (1.19.0)
     json (1.8.6)
     kaminari (0.17.0)
       actionpack (>= 3.0.0)
@@ -1035,6 +1036,7 @@ DEPENDENCIES
   jbuilder (= 2.6.0)
   jquery-rails (= 4.2.1)
   jquery-ui-rails
+  jquery-validation-rails
   mandrill-api (~> 1.0, >= 1.0.53)
   minitest
   pg (= 0.21)

@@ -12,6 +12,7 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require jquery.validate
 //= require underscore
 //= require bootstrap-sprockets
 //= require owl.carousel.min

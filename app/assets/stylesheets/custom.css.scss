@@ -17,8 +17,8 @@ html {
     min-height: 100%;
 }
 body {
-    /*font-size: 12px;*/
     font-family: 'PT Sans', sans-serif;
+    font-family: 'Courier';
     text-decoration: none;
     padding: 0;
     text-align: center;
@@ -103,7 +103,7 @@ ul.list-inline li a {
   border: none !important;
   border-radius: 0px !important;
   outline: none !important;
-  position: absolute;
+  position: relative;
   z-index: 99;
   width: 100%;
   &-collapse.in {
@@ -131,8 +131,12 @@ ul.list-inline li a {
       padding-left: 25px;
     }
     .pull-right {
-      margin-top: 7px;
-      padding-right: 15px;
+      color: #ffffff;
+      li a {
+        padding-top: 21px;
+        color: #ffffff !important;
+        background-color: transparent !important
+      }
     }
   }
   &-logo {
@@ -143,6 +147,9 @@ ul.list-inline li a {
     padding: 0px 0px !important;
     svg {
       width: 200px;
+    }
+    text {
+      fill: wheat !important;
     }
   }
   &-logo:hover {
@@ -174,6 +181,7 @@ ul.list-inline li a {
   }
 }
 .content {
+  display: flow-root;
   &-looping-video {
     width: 100%;
     &-div {
@@ -182,16 +190,26 @@ ul.list-inline li a {
   }
   &-videos {
     margin-top: 100px;
+    &-watch {
+      margin-bottom: 120px;
+    }
     &-header {
       float: left;
       text-align: left;
       font-size: 20px;
       font-weight: 500;
-      color: white;
+      color: wheat;
       margin-left: 25px !important;
       margin-bottom: 15px !important;
       &-featured {
         margin-top: 100px;
+      }
+      &-related {
+        text-align: center;
+        float: initial;
+        margin-bottom: 0px !important;
+        margin-left: 0px !important;
+        font-size: 1.5em;
       }
       &-videos {
         margin-left: 10px;
@@ -209,6 +227,12 @@ ul.list-inline li a {
             border-radius: 4px;
             width: 300px;
             z-index: 1;
+          }
+          &-related {
+            text-align: center;
+            text-align-last: center;
+            overflow: scroll;
+            height: -webkit-fill-available;
           }
         }
       }
@@ -276,6 +300,7 @@ input[type="file"]{
   top: 55px;
   background: none !important;
   font-size: 30px !important;
+  color: wheat !important;
 }
 .owl-prev {
   left: -15px;
@@ -283,14 +308,93 @@ input[type="file"]{
   top: 55px;
   background: none !important;
   font-size: 30px !important;
+  color: wheat !important;
 }
 .video-title, .video-date-time {
   margin-top: 15px;
-  font-weight: 400;
-  font-size: 15px;
+  font-weight: 500;
+  font-size: 1em;
   color: white;
-  text-transform: uppercase;
+  &-watch {
+    margin-bottom: 10px;
+    font-size: 1.5em;
+    color: wheat;
+  }
 }
 .video-date-time {
   margin-top: 5px;
+  color: wheat;
+}
+.container-upload-video {
+  margin-top: 140px;
+  label {
+    color: wheat;
+  }
+  &-notice {
+    color: wheat;
+  }
+  &-link {
+    text-decoration: none !important;
+  }
+  .file {
+    margin-top: 20px;
+  }
+  .actions {
+    margin-top: 40px;
+    input {
+      background-color: wheat !important;
+      color: black !important;
+      width: 180px;
+      font-weight: 700;
+      font-size: 17px;
+    }
+  }
+  .actions {
+    input:hover {
+      font-size: 19px;
+    }
+  }
+}
+.pagination {
+  li {
+    a {
+      background-color: black !important;
+      color: wheat !important;
+      border: 1px solid wheat;
+    }
+    a:hover {
+      border: 1px solid wheat;
+    }
+    a:active {
+      border-color: #337ab7;
+    }
+  }
+  .disabled {
+    border-color: wheat !important;
+    a, a:hover {
+      border-color: wheat;
+    }
+  }
+}
+.col-zero-padding {
+  padding: 0px 0px !important;
+}
+.disqus-thread {
+  margin-top: 10px;
+}
+.copyright {
+  color: wheat;
+}
+.form-group-custom-margin {
+  margin-bottom: 30px !important;
+  input, textarea {
+    font-size: 17px;
+  }
+}
+.error {
+  color: red !important;
+}
+.submit-contact-message {
+  color: wheat;
+  font-size: 20px;
 }

@@ -1,7 +1,6 @@
 $(window).on("load", function(){
 
     $(function() {
-        console.log("test");
         $('.directUpload').find("input:file").each(function(i, elem) {
             var fileInput    = $(elem);
             var form         = $(fileInput.parents('form:first'));
@@ -9,10 +8,11 @@ $(window).on("load", function(){
             var buttonInput = $('.directUpload').find("button.fileButton");
             var submitButton = form.find('input[type="submit"]');
             var progressBar  = $("<div class='bar'></div>");
-            var barContainer = $("<br/><div class='progress'></div>").append(progressBar);
+            var barContainer = $("<div class='progress'></div>").append(progressBar);
 
-            barContainer.css('width', '50%')
+            barContainer.css('width', '80%')
             barContainer.css('display', 'inline-block')
+            barContainer.css('visibility', 'hidden')
             buttonInput.after(barContainer);
 
             var barContainerWidth = document.getElementsByClassName("progress")[0].offsetWidth;
@@ -28,6 +28,7 @@ $(window).on("load", function(){
                 replaceFileInput: false,
 
                 progressall: function (e, data) {
+                    barContainer.css('visibility', 'visible')
 
                     var progress = Math.round(((barContainerWidth-1)*((data.loaded-1)/(data.total-1))) + 1); 
                     progressBar.css('width', progress + 'px')
@@ -35,11 +36,16 @@ $(window).on("load", function(){
 
                 start: function (e) {
                     submitButton.prop('disabled', true);
+
+                    barContainer.css('visibility', 'visible')
                     
                     progressBar.
                     css('background', 'green').
+                    css('height', '20px').
                     css('display', 'block').
                     css('width', '0%').
+                    css('border-radius', '4px').
+                    css('overflow-x', 'hidden').
                     text("Uploading video...");
                 },
 
@@ -79,6 +85,13 @@ $(window).on("scroll", function() {
     } else if (scrollPos === 0) {
         navBar.style.background = 'transparent';
     }
+
+    var relatedVideo = document.getElementsByClassName("content-videos-header-videos-section-related")[0];
+    var disqusThread = document.getElementsByClassName("disqus-thread")[0];
+    if (relatedVideo && disqusThread && relatedVideo.offsetHeight !== disqusThread.scrollHeight) {
+        console.log(disqusThread.scrollHeight);
+        relatedVideo.style.height = disqusThread.scrollHeight + 'px';
+    }
 })
 
 $(document).ready(function(){
@@ -96,5 +109,21 @@ $(document).ready(function(){
         touchDrag: true,
         nav : true,
         dots: false,
+  });
+
+  $("#contact-form").validate({
+    debug: false,
+    rules: {
+        first_name: {required: true, minlength: 2},  
+        last_name: {required: true, minlength: 2},  
+        "email": {required: true, email: true},        
+        "message": {required: true, minlength: 2},  
+    },
+    messages: {
+        first_name: "Please enter your first name",
+        last_name: "Please enter your last name",
+        email: "Please enter a valid email address",
+        message: "Please enter your message"
+    }   
   });
 });

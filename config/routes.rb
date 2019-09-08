@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   #  Pages routes
   root 'pages#home'
   match '/contact', to: 'pages#contact', via: 'get'
+  match '/pages', to: 'pages#submit_contact_info', via: 'post'
   match '/advertise', to: 'pages#advertise', via: 'get'
   match '/about', to: 'pages#about', via: 'get'
   match '/subscribe', to: 'pages#subscribe', via: 'get'
