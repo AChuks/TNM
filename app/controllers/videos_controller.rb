@@ -45,7 +45,7 @@ class VideosController < ApplicationController
       if @video.save
 
         # Send video received email
-        MandrillMailer.send_video_received_email(@video).deliver_now
+        SendinBlueMailer.send_video_received_email(@video).deliver_now
 
         format.html { redirect_to @video, notice: 'Video was successfully submitted. Thank You.' }
         format.json { render action: 'show', status: :created, location: @video }
@@ -107,7 +107,7 @@ class VideosController < ApplicationController
     @video = Video.find_by(id: params[:id])
     # Send video accepted email
     if !@video.accepted 
-      MandrillMailer.send_video_accepted_email(@video).deliver_now
+      SendinBlueMailer.send_video_accepted_email(@video).deliver_now
       @video.update({accepted: true})
     end
     respond_to do |format|

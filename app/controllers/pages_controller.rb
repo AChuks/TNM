@@ -10,7 +10,12 @@ class PagesController < ApplicationController
   def submit_contact_info
     respond_to do |format|
       # Send contact form message
-      MandrillMailer.send_contact_message(contact_form_params).deliver_now
+      begin
+        result = SendinBlueMailer.send_contact_message(contact_form_params).deliver_now
+        p result
+      rescue SibApiV3Sdk::ApiError => e
+        puts "Exception when calling SMTPApi->send_transac_email: #{e}"
+      end
       if true
         format.html { redirect_to contact_url, notice: 'success'}
         format.json { render action: 'contact', status: :created }
