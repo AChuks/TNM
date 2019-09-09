@@ -20,8 +20,9 @@ gem 'wice_grid', '~> 3.6', '>= 3.6.2'
 gem 'exception_handler', '~> 0.7.7.0'
 gem 'responders', '~> 2.0'
 gem 'cancancan', '~> 2.0'
-gem 'mandrill-api', '~> 1.0', '>= 1.0.53'
 gem "font-awesome-rails"
+gem 'sib-api-v3-sdk', git: 'https://github.com/mediprocity/APIv3-ruby-library'
+
 
 # Use sqlite3 as the database for Active Record
 group :development, :test do
@@ -75,7 +76,7 @@ gem 'jbuilder', '2.6.0'
 
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.
-  gem 'sdoc', '0.4.2', require: false
+  gem 'sdoc', require: false
 end
 
 

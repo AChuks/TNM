@@ -3,7 +3,7 @@
 <% end %>
 
 
-<%= form_for(@video, html: { class: 'directUpload', data: { 'form-data' => (@s3_direct_post.fields), 'url' => @s3_direct_post.url, 'host' => URI.parse(@s3_direct_post.url).host } }) do |f| %>
+<%= form_for(@video, html: { class: 'directUpload', id: 'video-submit-form', data: { 'form-data' => (@s3_direct_post.fields), 'url' => @s3_direct_post.url, 'host' => URI.parse(@s3_direct_post.url).host } }) do |f| %>
 
   <div>
     <div class="form-group">

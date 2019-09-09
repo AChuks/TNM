@@ -116,14 +116,32 @@ $(document).ready(function(){
     rules: {
         first_name: {required: true, minlength: 2},  
         last_name: {required: true, minlength: 2},  
-        "email": {required: true, email: true},        
-        "message": {required: true, minlength: 2},  
+        email: {required: true, email: true},        
+        message: {required: true, minlength: 2},  
     },
     messages: {
         first_name: "Please enter your first name",
         last_name: "Please enter your last name",
         email: "Please enter a valid email address",
         message: "Please enter your message"
+    }   
+  });
+
+  $("#video-submit-form").validate({
+    debug: false,
+    rules: {
+        "video[author]": {required: true, minlength: 2},  
+        "video[title]": {required: true, minlength: 2},  
+        "video[description]": {required: true, minlength: 2},  
+        "video[author_email]": {required: true, email: true},        
+        "video[url]": {required: true, minlength: 2},  
+    },
+    messages: {
+        "video[author]": "Please enter your name",
+        "video[title]": "Please enter video title",
+        "video[description]": "Please enter video description",
+        "video[author_email]": "Please enter a valid email address",
+        "video[url]": "Please select a file"
     }   
   });
 });

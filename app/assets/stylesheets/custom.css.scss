@@ -338,6 +338,7 @@ input[type="file"]{
   }
   .file {
     margin-top: 20px;
+    height: 62px;
   }
   .actions {
     margin-top: 40px;
@@ -393,6 +394,10 @@ input[type="file"]{
 }
 .error {
   color: red !important;
+}
+.alert-danger {
+  font-size: 12px !important;
+  margin-top: 5px !important;
 }
 .submit-contact-message {
   color: wheat;
