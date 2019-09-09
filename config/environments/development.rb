@@ -39,13 +39,13 @@ Rails.application.configure do
     :address => ENV.fetch("SMTP_ADDRESS"),
     # :authentication => 'login',
     # :domain => ENV.fetch("SMTP_DOMAIN"),
-    # :enable_starttls_auto => true,
+    :enable_starttls_auto => true,
     :password => ENV.fetch("SMTP_PASSWORD"),
     :port => "587",
     :user_name => ENV.fetch("SMTP_USERNAME")
   }
   # config.action_mailer.perform_deliveries = true
-  # config.action_mailer.delivery_method = :smtp
+  config.action_mailer.delivery_method = :smtp
   # config.action_mailer.default_url_options = { host: ENV["SMTP_DOMAIN"] }
   
   # config.middleware.insert_after(ActionDispatch::Static, Rack::LiveReload)

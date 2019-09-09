@@ -325,8 +325,8 @@ input[type="file"]{
   margin-top: 5px;
   color: wheat;
 }
-.container-upload-video {
-  margin-top: 140px;
+.container-upload-video, .container-contact {
+  margin-top: 60px;
   label {
     color: wheat;
   }
@@ -355,6 +355,9 @@ input[type="file"]{
       font-size: 19px;
     }
   }
+}
+.container-contact {
+  margin-top: 60px;
 }
 .pagination {
   li {

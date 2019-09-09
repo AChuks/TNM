@@ -117,12 +117,14 @@ $(document).ready(function(){
         first_name: {required: true, minlength: 2},  
         last_name: {required: true, minlength: 2},  
         email: {required: true, email: true},        
+        subject: {required: true, minlength: 2},  
         message: {required: true, minlength: 2},  
     },
     messages: {
         first_name: "Please enter your first name",
         last_name: "Please enter your last name",
         email: "Please enter a valid email address",
+        subject: "Please enter a subject",
         message: "Please enter your message"
     }   
   });
