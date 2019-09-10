@@ -86,6 +86,8 @@ group :production do
     gem 'pg', '0.21'
     gem 'rails_12factor', '0.0.3'
     gem 'puma',           '3.6.0'
+    gem 'heroku-deflater'
+
 end
 
 # Use ActiveModel has_secure_password
