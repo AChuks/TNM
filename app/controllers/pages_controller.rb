@@ -38,6 +38,10 @@ class PagesController < ApplicationController
   def terms
   end
 
+  def sitemap
+    redirect_to "https://#{ENV['FOG_DIRECTORY']}.s3.amazonaws.com/sitemaps/sitemap.xml.gz"
+  end
+
 
   private
     # Never trust parameters from the scary internet, only allow the white list through.
