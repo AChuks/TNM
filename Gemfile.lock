@@ -899,6 +899,8 @@ GEM
     haml (5.1.2)
       temple (>= 0.8.0)
       tilt
+    heroku-deflater (0.6.3)
+      rack (>= 1.4.5)
     hirb (0.7.3)
     i18n (0.9.5)
       concurrent-ruby (~> 1.0)
@@ -1069,6 +1071,7 @@ DEPENDENCIES
   fog-aws
   font-awesome-rails
   haml
+  heroku-deflater
   hirb
   jbuilder (= 2.6.0)
   jquery-rails (= 4.2.1)
