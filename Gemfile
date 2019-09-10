@@ -22,6 +22,8 @@ gem 'responders', '~> 2.0'
 gem 'cancancan', '~> 2.0'
 gem "font-awesome-rails"
 gem 'sib-api-v3-sdk', git: 'https://github.com/mediprocity/APIv3-ruby-library'
+gem 'sitemap_generator'
+gem 'fog-aws'
 
 
 # Use sqlite3 as the database for Active Record
