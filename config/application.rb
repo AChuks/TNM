@@ -36,7 +36,6 @@ module TNM
             '500' => 'exception'
         },
         email: 'support@supercomedian.com'
-    }
-    
+    }    
   end
 end

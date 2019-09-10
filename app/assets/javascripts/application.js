@@ -20,7 +20,7 @@
 //= require jquery.ui.widget
 //= require z.jquery.fileupload
 //= require initialize_javascript_helpers
-//= require Youtube.min
 //= require_tree .
+
 
 
