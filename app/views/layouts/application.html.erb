@@ -3,17 +3,17 @@
 <html>
 <head>
 	<title><%= full_title(yield(:title)) %></title>
-	<%= stylesheet_link_tag 'application', media: 'screen' %>
+	<%= stylesheet_link_tag 'application', media: 'all' %>
 
 	<script src='https://vjs.zencdn.net/7.6.0/video.min.js' defer></script>
 	<script src='https://cdnjs.cloudflare.com/ajax/libs/videojs-youtube/2.6.0/Youtube.min.js' defer></script>
 	<link href="https://vjs.zencdn.net/7.6.0/video-js.min.css" rel="stylesheet" media="print" onload="this.media='all'">
+
 	<%= javascript_include_tag 'application', async: true %>
-
-
 	<%= csrf_meta_tags %>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta name="google-site-verification" content="Vey2AcN92WhAXmZ3SAcgJ3k3xFelrafnYim0Bh4xeYA">
+	<meta name="Description" content="Videos home page">
 	<%= render 'layouts/shim' %>
 
 </head>
