@@ -50,7 +50,7 @@ module VideosHelper
         }
       end
     end
-    @youtube_videos = Youtube.paginate(page: params[:page],:per_page => 60).order('date DESC')
+    @youtube_videos = Youtube.paginate(page: params[:page],:per_page => 61).order('date DESC')
     return @youtube_videos
   end
 end
