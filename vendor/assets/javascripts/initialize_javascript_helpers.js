@@ -73,6 +73,21 @@ $(window).on("load", function(){
                 }
             });
         });
+        $('.owl-carousel').owlCarousel({
+            // rtl: true,
+            margin: 10,
+            autoWidth:true,
+            loop:true,
+            navText : ["<i class='fa fa-chevron-left'></i>","<i class='fa fa-chevron-right'></i>"],
+
+            autoplay: true,
+            autoplayHoverPause:true,
+            autoplayTimeout:1000,
+
+            touchDrag: true,
+            nav : true,
+            dots: false,
+        });
     });
 
 })
@@ -95,21 +110,6 @@ $(window).on("scroll", function() {
 })
 
 $(document).ready(function(){
-  $('.owl-carousel').owlCarousel({
-        // rtl: true,
-        margin: 10,
-        autoWidth:true,
-        loop:true,
-        navText : ["<i class='fa fa-chevron-left'></i>","<i class='fa fa-chevron-right'></i>"],
-
-        autoplay: true,
-        autoplayHoverPause:true,
-        autoplayTimeout:1000,
-
-        touchDrag: true,
-        nav : true,
-        dots: false,
-  });
 
   $("#contact-form").validate({
     debug: false,
