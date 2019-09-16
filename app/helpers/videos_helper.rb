@@ -12,7 +12,8 @@ module VideosHelper
     channel_9 = 'https://www.youtube.com/user/comedyliveshow'
     channel_10 = 'https://www.youtube.com/user/StandupNigeriaComedy'
     channel_10 = 'https://www.youtube.com/channel/UCnWrwhh4HyP3lNM_SkYsTQg'
-    return [channel_1, channel_2, channel_3, channel_4, channel_5, channel_6, channel_7, channel_8, channel_9, channel_10]
+    # return [channel_1, channel_2, channel_3, channel_4, channel_5, channel_6, channel_7, channel_8, channel_9, channel_10]
+    return [channel_1]
   end
 
 	def get_related_videos(meta_data)
