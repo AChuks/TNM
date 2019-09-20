@@ -21,35 +21,35 @@ module VideosHelper
 	end
 
   def get_trending_videos()
-    # channels = getChannels()
-    # if Trending.all.blank?
-    #   channels.each { |each_channel| 
-    #     each_channel= Yt::Channel.new url: each_channel
-    #     channel_trends = each_channel.videos.where(order: 'date').map.first(2)
-    #     channel_trends.each {|each_channel_trends| 
-    #     Trending.create(:url => each_channel_trends.id, :title => each_channel_trends.title.tr('#',''), :date => each_channel_trends.published_at, :meta_data => each_channel_trends.channel_id) }
-    #   }
+    channels = getChannels()
+    if Trending.all.blank?
+      channels.each { |each_channel| 
+        each_channel= Yt::Channel.new url: each_channel
+        channel_trends = each_channel.videos.where(order: 'date').map.first(2)
+        channel_trends.each {|each_channel_trends| 
+        Trending.create(:url => each_channel_trends.id, :title => each_channel_trends.title.tr('#',''), :date => each_channel_trends.published_at, :meta_data => each_channel_trends.channel_id) }
+      }
 
-    # end
+    end
     @trending_videos = Trending.all.shuffle
     return @trending_videos
   end
   def get_youtube_videos()
-    # channels = getChannels()
-    # if Youtube.all.blank?
-    #   channels.each {|each_channel| 
-    #     each_channel = Yt::Channel.new url: each_channel
-    #     each_channel.videos.map { |e| 
-    #       Youtube.create(:url => e.id, :title => e.title.tr('#',''), :date => e.published_at, :meta_data => e.channel_id)
-    #   }}
-    #   # Add processed uploaded videos to Youtube table
-    #   @processedVideos = Video.has_youtube_url()
-    #   if @processedVideos.size > 0
-    #     @processedVideos.each { |video|
-    #       Youtube.create(:url => video.youtube_url, :title => video.title.tr('#',''), :date => video.updated_at, :meta_data => 'UCnWrwhh4HyP3lNM_SkYsTQg')
-    #     }
-    #   end
-    # end
+    channels = getChannels()
+    if Youtube.all.blank?
+      channels.each {|each_channel| 
+        each_channel = Yt::Channel.new url: each_channel
+        each_channel.videos.map { |e| 
+          Youtube.create(:url => e.id, :title => e.title.tr('#',''), :date => e.published_at, :meta_data => e.channel_id)
+      }}
+      # Add processed uploaded videos to Youtube table
+      @processedVideos = Video.has_youtube_url()
+      if @processedVideos.size > 0
+        @processedVideos.each { |video|
+          Youtube.create(:url => video.youtube_url, :title => video.title.tr('#',''), :date => video.updated_at, :meta_data => 'UCnWrwhh4HyP3lNM_SkYsTQg')
+        }
+      end
+    end
     @youtube_videos = Youtube.paginate(page: params[:page],:per_page => 61).order('date DESC')
     return @youtube_videos
   end
