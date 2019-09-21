@@ -19,6 +19,7 @@
 //= require wice_grid
 //= require jquery.ui.widget
 //= require z.jquery.fileupload
+//= require jquery.lazyload
 //= require initialize_javascript_helpers
 //= require_tree .
 

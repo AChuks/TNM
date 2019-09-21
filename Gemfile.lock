@@ -920,6 +920,7 @@ GEM
     kaminari (0.17.0)
       actionpack (>= 3.0.0)
       activesupport (>= 3.0.0)
+    lazyload-image-rails (0.0.1)
     loofah (2.2.3)
       crass (~> 1.0.2)
       nokogiri (>= 1.5.9)
@@ -1077,6 +1078,7 @@ DEPENDENCIES
   jquery-rails (= 4.2.1)
   jquery-ui-rails
   jquery-validation-rails
+  lazyload-image-rails
   minitest
   pg (= 0.21)
   pry-byebug
