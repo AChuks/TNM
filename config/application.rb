@@ -36,6 +36,7 @@ module TNM
             '500' => 'exception'
         },
         email: 'support@supercomedian.com'
-    }    
+    }
+    config.middleware.insert_after ActionDispatch::Static, Rack::Deflater    
   end
 end
