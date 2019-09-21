@@ -88,6 +88,7 @@ $(window).on("load", function(){
             nav : true,
             dots: false,
         });
+        $("img.lazy").lazyload();
     });
 
 })
