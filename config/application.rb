@@ -29,7 +29,7 @@ module TNM
 
     config.exception_handler = {
         db:     false, #-> defaults to :errors if true, else use :table_name
-        dev: true,
+        dev: false,
         layouts: {
             '400' => 'exception',
             '404' => 'exception',

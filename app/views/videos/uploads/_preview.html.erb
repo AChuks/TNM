@@ -7,17 +7,15 @@
     <div class="modal-body">
       <div class = "well">
         <div class="row">
-          <div id='playerxOMAufbyCsCE'></div>
-            <script type='text/javascript'>
-              jwplayer('playerxOMAufbyCsCE').setup({
-                file: 'https:<%= @video.url %>',
-                width: '100%',
-                aspectratio: '24:10',
-                autostart: 'false',
-                type: 'mp4'
-              });
-            </script>              
-          </div>
+          <video
+            id="vid1"
+            autoplay
+            class="video-js vjs-default-skin preview-video"
+            controls
+            width="1200" height="700"
+            source src="https:<%= @video.url %>" type="video/mp4" 
+          >
+          </video>             
       </div>
     </div>
 

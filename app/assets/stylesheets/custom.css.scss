@@ -325,7 +325,7 @@ input[type="file"]{
   margin-top: 5px;
   color: wheat;
 }
-.container-upload-video, .container-contact {
+.container-upload-video, .container-contact, .container-new-user, .container-admin-videos, .container-admin-users {
   margin-top: 60px;
   label {
     color: wheat;
@@ -344,6 +344,8 @@ input[type="file"]{
     margin-top: 40px;
     input {
       background-color: wheat !important;
+      border-color: wheat !important;
+      outline: wheat !important;
       color: black !important;
       width: 180px;
       font-weight: 700;
@@ -358,6 +360,18 @@ input[type="file"]{
 }
 .container-contact {
   margin-top: 60px;
+}
+.container-admin-videos, .container-admin-users {
+  .video-prop, .user-prop {
+    color: wheat;
+    &-actions {
+      margin-top: 20px;
+      margin-bottom: 20px;
+    }
+  }
+  .wice-grid-container {
+    display: contents;
+  }
 }
 .pagination {
   li {
@@ -405,4 +419,19 @@ input[type="file"]{
 .submit-contact-message {
   color: wheat;
   font-size: 20px;
+}
+.alert-warning-forgot-password {
+  margin-top: 20px;
+  a {
+    text-decoration: none;
+  }
+}
+.alert-warning-new-account {
+  a {
+    text-decoration: none;
+  }
+}
+.preview-video {
+  height: 400px !important;
+  width: 100%;
 }

@@ -1,26 +1,24 @@
 <%= provide(:title, 'Admin | Login') %>
-<div class = "container-fluid">
+<div class = "container-fluid container-new-user">
 	<div class="row">
 		<div class="col-md-2 col-md-offset-5">
-			<br/>
-			<%= form_for(:session, {class: 'form', role: 'form'}) do |f| %>
-				<div class="form-group">
-					<%= f.label"Email" %><br/>
+			<%= form_for(:session, {class: 'form', role: 'form', html: { id: 'new-user-form' }}) do |f| %>
+				<div class="form-group form-group-custom-margin">
+					<%= f.label "Email" %>
 					<%= f.text_field :email, {class: 'form-control'} %>
-				</div><br/>
-				<div class="form-group">
-					<%= f.label :name, 'Password' %><br/>
+				</div>
+				<div class="form-group form-group-custom-margin">
+					<%= f.label 'Password' %>
 					<%= f.password_field :password, {class: 'form-control'}%>
-				</div><br/>
+				</div>
 				<div class="actions">
     				<%= f.submit "Authenticate", :class => 'btn btn-primary'  %>
   				</div>
 			<% end %>
-			<br/>
-			<div class="alert alert-warning">
+			<div class="alert alert-warning alert-warning-forgot-password">
 				<%= link_to 'Forgot your password ?' %>
 			</div>
-			<div class="alert alert-warning">
+			<div class="alert alert-warning alert-warning-new-account">
 				<%= link_to 'Register a new account', new_user_path %>
 			</div>
 			<% flash.each do |message_type, message| %>
