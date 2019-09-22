@@ -371,6 +371,9 @@ input[type="file"]{
   }
   .wice-grid-container {
     display: contents;
+    .even {
+      background-color: #f9f9f9 !important;
+    }
   }
 }
 .pagination {
