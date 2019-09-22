@@ -10,7 +10,7 @@
 	<link href="https://vjs.zencdn.net/7.6.0/video-js.min.css" rel="stylesheet" media="print" onload="this.media='all'">
 	<script src="https://use.fontawesome.com/463aa66a5a.js" async></script>
 
-	<%= javascript_include_tag 'application', async: true %>
+	<%= javascript_include_tag 'application', :async => Rails.env == "production" %>
 	<%= csrf_meta_tags %>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta name="google-site-verification" content="Vey2AcN92WhAXmZ3SAcgJ3k3xFelrafnYim0Bh4xeYA">

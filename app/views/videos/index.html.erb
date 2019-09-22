@@ -1,5 +1,5 @@
 <%= provide(:title, 'videos') %>
-<div class="container-fluid">
+<div class="container-fluid container-admin-videos">
   <div id="video-preview" class="modal container" style="position: relative;">
   </div>    
   <%= define_grid(@videos, hide_submit_button: true, hide_reset_button: true, show_filters: :always) do |g|
@@ -47,11 +47,9 @@
     g.column name: '', attribute: 'deleted', detach_with_id: :deleted_filter  do |task|
       link_to('Delete', video_path(task), method: :delete, data: {confirm: 'Are you sure?'})
     end
-    end -%>
-    <br/>
-    <br/>
+  end -%>
 
-    <div class="row">
+    <div class="row video-prop">
       <div class="col-xs-1">
         Author:
       </div>
@@ -60,7 +58,7 @@
       </div>
     </div>
 
-    <div class="row">
+    <div class="row video-prop">
       <div class="col-xs-1">
         Author Email:
       </div>
@@ -69,7 +67,7 @@
       </div>
     </div>
 
-    <div class="row">
+    <div class="row video-prop">
       <div class="col-xs-1">
         Title:
       </div>
@@ -78,7 +76,7 @@
       </div>
     </div>
 
-    <div class="row">
+    <div class="row video-prop">
       <div class="col-xs-1">
         Description:
       </div>
@@ -87,7 +85,7 @@
       </div>
     </div>
 
-    <div class="row">
+    <div class="row video-prop">
       <div class="col-xs-1">
         Accepted:
       </div>
@@ -96,7 +94,7 @@
       </div>
     </div>
 
-    <div class="row">
+    <div class="row video-prop">
       <div class="col-xs-1">
         Processed:
       </div>
@@ -105,7 +103,7 @@
       </div>
     </div>
 
-    <div class="row">
+    <div class="row video-prop">
       <div class="col-xs-1">
         Deleted:
       </div>
@@ -113,16 +111,12 @@
         <%= grid_filter @videos, :deleted_filter %>
       </div>
     </div>
-    <br/>
 
-    <div class="row col-xs-4">
+    <div class="row col-xs-4 video-prop-actions">
     <%= submit_tag "Submit", :class => "btn btn-primary wg-external-submit-button", "data-grid-name":"grid"  %>
 
     <%= submit_tag "Reset", :class => "btn btn-default wg-external-reset-button", "data-grid-name":"grid"  %>
     </div>
-    <br/>
-    <br/>
-    <br/>
 
     <%= render_grid(@videos) %>
 </div>

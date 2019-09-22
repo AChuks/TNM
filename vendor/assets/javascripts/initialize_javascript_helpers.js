@@ -42,7 +42,7 @@ $(window).on("load", function(){
                     progressBar.
                     css('background', 'green').
                     css('height', '20px').
-                    css('display', 'block').
+                    css('display', '-webkit-box').
                     css('width', '0%').
                     css('border-radius', '4px').
                     css('overflow-x', 'hidden').
@@ -53,6 +53,7 @@ $(window).on("load", function(){
 
                     submitButton.prop('disabled', false);
                     progressBar.text("Video uploaded !!!");
+                    progressBar.css('display', 'block');
 
                     // extract key and generate URL from response
                     var key   = $(data.jqXHR.responseXML).find("Key").text();
@@ -145,6 +146,18 @@ $(document).ready(function(){
         "video[description]": "Please enter video description",
         "video[author_email]": "Please enter a valid email address",
         "video[url]": "Please select a file"
+    }   
+  });
+
+   $("#new-user-form").validate({
+    debug: false,
+    rules: {
+        "session[email]": {required: true, email: true},        
+        "session[password]": {required: true, minlength: 2},  
+    },
+    messages: {
+        "session[email]": "Please enter a valid email address",
+        "session[password]": "Please enter your password"
     }   
   });
 });

@@ -1,36 +1,36 @@
 <%= form_for(@user , {class: 'form', role: 'form'}) do |f| %>
 
-  <div class="form-group">
-    <%= f.label :user_name, 'Username' %><br>
+  <div class="form-group form-group-custom-margin">
+    <%= f.label :user_name, 'Username' %>
     <%= f.text_field :user_name,  :class => 'form-control' %>
-  </div><br/>
-  <div class="form-group">
-    <%= f.label :email, 'Email' %><br>
+  </div>
+  <div class="form-group form-group-custom-margin">
+    <%= f.label :email, 'Email' %>
     <%= f.text_field :email, :class => 'form-control' %>
-  </div><br/>
+  </div>
   <% if !@user.id.nil? %>
-    <div class="form-group">
-      <%= f.label :current_password, 'Current Password' %><br>
+    <div class="form-group form-group-custom-margin">
+      <%= f.label :current_password, 'Current Password' %>
       <%= f.password_field :current_password, :class => 'form-control' %>
-    </div><br/>
+    </div>
   <% end %>
-  <div class="form-group">
-    <%= f.label :password, @user.id.nil? ? "Password" : "New Password" %><br>
+  <div class="form-group form-group-custom-margin">
+    <%= f.label :password, @user.id.nil? ? "Password" : "New Password" %>
     <%= f.password_field :password, :class => 'form-control' %>
-  </div><br/>
-  <div class="form-group">
-    <%= f.label :password_confirmation,@user.id.nil? ? "Password Confirmation" : "New Password Confirmation" %><br>
+  </div>
+  <div class="form-group form-group-custom-margin">
+    <%= f.label :password_confirmation,@user.id.nil? ? "Password Confirmation" : "New Password Confirmation" %>
     <%= f.password_field :password_confirmation, :class => 'form-control' %>
-  </div><br/>
+  </div>
   <% if !@user.id.nil? %>
-    <div class="form-group">
-      <%= f.label :super_admin, 'Super Admin' %><br>
+    <div class="form-group form-group-custom-margin">
+      <%= f.label :super_admin, 'Super Admin' %>
       <%= f.check_box :super_admin, :class => 'form-control' %>
-    </div><br/>
+    </div>
   <% end %>
   <div class="actions">
     <%= f.submit @user.id.nil? ? "Register" : "Submit", :class => 'btn btn-primary' %>
-  </div><br/>
+  </div>
 
   <% if @user.errors.any? %>
     <div class="alert alert-danger">
@@ -38,7 +38,6 @@
       <ul>
       <% @user.errors.full_messages.each do |message| %>
         <li><%= message %></li>
-        <br/>
       <% end %>
       </ul>
     </div>
