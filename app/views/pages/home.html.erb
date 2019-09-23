@@ -34,7 +34,7 @@
               <div class="masked">
                 <a href = "watch?url=<%= videotemplate.url %>;title=<%= videotemplate.title   %>;meta_data=<%= videotemplate.meta_data %>"> 
                   <img data-original= "https://i.ytimg.com/vi/<%= videotemplate.url %>/mqdefault.jpg" class="lazy" alt="<%= videotemplate.title %>">
-                  <div class='video-title'><%= videotemplate.title %></div>
+                  <div class='video-title'><%= videotemplate.title.downcase.capitalize %></div>
                   <div class='video-date-time'><%= videotemplate.date.to_date %></div>
                 </a>
               </div>
