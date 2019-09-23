@@ -83,7 +83,7 @@ $(window).on("load", function(){
 
             autoplay: true,
             autoplayHoverPause:true,
-            autoplayTimeout:1000,
+            autoplayTimeout:4000,
 
             touchDrag: true,
             nav : true,
