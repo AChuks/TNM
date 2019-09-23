@@ -35,8 +35,8 @@
     <% end %>
     <% if @video.author_email.nil?  %>
       <div class="field file">
-        <%= button_tag "Select a video file", :type => 'button', :class => "btn btn-xs btn-info fileButton"%>
         <%= f.file_field :url %>
+        <%= button_tag "Select a video file", :type => 'button', :class => "btn btn-xs btn-info fileButton"%>
       </div>
     <% end %>
     <div class="actions">
