@@ -13,6 +13,7 @@ $(window).on("load", function(){
             barContainer.css('width', '80%')
             barContainer.css('display', 'inline-block')
             barContainer.css('visibility', 'hidden')
+            barContainer.css('margin-bottom', '0px')
             buttonInput.after(barContainer);
 
             var barContainerWidth = document.getElementsByClassName("progress")[0].offsetWidth;
