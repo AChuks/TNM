@@ -1,6 +1,6 @@
 class PagesController < ApplicationController
   def home
-    @youtube_videos = view_context.get_youtube_videos()
+    @all_videos = view_context.get_all_videos()
     @trending_videos = view_context.get_trending_videos()
   end
 

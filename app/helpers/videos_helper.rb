@@ -12,13 +12,27 @@ module VideosHelper
     channel_9 = 'https://www.youtube.com/user/comedyliveshow'
     channel_10 = 'https://www.youtube.com/user/StandupNigeriaComedy'
     channel_10 = 'https://www.youtube.com/channel/UCnWrwhh4HyP3lNM_SkYsTQg'
-    return [channel_1, channel_2, channel_3, channel_4, channel_5, channel_6, channel_7, channel_8, channel_9, channel_10]
+    channel_11 = 'https://www.youtube.com/channel/UCizXhcdxVu-7bBDEmJ99yRQ'
+    channel_12 = 'https://www.youtube.com/channel/UC2iwgQq9nvW0MkxJn7jI0XQ'
+    channel_13 ='https://www.youtube.com/channel/UCCQ-qN-4JcmXe4GcktUsITg'
+    channel_14 = 'https://www.youtube.com/channel/UC4JoLGDc4qhyP5p6Vgs8qXQ'
+    channel_15 = 'https://www.youtube.com/user/TheLaughFactory'
+    channel_16 = 'https://www.youtube.com/channel/UCBNQ6onTgCLMOg1McrQ859A'
+    channel_17 = 'https://www.youtube.com/user/justforlaughscomedy'
+    return [channel_1, channel_2, channel_3, channel_4, channel_5, channel_6, channel_7, channel_8, channel_9, channel_10, channel_11, channel_12, channel_13, channel_14, channel_15, channel_16, channel_17]
   end
 
-	def get_related_videos(meta_data)
+	def get_related_youtube_videos(meta_data)
 		@related_videos = Youtube.same_meta_data_as(meta_data)
 		return @related_videos
 	end
+
+  def get_related_videos(author_email)
+    related_uploaded_videos = Video.same_author_email(author_email).has_vimeo_video_id
+    youtube_videos = Youtube.order("RANDOM()").limit(10)
+    @related_videos = (related_uploaded_videos + youtube_videos)
+    return @related_videos
+  end
 
   def get_trending_videos()
     channels = getChannels()
@@ -34,7 +48,7 @@ module VideosHelper
     @trending_videos = Trending.all.shuffle
     return @trending_videos
   end
-  def get_youtube_videos()
+  def get_all_videos()
     channels = getChannels()
     if Youtube.all.blank?
       channels.each {|each_channel| 
@@ -42,15 +56,10 @@ module VideosHelper
         each_channel.videos.map { |e| 
           Youtube.create(:url => e.id, :title => e.title.tr('#',''), :date => e.published_at, :meta_data => e.channel_id)
       }}
-      # Add processed uploaded videos to Youtube table
-      @processedVideos = Video.has_youtube_url()
-      if @processedVideos.size > 0
-        @processedVideos.each { |video|
-          Youtube.create(:url => video.youtube_url, :title => video.title.tr('#',''), :date => video.updated_at, :meta_data => 'UCnWrwhh4HyP3lNM_SkYsTQg')
-        }
-      end
     end
-    @youtube_videos = Youtube.paginate(page: params[:page],:per_page => 61).order('date DESC')
-    return @youtube_videos
+    @uploaded_videos = Video.has_vimeo_video_id()
+    @youtube_videos = Youtube.all
+    @all_videos = (@uploaded_videos + @youtube_videos).sort_by(&:date).reverse.paginate(page: params[:page],:per_page => 61)
+    return @all_videos
   end
 end
