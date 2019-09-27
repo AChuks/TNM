@@ -1,4 +1,11 @@
 GIT
+  remote: https://github.com/bo-oz/vimeo_me2.git
+  revision: 1023e7c02f358f3d4d6d2c8ea9b84423d75c204e
+  specs:
+    vimeo_me2 (1.2.1)
+      httparty (~> 0.14.0)
+
+GIT
   remote: https://github.com/mediprocity/APIv3-ruby-library
   revision: 09ea0e7406a1274a6b3d5c5d46fa9b8f0909a4c1
   specs:
@@ -900,6 +907,8 @@ GEM
     heroku-deflater (0.6.3)
       rack (>= 1.4.5)
     hirb (0.7.3)
+    httparty (0.14.0)
+      multi_xml (>= 0.5.2)
     i18n (0.9.5)
       concurrent-ruby (~> 1.0)
     ipaddress (0.8.3)
@@ -932,6 +941,7 @@ GEM
     mini_portile2 (2.4.0)
     minitest (5.11.3)
     multi_json (1.13.1)
+    multi_xml (0.6.0)
     nokogiri (1.10.4)
       mini_portile2 (~> 2.4.0)
     pg (0.21.0)
@@ -1098,6 +1108,7 @@ DEPENDENCIES
   turbolinks (= 5.0.1)
   uglifier (= 3.0.3)
   underscore-rails
+  vimeo_me2!
   wice_grid (~> 3.6, >= 3.6.2)
   will_paginate (= 3.1.5)
   yt (~> 0.28.1)

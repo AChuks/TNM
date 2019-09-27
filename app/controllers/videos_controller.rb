@@ -60,12 +60,22 @@ class VideosController < ApplicationController
   # PATCH/PUT /videos/1.json
   def update
     respond_to do |format|
-      if @video.update(video_params)
-        format.html { redirect_to @video, notice: 'Video was successfully updated.' }
-        format.json { head :no_content }
-      else
-        format.html { render action: 'edit' }
-        format.json { render json: @video.errors, status: :unprocessable_entity }
+      if video_params.key?('vimeo_video_id')
+        vimeo_video = VimeoMe2::Video.new(ENV['VIMEO_ACCESS_TOKEN'], video_params['vimeo_video_id'])
+        vimeo_video_thumbnail_sizes = vimeo_video.video['pictures']['sizes']
+        vimeo_video_thumbnail_sizes.each do |thumbnail_size|
+          if thumbnail_size['width'] > 280 && thumbnail_size['height'] > 160
+            thumb_nail = thumbnail_size['link']
+            @video.thumb_nail = thumb_nail
+            if @video.update(video_params)
+              format.html { redirect_to @video, notice: 'Video was successfully updated.' }
+              format.json { head :no_content }
+            else
+              format.html { render action: 'edit' }
+              format.json { render json: @video.errors, status: :unprocessable_entity }
+            end
+          end
+        end
       end
     end
   end
@@ -89,10 +99,17 @@ class VideosController < ApplicationController
     @url = params[:url]
     @title = params[:title]
     @meta_data = params[:meta_data]
-    @related_videos = view_context.get_related_videos(@meta_data).order("RANDOM()")[0,20]
+    @uploaded = params[:upload]
+    if @uploaded
+      @current_video_relation =  Video.same_vimeo_video_id_as(@url)
+      @current_video = @current_video_relation.first
+      @related_videos = view_context.get_related_videos(@current_video['author_email'])
+    elsif
+      @related_videos = view_context.get_related_youtube_videos(@meta_data).order("RANDOM()")[0,20]
+      @current_video_relation =  Youtube.same_url_as(@url)
+      @current_video = @current_video_relation.first
+    end
     @trending_videos = view_context.get_trending_videos
-    @current_video_relation =  Youtube.same_url_as(@url)
-    @current_video = @current_video_relation.first
   end
 
   def preview
@@ -133,6 +150,6 @@ class VideosController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def video_params
-      params.require(:video).permit(:url, :title, :description, :author, :author_email, :youtube_url)
+      params.require(:video).permit(:url, :title, :description, :author, :author_email, :vimeo_video_id, :frame)
     end
 end

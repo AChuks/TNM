@@ -1,7 +1,10 @@
 class Video < ActiveRecord::Base
 
   # scopes
-  scope :has_youtube_url, -> () {where.not(youtube_url: '') }
+  scope :has_vimeo_video_id, -> () {where.not(vimeo_video_id: '') }
+  scope :same_vimeo_video_id_as, -> (vimeo_video_id) {where vimeo_video_id: vimeo_video_id}
+  scope :same_author_email, -> (author_email) {where author_email: author_email}
+
 
   # Validations
 	VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-]+(\.[a-z\d\-]+)*\.[a-z]+\z/i

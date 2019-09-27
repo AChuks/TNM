@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171123160125) do
+ActiveRecord::Schema.define(version: 20190926163142) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -55,11 +55,13 @@ ActiveRecord::Schema.define(version: 20171123160125) do
     t.datetime "updated_at"
     t.string   "description"
     t.string   "author"
-    t.boolean  "deleted",      default: false
-    t.boolean  "processed",    default: false
-    t.boolean  "accepted",     default: false
+    t.boolean  "deleted",        default: false
+    t.boolean  "processed",      default: false
+    t.boolean  "accepted",       default: false
     t.string   "author_email"
-    t.string   "youtube_url"
+    t.string   "vimeo_video_id"
+    t.string   "thumb_nail"
+    t.string   "frame"
   end
 
   create_table "youtubes", force: :cascade do |t|
