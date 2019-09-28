@@ -25,6 +25,8 @@ gem 'sitemap_generator'
 gem 'fog-aws'
 gem 'lazyload-image-rails'
 gem 'vimeo_me2', :git => "https://github.com/bo-oz/vimeo_me2.git"
+gem 'pg_search'
+
 
 
 # Use sqlite3 as the database for Active Record

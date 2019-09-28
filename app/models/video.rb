@@ -1,4 +1,5 @@
 class Video < ActiveRecord::Base
+  include PgSearch
 
   # scopes
   scope :has_vimeo_video_id, -> () {where.not(vimeo_video_id: '') }
@@ -13,4 +14,6 @@ class Video < ActiveRecord::Base
 	validates :title, presence: true, length: {maximum: 50}
 	validates :description, presence: true, length: {maximum: 250}
 	validates :url, presence: true
+
+  pg_search_scope :search, against: [:title]
 end
