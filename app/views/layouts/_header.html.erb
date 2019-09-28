@@ -7,11 +7,19 @@
       </button>
     </div>
     <div class="navbar-container">
-        <ul class="nav navbar-nav pull-left">
+        <ul class="nav navbar-nav pull-left col-xs-4">
         <li><%= link_to root_path, {:class => 'navbar-logo'} do %>
             <%= show_svg('super_comedian.svg') %>
             <% end %>
         </li>
+        </ul>
+        <ul class="nav navbar-nav pull-left col-xs-4">
+        <div class='search'>
+            <%= form_tag url_for(:controller => 'pages', :action => 'search'), :method => 'get', :id => 'search-form' do %>
+                <i class="fa fa-search"></i>
+                <%= text_field_tag(:search_text, @search_text) %>
+            <% end %>
+        </div>
         </ul>
         <div class="collapse navbar-collapse" id="navbar-id">
           <ul class="nav navbar-nav pull-right">

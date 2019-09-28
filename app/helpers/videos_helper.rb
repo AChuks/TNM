@@ -62,4 +62,10 @@ module VideosHelper
     @all_videos = (@uploaded_videos + @youtube_videos).sort_by(&:date).reverse.paginate(page: params[:page],:per_page => 61)
     return @all_videos
   end
+
+  def get_search_filtered_videos(search_text)
+    @filtered_youtube_videos = Youtube.search(@search_text)
+    @filtered_uploaded_videos = Video.search(@search_text)
+    @filtered_videos = (@filtered_youtube_videos + @filtered_uploaded_videos).sort_by(&:date).reverse.paginate(page: params[:page],:per_page => 31)
+  end
 end
