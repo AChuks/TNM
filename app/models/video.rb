@@ -1,5 +1,5 @@
 class Video < ActiveRecord::Base
-  include PgSearch
+  include PgSearch::Model
 
   # scopes
   scope :has_vimeo_video_id, -> () {where.not(vimeo_video_id: '') }
