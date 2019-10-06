@@ -3,6 +3,7 @@ import PropTypes from "prop-types";
 import Formsy from "formsy-react";
 import FormsyInput from "./shared/FormsyComponents";
 const path = require("path");
+import * as Scroll from "react-scroll";
 
 class VideosForm extends Component {
   static propTypes = {
@@ -58,7 +59,16 @@ class VideosForm extends Component {
         this.setState({
           videosInfo: data
         });
+        this.scrollToTopOfMessage();
       });
+  };
+
+  scrollToTopOfMessage = () => {
+    let scroll = Scroll.animateScroll;
+    let messageOffsetTop = document.getElementsByClassName(
+      "container-upload-video-message"
+    )[0].offsetTop;
+    scroll.scrollTo(messageOffsetTop);
   };
 
   render() {
@@ -141,7 +151,7 @@ class VideosForm extends Component {
             </button>
           </div>
           {videosInfo && videosInfo.videoUploadSuccess === true && (
-            <div className="row">
+            <div className="row container-upload-video-message">
               <p id="notice" className="container-upload-video-notice">
                 Video was successfully submitted
               </p>
@@ -151,7 +161,7 @@ class VideosForm extends Component {
             </div>
           )}
           {videosInfo && videosInfo.videoUploadSuccess === false && (
-            <div className="row">
+            <div className="row container-upload-video-message">
               <p id="notice" className="container-upload-video-notice">
                 We encountered some problems processing your video. Please try
                 again later or contact &nbsp;

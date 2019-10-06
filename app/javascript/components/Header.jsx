@@ -88,7 +88,7 @@ class Header extends Component {
     const navBar = document.getElementsByClassName("navbar-container")[0];
     return (
       <nav className="navbar" role="navigation">
-        <div className="navbar-header">
+        <div className="navbar-header col-xs-6 col-zero-padding">
           <button
             type="button"
             className="navbar-toggle"
@@ -100,7 +100,7 @@ class Header extends Component {
             <span className="icon-bar"></span>
           </button>
         </div>
-        <div className="navbar-container">
+        <div className="navbar-container col-xs-6 col-zero-padding">
           <ul className="nav navbar-nav pull-left col-xs-3">
             <li>
               <a className="navbar-logo" href="/">

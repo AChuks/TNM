@@ -3,6 +3,7 @@ import PropTypes from "prop-types";
 import Formsy from "formsy-react";
 import FormsyInput from "./shared/FormsyComponents";
 const path = require("path");
+import * as Scroll from "react-scroll";
 
 class ContactForm extends Component {
   static propTypes = {
@@ -48,7 +49,16 @@ class ContactForm extends Component {
         this.setState({
           formInfo: data
         });
+        this.scrollToTopOfMessage();
       });
+  };
+
+  scrollToTopOfMessage = () => {
+    let scroll = Scroll.animateScroll;
+    let messageOffsetTop = document.getElementsByClassName(
+      "container-contact-message"
+    )[0].offsetTop;
+    scroll.scrollTo(messageOffsetTop);
   };
 
   render() {
@@ -112,7 +122,7 @@ class ContactForm extends Component {
             </button>
           </div>
           {formInfo && formInfo.success === true && (
-            <div className="row">
+            <div className="row container-contact-message">
               <p id="notice" className="container-contact-notice">
                 Message Sent !!!
               </p>
@@ -122,7 +132,7 @@ class ContactForm extends Component {
             </div>
           )}
           {formInfo && formInfo.success === false && (
-            <div className="row">
+            <div className="row container-contact-message">
               <p id="notice" className="container-contact-notice">
                 We encountered some problems sending your message. Please try
                 again later or contact &nbsp;
