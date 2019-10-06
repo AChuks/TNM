@@ -115,8 +115,9 @@ ul.list-inline li a {
   }
   &-header {
     position: fixed;
-    width: 100%;
     z-index: 1000;
+    float: right;
+    display: inline;
     button {
       margin-top: 18px;
     }
@@ -389,8 +390,14 @@ input[type="file"]{
   label {
     color: wheat;
   }
+  &-message {
+    margin-bottom: 80px;
+    font-size: 16px;
+    font-weight: 600;
+  }
   &-notice {
     color: wheat;
+    margin-bottom: 0px;
   }
   &-link {
     text-decoration: none !important;
@@ -401,7 +408,7 @@ input[type="file"]{
   }
   .actions {
     margin-top: 40px;
-    margin-bottom: 80px;
+    margin-bottom: 60px;
     text-align: center;
     .submit {
       background-color: wheat !important;
