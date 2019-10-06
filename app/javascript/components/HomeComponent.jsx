@@ -69,6 +69,7 @@ class HomeComponent extends Component {
       <div className="content">
         <div className="content-looping-video-div">
           <video
+            playsinline
             autoPlay
             loop
             muted
