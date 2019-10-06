@@ -1,8 +1,8 @@
 <% provide(:title, 'Upload Video')%>
 <div class = "container-fluid container-upload-video">
   <div class = "row">
-  	<div class = "col-md-2 col-md-offset-5">
-  		<%= render 'form' %>
+  	<div class = "col-md-4 col-md-offset-4 col-sm-6 col-sm-offset-3 col-xs-12">
+  		<%= react_component("VideosForm",  props: { videosInfo: @videos_info }) %>
   	</div>
   </div>
 </div>

@@ -1,43 +1,42 @@
 source 'https://rubygems.org'
-ruby "2.3.1"
+ruby "2.5.1"
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '4.2.7'
-gem 'bootstrap-sass','3.3.7'
-gem 'sprockets','3.0.0'
-gem 'sprockets-rails', '3.2.0'
-gem 'bcrypt-ruby', '3.1.5'
-gem 'faker', '1.6.6'
-gem 'will_paginate', '3.1.5'
-gem 'bootstrap-will_paginate', '0.0.10'
+gem 'rails', '5.2.3'
+gem 'bootstrap-sass'
+gem 'sprockets'
+gem 'sprockets-rails'
+gem 'bcrypt-ruby'
+gem 'faker'
+gem 'will_paginate'
+gem 'bootstrap-will_paginate'
 gem 'autoprefixer-rails'
-gem 'yt', '~> 0.28.1'
+gem 'yt'
 gem 'haml'                # or gem 'slim'
 gem 'awesome_nested_set'  # or same gem
-gem 'bcrypt',  '3.1.11'
+gem 'bcrypt'
 gem 'aws-sdk'
-gem 'wice_grid', '~> 3.6', '>= 3.6.2'
-gem 'exception_handler', '~> 0.7.7.0'
-gem 'responders', '~> 2.0'
-gem 'cancancan', '~> 2.0'
+gem 'wice_grid'
+gem 'exception_handler'
+gem 'responders'
+gem 'cancancan'
 gem 'sib-api-v3-sdk', git: 'https://github.com/mediprocity/APIv3-ruby-library'
 gem 'sitemap_generator'
 gem 'fog-aws'
-gem 'lazyload-image-rails'
 gem 'vimeo_me2', :git => "https://github.com/bo-oz/vimeo_me2.git"
 gem 'pg_search'
-
-
+gem "react_on_rails", "11.0.0"
+gem "webpacker", "~> 3"
+gem 'mini_racer', platforms: :ruby
 
 # Use sqlite3 as the database for Active Record
 group :development, :test do
-    gem 'sqlite3', '1.4.1'
-    gem 'rspec-rails', '3.5.2'
+    gem 'sqlite3'
+    gem 'rspec-rails'
     gem 'pry-rails'
     gem 'pry-byebug'
     gem 'hirb'
-    gem 'browser_sync_rails'
-    gem 'pg', '0.21'
+    gem 'pg'
     gem 'dotenv-rails'
     gem 'rb-readline'
     # gem 'guard', '>= 2.15.0', require: false
@@ -47,37 +46,37 @@ group :development, :test do
 end
 
 group :test do
-    gem 'selenium-webdriver', '3.0.1'
-    gem 'capybara', '2.10.1'
-    gem 'factory_girl_rails', '4.7.0'
+    gem 'selenium-webdriver'
+    gem 'capybara'
+    gem 'factory_girl_rails'
     gem 'minitest'
 end
 
 # Use SCSS for stylesheets
 #gem 'sass-rails', '>=3.2'
-gem 'sass', '3.3.4'
-gem 'sass-rails', '5.0.6'
+gem 'sass'
+gem 'sass-rails'
 
 # Use Uglifier as compressor for JavaScript assets
-gem 'uglifier', '3.0.3'
+gem 'uglifier'
 
 # Use CoffeeScript for .js.coffee assets and views
-gem 'coffee-rails', '4.2.1'
+gem 'coffee-rails'
 
 # See https://github.com/sstephenson/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
 
 # Use jquery as the JavaScript library
-gem 'jquery-rails', '4.2.1'
+gem 'jquery-rails'
 gem 'jquery-validation-rails'
 gem 'jquery-ui-rails'
 gem 'underscore-rails'
 
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
-gem 'turbolinks', '5.0.1'
+gem 'turbolinks'
 
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
-gem 'jbuilder', '2.6.0'
+gem 'jbuilder'
 
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.
@@ -86,9 +85,9 @@ end
 
 
 group :production do
-    gem 'pg', '0.21'
-    gem 'rails_12factor', '0.0.3'
-    gem 'puma',           '3.6.0'
+    gem 'pg'
+    gem 'rails_12factor'
+    gem 'puma'
     gem 'heroku-deflater'
 
 end
