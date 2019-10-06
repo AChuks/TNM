@@ -48,6 +48,7 @@ module VideosHelper
     @trending_videos = Trending.all.shuffle
     return @trending_videos
   end
+
   def get_all_videos()
     channels = getChannels()
     if Youtube.all.blank?
@@ -59,13 +60,16 @@ module VideosHelper
     end
     @uploaded_videos = Video.has_vimeo_video_id()
     @youtube_videos = Youtube.all
-    @all_videos = (@uploaded_videos + @youtube_videos).sort_by(&:date).reverse.paginate(page: params[:page],:per_page => 61)
-    return @all_videos
+    @all_videos = (@uploaded_videos + @youtube_videos).sort_by(&:date).reverse.paginate(page: params[:page],:per_page => 60)
+    @trending_videos = get_trending_videos()
+    @videos_info = {allVideos: @all_videos, trendingVideos: @trending_videos, currentPage: @all_videos.current_page, totalPages: @all_videos.total_pages}
+    return @videos_info
   end
 
   def get_search_filtered_videos(search_text)
-    @filtered_youtube_videos = Youtube.search(@search_text)
-    @filtered_uploaded_videos = Video.search(@search_text)
-    @filtered_videos = (@filtered_youtube_videos + @filtered_uploaded_videos).sort_by(&:date).reverse.paginate(page: params[:page],:per_page => 31)
+    @filtered_youtube_videos = Youtube.search(search_text)
+    @filtered_uploaded_videos = Video.search(search_text)
+    @filtered_videos = (@filtered_youtube_videos + @filtered_uploaded_videos).sort_by(&:date).reverse.paginate(page: params[:page],:per_page => 60)
+    @videos_info = {searchedVideos: @filtered_videos, searchedText: search_text, currentPage: @filtered_videos.current_page, totalPages: @filtered_videos.total_pages}
   end
 end

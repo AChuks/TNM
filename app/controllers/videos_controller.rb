@@ -1,4 +1,5 @@
 class VideosController < ApplicationController
+  skip_before_action :verify_authenticity_token
   before_action :set_video, only: [:show, :edit, :update, :destroy]
   load_and_authorize_resource
 
@@ -27,8 +28,7 @@ class VideosController < ApplicationController
 
   # GET /videos/new
   def new
-    @video = Video.new
-    @s3_direct_post = S3_BUCKET.presigned_post(key: "videoUploads/#{Time.now.getlocal('-05:00').to_date}/#{SecureRandom.uuid}/${filename}", success_action_status: '201')
+    pre_video_upload_data
   end
 
   # GET /videos/1/edit
@@ -39,19 +39,28 @@ class VideosController < ApplicationController
   # POST /videos.json
   def create
     @video = Video.new(video_params)
+    puts video_params
     @video.date = Time.now
 
     respond_to do |format|
       if @video.save
 
         # Send video received email
-        SendinBlueMailer.send_video_received_email(@video).deliver_now
+        begin
+          SendinBlueMailer.send_video_received_email(@video).deliver_now
+        rescue SibApiV3Sdk::ApiError => e
+          puts "Exception when calling SMTPApi->send_transac_email: #{e}"
+        end
 
-        format.html { redirect_to @video, notice: 'Video was successfully submitted. Thank You.' }
-        format.json { render action: 'show', status: :created, location: @video }
-      else
+        pre_video_upload_data
+        @videos_info['videoUploadSuccess'] = true
         format.html { render action: 'new' }
-        format.json { render json: @video.errors, status: :unprocessable_entity }
+        format.json { render json: @videos_info }
+      else
+        pre_video_upload_data
+        @videos_info['videoUploadSuccess'] = false
+        format.html { render action: 'new' }
+        format.json { render json: @videos_info }
       end
     end
   end
@@ -110,6 +119,7 @@ class VideosController < ApplicationController
       @current_video = @current_video_relation.first
     end
     @trending_videos = view_context.get_trending_videos
+    @videos_info = {url: @url, title: @title, uploaded: @uploaded, currentVideo: @current_video, relatedVideos: @related_videos}
   end
 
   def preview
@@ -151,5 +161,11 @@ class VideosController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def video_params
       params.require(:video).permit(:url, :title, :description, :author, :author_email, :vimeo_video_id, :frame)
+    end
+
+    def pre_video_upload_data
+      @video = Video.new
+      @s3_direct_post = S3_BUCKET.presigned_post(key: "videoUploads/#{Time.now.getlocal('-05:00').to_date}/#{SecureRandom.uuid}/${filename}", success_action_status: '201')
+      @videos_info = {video: @video, presignedS3Post: @s3_direct_post, policy: @s3_direct_post.fields }
     end
 end

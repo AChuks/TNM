@@ -7,4 +7,18 @@
 // To reference this file, add <%= javascript_pack_tag 'application' %> to the appropriate
 // layout file, like app/views/layouts/application.html.erb
 
-console.log('Hello World from Webpacker')
+import ReactOnRails from "react-on-rails";
+import HomeComponent from "../components/HomeComponent";
+import Header from "../components/Header";
+import SearchedVideos from "../components/SearchedVideos";
+import VideosForm from "../components/VideosForm";
+import ContactForm from "../components/ContactForm";
+import WatchVideos from "../components/WatchVideos";
+ReactOnRails.register({
+  HomeComponent,
+  Header,
+  SearchedVideos,
+  VideosForm,
+  ContactForm,
+  WatchVideos
+});

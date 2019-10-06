@@ -953,7 +953,6 @@ GEM
       activerecord
       kaminari-core (= 1.1.1)
     kaminari-core (1.1.1)
-    lazyload-image-rails (0.0.1)
     libv8 (7.3.492.27.1)
     loofah (2.3.0)
       crass (~> 1.0.2)
@@ -1149,7 +1148,6 @@ DEPENDENCIES
   jquery-rails
   jquery-ui-rails
   jquery-validation-rails
-  lazyload-image-rails
   mini_racer
   minitest
   pg
