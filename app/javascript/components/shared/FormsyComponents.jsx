@@ -40,7 +40,7 @@ class FormsyInput extends React.Component {
       isPristineInput = isPristine(),
       isValidInput = isValid(),
       displayRequired = showRequired(),
-      displayError = _.isBoolean(showError) ? showError : showError(),
+      displayError = typeof showError === "boolean" ? showError : showError(),
       showRequiredMessage =
         !isPristineInput && !isValidInput && displayRequired;
     console.log(type);
