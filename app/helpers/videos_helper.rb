@@ -17,7 +17,7 @@ module VideosHelper
     channel_14 = 'UCBNQ6onTgCLMOg1McrQ859A'
     channel_15 = 'UCqq3PZwp8Ob8_jN0esCunIw'
     channel_16 = 'UCtw7q4SyOeoCwM1i_3x8lDg'
-    return [channel_1, channel_2, channel_3, channel_4, channel_5, channel_6, channel_7, channel_8, channel_9]
+    return [channel_1, channel_2, channel_3, channel_4, channel_5, channel_6, channel_7, channel_8]
   end
 
 	def get_related_youtube_videos(meta_data)
@@ -36,7 +36,7 @@ module VideosHelper
     channels = getChannels()
     if Trending.all.blank?
       channels.each { |each_channel|
-        each_channel= Yt::Channel.new url: each_channel
+        each_channel= Yt::Channel.new id: each_channel
         channel_trends = each_channel.videos.where(order: 'date').map.first(2)
         channel_trends.each {|each_channel_trends| 
         Trending.create(:url => each_channel_trends.id, :title => each_channel_trends.title.tr('#',''), :date => each_channel_trends.published_at, :meta_data => each_channel_trends.channel_id) }
@@ -52,7 +52,7 @@ module VideosHelper
     if Youtube.all.blank?
       channels.each {|each_channel| 
         puts each_channel 
-        each_channel = Yt::Channel.new url: each_channel
+        each_channel = Yt::Channel.new id: each_channel
         each_channel.videos.map { |e| 
           Youtube.create(:url => e.id, :title => e.title.tr('#',''), :date => e.published_at, :meta_data => e.channel_id)
       }}
