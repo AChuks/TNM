@@ -1,23 +1,23 @@
 module VideosHelper
 
   def getChannels()
-    channel_1 = 'https://www.youtube.com/channel/UC9YvlExCwL2gh9H8bE63aDA'
-    channel_2 = 'https://www.youtube.com/channel/UCY1ZateUFcH6K-UyM3J4PoA'
-    channel_3 = 'https://www.youtube.com/channel/UCpSy6fz3rORXNrsodFo3mFQ'
-    channel_4 = 'https://www.youtube.com/channel/UCMJsaAgrrwkPgHLKYGGjYlg'
-    channel_5 = 'https://www.youtube.com/channel/UCTC1SIC5HTcKaLd4eJTmp1w'
-    channel_6 = 'https://www.youtube.com/channel/UCwukLrqPe4ywJTe0RWVlBSA'
-    channel_7 = 'https://www.youtube.com/channel/UCvO4Ym5LjYTo0uZRfUvtc-w'
-    channel_8 = 'https://www.youtube.com/channel/UCwemICO9grnv9xkvFkoRvMA'
-    channel_9 = 'https://www.youtube.com/channel/UCizXhcdxVu-7bBDEmJ99yRQ'
-    channel_10 = 'https://www.youtube.com/channel/UC2iwgQq9nvW0MkxJn7jI0XQ'
-    channel_11 ='https://www.youtube.com/channel/UCCQ-qN-4JcmXe4GcktUsITg'
-    channel_12 = 'https://www.youtube.com/channel/UC4JoLGDc4qhyP5p6Vgs8qXQ'
-    channel_13 = 'https://www.youtube.com/channel/UCxyCzPY2pjAjrxoSYclpuLg'
-    channel_14 = 'https://www.youtube.com/channel/UCBNQ6onTgCLMOg1McrQ859A'
-    channel_15 = 'https://www.youtube.com/channel/UCqq3PZwp8Ob8_jN0esCunIw'
-    channel_16 = 'https://www.youtube.com/channel/UCtw7q4SyOeoCwM1i_3x8lDg'
-    return [channel_2, channel_3, channel_4, channel_5, channel_6, channel_7, channel_8, channel_9, channel_10, channel_11, channel_12, channel_13, channel_14]
+    channel_1 = 'UC9YvlExCwL2gh9H8bE63aDA' 
+    channel_2 = 'UCY1ZateUFcH6K-UyM3J4PoA'
+    channel_3 = 'UCpSy6fz3rORXNrsodFo3mFQ'
+    channel_4 = 'UCMJsaAgrrwkPgHLKYGGjYlg'
+    channel_5 = 'UCTC1SIC5HTcKaLd4eJTmp1w'
+    channel_6 = 'UCwukLrqPe4ywJTe0RWVlBSA'
+    channel_7 = 'UCvO4Ym5LjYTo0uZRfUvtc-w'
+    channel_8 = 'UCwemICO9grnv9xkvFkoRvMA'
+    channel_9 = 'UCizXhcdxVu-7bBDEmJ99yRQ'
+    channel_10 = 'UC2iwgQq9nvW0MkxJn7jI0XQ'
+    channel_11 ='UCCQ-qN-4JcmXe4GcktUsITg'
+    channel_12 = 'UC4JoLGDc4qhyP5p6Vgs8qXQ'
+    channel_13 = 'UCxyCzPY2pjAjrxoSYclpuLg'
+    channel_14 = 'UCBNQ6onTgCLMOg1McrQ859A'
+    channel_15 = 'UCqq3PZwp8Ob8_jN0esCunIw'
+    channel_16 = 'UCtw7q4SyOeoCwM1i_3x8lDg'
+    return [channel_1, channel_2, channel_3, channel_4, channel_5, channel_6, channel_7, channel_8, channel_9]
   end
 
 	def get_related_youtube_videos(meta_data)
