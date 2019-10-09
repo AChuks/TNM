@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
+import { LazyLoadImage } from "react-lazy-load-image-component";
 
 class CarouselVideos extends Component {
   static propTypes = {
@@ -26,9 +27,11 @@ class CarouselVideos extends Component {
                 <a
                   href={`watch?url=${carouselVideo.url};title=${carouselVideo.title};meta_data=${carouselVideo.meta_data}`}
                 >
-                  <img
-                    src={`https://i.ytimg.com/vi/${carouselVideo.url}/mqdefault.jpg`}
+                  <LazyLoadImage
                     alt={`${carouselVideo.title}`}
+                    height="auto"
+                    src={`https://i.ytimg.com/vi/${carouselVideo.url}/mqdefault.jpg`}
+                    width="100%"
                   />
                   <div className="video-title">{carouselVideo.title}</div>
                 </a>
