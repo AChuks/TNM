@@ -28,27 +28,46 @@ class VideosForm extends Component {
 
   handleFormSubmit = data => {
     const { videosInfo } = this.state;
-    let bucketPath = path.dirname(videosInfo.presignedS3Post.fields.key);
-    var filepath = path.basename(new URL(data.file).pathname);
-    let fileName = filepath.substring(
-      filepath.lastIndexOf("\\") + 1,
-      filepath.length
-    );
+    const videoID = videosInfo.video.id;
+    let bucketPath;
+    let fileName;
+    if (!videoID) {
+      bucketPath = path.dirname(videosInfo.presignedS3Post.fields.key);
+      let filepath = path.basename(new URL(data.file).pathname);
+      fileName = filepath.substring(
+        filepath.lastIndexOf("\\") + 1,
+        filepath.length
+      );
+    }
     let url = "/videos";
+    if (videoID) {
+      url = url + `/${videoID}`;
+    }
     let params = {
-      "video[url]": `${videosInfo.presignedS3Post.url}/${bucketPath}/${fileName}`,
-      "video[author]": data.name,
-      "video[author_email]": data.email,
-      "video[title]": data.title,
-      "video[description]": data.description
+      "video[url]": videoID
+        ? `${videosInfo.video.url}`
+        : `${videosInfo.presignedS3Post.url}/${bucketPath}/${fileName}`,
+      "video[author]": data.name || videosInfo.video.author,
+      "video[author_email]": data.email || videosInfo.video.email,
+      "video[title]": data.title || videosInfo.video.title,
+      "video[description]": data.description || videosInfo.video.description,
+      "video[vimeo_video_id]": data.vimeoID || videosInfo.video.vimeo_video_id,
+      "video[frame]": data.frame || videosInfo.video.frame
     };
+    if (!params["video[vimeo_video_id]"]) {
+      delete params["video[vimeo_video_id]"];
+    }
+    if (!params["video[frame]"]) {
+      delete params["video[frame]"];
+    }
+
     var esc = encodeURIComponent;
     var query = Object.keys(params)
       .map(k => esc(k) + "=" + esc(params[k]))
       .join("&");
     url = url + `?${query}`;
     fetch(url, {
-      method: "post",
+      method: videoID ? "PATCH" : "POST",
       headers: {
         "Content-Type": "application/json",
         Accept: "application/json"
@@ -81,8 +100,12 @@ class VideosForm extends Component {
           onValid={this.enableButton}
           onInvalid={this.disableButton}
           data-form-data={JSON.stringify(videosInfo.policy)}
-          data-url={videosInfo.presignedS3Post.url}
-          data-host={videosInfo.presignedS3Post.url}
+          data-url={
+            videosInfo.presignedS3Post && videosInfo.presignedS3Post.url
+          }
+          data-host={
+            videosInfo.presignedS3Post && videosInfo.presignedS3Post.url
+          }
           encType="multipart/form-data"
         >
           <FormsyInput
@@ -93,6 +116,7 @@ class VideosForm extends Component {
             validations="minLength:2"
             validationError="Please enter your name"
             required
+            value={videosInfo.video.author}
           />
           <FormsyInput
             type="text"
@@ -102,6 +126,7 @@ class VideosForm extends Component {
             validations="isEmail"
             validationError="Please enter a valid email address"
             required
+            value={videosInfo.video.author_email}
           />
           <FormsyInput
             className="form-group"
@@ -111,6 +136,7 @@ class VideosForm extends Component {
             validations="minLength:2"
             validationError="Please enter the title of your video"
             required
+            value={videosInfo.video.title}
           />
           <FormsyInput
             type="textarea"
@@ -120,6 +146,7 @@ class VideosForm extends Component {
             validations="minLength:2"
             validationError="Please enter the description of your video"
             required
+            value={videosInfo.video.description}
           />
           {videosInfo.video.author_email !== null && (
             <FormsyInput
@@ -127,14 +154,16 @@ class VideosForm extends Component {
               className="form-group"
               name="vimeoID"
               label="Vimeo Video ID"
+              value={videosInfo.video.vimeo_video_id}
             />
           )}
           {videosInfo.video.author_email !== null && (
             <FormsyInput
-              type="text"
+              type="textarea"
               className="form-group"
               name="frame"
               label="Vimeo Iframe"
+              value={videosInfo.video.frame}
             />
           )}
           {videosInfo.video.author_email === null && (
@@ -153,7 +182,9 @@ class VideosForm extends Component {
           {videosInfo && videosInfo.videoUploadSuccess === true && (
             <div className="row container-upload-video-message">
               <p id="notice" className="container-upload-video-notice">
-                Video was successfully submitted
+                {videosInfo.video.id
+                  ? "Video Updated"
+                  : "Video was successfully submitted"}
               </p>
               <div className="container-upload-video-link">
                 <a href="/">Return Home</a>

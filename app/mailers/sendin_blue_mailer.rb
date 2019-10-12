@@ -13,7 +13,7 @@ class SendinBlueMailer < ApplicationMailer
       "name": "SuperComedian",
       "email": "media@supercomedian.com"
     }
-    email.to = [{ "email": video.author_email }]
+    email.to = [{ "email": video.author_email }, { "email": "media@supercomedian.com" }]
     email.template_id = 1
     email.params = {"AUTHOR": video.author}
     email.reply_to = {
@@ -25,19 +25,19 @@ class SendinBlueMailer < ApplicationMailer
 
   def send_video_accepted_email(video)
     @send_in_blue = SibApiV3Sdk::SMTPApi.new
-    @email = SibApiV3Sdk::SendSmtpEmail.new
-    @email.sender = {
+    email = SibApiV3Sdk::SendSmtpEmail.new
+    email.sender = {
       "name": "SuperComedian, Inc",
-      "email": "talents@supercomedian.com"
+      "email": "media@supercomedian.com"
     }
-    @email.to = [{ "email": video.author_email }]
-
-    @email.params = {"AUTHOR": video.author}
-    @email.reply_to = {
-      "email": "talents@supercomedian.com",
+    email.to = [{ "email": video.author_email }]
+    email.template_id = 3
+    email.params = {"AUTHOR": video.author}
+    email.reply_to = {
+      "email": "media@supercomedian.com",
       "name": "SuperComedian, Inc"
     }
-    @send_in_blue.send_template(1, @email)
+    @send_in_blue.send_transac_email(email)
   end
 
   def send_contact_message(contact_form)

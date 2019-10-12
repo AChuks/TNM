@@ -1,55 +1,8 @@
 <%= provide(:title, 'users') %>
 <div class="container-fluid container-admin-users">
-  <%= define_grid(@users, hide_submit_button: true, hide_reset_button: true, show_filters: :always) do |g|
-
-    g.column name: 'ID' do |task|
-      link_to(task.id, edit_user_path(task))
-    end
-
-    g.column name: 'Username', attribute: 'user_name', detach_with_id: :user_name_filter  do |task|
-      task.user_name
-    end
-
-    g.column name: 'Email', attribute: 'email', detach_with_id: :email_filter  do |task|
-      task.email
-    end
-
-    g.column name: 'Super Admin', attribute: 'super_admin', detach_with_id: :super_admin_filter  do |task|
-      task.super_admin
-    end
-
-    end -%>
-    <div class="row user-prop">
-      <div class="col-xs-1">
-        Username:
-      </div>
-      <div class="col-xs-2">
-        <%= grid_filter @users, :user_name_filter %>
-      </div>
+  <div class="row">
+    <div class="col-xs-12">
+      <%= react_component("Users",  props: { users: @users }) %>
     </div>
-
-    <div class="row user-prop">
-      <div class="col-xs-1">
-        Email:
-      </div>
-      <div class="col-xs-2">
-        <%= grid_filter @users, :email_filter %>
-      </div>
-    </div>
-
-    <div class="row user-prop">
-      <div class="col-xs-1">
-        Super Admin:
-      </div>
-      <div class="col-xs-2">
-        <%= grid_filter @users, :super_admin_filter %>
-      </div>
-    </div>
-
-    <div class="row col-xs-4 user-prop-actions">
-    <%= submit_tag "Submit", :class => "btn btn-primary wg-external-submit-button", "data-grid-name":"grid"  %>
-
-    <%= submit_tag "Reset", :class => "btn btn-default wg-external-reset-button", "data-grid-name":"grid"  %>
-    </div>
-    <%= render_grid(@users) %>
+  </div>    
 </div>

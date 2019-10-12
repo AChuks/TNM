@@ -432,24 +432,23 @@ input[type="file"]{
     position: fixed;
     align-content: center;
   }
+  &-content {
+    background-color: white;
+    .close-button {
+      color: white;
+      outline: none;
+    }
+    &-table {
+      &-buttons {
+        float: right;
+        color: white;
+        outline: none;
+      }
+    }
+  }
 }
 .container-contact {
   margin-top: 60px;
-}
-.container-admin-videos, .container-admin-users {
-  .video-prop, .user-prop {
-    color: wheat;
-    &-actions {
-      margin-top: 20px;
-      margin-bottom: 20px;
-    }
-  }
-  .wice-grid-container {
-    display: contents;
-    .even {
-      background-color: #f9f9f9 !important;
-    }
-  }
 }
 .pagination {
   margin: 40px 0px 80px 0px !important;

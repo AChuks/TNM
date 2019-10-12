@@ -14,11 +14,17 @@ import SearchedVideos from "../components/SearchedVideos";
 import VideosForm from "../components/VideosForm";
 import ContactForm from "../components/ContactForm";
 import WatchVideos from "../components/WatchVideos";
+import Videos from "../components/Videos";
+import Users from "../components/Users";
+import UsersForm from "../components/UsersForm";
 ReactOnRails.register({
   HomeComponent,
   Header,
   SearchedVideos,
   VideosForm,
   ContactForm,
-  WatchVideos
+  WatchVideos,
+  Videos,
+  Users,
+  UsersForm
 });

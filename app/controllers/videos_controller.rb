@@ -6,8 +6,9 @@ class VideosController < ApplicationController
   # GET /videos
   # GET /videos.json
   def index
-    if logged_in?
-      @videos = initialize_grid(Video)
+    @logged_in = logged_in?
+    if @logged_in
+      @videos = Video.all
     else 
       respond_to do |format|
         format.html { redirect_to root_path }
@@ -68,30 +69,25 @@ class VideosController < ApplicationController
   # PATCH/PUT /videos/1
   # PATCH/PUT /videos/1.json
   def update
-    respond_to do |format|
-      if video_params.key?('vimeo_video_id')
-        vimeo_video = VimeoMe2::Video.new(ENV['VIMEO_ACCESS_TOKEN'], video_params['vimeo_video_id'])
-        vimeo_video_thumbnail_sizes = vimeo_video.video['pictures']['sizes']
-        vimeo_video_thumbnail_sizes.each do |thumbnail_size|
-          if thumbnail_size['width'] > 280 && thumbnail_size['height'] > 160
-            thumb_nail = thumbnail_size['link']
-            @video.thumb_nail = thumb_nail
-            if @video.update(video_params)
-              format.html { redirect_to @video, notice: 'Video was successfully updated.' }
-              format.json { head :no_content }
-            else
-              format.html { render action: 'edit' }
-              format.json { render json: @video.errors, status: :unprocessable_entity }
-            end
-          end
+    if video_params.key?('vimeo_video_id')
+      vimeo_video = VimeoMe2::Video.new(ENV['VIMEO_ACCESS_TOKEN'], video_params['vimeo_video_id'])
+      vimeo_video_thumbnail_sizes = vimeo_video.video['pictures']['sizes']
+      vimeo_video_thumbnail_sizes.each do |thumbnail_size|
+        if thumbnail_size['width'] > 280 && thumbnail_size['height'] > 160
+          thumb_nail = thumbnail_size['link']
+          @video.thumb_nail = thumb_nail
+          update_video
         end
       end
+    else
+      update_video
     end
   end
 
   # Custom behaviour
   # Marks record as deleted. Doesn't delete record in db
   def destroy
+    @video = Video.find_by(id: params[:id])
     @video.update({deleted: true})
     S3.delete_object({
       bucket: ENV['S3_BUCKET_NAME'],
@@ -99,8 +95,9 @@ class VideosController < ApplicationController
       key: @video.url[@video.url.index('/v')+1..@video.url.length]
     })
     respond_to do |format|
-      format.html { redirect_to videos_url }
-      format.json { head :no_content }
+      @videos = Video.all
+      format.html { render action: 'index' }
+      format.json { render json: @videos }
     end
   end
 
@@ -122,14 +119,6 @@ class VideosController < ApplicationController
     @videos_info = {url: @url, title: @title, uploaded: @uploaded, currentVideo: @current_video, relatedVideos: @related_videos}
   end
 
-  def preview
-    @video = Video.find_by(id: params[:id])
-    respond_to do |format|               
-      format.js {render 'videos/uploads/preview'}
-      format.html { render 'videos/uploads/preview' }
-    end  
-  end
-
   def accept
     @video = Video.find_by(id: params[:id])
     # Send video accepted email
@@ -138,8 +127,9 @@ class VideosController < ApplicationController
       @video.update({accepted: true})
     end
     respond_to do |format|
-      format.html { redirect_to videos_url }
-      format.json { head :no_content }
+       @videos = Video.all
+      format.html { render action: 'index' }
+      format.json { render json: @videos }
     end
   end
 
@@ -147,8 +137,9 @@ class VideosController < ApplicationController
     @video = Video.find_by(id: params[:id])
     @video.update({processed: true})
     respond_to do |format|
-      format.html { redirect_to videos_url }
-      format.json { head :no_content }
+      @videos = Video.all
+      format.html { render action: 'index' }
+      format.json { render json: @videos }
     end
   end
 
@@ -167,5 +158,17 @@ class VideosController < ApplicationController
       @video = Video.new
       @s3_direct_post = S3_BUCKET.presigned_post(key: "videoUploads/#{Time.now.getlocal('-05:00').to_date}/#{SecureRandom.uuid}/${filename}", success_action_status: '201')
       @videos_info = {video: @video, presignedS3Post: @s3_direct_post, policy: @s3_direct_post.fields }
+    end
+
+    def update_video
+      respond_to do |format|
+        if @video.update(video_params)
+          format.html { render action: 'edit' }
+          format.json { render json: {video: @video, videoUploadSuccess: true }}
+        else
+          format.html { render action: 'edit' }
+          format.json { render json: {video: @video, videoUploadSuccess: false}}
+        end
+      end
     end
 end
