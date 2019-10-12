@@ -40,13 +40,6 @@ class Header extends Component {
         navBar[0].style.background = "transparent";
       }
     }
-
-    // var relatedVideo = document.getElementsByClassName("content-videos-header-videos-section-related")[0];
-    // var disqusThread = document.getElementsByClassName("disqus-thread")[0];
-    // if (relatedVideo && disqusThread && relatedVideo.offsetHeight !== disqusThread.scrollHeight) {
-    //     console.log(disqusThread.scrollHeight);
-    //     relatedVideo.style.height = disqusThread.scrollHeight + 'px';
-    // }
   };
 
   handleSearchText = data => {

@@ -16,7 +16,6 @@ gem 'haml'                # or gem 'slim'
 gem 'awesome_nested_set'  # or same gem
 gem 'bcrypt'
 gem 'aws-sdk'
-gem 'wice_grid'
 gem 'exception_handler'
 gem 'responders'
 gem 'cancancan'

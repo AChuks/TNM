@@ -19,9 +19,8 @@ Rails.application.routes.draw do
 
   # Videos routes
   match '/watch', to: 'videos#watch', via: 'get'
-  match '/preview/:id', to: 'videos#preview', via: 'get', :as => :preview
-  match '/accept/:id', to: 'videos#accept', via: 'get', :as => :accept
-  match '/processed/:id', to: 'videos#processed', via: 'get', :as => :processed
+  match '/accept', to: 'videos#accept', via: 'get'
+  match '/processed', to: 'videos#processed', via: 'get'
 
 
   # Admin routes
