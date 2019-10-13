@@ -17,7 +17,9 @@ module VideosHelper
     channel_14 = 'UCBNQ6onTgCLMOg1McrQ859A'
     channel_15 = 'UCqq3PZwp8Ob8_jN0esCunIw'
     channel_16 = 'UCtw7q4SyOeoCwM1i_3x8lDg'
-    return [channel_1, channel_2, channel_3, channel_4, channel_5, channel_6, channel_7, channel_8, channel_9, channel_10, channel_11, channel_12, channel_13, channel_14, channel_15, channel_16]
+    channel_17 = 'UCdN4aXTrHAtfgbVG9HjBmxQ'
+    return [channel_1, channel_2, channel_3, channel_4, channel_5, channel_6, channel_7, channel_8, channel_9, channel_10, channel_11, channel_12, channel_13, channel_14, channel_15, channel_16, channel_17]
+    # return [channel_1, channel_2]
   end
 
 	def get_related_youtube_videos(meta_data)
