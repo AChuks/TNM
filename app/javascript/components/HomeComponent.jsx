@@ -94,7 +94,7 @@ class HomeComponent extends Component {
                   controls
                   width="1200"
                   height={featuredVideoHeight}
-                  data-setup='{ "techOrder": ["youtube", "html5"], "sources": [{ "type": "video/youtube", "src": "https://www.youtube.com/watch?v=nq8H6qSCjMw"}] }'
+                  data-setup='{ "techOrder": ["youtube", "html5"], "sources": [{ "type": "video/youtube", "src": "https://www.youtube.com/watch?v=MD6PAmd1nNY"}] }'
                 ></video>
               </div>
             </div>
