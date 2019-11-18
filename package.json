@@ -16,7 +16,9 @@
     "react-svg": "^10.0.22",
     "semantic-ui-css": "^2.4.1",
     "semantic-ui-react": "^0.88.1",
-    "stable": "^0.1.8"
+    "stable": "^0.1.8",
+    "video.js": "^7.6.0",
+    "videojs-youtube": "^2.6.0"
   },
   "devDependencies": {
     "babel-eslint": "^10.0.3",
