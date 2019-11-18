@@ -11,10 +11,8 @@
 
   	gtag('config', 'UA-148881916-1');
 	</script>
-
 	<title><%= full_title(yield(:title)) %></title>
 	<%= stylesheet_link_tag 'application', media: 'all' %>
-	<link rel="stylesheet" href="https://npmcdn.com/react-bootstrap-table/dist/react-bootstrap-table-all.min.css" media="print" onload="this.media='all'" />
 	<script src="https://use.fontawesome.com/463aa66a5a.js" async></script>
   <%= javascript_pack_tag 'application', :defer => Rails.env == "production" %>
   <%= stylesheet_pack_tag 'application' %>

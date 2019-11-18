@@ -4,6 +4,9 @@ import { LazyLoadImage } from "react-lazy-load-image-component";
 import GridList from "@material-ui/core/GridList";
 import GridListTile from "@material-ui/core/GridListTile";
 import moment from "moment";
+import videojs from "video.js";
+import "video.js/dist/video-js.min.css";
+import "videojs-youtube";
 
 class WatchVideos extends Component {
   static propTypes = {
