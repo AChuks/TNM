@@ -7,6 +7,10 @@ import GridList from "@material-ui/core/GridList";
 import GridListTile from "@material-ui/core/GridListTile";
 import moment from "moment";
 import * as Scroll from "react-scroll";
+import "semantic-ui-css/semantic.min.css";
+import videojs from "video.js";
+import "video.js/dist/video-js.min.css";
+import "videojs-youtube";
 
 class HomeComponent extends Component {
   static propTypes = {
