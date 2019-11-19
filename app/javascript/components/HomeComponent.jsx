@@ -79,7 +79,12 @@ class HomeComponent extends Component {
             muted
             className="content-looping-video"
             src="https://d7vlh3kvn1ay8.cloudfront.net/background_video.mov"
+            // src="https://sc-assets-test.s3.amazonaws.com/background_video.mov"
+            controlsList="nodownload"
           ></video>
+          <div className="content-looping-video-overlay">
+            <h2>SuperComedian Originals Coming Soon !!</h2>
+          </div>
         </div>
         <div className="col-xs-12 content-videos">
           <div className="content-videos-header">TRENDING AROUND THE WEB</div>

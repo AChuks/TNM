@@ -200,7 +200,24 @@ ul.list-inline li a {
   &-looping-video {
     width: 100%;
     &-div {
-
+      position: relative;
+      video {
+        z-index: 0;
+        position: relative;
+      }
+    }
+    &-overlay {
+      position: absolute;
+      z-index: 1;
+      left: 25px;
+      bottom: 0;
+      margin-bottom: 40px;
+      font-size: 2.2rem;
+      font-weight: 600;
+      color: wheat;
+      h2 {
+        font-size: inherit;
+      }
     }
   }
   &-videos {
@@ -228,10 +245,11 @@ ul.list-inline li a {
       text-align: left;
       font-size: 15px;
       color: wheat;
-      margin-left: 25px !important;
+      margin-left: 11px !important;
       margin-bottom: 15px !important;
+      font-weight: 550;
       &-featured {
-        margin-top: 100px;
+        margin-top: 60px;
       }
       &-searched {
         text-align: center;
