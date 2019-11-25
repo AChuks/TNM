@@ -1,6 +1,5 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
-
 @charset "utf-8";
 
 @import url(https://fonts.googleapis.com/css?family=PT+Sans+Narrow);
@@ -387,7 +386,7 @@ input[type="file"]{
   margin-top: 5px;
   color: wheat;
 }
-.container-upload-video, .container-contact, .container-new-user, .container-admin-videos, .container-admin-users, .container-video-edit {
+.container-upload-video, .container-contact, .container-terms, .container-new-user, .container-admin-videos, .container-admin-users, .container-video-edit {
   margin-top: 60px;
   .form-group {
     position: relative;
@@ -399,6 +398,27 @@ input[type="file"]{
   .form-file {
     margin-bottom: 0px !important;
     display: contents;
+  }
+  .form-checkbox {
+    display: -webkit-box;
+    margin-top: 10px;
+    &-input {
+      width: 30px;
+      float: left;
+    }
+    &-copy { 
+      float: left;
+      margin-top: 11px;
+      color: wheat;
+      font-size: 12px;
+      a {
+        color: #98daef !important
+      }
+    }
+    .error-message {
+      position: absolute;
+      text-align: center;
+    }
   }
   @media (max-width: 768px) { 
     .form-file {
@@ -425,8 +445,9 @@ input[type="file"]{
     height: 62px;
   }
   .actions {
+    display: inline-block;
     margin-top: 40px;
-    margin-bottom: 60px;
+    margin-bottom: 200px;
     text-align: center;
     .submit {
       background-color: wheat !important;
@@ -467,6 +488,16 @@ input[type="file"]{
 }
 .container-contact {
   margin-top: 60px;
+}
+.container-terms {
+  color: white;
+  p {
+    margin-bottom: 40px;
+    color: #deb887;
+  }
+  &-address {
+    margin-bottom: 200px;
+  }
 }
 .pagination {
   margin: 40px 0px 80px 0px !important;

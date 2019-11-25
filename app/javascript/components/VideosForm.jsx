@@ -52,7 +52,9 @@ class VideosForm extends Component {
       "video[title]": data.title || videosInfo.video.title,
       "video[description]": data.description || videosInfo.video.description,
       "video[vimeo_video_id]": data.vimeoID || videosInfo.video.vimeo_video_id,
-      "video[frame]": data.frame || videosInfo.video.frame
+      "video[frame]": data.frame || videosInfo.video.frame,
+      "video[agreed_to_vid_sub_policy]":
+        data.agreedToVidSubPolicy || videosInfo.video.agreed_to_vid_sub_policy
     };
     if (!params["video[vimeo_video_id]"]) {
       delete params["video[vimeo_video_id]"];
@@ -171,6 +173,14 @@ class VideosForm extends Component {
               type="file"
               className="form-group form-file"
               name="file"
+              required
+            />
+          )}
+          {videosInfo.video.author_email === null && (
+            <FormsyInput
+              type="checkbox"
+              className="form-group form-checkbox"
+              name="agreedToVidSubPolicy"
               required
             />
           )}

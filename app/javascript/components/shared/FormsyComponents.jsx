@@ -20,7 +20,11 @@ class FormsyInput extends React.Component {
   }
 
   changeValue = event => {
-    this.props.setValue(event.currentTarget.value);
+    if (event.currentTarget.type === "checkbox") {
+      this.props.setValue(event.currentTarget.checked || "");
+    } else {
+      this.props.setValue(event.currentTarget.value);
+    }
   };
 
   render() {
@@ -96,61 +100,40 @@ class FormsyInput extends React.Component {
             )}
           </div>
         )}
+        {type === "checkbox" && (
+          <div style={{ width: "100%" }}>
+            {label && <label>{label}</label>}
+            <input
+              className="form-control form-checkbox-input"
+              onChange={this.changeValue}
+              type={type}
+              value={getValue() || ""}
+            />
+            <span className="form-checkbox-copy">
+              I agree to SuperComedian's
+              <a
+                href="https://sc-assets-docs.s3.amazonaws.com/SCVideoSubmissionAgreement.pdf"
+                target="_blank"
+              >
+                {" "}
+                Submission Agreement
+              </a>
+            </span>
+            <br />
+            <br />
+            {showRequiredMessage && (
+              <span className="error-message">
+                {label || "This field"} is required
+              </span>
+            )}
+            {showErrorMessage && (
+              <span className="error-message">{showErrorMessage}</span>
+            )}
+          </div>
+        )}
       </div>
     );
   }
 }
 
 export default withFormsy(FormsyInput);
-
-// const FormsyInput = ({
-//   getErrorMessage,
-//   isPristine,
-//   isValid,
-//   showRequired,
-//   showError,
-//   getValue,
-//   setValue,
-//   label
-// }) => {
-//   const showErrorMessage = getErrorMessage(),
-//     isPristineInput = isPristine(),
-//     isValidInput = isValid(),
-//     displayRequired = showRequired(),
-//     displayError = _.isBoolean(showError) ? showError : showError(),
-//     showRequiredMessage = !isPristineInput && !isValidInput && displayRequired;
-
-//   const changeValue = event => {
-//     setValue(event.currentTarget.value);
-//   };
-
-//   return (
-//     <div className="form-group">
-//       {label && <label>{label}</label>}
-//       <input
-//         className="form-control"
-//         onChange={changeValue}
-//         type="text"
-//         value={getValue() || ""}
-//       />
-//       {showRequiredMessage && (
-//         <span className="error-message">
-//           {label || "This field"} is required
-//         </span>
-//       )}
-//       {showErrorMessage && (
-//         <span className="error-message">{showErrorMessage}</span>
-//       )}
-//     </div>
-//   );
-// };
-// FormsyInput.propTypes = {
-//   getErrorMessage: PropTypes.func,
-//   isPristine: PropTypes.func,
-//   isValid: PropTypes.func,
-//   showRequired: PropTypes.func,
-//   setValue: PropTypes.func,
-//   getValue: PropTypes.func,
-//   label: PropTypes.string
-// };
-// export default withFormsy(FormsyInput);

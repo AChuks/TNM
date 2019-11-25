@@ -39,6 +39,7 @@ module VideosHelper
     if Trending.all.blank?
       channels.each { |each_channel|
         each_channel= Yt::Channel.new id: each_channel
+        # Filter top three channels by date and select if not older by a month
         channel_trends = each_channel.videos.where(order: 'date').map.first(2)
         channel_trends.each {|each_channel_trends| 
         Trending.create(:url => each_channel_trends.id, :title => each_channel_trends.title.tr('#',''), :date => each_channel_trends.published_at, :meta_data => each_channel_trends.channel_id) }
