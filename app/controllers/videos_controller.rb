@@ -151,7 +151,7 @@ class VideosController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def video_params
-      params.require(:video).permit(:url, :title, :description, :author, :author_email, :vimeo_video_id, :frame)
+      params.require(:video).permit(:url, :title, :description, :author, :author_email, :vimeo_video_id, :frame, :agreed_to_vid_sub_policy)
     end
 
     def pre_video_upload_data

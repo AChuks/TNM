@@ -14,6 +14,7 @@ class Video < ActiveRecord::Base
 	validates :title, presence: true, length: {maximum: 50}
 	validates :description, presence: true, length: {maximum: 250}
 	validates :url, presence: true
+	validates :agreed_to_vid_sub_policy, presence: true
 
   pg_search_scope :search, against: [:title]
 end
