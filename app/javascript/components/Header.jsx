@@ -151,20 +151,6 @@ class Header extends Component {
               >
                 <a
                   className="navbar-links"
-                  href="/terms"
-                  style={{
-                    padding: navbarToggleVisible ? "0px 15px 0px 15px" : "21px",
-                    marginTop: navbarToggleVisible ? "10px" : "0px"
-                  }}
-                >
-                  Terms
-                </a>
-              </li>
-              <li
-                style={{ display: navbarToggleVisible ? "contents" : "block" }}
-              >
-                <a
-                  className="navbar-links"
                   href="/contact"
                   style={{
                     padding: navbarToggleVisible ? "0px 15px 0px 15px" : "21px",

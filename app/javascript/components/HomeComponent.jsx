@@ -32,8 +32,16 @@ class HomeComponent extends Component {
   };
 
   updateDimensions = () => {
-    let player = videojs("featureVideo");
-    player.height(Math.round(document.body.clientWidth / 2.7));
+    let responsiveHeight = Math.round(document.body.clientWidth / 2.7);
+    // Update videojs height
+    // let player = videojs("featureVideo");
+    // player.height(responsiveHeight);
+
+    // Update iFrame video height
+    let iFramePlayer = document.getElementsByClassName("featured-video");
+    if (iFramePlayer[0]) {
+      iFramePlayer[0].style.height = responsiveHeight + "px";
+    }
   };
 
   handlePageChange = (e, { activePage }) => {
@@ -78,8 +86,8 @@ class HomeComponent extends Component {
             loop
             muted
             className="content-looping-video"
-            src="https://d7vlh3kvn1ay8.cloudfront.net/background_video.mov"
-            // src="https://sc-assets-test.s3.amazonaws.com/background_video.mov"
+            // src="https://d7vlh3kvn1ay8.cloudfront.net/background_video.mov"
+            src="https://sc-assets-test.s3.amazonaws.com/background_video.mov"
             controlsList="nodownload"
           ></video>
           <div className="content-looping-video-overlay">
@@ -97,14 +105,23 @@ class HomeComponent extends Component {
           <div className="col-xs-12">
             <div>
               <div className="col-xs-12">
-                <video
+                {/* <video
                   id="featureVideo"
                   className="video-js vjs-default-skin featured-video"
                   controls
                   width="1200"
                   height={featuredVideoHeight}
                   data-setup='{ "techOrder": ["youtube", "html5"], "sources": [{ "type": "video/youtube", "src": "https://www.youtube.com/watch?v=lZkcT7M5REI"}] }'
-                ></video>
+                ></video> */}
+                <iframe
+                  className="featured-video"
+                  width="1200"
+                  height={featuredVideoHeight}
+                  src="https://www.youtube.com/embed/lZkcT7M5REI"
+                  frameBorder="0"
+                  allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+                  allowFullScreen
+                ></iframe>
               </div>
             </div>
           </div>
