@@ -57,6 +57,9 @@ class PagesController < ApplicationController
   def terms
   end
 
+  def privacy
+  end
+
   def sitemap
     redirect_to "https://#{ENV['FOG_DIRECTORY']}.s3.us-east-2.amazonaws.com/sitemaps/sitemap.xml.gz"
   end
