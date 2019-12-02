@@ -63,9 +63,17 @@ module VideosHelper
       channels.each {|each_channel| 
         puts each_channel 
         each_channel = Yt::Channel.new id: each_channel
-        each_channel.videos.map { |e| 
-          Youtube.create(:url => e.id, :title => e.title.tr('#',''), :date => e.published_at, :meta_data => e.channel_id)
-      }}
+        if each_channel == 'UCSW1uGP-JC2Uir1kR9fFwfA'
+          each_channel.videos.map { |e, i|
+            if i == 0 || (i > 0 && e.published_at.to_date != each_channel.videos[i - 1].published_at.to_date)
+              Youtube.create(:url => e.id, :title => e.title.tr('#',''), :date => e.published_at, :meta_data => e.channel_id)
+            end
+          }
+        else
+          each_channel.videos.map { |e| 
+            Youtube.create(:url => e.id, :title => e.title.tr('#',''), :date => e.published_at, :meta_data => e.channel_id)}
+        end
+      }
     end
     @uploaded_videos = Video.has_vimeo_video_id()
     @youtube_videos = Youtube.all
