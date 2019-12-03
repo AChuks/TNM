@@ -31,6 +31,7 @@ class CarouselVideos extends Component {
                     alt={`${carouselVideo.title}`}
                     height="auto"
                     src={`https://i.ytimg.com/vi/${carouselVideo.url}/maxresdefault.jpg`}
+                    onerror={`this.onerror=null;this.src='https://i.ytimg.com/vi/${carouselVideo.url}/hqdefault.jpg';`}
                     width="100%"
                   />
                   <div className="video-title">{carouselVideo.title}</div>
