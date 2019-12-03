@@ -23,7 +23,7 @@ module VideosHelper
     # channel_17 = 'UCdN4aXTrHAtfgbVG9HjBmxQ' # key & Pele
     # channel_17 = 'UC2iwgQq9nvW0MkxJn7jI0XQ' # Tyrhee Spivey
     return [channel_1, channel_2, channel_3, channel_4, channel_5, channel_6, channel_7, channel_8, channel_9, channel_10, channel_11, channel_12, channel_13]
-    # return [channel_1, channel_2]
+    # return [channel_10]
   end
 
 	def get_related_youtube_videos(meta_data)
@@ -60,10 +60,10 @@ module VideosHelper
   def get_all_videos()
     channels = getChannels()
     if Youtube.all.blank?
-      channels.each {|each_channel| 
+      channels.each {|each_channel_item| 
         puts each_channel 
-        each_channel = Yt::Channel.new id: each_channel
-        if each_channel == 'UCSW1uGP-JC2Uir1kR9fFwfA'
+        each_channel = Yt::Channel.new id: each_channel_item
+        if each_channel_item == 'UCSW1uGP-JC2Uir1kR9fFwfA'
           each_channel.videos.map { |e, i|
             if i == 0 || (i > 0 && e.published_at.to_date != each_channel.videos[i - 1].published_at.to_date)
               Youtube.create(:url => e.id, :title => e.title.tr('#',''), :date => e.published_at, :meta_data => e.channel_id)

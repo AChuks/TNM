@@ -171,8 +171,7 @@ class WatchVideos extends Component {
                             <LazyLoadImage
                               alt={`${video.title}`}
                               height="auto"
-                              src={`https://i.ytimg.com/vi/${video.url}/maxresdefault.jpg`}
-                              onerror={`this.onerror=null;this.src='https://i.ytimg.com/vi/${video.url}/hqdefault.jpg';`}
+                              src={`https://i.ytimg.com/vi/${video.url}/hqdefault.jpg`}
                               width="100%"
                             />
                           )}
