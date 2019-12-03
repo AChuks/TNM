@@ -166,7 +166,7 @@ class HomeComponent extends Component {
                         <LazyLoadImage
                           alt={`${video.title}`}
                           height="auto"
-                          src={`https://i.ytimg.com/vi/${video.url}/mqdefault.jpg`}
+                          src={`https://i.ytimg.com/vi/${video.url}/maxresdefault.jpg`}
                           width="100%"
                         />
                       )}
