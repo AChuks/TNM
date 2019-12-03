@@ -61,7 +61,6 @@ module VideosHelper
     channels = getChannels()
     if Youtube.all.blank?
       channels.each {|each_channel_item| 
-        puts each_channel 
         each_channel = Yt::Channel.new id: each_channel_item
         if each_channel_item == 'UCSW1uGP-JC2Uir1kR9fFwfA'
           each_channel.videos.map { |e, i|
