@@ -30,7 +30,7 @@ class CarouselVideos extends Component {
                   <LazyLoadImage
                     alt={`${carouselVideo.title}`}
                     height="auto"
-                    src={`https://i.ytimg.com/vi/${carouselVideo.url}/hqdefault.jpg`}
+                    src={`https://i.ytimg.com/vi/${carouselVideo.url}/mqdefault.jpg`}
                     width="100%"
                   />
                   <div className="video-title">{carouselVideo.title}</div>
