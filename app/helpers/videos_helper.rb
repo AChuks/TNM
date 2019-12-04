@@ -63,8 +63,8 @@ module VideosHelper
       channels.each {|each_channel_item| 
         each_channel = Yt::Channel.new id: each_channel_item
         if each_channel_item == 'UCSW1uGP-JC2Uir1kR9fFwfA'
-          each_channel.videos.map { |e, i|
-            if i == 0 || (i > 0 && e.published_at.to_date != each_channel.videos[i - 1].published_at.to_date)
+          each_channel.videos.map.with_index(1) { |e, i|
+            if i == 1 || (i > 1 && e.published_at.to_date != each_channel.videos[i - 1].published_at.to_date)
               Youtube.create(:url => e.id, :title => e.title.tr('#',''), :date => e.published_at, :meta_data => e.channel_id)
             end
           }
