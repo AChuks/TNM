@@ -62,7 +62,7 @@ module VideosHelper
     if Youtube.all.blank?
       channels.each {|each_channel_item| 
         each_channel = Yt::Channel.new id: each_channel_item
-        if each_channel_item == 'UCSW1uGP-JC2Uir1kR9fFwfA'
+        if each_channel_item == 'UCg9NadeQbjGL80cDnCf1g-A' || each_channel_item == 'UCSW1uGP-JC2Uir1kR9fFwfA'
           channel_videos = each_channel.videos.map.to_a
           sorted_channel_videos = channel_videos.sort_by{|vid| vid.published_at}
           sorted_channel_videos.each.with_index(1) { |e, i|
