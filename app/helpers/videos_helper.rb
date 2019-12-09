@@ -9,11 +9,9 @@ module VideosHelper
     channel_6 = 'UCwukLrqPe4ywJTe0RWVlBSA' # Craze Clown
     channel_7 = 'UCvO4Ym5LjYTo0uZRfUvtc-w' # AY Comedian
     channel_8 = 'UCwemICO9grnv9xkvFkoRvMA' # Stand up Nigeria
-    channel_9 = 'UCg9NadeQbjGL80cDnCf1g-A' # Nollywood skits comedy
-    channel_10 = 'UCSW1uGP-JC2Uir1kR9fFwfA' # Nigeria latest comedy 
-    channel_11 = 'UCvO4Ym5LjYTo0uZRfUvtc-w' # AY Comedian 
-    channel_12 = 'UC26q7KQxr5TnKm-OT25MyyQ' # House of Ajebo 
-    channel_13 = 'UCQmZ9BIYOBSkxL-eqqg5z-g' # MarkAngel Comedy 
+    channel_9 = 'UCvO4Ym5LjYTo0uZRfUvtc-w' # AY Comedian 
+    channel_10 = 'UC26q7KQxr5TnKm-OT25MyyQ' # House of Ajebo 
+    channel_11 = 'UCQmZ9BIYOBSkxL-eqqg5z-g' # MarkAngel Comedy 
     # channel_11 =  'UCCQ-qN-4JcmXe4GcktUsITg' # DC Young Fly
     # channel_12 = 'UC4JoLGDc4qhyP5p6Vgs8qXQ' # Desi Banks
     # channel_13 = 'UCxyCzPY2pjAjrxoSYclpuLg' # Laugh Factory
@@ -22,7 +20,9 @@ module VideosHelper
     # channel_16 = 'UCtw7q4SyOeoCwM1i_3x8lDg' # Comedy central standup
     # channel_17 = 'UCdN4aXTrHAtfgbVG9HjBmxQ' # key & Pele
     # channel_17 = 'UC2iwgQq9nvW0MkxJn7jI0XQ' # Tyrhee Spivey
-    return [channel_1, channel_2, channel_3, channel_4, channel_5, channel_6, channel_7, channel_8, channel_9, channel_10, channel_11, channel_12, channel_13]
+    # channel_9 = 'UCg9NadeQbjGL80cDnCf1g-A' # Nollywood skits comedy
+    # channel_10 = 'UCSW1uGP-JC2Uir1kR9fFwfA' # Nigeria latest comedy 
+    return [channel_1, channel_2, channel_3, channel_4, channel_5, channel_6, channel_7, channel_8, channel_9, channel_10, channel_11]
     # return [channel_10]
   end
 
