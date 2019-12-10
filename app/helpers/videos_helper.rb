@@ -50,7 +50,11 @@ module VideosHelper
           end
         }
       }
-
+      Video.all.each {|each_video| 
+        if ((Time.current - each_video.updated_at)/1.day).round < 14
+          Trending.create(:url => each_video.url, :title => each_video.title.tr('#',''), :date => each_video.created_at)
+        end
+      }
     end
     @trending_videos = Trending.all.shuffle
     return @trending_videos
@@ -76,8 +80,9 @@ module VideosHelper
       }
     end
     @uploaded_videos = Video.has_vimeo_video_id()
+    @manual_youtube_videos = Video.is_youtube()
     @youtube_videos = Youtube.all
-    @all_videos = (@uploaded_videos + @youtube_videos).sort_by(&:date).reverse.paginate(page: params[:page],:per_page => 60)
+    @all_videos = (@uploaded_videos + @manual_youtube_videos + @youtube_videos).sort_by(&:date).reverse.paginate(page: params[:page],:per_page => 60)
     @trending_videos = get_trending_videos()
     @videos_info = {allVideos: @all_videos, trendingVideos: @trending_videos, currentPage: @all_videos.current_page, totalPages: @all_videos.total_pages}
     return @videos_info
