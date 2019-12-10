@@ -28,39 +28,52 @@ class VideosForm extends Component {
 
   handleFormSubmit = data => {
     const { videosInfo } = this.state;
-    const videoID = videosInfo.video.id;
-    let bucketPath;
-    let fileName;
-    if (!videoID) {
-      bucketPath = path.dirname(videosInfo.presignedS3Post.fields.key);
-      let filepath = path.basename(new URL(data.file).pathname);
-      fileName = filepath.substring(
-        filepath.lastIndexOf("\\") + 1,
-        filepath.length
-      );
-    }
+    let params = {};
     let url = "/videos";
+    const videoID = videosInfo.video.id;
     if (videoID) {
       url = url + `/${videoID}`;
     }
-    let params = {
-      "video[url]": videoID
-        ? `${videosInfo.video.url}`
-        : `${videosInfo.presignedS3Post.url}/${bucketPath}/${fileName}`,
-      "video[author]": data.name || videosInfo.video.author,
-      "video[author_email]": data.email || videosInfo.video.email,
-      "video[title]": data.title || videosInfo.video.title,
-      "video[description]": data.description || videosInfo.video.description,
-      "video[vimeo_video_id]": data.vimeoID || videosInfo.video.vimeo_video_id,
-      "video[frame]": data.frame || videosInfo.video.frame,
-      "video[agreed_to_vid_sub_policy]":
-        data.agreedToVidSubPolicy || videosInfo.video.agreed_to_vid_sub_policy
-    };
-    if (!params["video[vimeo_video_id]"]) {
-      delete params["video[vimeo_video_id]"];
-    }
-    if (!params["video[frame]"]) {
-      delete params["video[frame]"];
+    if (!videosInfo.manual) {
+      let bucketPath;
+      let fileName;
+      if (!videoID) {
+        bucketPath = path.dirname(videosInfo.presignedS3Post.fields.key);
+        let filepath = path.basename(new URL(data.file).pathname);
+        fileName = filepath.substring(
+          filepath.lastIndexOf("\\") + 1,
+          filepath.length
+        );
+      }
+      params = {
+        "video[url]": videoID
+          ? `${videosInfo.video.url}`
+          : `${videosInfo.presignedS3Post.url}/${bucketPath}/${fileName}`,
+        "video[author]": data.name || videosInfo.video.author,
+        "video[author_email]": data.email || videosInfo.video.email,
+        "video[title]": data.title || videosInfo.video.title,
+        "video[description]": data.description || videosInfo.video.description,
+        "video[vimeo_video_id]": data.vimeoID || videosInfo.video.vimeo_video_id,
+        "video[frame]": data.frame || videosInfo.video.frame,
+        "video[agreed_to_vid_sub_policy]":
+          data.agreedToVidSubPolicy || videosInfo.video.agreed_to_vid_sub_policy
+      };
+      if (!params["video[vimeo_video_id]"]) {
+        delete params["video[vimeo_video_id]"];
+      }
+      if (!params["video[frame]"]) {
+        delete params["video[frame]"];
+      }
+    } else {
+      params = {
+        "video[author]": data.name || videosInfo.video.author,
+        "video[author_email]": data.email || videosInfo.video.email,
+        "video[url]": data.url || videosInfo.video.url,
+        "video[title]": data.title || videosInfo.video.title,
+        "video[description]": data.description || videosInfo.video.description,
+        "video[is_youtube]": true,
+        "video[agreed_to_vid_sub_policy]": true
+      };
     }
 
     var esc = encodeURIComponent;
@@ -120,6 +133,18 @@ class VideosForm extends Component {
             required
             value={videosInfo.video.author}
           />
+          {videosInfo.manual && (
+            <FormsyInput
+              type="text"
+              className="form-group"
+              name="url"
+              label="Url"
+              validations="minLength:2"
+              validationError="Please video url"
+              required
+              value={videosInfo.video.url}
+            />
+          )}
           <FormsyInput
             type="text"
             className="form-group"
@@ -168,7 +193,7 @@ class VideosForm extends Component {
               value={videosInfo.video.frame}
             />
           )}
-          {videosInfo.video.author_email === null && (
+          {videosInfo.video.author_email === null && !videosInfo.manual && (
             <FormsyInput
               type="file"
               className="form-group form-file"
@@ -176,7 +201,7 @@ class VideosForm extends Component {
               required
             />
           )}
-          {videosInfo.video.author_email === null && (
+          {videosInfo.video.author_email === null && !videosInfo.manual && (
             <FormsyInput
               type="checkbox"
               className="form-group form-checkbox"

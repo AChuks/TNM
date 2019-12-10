@@ -32,6 +32,11 @@ class VideosController < ApplicationController
     pre_video_upload_data
   end
 
+  def manual
+    @video = Video.new
+    @videos_info = {video: @video, manual: true}
+  end
+
   # GET /videos/1/edit
   def edit
   end
@@ -45,21 +50,25 @@ class VideosController < ApplicationController
 
     respond_to do |format|
       if @video.save
-
-        # Send video received email
-        begin
-          SendinBlueMailer.send_video_received_email(@video).deliver_now
-        rescue SibApiV3Sdk::ApiError => e
-          puts "Exception when calling SMTPApi->send_transac_email: #{e}"
+        if !@video['is_youtube']
+          # Send video received email
+          begin
+            SendinBlueMailer.send_video_received_email(@video).deliver_now
+            rescue SibApiV3Sdk::ApiError => e
+              puts "Exception when calling SMTPApi->send_transac_email: #{e}"
+            end
         end
-
+        manual = @video['is_youtube']
         pre_video_upload_data
         @videos_info['videoUploadSuccess'] = true
+        @videos_info['manual'] = manual
         format.html { render action: 'new' }
         format.json { render json: @videos_info }
       else
+        manual = @video['is_youtube']
         pre_video_upload_data
         @videos_info['videoUploadSuccess'] = false
+        @videos_info['manual'] = manual
         format.html { render action: 'new' }
         format.json { render json: @videos_info }
       end
@@ -151,7 +160,7 @@ class VideosController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def video_params
-      params.require(:video).permit(:url, :title, :description, :author, :author_email, :vimeo_video_id, :frame, :agreed_to_vid_sub_policy)
+      params.require(:video).permit(:url, :title, :description, :author, :author_email, :vimeo_video_id, :frame, :agreed_to_vid_sub_policy, :is_youtube)
     end
 
     def pre_video_upload_data

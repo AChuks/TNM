@@ -22,6 +22,7 @@ Rails.application.routes.draw do
   match '/watch', to: 'videos#watch', via: 'get'
   match '/accept', to: 'videos#accept', via: 'get'
   match '/processed', to: 'videos#processed', via: 'get'
+  match '/videos/new/manual', to: 'videos#manual', via: 'get'
 
 
   # Admin routes
