@@ -9,9 +9,8 @@ module VideosHelper
     channel_6 = 'UCwukLrqPe4ywJTe0RWVlBSA' # Craze Clown
     channel_7 = 'UCvO4Ym5LjYTo0uZRfUvtc-w' # AY Comedian
     channel_8 = 'UCwemICO9grnv9xkvFkoRvMA' # Stand up Nigeria
-    channel_9 = 'UCvO4Ym5LjYTo0uZRfUvtc-w' # AY Comedian 
-    channel_10 = 'UC26q7KQxr5TnKm-OT25MyyQ' # House of Ajebo 
-    channel_11 = 'UCQmZ9BIYOBSkxL-eqqg5z-g' # MarkAngel Comedy 
+    channel_9 = 'UC26q7KQxr5TnKm-OT25MyyQ' # House of Ajebo 
+    channel_10 = 'UCQmZ9BIYOBSkxL-eqqg5z-g' # MarkAngel Comedy 
     # channel_11 =  'UCCQ-qN-4JcmXe4GcktUsITg' # DC Young Fly
     # channel_12 = 'UC4JoLGDc4qhyP5p6Vgs8qXQ' # Desi Banks
     # channel_13 = 'UCxyCzPY2pjAjrxoSYclpuLg' # Laugh Factory
@@ -22,7 +21,7 @@ module VideosHelper
     # channel_17 = 'UC2iwgQq9nvW0MkxJn7jI0XQ' # Tyrhee Spivey
     # channel_9 = 'UCg9NadeQbjGL80cDnCf1g-A' # Nollywood skits comedy
     # channel_10 = 'UCSW1uGP-JC2Uir1kR9fFwfA' # Nigeria latest comedy 
-    return [channel_1, channel_2, channel_3, channel_4, channel_5, channel_6, channel_7, channel_8, channel_9, channel_10, channel_11]
+    return [channel_1, channel_2, channel_3, channel_4, channel_5, channel_6, channel_7, channel_8, channel_9, channel_10]
     # return [channel_10]
   end
 
@@ -44,7 +43,7 @@ module VideosHelper
       channels.each { |each_channel|
         each_channel= Yt::Channel.new id: each_channel
         # Filter top three channels by date and select if not older by a month
-        channel_trends = each_channel.videos.where(order: 'date').map.to_a.uniq(&:id).first(2)
+        channel_trends = each_channel.videos.where(order: 'date').map.first(2)
         channel_trends.each {|each_channel_trends|
           if ((Time.current - each_channel_trends.published_at)/1.day).round < 31 
             Trending.create(:url => each_channel_trends.id, :title => each_channel_trends.title.tr('#',''), :date => each_channel_trends.published_at, :meta_data => each_channel_trends.channel_id)
