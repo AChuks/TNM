@@ -11,7 +11,15 @@ class PagesController < ApplicationController
   end
 
   def home
-    @videos_info = view_context.get_all_videos()
+    @videos_info = view_context.get_all_videos(false)
+    respond_to do |format|
+      format.html { render action: 'home' }
+      format.json { render json: @videos_info }
+    end
+  end
+
+  def irl
+    @videos_info = view_context.get_all_videos(true)
     respond_to do |format|
       format.html { render action: 'home' }
       format.json { render json: @videos_info }
