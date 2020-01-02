@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_12_10_161129) do
+ActiveRecord::Schema.define(version: 2019_12_24_154642) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -62,6 +62,7 @@ ActiveRecord::Schema.define(version: 2019_12_10_161129) do
     t.string "frame"
     t.boolean "agreed_to_vid_sub_policy", default: false
     t.boolean "is_youtube", default: false
+    t.boolean "is_irl", default: false
   end
 
   create_table "youtubes", id: :serial, force: :cascade do |t|

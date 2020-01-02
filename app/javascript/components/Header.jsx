@@ -177,6 +177,20 @@ class Header extends Component {
               <li
                 style={{ display: navbarToggleVisible ? "contents" : "block" }}
               >
+                <a
+                  className="navbar-links"
+                  href="/irl"
+                  style={{
+                    padding: navbarToggleVisible ? "0px 15px 0px 15px" : "21px",
+                    marginTop: navbarToggleVisible ? "10px" : "0px"
+                  }}
+                >
+                  IRL
+                </a>
+              </li>
+              <li
+                style={{ display: navbarToggleVisible ? "contents" : "block" }}
+              >
                 {!navbarToggleVisible && (
                   <a
                     className="navbar-links navbar-links-search"
