@@ -72,7 +72,9 @@ class VideosForm extends Component {
         "video[title]": data.title || videosInfo.video.title,
         "video[description]": data.description || videosInfo.video.description,
         "video[is_youtube]": true,
-        "video[agreed_to_vid_sub_policy]": true
+        "video[is_irl]": true,
+        "video[agreed_to_vid_sub_policy]": true,
+        "video[date]": data.date || videosInfo.video.date
       };
     }
 
@@ -175,6 +177,17 @@ class VideosForm extends Component {
             required
             value={videosInfo.video.description}
           />
+          {videosInfo.manual && (
+            <FormsyInput
+              type="date"
+              className="form-group"
+              name="date"
+              label="Date"
+              validationError="Please select a date"
+              required
+              value={videosInfo.video.date}
+            />
+          )}
           {videosInfo.video.author_email !== null && (
             <FormsyInput
               type="text"

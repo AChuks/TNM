@@ -131,6 +131,24 @@ class FormsyInput extends React.Component {
             )}
           </div>
         )}
+        {type === "date" && (
+          <div>
+            {label && <label>{label}</label>}
+            <input
+              className="form-control"
+              onChange={this.changeValue}
+              type={type}
+              name="date"
+              value={getValue() || ""}
+            />
+            {showRequiredMessage && (
+              <span className="error-message">Please select a date</span>
+            )}
+            {showErrorMessage && (
+              <span className="error-message">{showErrorMessage}</span>
+            )}
+          </div>
+        )}
       </div>
     );
   }

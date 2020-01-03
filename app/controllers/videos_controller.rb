@@ -46,7 +46,9 @@ class VideosController < ApplicationController
   def create
     @video = Video.new(video_params)
     puts video_params
-    @video.date = Time.now
+    if !@video['is_irl']
+      @video.date = Time.now
+    end
 
     respond_to do |format|
       if @video.save
@@ -160,7 +162,7 @@ class VideosController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def video_params
-      params.require(:video).permit(:url, :title, :description, :author, :author_email, :vimeo_video_id, :frame, :agreed_to_vid_sub_policy, :is_youtube)
+      params.require(:video).permit(:url, :title, :description, :author, :author_email, :vimeo_video_id, :frame, :agreed_to_vid_sub_policy, :is_youtube, :is_irl, :date)
     end
 
     def pre_video_upload_data
