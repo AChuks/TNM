@@ -117,7 +117,7 @@ class HomeComponent extends Component {
                   className="featured-video"
                   width="1200"
                   height={featuredVideoHeight}
-                  src="https://www.youtube.com/embed/nnAk07F4Neo"
+                  src="https://www.youtube.com/embed/t6Xc8JWyo_4"
                   frameBorder="0"
                   allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
                   allowFullScreen
