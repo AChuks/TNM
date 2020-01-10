@@ -15,6 +15,8 @@ module VideosHelper
     channel_12 = 'UC6AIZZlzcP3csZcPgltF22Q' # Josh 2 funny 
     channel_13 = 'UCfvmvOEGw6Nqd6E9qMryE3A' # Lasisi Elenu 
     channel_14 = 'UCdN4aXTrHAtfgbVG9HjBmxQ' # Key & Pele
+    channel_15 = 'UCZu6U2qCp66HIYdmzkvodNQ' # Key & Pele
+    channel_16 = 'UCQi4BT2PqF2aWdW2JwzCFAQ' # Williams Uchembah
     # channel_11 =  'UCCQ-qN-4JcmXe4GcktUsITg' # DC Young Fly
     # channel_12 = 'UC4JoLGDc4qhyP5p6Vgs8qXQ' # Desi Banks
     # channel_13 = 'UCxyCzPY2pjAjrxoSYclpuLg' # Laugh Factory
@@ -25,7 +27,7 @@ module VideosHelper
     # channel_17 = 'UC2iwgQq9nvW0MkxJn7jI0XQ' # Tyrhee Spivey
     # channel_9 = 'UCg9NadeQbjGL80cDnCf1g-A' # Nollywood skits comedy
     # channel_10 = 'UCSW1uGP-JC2Uir1kR9fFwfA' # Nigeria latest comedy 
-    return [channel_1, channel_2, channel_3, channel_4, channel_5, channel_6, channel_7, channel_8, channel_9, channel_10, channel_11, channel_12, channel_13, channel_14]
+    return [channel_1, channel_2, channel_3, channel_4, channel_5, channel_6, channel_7, channel_8, channel_9, channel_10, channel_11, channel_12, channel_13, channel_14, channel_15, channel_16]
     # return [channel_10]
   end
 
