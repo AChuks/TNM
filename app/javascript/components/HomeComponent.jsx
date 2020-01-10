@@ -45,7 +45,10 @@ class HomeComponent extends Component {
   };
 
   handlePageChange = (e, { activePage }) => {
-    const url = "/?page=" + activePage.toString();
+    let url = "/?page=" + activePage.toString();
+    if (window.location.href.includes("irl")) {
+      url = url + "&irl=true";
+    }
     fetch(url, {
       headers: {
         "Content-Type": "application/json",
@@ -69,7 +72,7 @@ class HomeComponent extends Component {
     let scroll = Scroll.animateScroll;
     let gridOffsetTop = document.getElementsByClassName("MuiGridList-root")[0]
       .offsetTop;
-    let featuredVideoHeight = document.getElementsByClassName("vjs-poster")[0]
+    let featuredVideoHeight = document.getElementsByClassName("featured-video")[0]
       .offsetHeight;
     scroll.scrollTo(gridOffsetTop + featuredVideoHeight);
   };

@@ -270,7 +270,7 @@ ul.list-inline li a {
           &-item {
             display: inline-block;
             vertical-align: top;
-            margin: 0 -5px 5px 0 !important;
+            margin: 0 -5px 75px 0 !important;
             text-align: center;
             text-align-last: center;
             padding: 10px 10px 2px !important;
@@ -389,8 +389,9 @@ input[type="file"]{
 .video-title, .video-date-time {
   margin-top: 15px;
   font-weight: 600;
-  font-size: 0.9em;
-  color: white;
+  font-size: 1.1em;
+  color: darkgrey;
+  font-family: 'Roboto, Arial, sans-serif' !important;
   &-watch {
     margin-bottom: 10px;
     font-size: 15px;
@@ -600,7 +601,7 @@ input[type="file"]{
     div {
       div {
         float: right;
-        width: 300px;
+        width: 370px;
         padding-left: 0px !important;
       }
     }

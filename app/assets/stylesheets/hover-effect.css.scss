@@ -1,7 +1,6 @@
 @charset "utf-8";
 
 .hover-effect li.view, .hover-effect div.view {
- 
    width: auto;
    height: auto;
    margin: 0px;
@@ -11,6 +10,11 @@
    position: relative;
    text-align: center;
    cursor: default;
+}
+.owl-carousel {
+   .hover-effect li.view, .hover-effect div.view {
+      width: 260px !important;
+   }
 }
 
 // Pad thumbnail image to make room for img description.
