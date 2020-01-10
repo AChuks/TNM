@@ -26,6 +26,9 @@ class HomeComponent extends Component {
 
   componentDidMount = () => {
     window.addEventListener("resize", this.updateDimensions);
+    if (window.location.href.includes('irl')){
+      this.scrollToTopOfVideoGrid();
+    }
   };
   componentWillUnmount = () => {
     window.removeEventListener("resize", this.updateDimensions);
@@ -98,7 +101,7 @@ class HomeComponent extends Component {
           </div>
         </div>
         <div className="col-xs-12 content-videos">
-          <div className="content-videos-header">TRENDING AROUND THE WEB</div>
+          <div className="content-videos-header">TRENDING</div>
           <div className="col-xs-12">
             <CarouselVideos carouselVideos={videosInfo.trendingVideos} />
           </div>
