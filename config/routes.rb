@@ -17,7 +17,6 @@ Rails.application.routes.draw do
   match '/subscribe', to: 'pages#subscribe', via: 'get'
   match '/terms', to: 'pages#terms', via: 'get'
   match '/privacy', to: 'pages#privacy', via: 'get'
-  match '/irl', to: 'pages#irl', via: 'get'
 
   # Videos routes
   match '/watch', to: 'videos#watch', via: 'get'

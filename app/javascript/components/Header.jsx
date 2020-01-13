@@ -1,10 +1,13 @@
 import React, { Component } from "react";
+import PropTypes from "prop-types";
 import SuperComedianLogo from "../../assets/images/super_comedian.svg";
 import ReactSVG from "react-svg";
 import { Form, Input } from "formsy-react-components";
 
 class Header extends Component {
-  static propTypes = {};
+  static propTypes = {
+    onIRLClick: PropTypes.func.required
+  };
 
   constructor(props) {
     super(props);
@@ -179,10 +182,11 @@ class Header extends Component {
               >
                 <a
                   className="navbar-links"
-                  href="/irl"
+                  onClick={this.props.onIRLClick}
                   style={{
                     padding: navbarToggleVisible ? "0px 15px 0px 15px" : "21px",
-                    marginTop: navbarToggleVisible ? "10px" : "0px"
+                    marginTop: navbarToggleVisible ? "10px" : "0px",
+                    cursor: "pointer"
                   }}
                 >
                   IRL
