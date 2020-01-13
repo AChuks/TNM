@@ -5,6 +5,7 @@ import { Pagination } from "semantic-ui-react";
 import { LazyLoadImage } from "react-lazy-load-image-component";
 import GridList from "@material-ui/core/GridList";
 import GridListTile from "@material-ui/core/GridListTile";
+import Header from "./Header";
 import moment from "moment";
 import * as Scroll from "react-scroll";
 import "semantic-ui-css/semantic.min.css";
@@ -20,15 +21,14 @@ class HomeComponent extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      videosInfo: props.videosInfo
+      videosInfo: props.videosInfo,
+      irl: false,
+      currentPage: 1
     };
   }
 
   componentDidMount = () => {
     window.addEventListener("resize", this.updateDimensions);
-    if (window.location.href.includes('irl')){
-      this.scrollToTopOfVideoGrid();
-    }
   };
   componentWillUnmount = () => {
     window.removeEventListener("resize", this.updateDimensions);
@@ -47,9 +47,9 @@ class HomeComponent extends Component {
     }
   };
 
-  handlePageChange = (e, { activePage }) => {
+  handlePageChange = (e, { activePage }, irl) => {
     let url = "/?page=" + activePage.toString();
-    if (window.location.href.includes("irl")) {
+    if (irl || this.state.irl) {
       url = url + "&irl=true";
     }
     fetch(url, {
@@ -61,7 +61,8 @@ class HomeComponent extends Component {
       .then(res => res.json())
       .then(data => {
         this.setState({
-          videosInfo: data
+          videosInfo: data,
+          currentPage: irl && activePage === 1 ? 1 : undefined
         });
       });
     this.scrollToTopOfVideoGrid();
@@ -80,11 +81,18 @@ class HomeComponent extends Component {
     scroll.scrollTo(gridOffsetTop + featuredVideoHeight);
   };
 
+  handleIRLClick = e => {
+    this.setState({ irl: true });
+    this.handlePageChange(e, { activePage: 1 }, true);
+  };
+
   render() {
-    const { videosInfo } = this.state;
+    const { videosInfo, currentPage } = this.state;
     let featuredVideoHeight = document.body.clientWidth / 2.7;
+    console.log(currentPage);
     return (
       <div className="content">
+        <Header onIRLClick={this.handleIRLClick} />
         <div className="content-looping-video-div">
           <video
             playsInline
@@ -189,7 +197,7 @@ class HomeComponent extends Component {
           <div className="col-xs-12">
             <Pagination
               onPageChange={this.handlePageChange}
-              defaultActivePage={videosInfo.currentPage}
+              defaultActivePage={currentPage || videosInfo.currentPage}
               siblingRange={3}
               size="mini"
               totalPages={videosInfo.totalPages}
