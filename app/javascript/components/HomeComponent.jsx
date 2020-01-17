@@ -158,7 +158,7 @@ class HomeComponent extends Component {
               >
                 <div className="hover-effect">
                   <div className="view view-first">
-                    <div className="masked">
+                    <div className="masked" id={video.id}>
                       {video.vimeo_video_id && (
                         <a
                           href={`/watch?url=${video.url};title=${video.title};upload=true`}
