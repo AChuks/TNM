@@ -89,7 +89,6 @@ class HomeComponent extends Component {
   render() {
     const { videosInfo, currentPage } = this.state;
     let featuredVideoHeight = document.body.clientWidth / 2.7;
-    console.log(currentPage);
     return (
       <div className="content">
         <Header onIRLClick={this.handleIRLClick} />
@@ -151,7 +150,9 @@ class HomeComponent extends Component {
                   this.handleGridListClick(
                     video.vimeo_video_id
                       ? `/watch?url=${video.url};title=${video.title};upload=true`
-                      : `/watch?url=${video.url};title=${video.title};meta_data=${video.meta_data}`
+                      : !video.vimeo_video_id && !video.is_irl
+                      ? `/watch?url=${video.url};title=${video.title};meta_data=${video.meta_data}`
+                      : `/watch?url=${video.url};title=${video.title};irl=true`
                   )
                 }
               >
@@ -163,9 +164,14 @@ class HomeComponent extends Component {
                           href={`/watch?url=${video.url};title=${video.title};upload=true`}
                         ></a>
                       )}
-                      {!video.vimeo_video_id && (
+                      {!video.vimeo_video_id && !video.is_irl && (
                         <a
                           href={`/watch?url=${video.url};title=${video.title};meta_data=${video.meta_data}`}
+                        ></a>
+                      )}
+                      {video.is_irl && (
+                        <a
+                          href={`/watch?url=${video.url};title=${video.title};irl=true`}
                         ></a>
                       )}
                       {video.vimeo_video_id && (

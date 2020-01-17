@@ -117,12 +117,18 @@ class VideosController < ApplicationController
     @title = params[:title]
     @meta_data = params[:meta_data]
     @uploaded = params[:upload]
+    @irl = params[:irl]
     if @uploaded
       @current_video_relation =  Video.same_vimeo_video_id_as(@url)
       @current_video = @current_video_relation.first
-      @related_videos = view_context.get_related_videos(@current_video['author_email'])
-    elsif
-      @related_videos = view_context.get_related_youtube_videos(@meta_data).order("RANDOM()")[0,20]
+      @related_videos = view_context.get_related_videos(@current_video['author_email'], nil)
+    else
+      @related_videos  = [];
+      if !@irl
+        @related_videos = view_context.get_related_youtube_videos(@meta_data).order("RANDOM()")[0,20]
+      else
+        @related_videos = view_context.get_related_videos(nil, true)
+      end
       @current_video_relation =  Youtube.same_url_as(@url)
       @current_video = @current_video_relation.first
     end

@@ -7,6 +7,7 @@ import moment from "moment";
 import videojs from "video.js";
 import "video.js/dist/video-js.min.css";
 import "videojs-youtube";
+import Header from "./Header";
 
 class WatchVideos extends Component {
   static propTypes = {
@@ -65,10 +66,15 @@ class WatchVideos extends Component {
     window.location.href = location;
   };
 
+  handleIRLClick = () => {
+    window.location.href = "/?irl=true";
+  };
+
   render() {
     const { videosInfo } = this.state;
     return (
       <div className="content">
+        <Header onIRLClick={this.handleIRLClick} />
         <div className="col-xs-12 content-videos content-videos-watch">
           <div className="col-xs-12 col-zero-padding">
             <div className="col-xs-9 col-zero-padding">
