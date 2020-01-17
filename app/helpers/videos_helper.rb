@@ -40,8 +40,13 @@ module VideosHelper
 		return @related_videos
 	end
 
-  def get_related_videos(author_email)
-    related_uploaded_videos = Video.same_author_email(author_email).has_vimeo_video_id
+  def get_related_videos(author_email, irl)
+    related_uploaded_videos = []
+    if irl
+      related_uploaded_videos = Video.is_irl.order("RANDOM()").limit(10)
+    else
+      related_uploaded_videos = Video.same_author_email(author_email).has_vimeo_video_id
+    end
     youtube_videos = Youtube.order("RANDOM()").limit(10)
     @related_videos = (related_uploaded_videos + youtube_videos)
     return @related_videos

@@ -129,7 +129,7 @@ ul.list-inline li a {
     .pull-left {
       padding-top: 7px;
       padding-left: 25px;
-      width: 200px;
+      // width: 200px;
     }
     .pull-right {
       text-align: right !important;
@@ -333,6 +333,7 @@ div.masked a {
   height: 50px;
   .terms-privacy {
     display: flow-root;
+    margin-bottom: 10px;
     &-terms, &-privacy {
       float: right;
       color: white !important;
