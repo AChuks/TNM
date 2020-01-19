@@ -75,38 +75,31 @@ module VideosHelper
     return @trending_videos
   end
 
-  def get_all_videos(is_irl)
-    if is_irl
-      @irl_videos = Video.is_irl().sort_by(&:date).reverse.paginate(page: params[:page],:per_page => 60)
-      @trending_videos = get_trending_videos()
-      @videos_info = {allVideos: @irl_videos, trendingVideos: @trending_videos, currentPage: @irl_videos.current_page, totalPages: @irl_videos.total_pages}
-    else
-      channels = getChannels()
-      if Youtube.all.blank?
-        channels.each {|each_channel_item| 
-          each_channel = Yt::Channel.new id: each_channel_item
-          if each_channel_item == 'UCg9NadeQbjGL80cDnCf1g-A' || each_channel_item == 'UCSW1uGP-JC2Uir1kR9fFwfA'
-            channel_videos = each_channel.videos.map.to_a
-            sorted_channel_videos = channel_videos.sort_by{|vid| vid.published_at}
-            sorted_channel_videos.each.with_index(1) { |e, i|
-              if i == 1 || (i > 1 && e.published_at.to_date != sorted_channel_videos[i - 1].published_at.to_date)
-                Youtube.create(:url => e.id, :title => e.title.tr('#',''), :date => e.published_at, :meta_data => e.channel_id)
-              end
-            }
-          else
-            each_channel.videos.each { |e| 
-              Youtube.create(:url => e.id, :title => e.title.tr('#',''), :date => e.published_at, :meta_data => e.channel_id)}
-          end
-        }
-      end
-      @uploaded_videos = Video.has_vimeo_video_id()
-      @manual_youtube_videos = Video.is_youtube.not_irl()
-      @youtube_videos = Youtube.all
-      @all_videos = (@uploaded_videos + @manual_youtube_videos + @youtube_videos).sort_by(&:date).reverse.paginate(page: params[:page],:per_page => 60)
-      @trending_videos = get_trending_videos()
-      @videos_info = {allVideos: @all_videos, trendingVideos: @trending_videos, currentPage: @all_videos.current_page, totalPages: @all_videos.total_pages}
-      return @videos_info
+  def get_all_videos()
+    channels = getChannels()
+    if Youtube.all.blank?
+      channels.each {|each_channel_item| 
+        each_channel = Yt::Channel.new id: each_channel_item
+        if each_channel_item == 'UCg9NadeQbjGL80cDnCf1g-A' || each_channel_item == 'UCSW1uGP-JC2Uir1kR9fFwfA'
+          channel_videos = each_channel.videos.map.to_a
+          sorted_channel_videos = channel_videos.sort_by{|vid| vid.published_at}
+          sorted_channel_videos.each.with_index(1) { |e, i|
+            if i == 1 || (i > 1 && e.published_at.to_date != sorted_channel_videos[i - 1].published_at.to_date)
+              Youtube.create(:url => e.id, :title => e.title.tr('#',''), :date => e.published_at, :meta_data => e.channel_id)
+            end
+          }
+        else
+          each_channel.videos.each { |e| 
+            Youtube.create(:url => e.id, :title => e.title.tr('#',''), :date => e.published_at, :meta_data => e.channel_id)}
+        end
+      }
     end
+    @other_videos = Video.all()
+    @youtube_videos = Youtube.all
+    @all_videos = (@other_videos + @youtube_videos).sort_by(&:date).reverse.paginate(page: params[:page],:per_page => 60)
+    @trending_videos = get_trending_videos()
+    @videos_info = {allVideos: @all_videos, trendingVideos: @trending_videos, currentPage: @all_videos.current_page, totalPages: @all_videos.total_pages}
+    return @videos_info
   end
 
   def get_search_filtered_videos(search_text)
