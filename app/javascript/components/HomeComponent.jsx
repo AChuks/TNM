@@ -5,7 +5,6 @@ import { Pagination } from "semantic-ui-react";
 import { LazyLoadImage } from "react-lazy-load-image-component";
 import GridList from "@material-ui/core/GridList";
 import GridListTile from "@material-ui/core/GridListTile";
-import Header from "./Header";
 import moment from "moment";
 import * as Scroll from "react-scroll";
 import "semantic-ui-css/semantic.min.css";
@@ -21,9 +20,7 @@ class HomeComponent extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      videosInfo: props.videosInfo,
-      irl: false,
-      currentPage: 1
+      videosInfo: props.videosInfo
     };
   }
 
@@ -47,11 +44,8 @@ class HomeComponent extends Component {
     }
   };
 
-  handlePageChange = (e, { activePage }, irl) => {
+  handlePageChange = (e, { activePage }) => {
     let url = "/?page=" + activePage.toString();
-    if (irl || this.state.irl) {
-      url = url + "&irl=true";
-    }
     fetch(url, {
       headers: {
         "Content-Type": "application/json",
@@ -61,8 +55,7 @@ class HomeComponent extends Component {
       .then(res => res.json())
       .then(data => {
         this.setState({
-          videosInfo: data,
-          currentPage: irl && activePage === 1 ? 1 : undefined
+          videosInfo: data
         });
       });
     this.scrollToTopOfVideoGrid();
@@ -81,17 +74,11 @@ class HomeComponent extends Component {
     scroll.scrollTo(gridOffsetTop + featuredVideoHeight);
   };
 
-  handleIRLClick = e => {
-    this.setState({ irl: true });
-    this.handlePageChange(e, { activePage: 1 }, true);
-  };
-
   render() {
-    const { videosInfo, currentPage } = this.state;
+    const { videosInfo } = this.state;
     let featuredVideoHeight = document.body.clientWidth / 2.7;
     return (
       <div className="content">
-        <Header onIRLClick={this.handleIRLClick} />
         <div className="content-looping-video-div">
           <video
             playsInline
@@ -203,7 +190,7 @@ class HomeComponent extends Component {
           <div className="col-xs-12">
             <Pagination
               onPageChange={this.handlePageChange}
-              defaultActivePage={currentPage || videosInfo.currentPage}
+              defaultActivePage={videosInfo.currentPage}
               siblingRange={3}
               size="mini"
               totalPages={videosInfo.totalPages}

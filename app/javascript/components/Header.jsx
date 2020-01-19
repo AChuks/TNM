@@ -1,13 +1,10 @@
 import React, { Component } from "react";
-import PropTypes from "prop-types";
 import SuperComedianLogo from "../../assets/images/super_comedian.svg";
 import ReactSVG from "react-svg";
 import { Form, Input } from "formsy-react-components";
 
 class Header extends Component {
-  static propTypes = {
-    onIRLClick: PropTypes.func.required
-  };
+  static propTypes = {};
 
   constructor(props) {
     super(props);
@@ -175,21 +172,6 @@ class Header extends Component {
                   }}
                 >
                   Submit Video
-                </a>
-              </li>
-              <li
-                style={{ display: navbarToggleVisible ? "contents" : "block" }}
-              >
-                <a
-                  className="navbar-links"
-                  onClick={this.props.onIRLClick}
-                  style={{
-                    padding: navbarToggleVisible ? "0px 15px 0px 15px" : "21px",
-                    marginTop: navbarToggleVisible ? "10px" : "0px",
-                    cursor: "pointer"
-                  }}
-                >
-                  IRL
                 </a>
               </li>
               <li
