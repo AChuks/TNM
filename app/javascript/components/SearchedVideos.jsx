@@ -47,6 +47,10 @@ class SearchedVideos extends Component {
     scroll.scrollTo(gridOffsetTop);
   };
 
+  handleGridListClick = location => {
+    window.location.href = location;
+  };
+
   render() {
     const { videosInfo } = this.state;
     return (
@@ -60,18 +64,32 @@ class SearchedVideos extends Component {
               <GridListTile
                 className="content-videos-header-videos-section-item"
                 key={index}
+                onClick={() =>
+                  this.handleGridListClick(
+                    video.vimeo_video_id
+                      ? `/watch?url=${video.url};title=${video.title};upload=true`
+                      : !video.vimeo_video_id && !video.is_irl
+                      ? `/watch?url=${video.url};title=${video.title};meta_data=${video.meta_data}`
+                      : `/watch?url=${video.url};title=${video.title};irl=true`
+                  )
+                }
               >
                 <div className="hover-effect">
                   <div className="view view-first">
                     <div className="masked">
                       {video.vimeo_video_id && (
                         <a
-                          href={`watch?url=${video.url};title=${video.title};upload=true`}
+                          href={`/watch?url=${video.url};title=${video.title};upload=true`}
                         ></a>
                       )}
-                      {!video.vimeo_video_id && (
+                      {!video.vimeo_video_id && !video.is_irl && (
                         <a
-                          href={`watch?url=${video.url};title=${video.title};meta_data=${video.meta_data}`}
+                          href={`/watch?url=${video.url};title=${video.title};meta_data=${video.meta_data}`}
+                        ></a>
+                      )}
+                      {video.is_irl && (
+                        <a
+                          href={`/watch?url=${video.url};title=${video.title};irl=true`}
                         ></a>
                       )}
                       {video.vimeo_video_id && (
