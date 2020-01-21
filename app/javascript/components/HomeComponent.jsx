@@ -149,38 +149,51 @@ class HomeComponent extends Component {
                       {video.vimeo_video_id && (
                         <a
                           href={`/watch?url=${video.url};title=${video.title};upload=true`}
-                        ></a>
+                        >
+                          <LazyLoadImage
+                            alt={`${video.title}`}
+                            height="auto"
+                            src={`${video.thumb_nail}`}
+                            width="100%"
+                          />
+                          <div className="video-title">{video.title}</div>
+                          <div className="video-date-time">
+                            {moment(video.date).format("MMM Do, YYYY")}
+                          </div>
+                        </a>
                       )}
                       {!video.vimeo_video_id && !video.is_irl && (
                         <a
                           href={`/watch?url=${video.url};title=${video.title};meta_data=${video.meta_data}`}
-                        ></a>
+                        >
+                          <LazyLoadImage
+                            alt={`${video.title}`}
+                            height="auto"
+                            src={`https://i.ytimg.com/vi/${video.url}/mqdefault.jpg`}
+                            width="100%"
+                          />
+                          <div className="video-title">{video.title}</div>
+                          <div className="video-date-time">
+                            {moment(video.date).format("MMM Do, YYYY")}
+                          </div>
+                        </a>
                       )}
                       {video.is_irl && (
                         <a
                           href={`/watch?url=${video.url};title=${video.title};irl=true`}
-                        ></a>
+                        >
+                          <LazyLoadImage
+                            alt={`${video.title}`}
+                            height="auto"
+                            src={`https://i.ytimg.com/vi/${video.url}/mqdefault.jpg`}
+                            width="100%"
+                          />
+                          <div className="video-title">{video.title}</div>
+                          <div className="video-date-time">
+                            {moment(video.date).format("MMM Do, YYYY")}
+                          </div>
+                        </a>
                       )}
-                      {video.vimeo_video_id && (
-                        <LazyLoadImage
-                          alt={`${video.title}`}
-                          height="auto"
-                          src={`${video.thumb_nail}`}
-                          width="100%"
-                        />
-                      )}
-                      {!video.vimeo_video_id && (
-                        <LazyLoadImage
-                          alt={`${video.title}`}
-                          height="auto"
-                          src={`https://i.ytimg.com/vi/${video.url}/mqdefault.jpg`}
-                          width="100%"
-                        />
-                      )}
-                      <div className="video-title">{video.title}</div>
-                      <div className="video-date-time">
-                        {moment(video.date).format("MMM Do, YYYY")}
-                      </div>
                     </div>
                   </div>
                 </div>
