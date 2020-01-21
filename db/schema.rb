@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_01_17_215219) do
+ActiveRecord::Schema.define(version: 2020_01_21_141258) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -31,6 +31,10 @@ ActiveRecord::Schema.define(version: 2020_01_17_215219) do
     t.string "meta_data"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.boolean "is_irl", default: false
+    t.boolean "is_youtube", default: false
+    t.string "vimeo_video_id"
+    t.string "thumb_nail"
   end
 
   create_table "users", id: :serial, force: :cascade do |t|
