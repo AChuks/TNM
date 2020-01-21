@@ -67,7 +67,7 @@ module VideosHelper
       }
       Video.all.each {|each_video| 
         if ((Time.current - each_video.updated_at)/1.day).round < 14
-          Trending.create(:url => each_video.url, :title => each_video.title.tr('#',''), :date => each_video.created_at, :meta_data => each_video.meta_data, vimeo_video_id => each_video.vimeo_video_id, is_irl => each_video.is_irl)
+          Trending.create(:url => each_video.url, :title => each_video.title.tr('#',''), :date => each_video.created_at, :meta_data => each_video.meta_data, :vimeo_video_id => each_video.vimeo_video_id, :is_irl => each_video.is_irl)
         end
       }
     end
