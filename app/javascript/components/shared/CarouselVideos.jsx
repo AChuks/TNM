@@ -13,16 +13,19 @@ class CarouselVideos extends Component {
 
   render() {
     const { carouselVideos } = this.props;
+    const parser = new DOMParser();
     return (
       <div className="owl-carousel owl-theme">
         {carouselVideos.map((carouselVideo, index) => {
-          console.log(carouselVideo);
-          let url = `watch?url=${carouselVideo.url};title=${carouselVideo.title};meta_data=${carouselVideo.meta_data}`;
+          let videoTitle = parser.parseFromString(
+            carouselVideo.title,
+            "text/html").body.textContent;
+          let url = `watch?url=${carouselVideo.url};title=${videoTitle};meta_data=${carouselVideo.meta_data}`;
           if (carouselVideo.vimeo_video_id) {
-            url = `/watch?url=${carouselVideo.url};title=${carouselVideo.title};upload=true`;
+            url = `/watch?url=${carouselVideo.url};title=${videoTitle};upload=true`;
           }
           if (carouselVideo.is_irl) {
-            url = `/watch?url=${carouselVideo.url};title=${carouselVideo.title};irl=true`;
+            url = `/watch?url=${carouselVideo.url};title=${videoTitle};irl=true`;
           }
           return (
             <div
@@ -36,7 +39,7 @@ class CarouselVideos extends Component {
                     <img
                       src={`https://i.ytimg.com/vi/${carouselVideo.url}/mqdefault.jpg`}
                     />
-                    <div className="video-title">{carouselVideo.title}</div>
+                    <div className="video-title">{videoTitle}</div>
                   </a>
                 </div>
               </div>

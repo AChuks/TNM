@@ -67,14 +67,16 @@ class WatchVideos extends Component {
 
   render() {
     const { videosInfo } = this.state;
+    const parser = new DOMParser();
     return (
       <div className="content">
         <div className="col-xs-12 content-videos content-videos-watch">
           <div className="col-xs-12 col-zero-padding">
             <div className="col-xs-9 col-zero-padding">
               <div className="col-xs-12 col-zero-padding">
-                <div className="video-title-watch">{videosInfo.title}</div>
-
+                <div className="video-title-watch">{parser.parseFromString(
+                  videosInfo.title, "text/html")
+                  .body.textContent}</div>
                 {videosInfo.uploaded && (
                   <div
                     dangerouslySetInnerHTML={{
@@ -134,56 +136,61 @@ class WatchVideos extends Component {
                 Related Videos
               </div>
               <GridList className="col-xs-12">
-                {videosInfo.relatedVideos.map((video, index) => (
-                  <GridListTile
-                    className="content-videos-header-videos-section-item"
-                    key={index}
-                    onClick={() =>
-                      this.handleGridListClick(
-                        video.vimeo_video_id
-                          ? `/watch?url=${video.url};title=${video.title};upload=true`
-                          : `/watch?url=${video.url};title=${video.title};meta_data=${video.meta_data}`
-                      )
-                    }
-                  >
-                    <div className="hover-effect">
-                      <div className="view view-first">
-                        <div className="masked">
-                          {video.vimeo_video_id && (
-                            <a
-                              href={`watch?url=${video.url};title=${video.title};upload=true`}
-                            ></a>
-                          )}
-                          {!video.vimeo_video_id && (
-                            <a
-                              href={`watch?url=${video.url};title=${video.title};meta_data=${video.meta_data}`}
-                            ></a>
-                          )}
-                          {video.vimeo_video_id && (
-                            <LazyLoadImage
-                              alt={`${video.title}`}
-                              height="auto"
-                              src={`${video.thumb_nail}`}
-                              width="100%"
-                            />
-                          )}
-                          {!video.vimeo_video_id && (
-                            <LazyLoadImage
-                              alt={`${video.title}`}
-                              height="auto"
-                              src={`https://i.ytimg.com/vi/${video.url}/mqdefault.jpg`}
-                              width="100%"
-                            />
-                          )}
-                          <div className="video-title">{video.title}</div>
-                          <div className="video-date-time">
-                            {moment(video.date).format("MMM Do, YYYY")}
+                {videosInfo.relatedVideos.map((video, index) => {
+                  let videoTitle = parser.parseFromString(
+                    video.title, "text/html")
+                  .body.textContent;
+                  return (
+                    <GridListTile
+                      className="content-videos-header-videos-section-item"
+                      key={index}
+                      onClick={() =>
+                        this.handleGridListClick(
+                          video.vimeo_video_id
+                            ? `/watch?url=${video.url};title=${videoTitle};upload=true`
+                            : `/watch?url=${video.url};title=${videoTitle};meta_data=${video.meta_data}`
+                        )
+                      }
+                    >
+                      <div className="hover-effect">
+                        <div className="view view-first">
+                          <div className="masked">
+                            {video.vimeo_video_id && (
+                              <a
+                                href={`watch?url=${video.url};title=${videoTitle};upload=true`}
+                              ></a>
+                            )}
+                            {!video.vimeo_video_id && (
+                              <a
+                                href={`watch?url=${video.url};title=${videoTitle};meta_data=${video.meta_data}`}
+                              ></a>
+                            )}
+                            {video.vimeo_video_id && (
+                              <LazyLoadImage
+                                alt={`${videoTitle}`}
+                                height="auto"
+                                src={`${video.thumb_nail}`}
+                                width="100%"
+                              />
+                            )}
+                            {!video.vimeo_video_id && (
+                              <LazyLoadImage
+                                alt={`${videoTitle}`}
+                                height="auto"
+                                src={`https://i.ytimg.com/vi/${video.url}/mqdefault.jpg`}
+                                width="100%"
+                              />
+                            )}
+                            <div className="video-title">{videoTitle}</div>
+                            <div className="video-date-time">
+                              {moment(video.date).format("MMM Do, YYYY")}
+                            </div>
                           </div>
                         </div>
                       </div>
-                    </div>
-                  </GridListTile>
-                ))}
+                    </GridListTile>
+                  );
+                })}
               </GridList>
             </div>
           </div>
