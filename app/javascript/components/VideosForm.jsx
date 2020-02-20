@@ -214,7 +214,7 @@ class VideosForm extends Component {
               required
             />
           )}
-          {videosInfo.video.author_email === null && videosInfo.manual && (
+          {videosInfo.video.author_email === null && !videosInfo.manual && (
             <FormsyInput
               type="checkbox"
               className="form-group form-checkbox"

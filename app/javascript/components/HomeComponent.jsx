@@ -118,7 +118,7 @@ class HomeComponent extends Component {
                   className="featured-video"
                   width="1200"
                   height={featuredVideoHeight}
-                  src="https://www.youtube.com/embed/6PxTsZXGhKg"
+                  src="https://www.youtube.com/embed/XO1DuONGmRQ"
                   frameBorder="0"
                   allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
                   allowFullScreen
@@ -131,78 +131,84 @@ class HomeComponent extends Component {
           </div>
           <GridList className="col-xs-12">
             {videosInfo.allVideos.map((video, index) => {
-              let videoTitle = parser.parseFromString(video.title, "text/html")
-                .body.textContent;
-              return (
-                <GridListTile
-                  className="content-videos-header-videos-section-item"
-                  key={index}
-                  onClick={() =>
-                    this.handleGridListClick(
-                      video.vimeo_video_id
-                        ? `/watch?url=${video.url};title=${videoTitle};upload=true`
-                        : !video.vimeo_video_id && !video.is_irl
-                        ? `/watch?url=${video.url};title=${videoTitle};meta_data=${video.meta_data}`
-                        : `/watch?url=${video.url};title=${videoTitle};irl=true`
-                    )
-                  }
-                >
-                  <div className="hover-effect">
-                    <div className="view view-first">
-                      <div className="masked" id={video.id}>
-                        {video.vimeo_video_id && (
-                          <a
-                            href={`/watch?url=${video.url};title=${videoTitle};upload=true`}
-                          >
-                            <LazyLoadImage
-                              alt={`${videoTitle}`}
-                              height="auto"
-                              src={`${video.thumb_nail}`}
-                              width="100%"
-                            />
-                            <div className="video-title">{videoTitle}</div>
-                            <div className="video-date-time">
-                              {moment(video.date).format("MMM Do, YYYY")}
-                            </div>
-                          </a>
-                        )}
-                        {!video.vimeo_video_id && !video.is_irl && (
-                          <a
-                            href={`/watch?url=${video.url};title=${videoTitle};meta_data=${video.meta_data}`}
-                          >
-                            <LazyLoadImage
-                              alt={`${videoTitle}`}
-                              height="auto"
-                              src={`https://i.ytimg.com/vi/${video.url}/mqdefault.jpg`}
-                              width="100%"
-                            />
-                            <div className="video-title">{videoTitle}</div>
-                            <div className="video-date-time">
-                              {moment(video.date).format("MMM Do, YYYY")}
-                            </div>
-                          </a>
-                        )}
-                        {video.is_irl && (
-                          <a
-                            href={`/watch?url=${video.url};title=${videoTitle};irl=true`}
-                          >
-                            <LazyLoadImage
-                              alt={`${videoTitle}`}
-                              height="auto"
-                              src={`https://i.ytimg.com/vi/${video.url}/mqdefault.jpg`}
-                              width="100%"
-                            />
-                            <div className="video-title">{videoTitle}</div>
-                            <div className="video-date-time">
-                              {moment(video.date).format("MMM Do, YYYY")}
-                            </div>
-                          </a>
-                        )}
+              if (
+                video.meta_data ||
+                video.is_irl ||
+                (video.accepted && !video.is_irl)
+              ) {
+                let videoTitle = parser.parseFromString(video.title, "text/html")
+                  .body.textContent;
+                return (
+                  <GridListTile
+                    className="content-videos-header-videos-section-item"
+                    key={index}
+                    onClick={() =>
+                      this.handleGridListClick(
+                        video.vimeo_video_id
+                          ? `/watch?url=${video.url};title=${videoTitle};upload=true`
+                          : !video.vimeo_video_id && !video.is_irl
+                          ? `/watch?url=${video.url};title=${videoTitle};meta_data=${video.meta_data}`
+                          : `/watch?url=${video.url};title=${videoTitle};irl=true`
+                      )
+                    }
+                  >
+                    <div className="hover-effect">
+                      <div className="view view-first">
+                        <div className="masked" id={video.id}>
+                          {video.vimeo_video_id && (
+                            <a
+                              href={`/watch?url=${video.url};title=${videoTitle};upload=true`}
+                            >
+                              <LazyLoadImage
+                                alt={`${videoTitle}`}
+                                height="auto"
+                                src={`${video.thumb_nail}`}
+                                width="100%"
+                              />
+                              <div className="video-title">{videoTitle}</div>
+                              <div className="video-date-time">
+                                {moment(video.date).format("MMM Do, YYYY")}
+                              </div>
+                            </a>
+                          )}
+                          {!video.vimeo_video_id && !video.is_irl && (
+                            <a
+                              href={`/watch?url=${video.url};title=${videoTitle};meta_data=${video.meta_data}`}
+                            >
+                              <LazyLoadImage
+                                alt={`${videoTitle}`}
+                                height="auto"
+                                src={`https://i.ytimg.com/vi/${video.url}/mqdefault.jpg`}
+                                width="100%"
+                              />
+                              <div className="video-title">{videoTitle}</div>
+                              <div className="video-date-time">
+                                {moment(video.date).format("MMM Do, YYYY")}
+                              </div>
+                            </a>
+                          )}
+                          {video.is_irl && (
+                            <a
+                              href={`/watch?url=${video.url};title=${videoTitle};irl=true`}
+                            >
+                              <LazyLoadImage
+                                alt={`${videoTitle}`}
+                                height="auto"
+                                src={`https://i.ytimg.com/vi/${video.url}/mqdefault.jpg`}
+                                width="100%"
+                              />
+                              <div className="video-title">{videoTitle}</div>
+                              <div className="video-date-time">
+                                {moment(video.date).format("MMM Do, YYYY")}
+                              </div>
+                            </a>
+                          )}
+                        </div>
                       </div>
                     </div>
-                  </div>
-                </GridListTile>
-              );
+                  </GridListTile>
+                );
+              }
             })}
           </GridList>
           <div className="col-xs-12">
@@ -217,6 +223,7 @@ class HomeComponent extends Component {
         </div>
       </div>
     );
+            
   }
 }
 
