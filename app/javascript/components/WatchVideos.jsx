@@ -74,9 +74,10 @@ class WatchVideos extends Component {
           <div className="col-xs-12 col-zero-padding">
             <div className="col-xs-9 col-zero-padding">
               <div className="col-xs-12 col-zero-padding">
-                <div className="video-title-watch">{parser.parseFromString(
+                <h1 className="video-title-watch">{parser.parseFromString(
                   videosInfo.title, "text/html")
-                  .body.textContent}</div>
+                  .body.textContent}
+                </h1>
                 {videosInfo.uploaded && (
                   <div
                     dangerouslySetInnerHTML={{

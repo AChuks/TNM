@@ -181,7 +181,7 @@ class HomeComponent extends Component {
                                 src={`https://i.ytimg.com/vi/${video.url}/mqdefault.jpg`}
                                 width="100%"
                               />
-                              <div className="video-title">{videoTitle}</div>
+                              <h1 className="video-title">{videoTitle}</h1>
                               <div className="video-date-time">
                                 {moment(video.date).format("MMM Do, YYYY")}
                               </div>
