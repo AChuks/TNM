@@ -45,7 +45,7 @@ class CarouselVideos extends Component {
                       <img
                         src={`https://i.ytimg.com/vi/${carouselVideo.url}/mqdefault.jpg`}
                       />
-                      <div className="video-title">{videoTitle}</div>
+                      <h1 className="video-title">{videoTitle}</h1>
                     </a>
                   </div>
                 </div>
