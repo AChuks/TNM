@@ -109,7 +109,7 @@ class WatchVideos extends Component {
                       className="iframe-watch-video"
                       width="100%"
                       height="100%"
-                      src={`https://www.youtube.com/embed/${videosInfo.url}?autoplay=1&mute=1`}
+                      src={`https://www.youtube.com/embed/${videosInfo.url}?autoplay=1&mute=0`}
                       start="1"
                       frameBorder="0"
                       allow="accelerometer; autoPlay; encrypted-media; gyroscope; picture-in-picture"
