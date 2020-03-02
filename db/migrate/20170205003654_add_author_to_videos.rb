@@ -1,4 +1,4 @@
-class AddAuthorToVideos < ActiveRecord::Migration
+class AddAuthorToVideos < ActiveRecord::Migration[5.2]
   def change
     add_column :videos, :author, :string
   end
