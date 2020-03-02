@@ -1,4 +1,4 @@
-class CreateRelateds < ActiveRecord::Migration
+class CreateRelateds < ActiveRecord::Migration[5.2]
   def change
     create_table :relateds do |t|
       t.string :url

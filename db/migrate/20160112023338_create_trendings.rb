@@ -1,4 +1,4 @@
-class CreateTrendings < ActiveRecord::Migration
+class CreateTrendings < ActiveRecord::Migration[5.2]
   def change
     create_table :trendings do |t|
       t.string :url
