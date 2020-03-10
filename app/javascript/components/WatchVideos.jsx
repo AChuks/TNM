@@ -87,7 +87,7 @@ class WatchVideos extends Component {
                 )}
                 {!videosInfo.uploaded && (
                   <div className="col-xs-12 col-zero-padding">
-                    {/* <video
+                    <video
                       id="watchVideo"
                       autoPlay={true}
                       className="video-js vjs-default-skin featured-video"
@@ -103,8 +103,8 @@ class WatchVideos extends Component {
                           }
                         ]
                       })}
-                    ></video> */}
-                    <iframe
+                    ></video>
+                    {/* <iframe
                       id="watchVideo"
                       className="iframe-watch-video"
                       width="100%"
@@ -114,7 +114,7 @@ class WatchVideos extends Component {
                       frameBorder="0"
                       allow="accelerometer; autoPlay; encrypted-media; gyroscope; picture-in-picture"
                       allowFullScreen
-                    ></iframe>
+                    ></iframe> */}
                   </div>
                 )}
               </div>

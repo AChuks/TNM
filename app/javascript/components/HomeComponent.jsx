@@ -34,8 +34,8 @@ class HomeComponent extends Component {
   updateDimensions = () => {
     let responsiveHeight = Math.round(document.body.clientWidth / 2.7);
     // Update videojs height
-    // let player = videojs("featureVideo");
-    // player.height(responsiveHeight);
+    let player = videojs("featureVideo");
+    player.height(responsiveHeight);
 
     // Update iFrame video height
     let iFramePlayer = document.getElementsByClassName("featured-video");
@@ -106,15 +106,15 @@ class HomeComponent extends Component {
           <div className="col-xs-12">
             <div>
               <div className="col-xs-12">
-                {/* <video
+                <video
                   id="featureVideo"
                   className="video-js vjs-default-skin featured-video"
                   controls
                   width="1200"
                   height={featuredVideoHeight}
-                  data-setup='{ "techOrder": ["youtube", "html5"], "sources": [{ "type": "video/youtube", "src": "https://www.youtube.com/watch?v=lZkcT7M5REI"}] }'
-                ></video> */}
-                <iframe
+                  data-setup='{ "techOrder": ["youtube", "html5"], "sources": [{ "type": "video/youtube", "src": "https://www.youtube.com/watch?v=DS6b6X5dsN4"}] }'
+                ></video>
+                {/* <iframe
                   className="featured-video"
                   width="1200"
                   height={featuredVideoHeight}
@@ -122,7 +122,7 @@ class HomeComponent extends Component {
                   frameBorder="0"
                   allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
                   allowFullScreen
-                ></iframe>
+                ></iframe> */}
               </div>
             </div>
           </div>
