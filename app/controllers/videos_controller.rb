@@ -8,7 +8,7 @@ class VideosController < ApplicationController
   def index
     @logged_in = logged_in?
     if @logged_in
-      @videos = Video.all
+      @videos = Video.not_irl
     else 
       respond_to do |format|
         format.html { redirect_to root_path }
@@ -106,7 +106,7 @@ class VideosController < ApplicationController
       key: @video.url[@video.url.index('/v')+1..@video.url.length]
     })
     respond_to do |format|
-      @videos = Video.all
+      @videos = Video.not_irl
       format.html { render action: 'index' }
       format.json { render json: @videos }
     end
@@ -144,7 +144,7 @@ class VideosController < ApplicationController
       @video.update({accepted: true})
     end
     respond_to do |format|
-       @videos = Video.all
+       @videos = Video.not_irl
       format.html { render action: 'index' }
       format.json { render json: @videos }
     end
@@ -154,7 +154,7 @@ class VideosController < ApplicationController
     @video = Video.find_by(id: params[:id])
     @video.update({processed: true})
     respond_to do |format|
-      @videos = Video.all
+      @videos = Video.not_irl
       format.html { render action: 'index' }
       format.json { render json: @videos }
     end
