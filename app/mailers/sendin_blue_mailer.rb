@@ -27,7 +27,7 @@ class SendinBlueMailer < ApplicationMailer
     @send_in_blue = SibApiV3Sdk::SMTPApi.new
     email = SibApiV3Sdk::SendSmtpEmail.new
     email.sender = {
-      "name": "SuperComedian, Inc",
+      "name": "SuperComedian",
       "email": "media@supercomedian.com"
     }
     email.to = [{ "email": video.author_email }, { "email": "media@supercomedian.com" }]
@@ -35,7 +35,7 @@ class SendinBlueMailer < ApplicationMailer
     email.params = {"AUTHOR": video.author}
     email.reply_to = {
       "email": "media@supercomedian.com",
-      "name": "SuperComedian, Inc"
+      "name": "SuperComedian"
     }
     @send_in_blue.send_transac_email(email)
   end
