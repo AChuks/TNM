@@ -157,7 +157,7 @@ class HomeComponent extends Component {
                         <div className="masked" id={video.id}>
                           {video.vimeo_video_id && (
                             <a
-                              href={`/watch?url=${video.url};title=${videoTitle};upload=true`}
+                              href={`/watch?vid=${video.vimeo_video_id};upload=true`}
                             >
                               <LazyLoadImage
                                 alt={`${videoTitle}`}
@@ -173,7 +173,7 @@ class HomeComponent extends Component {
                           )}
                           {!video.vimeo_video_id && !video.is_irl && (
                             <a
-                              href={`/watch?url=${video.url};title=${videoTitle};meta_data=${video.meta_data}`}
+                              href={`/watch?url=${video.url};meta_data=${video.meta_data}`}
                             >
                               <LazyLoadImage
                                 alt={`${videoTitle}`}
@@ -189,7 +189,7 @@ class HomeComponent extends Component {
                           )}
                           {video.is_irl && (
                             <a
-                              href={`/watch?url=${video.url};title=${videoTitle};irl=true`}
+                              href={`/watch?url=${video.url};irl=true`}
                             >
                               <LazyLoadImage
                                 alt={`${videoTitle}`}

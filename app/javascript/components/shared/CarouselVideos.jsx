@@ -26,12 +26,12 @@ class CarouselVideos extends Component {
               carouselVideo.title,
               "text/html"
             ).body.textContent;
-            let url = `watch?url=${carouselVideo.url};title=${videoTitle};meta_data=${carouselVideo.meta_data}`;
+            let url = `watch?url=${carouselVideo.url};meta_data=${carouselVideo.meta_data}`;
             if (carouselVideo.vimeo_video_id) {
-              url = `/watch?url=${carouselVideo.url};title=${videoTitle};upload=true`;
+              url = `/watch?url=${carouselVideo.url};upload=true`;
             }
             if (carouselVideo.is_irl) {
-              url = `/watch?url=${carouselVideo.url};title=${videoTitle};irl=true`;
+              url = `/watch?url=${carouselVideo.url};irl=true`;
             }
             return (
               <div
