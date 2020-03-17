@@ -16,19 +16,18 @@ class CarouselVideos extends Component {
     const parser = new DOMParser();
     return (
       <div className="owl-carousel owl-theme">
-        {carouselVideos.map((carouselVideo, index) => {
-          if (
-            carouselVideo.meta_data ||
+        {carouselVideos.filter(carouselVideo => {return carouselVideo.meta_data ||
             carouselVideo.is_irl ||
-            (carouselVideo.accepted && !carouselVideo.is_irl)
-          ) {
-            let videoTitle = parser.parseFromString(
+            (carouselVideo.accepted && !carouselVideo.is_irl)})
+            .map((carouselVideo, index) => {
+         
+            let videoTitle = carouselVideo.title && parser.parseFromString(
               carouselVideo.title,
               "text/html"
             ).body.textContent;
-            let url = `watch?url=${carouselVideo.url};meta_data=${carouselVideo.meta_data}`;
+            let url = `/watch?url=${carouselVideo.url};meta_data=${carouselVideo.meta_data}`;
             if (carouselVideo.vimeo_video_id) {
-              url = `/watch?url=${carouselVideo.url};upload=true`;
+              url = `/watch?vid=${carouselVideo.vimeo_video_id};upload=true`;
             }
             if (carouselVideo.is_irl) {
               url = `/watch?url=${carouselVideo.url};irl=true`;
@@ -45,13 +44,12 @@ class CarouselVideos extends Component {
                       <img
                         src={`https://i.ytimg.com/vi/${carouselVideo.url}/mqdefault.jpg`}
                       />
-                      <h1 className="video-title">{videoTitle}</h1>
+                      <h1 className="video-title">{videoTitle || ''}</h1>
                     </a>
                   </div>
                 </div>
               </div>
             );
-          }
         })}
       </div>
     );

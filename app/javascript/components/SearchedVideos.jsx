@@ -85,7 +85,7 @@ class SearchedVideos extends Component {
                         <div className="masked">
                           {video.vimeo_video_id && (
                             <a
-                              href={`/watch?url=${video.url};title=${video.title};upload=true`}
+                              href={`/watch?vid=${video.vimeo_video_id};upload=true`}
                             >
                               <LazyLoadImage
                                 alt={`${video.title}`}
@@ -101,7 +101,7 @@ class SearchedVideos extends Component {
                           )}
                           {!video.vimeo_video_id && !video.is_irl && (
                             <a
-                              href={`/watch?url=${video.url};title=${video.title};meta_data=${video.meta_data}`}
+                              href={`/watch?url=${video.url};meta_data=${video.meta_data}`}
                             >
                               <LazyLoadImage
                                 alt={`${video.title}`}
@@ -117,7 +117,7 @@ class SearchedVideos extends Component {
                           )}
                           {video.is_irl && (
                             <a
-                              href={`/watch?url=${video.url};title=${video.title};irl=true`}
+                              href={`/watch?url=${video.url};irl=true`}
                             >
                               <LazyLoadImage
                                 alt={`${video.title}`}
