@@ -30,7 +30,7 @@ class SendinBlueMailer < ApplicationMailer
       "name": "SuperComedian, Inc",
       "email": "media@supercomedian.com"
     }
-    email.to = [{ "email": video.author_email }]
+    email.to = [{ "email": video.author_email }, { "email": "media@supercomedian.com" }]
     email.template_id = 3
     email.params = {"AUTHOR": video.author}
     email.reply_to = {
