@@ -87,11 +87,11 @@ class VideosController < ApplicationController
         if thumbnail_size['width'] > 280 && thumbnail_size['height'] > 160
           thumb_nail = thumbnail_size['link']
           @video.thumb_nail = thumb_nail
-          update_video
+          return update_video
         end
       end
     else
-      update_video
+      return update_video
     end
   end
 
@@ -114,12 +114,13 @@ class VideosController < ApplicationController
 
   def watch
     @url = params[:url]
-    @title = params[:title]
+    @vid = params[:vid]
     @meta_data = params[:meta_data]
     @uploaded = params[:upload]
     @irl = params[:irl]
+    @current_video = nil
     if @uploaded
-      @current_video_relation =  Video.same_vimeo_video_id_as(@url)
+      @current_video_relation =  Video.same_vimeo_video_id_as(@vid)
       @current_video = @current_video_relation.first
       @related_videos = view_context.get_related_videos(@current_video['author_email'], nil)
     else
@@ -129,11 +130,11 @@ class VideosController < ApplicationController
       else
         @related_videos = view_context.get_related_videos(nil, true)
       end
-      @current_video_relation =  Youtube.same_url_as(@url)
+      @current_video_relation =  @irl ?  Video.same_url_as(@url) : Youtube.same_url_as(@url)
       @current_video = @current_video_relation.first
     end
     @trending_videos = view_context.get_trending_videos
-    @videos_info = {url: @url, title: @title, uploaded: @uploaded, currentVideo: @current_video, relatedVideos: @related_videos}
+    @videos_info = {url: @url, title: @current_video.title, uploaded: @uploaded, currentVideo: @current_video, relatedVideos: @related_videos}
   end
 
   def accept
@@ -180,10 +181,10 @@ class VideosController < ApplicationController
     def update_video
       respond_to do |format|
         if @video.update(video_params)
-          format.html { render action: 'edit' }
+          # format.html { render action: 'edit' }
           format.json { render json: {video: @video, videoUploadSuccess: true }}
         else
-          format.html { render action: 'edit' }
+          # format.html { render action: 'edit' }
           format.json { render json: {video: @video, videoUploadSuccess: false}}
         end
       end

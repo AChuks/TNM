@@ -32,8 +32,10 @@ class WatchVideos extends Component {
   };
 
   updateDimensions = () => {
-    let player = videojs("watchVideo");
-    player.height(Math.round(document.body.clientWidth / 2.7));
+    if (!this.state.videosInfo.uploaded ) {
+      let player = videojs("watchVideo");
+      player.height(Math.round(document.body.clientWidth / 2.7));
+    }
   };
 
   initializeDisqus = () => {
@@ -148,8 +150,8 @@ class WatchVideos extends Component {
                       onClick={() =>
                         this.handleGridListClick(
                           video.vimeo_video_id
-                            ? `/watch?url=${video.url};title=${videoTitle};upload=true`
-                            : `/watch?url=${video.url};title=${videoTitle};meta_data=${video.meta_data}`
+                            ? `/watch?url=${video.url};upload=true`
+                            : `/watch?url=${video.url};meta_data=${video.meta_data}`
                         )
                       }
                     >
@@ -158,12 +160,12 @@ class WatchVideos extends Component {
                           <div className="masked">
                             {video.vimeo_video_id && (
                               <a
-                                href={`watch?url=${video.url};title=${videoTitle};upload=true`}
+                                href={`watch?url=${video.url};upload=true`}
                               ></a>
                             )}
                             {!video.vimeo_video_id && (
                               <a
-                                href={`watch?url=${video.url};title=${videoTitle};meta_data=${video.meta_data}`}
+                                href={`watch?url=${video.url};meta_data=${video.meta_data}`}
                               ></a>
                             )}
                             {video.vimeo_video_id && (
