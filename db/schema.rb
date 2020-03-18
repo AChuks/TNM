@@ -10,34 +10,35 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_01_21_141258) do
+ActiveRecord::Schema.define(version: 2020_03_18_141312) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "relateds", force: :cascade do |t|
+  create_table "relateds", id: :serial, force: :cascade do |t|
     t.string "url"
     t.string "title"
     t.datetime "date"
     t.string "meta_data"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
-  create_table "trendings", force: :cascade do |t|
+  create_table "trendings", id: :serial, force: :cascade do |t|
     t.string "url"
     t.string "title"
     t.datetime "date"
     t.string "meta_data"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
     t.boolean "is_irl", default: false
     t.boolean "is_youtube", default: false
     t.string "vimeo_video_id"
     t.string "thumb_nail"
+    t.boolean "accepted"
   end
 
-  create_table "users", force: :cascade do |t|
+  create_table "users", id: :serial, force: :cascade do |t|
     t.string "user_name"
     t.string "email"
     t.datetime "created_at", null: false
@@ -48,13 +49,13 @@ ActiveRecord::Schema.define(version: 2020_01_21_141258) do
     t.index ["email"], name: "index_users_on_email", unique: true
   end
 
-  create_table "videos", force: :cascade do |t|
+  create_table "videos", id: :serial, force: :cascade do |t|
     t.string "url"
     t.string "title"
     t.datetime "date"
     t.string "meta_data"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
     t.string "description"
     t.string "author"
     t.boolean "deleted", default: false
@@ -70,13 +71,13 @@ ActiveRecord::Schema.define(version: 2020_01_21_141258) do
     t.index ["url"], name: "index_videos_on_url", unique: true
   end
 
-  create_table "youtubes", force: :cascade do |t|
+  create_table "youtubes", id: :serial, force: :cascade do |t|
     t.string "url"
     t.string "title"
     t.datetime "date"
     t.string "meta_data"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
 end
