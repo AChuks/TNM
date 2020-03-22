@@ -46,19 +46,20 @@ class HomeComponent extends Component {
 
   handlePageChange = (e, { activePage }) => {
     let url = "/?page=" + activePage.toString();
-    fetch(url, {
-      headers: {
-        "Content-Type": "application/json",
-        Accept: "application/json"
-      }
-    })
-      .then(res => res.json())
-      .then(data => {
-        this.setState({
-          videosInfo: data
-        });
-      });
-    this.scrollToTopOfVideoGrid();
+    // fetch(url, {
+    //   headers: {
+    //     "Content-Type": "application/json",
+    //     Accept: "application/json"
+    //   }
+    // })
+    //   .then(res => res.json())
+    //   .then(data => {
+    //     this.setState({
+    //       videosInfo: data
+    //     });
+    //   });
+    window.location.href=url;
+    // this.scrollToTopOfVideoGrid();
   };
 
   handleGridListClick = location => {
