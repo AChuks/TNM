@@ -21,6 +21,7 @@ class CarouselVideos extends Component {
             (carouselVideo.accepted && !carouselVideo.is_irl)})
             .map((carouselVideo, index) => {
          
+            let img = `https://i.ytimg.com/vi/${carouselVideo.url}/mqdefault.jpg`;
             let videoTitle = carouselVideo.title && parser.parseFromString(
               carouselVideo.title,
               "text/html"
@@ -28,6 +29,7 @@ class CarouselVideos extends Component {
             let url = `/watch?url=${carouselVideo.url};meta_data=${carouselVideo.meta_data}`;
             if (carouselVideo.vimeo_video_id) {
               url = `/watch?vid=${carouselVideo.vimeo_video_id};upload=true`;
+              img = carouselVideo.thumb_nail;
             }
             if (carouselVideo.is_irl) {
               url = `/watch?url=${carouselVideo.url};irl=true`;
@@ -42,7 +44,7 @@ class CarouselVideos extends Component {
                   <div className="masked">
                     <a href={url}>
                       <img
-                        src={`https://i.ytimg.com/vi/${carouselVideo.url}/mqdefault.jpg`}
+                        src={img}
                       />
                       <h1 className="video-title">{videoTitle || ''}</h1>
                     </a>
