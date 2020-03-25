@@ -118,7 +118,7 @@ class VideosController < ApplicationController
     @meta_data = params[:meta_data]
     @uploaded = params[:upload]
     @irl = params[:irl]
-    @current_video = nil
+    @current_video = {}
     if @uploaded
       @current_video_relation =  Video.same_vimeo_video_id_as(@vid)
       @current_video = @current_video_relation.first
@@ -134,7 +134,7 @@ class VideosController < ApplicationController
       @current_video = @current_video_relation.first
     end
     @trending_videos = view_context.get_trending_videos
-    @videos_info = {url: @url, title: @current_video.title, uploaded: @uploaded, currentVideo: @current_video, relatedVideos: @related_videos}
+    @videos_info = {url: @url, title: @current_video[:title], uploaded: @uploaded, currentVideo: @current_video, relatedVideos: @related_videos}
   end
 
   def accept
@@ -169,7 +169,7 @@ class VideosController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def video_params
-      params.require(:video).permit(:url, :title, :description, :author, :author_email, :vimeo_video_id, :frame, :agreed_to_vid_sub_policy, :is_youtube, :is_irl, :date)
+      params.require(:video).permit(:url, :title, :description, :author, :author_email, :vimeo_video_id, :frame, :agreed_to_vid_sub_policy, :is_youtube, :is_irl, :date, :irl, :vid, :meta_data)
     end
 
     def pre_video_upload_data
