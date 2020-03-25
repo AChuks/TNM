@@ -146,10 +146,10 @@ class HomeComponent extends Component {
                     onClick={() =>
                       this.handleGridListClick(
                         video.vimeo_video_id
-                          ? `/watch?url=${video.url};title=${videoTitle};upload=true`
+                          ? `/watch?url=${video.url};upload=true`
                           : !video.vimeo_video_id && !video.is_irl
-                          ? `/watch?url=${video.url};title=${videoTitle};meta_data=${video.meta_data}`
-                          : `/watch?url=${video.url};title=${videoTitle};irl=true`
+                          ? `/watch?url=${video.url};meta_data=${video.meta_data}`
+                          : `/watch?url=${video.url};irl=true`
                       )
                     }
                   >
