@@ -28,11 +28,11 @@ class CarouselVideos extends Component {
             ).body.textContent;
             let url = `/watch?url=${carouselVideo.url};meta_data=${carouselVideo.meta_data}`;
             if (carouselVideo.vimeo_video_id) {
-              url = `/watch?vid=${carouselVideo.vimeo_video_id};upload=true`;
+              url = `/watch?vid=${carouselVideo.vimeo_video_id};upload=${true}`;
               img = carouselVideo.thumb_nail;
             }
             if (carouselVideo.is_irl) {
-              url = `/watch?url=${carouselVideo.url};irl=true`;
+              url = `/watch?url=${carouselVideo.url};irl=${true}`;
             }
             return (
               <div

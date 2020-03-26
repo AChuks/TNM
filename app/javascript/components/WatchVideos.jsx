@@ -32,14 +32,14 @@ class WatchVideos extends Component {
   };
 
   updateDimensions = () => {
-    if (!this.state.videosInfo.uploaded ) {
+    if (!this.state.videosInfo.uploaded) {
       let player = videojs("watchVideo");
       player.height(Math.round(document.body.clientWidth / 2.7));
     }
   };
 
   initializeDisqus = () => {
-    (function() {
+    (function () {
       // DON'T EDIT BELOW THIS LINE
       var d = document,
         s = d.createElement("script");
@@ -142,7 +142,7 @@ class WatchVideos extends Component {
                 {videosInfo.relatedVideos.map((video, index) => {
                   let videoTitle = parser.parseFromString(
                     video.title, "text/html")
-                  .body.textContent;
+                    .body.textContent;
                   return (
                     <GridListTile
                       className="content-videos-header-videos-section-item"
@@ -150,10 +150,10 @@ class WatchVideos extends Component {
                       onClick={() =>
                         this.handleGridListClick(
                           video.vimeo_video_id
-                          ? `/watch?url=${video.url};upload=true`
-                          : !video.vimeo_video_id && !video.is_irl
-                          ? `/watch?url=${video.url};meta_data=${video.meta_data}`
-                          : `/watch?url=${video.url};irl=true`
+                            ? `/watch?vid=${video.vimeo_video_id};upload=true`
+                            : !video.vimeo_video_id && !video.is_irl
+                              ? `/watch?url=${video.url};meta_data=${video.meta_data}`
+                              : `/watch?url=${video.url};irl=${true}`
                         )
                       }
                     >
@@ -172,7 +172,7 @@ class WatchVideos extends Component {
                             )}
                             {video.is_irl && (
                               <a
-                                href={`watch?url=${video.url};irl=true`}
+                                href={`watch?url=${video.url};irl=${true}`}
                               ></a>
                             )}
                             {video.vimeo_video_id && (
