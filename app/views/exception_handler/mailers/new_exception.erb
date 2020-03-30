@@ -3,3 +3,6 @@
 <strong><u><%= @exception.response %> (<%= @exception.status %>)</u></strong>
 <p><%= @exception.message %></p>
 <p><%= @exception.params %></p>
+<p><%= ENV['HEROKU_SLUG_DESCRIPTION'] %></p>
+<p>Slug Description: <%= ENV['HEROKU_SLUG_DESCRIPTION'] %></p>
+<p>Release Version: <%= ENV['HEROKU_RELEASE_VERSION'] %></p>
