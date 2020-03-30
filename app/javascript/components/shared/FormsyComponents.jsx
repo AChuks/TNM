@@ -47,7 +47,6 @@ class FormsyInput extends React.Component {
       displayError = typeof showError === "boolean" ? showError : showError(),
       showRequiredMessage =
         !isPristineInput && !isValidInput && displayRequired;
-    console.log(type);
     return (
       <div className={className}>
         {(type === "text" || type === "textarea") && (
