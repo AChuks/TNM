@@ -50,7 +50,6 @@ class WatchVideos extends Component {
   };
 
   handleScroll = () => {
-    console.log("scrolling");
     var relatedVideo = document.getElementsByClassName("MuiGridList-root")[0];
     var disqusThread = document.getElementsByClassName("disqus-thread")[0];
     if (
@@ -58,7 +57,6 @@ class WatchVideos extends Component {
       disqusThread &&
       relatedVideo.offsetHeight !== disqusThread.scrollHeight
     ) {
-      console.log(disqusThread.scrollHeight);
       relatedVideo.style.height = disqusThread.scrollHeight + "px";
     }
   };

@@ -120,7 +120,6 @@ class Videos extends Component {
         {cell}
       </a>
     );
-    console.log(videos);
     return (
       <div className="container-admin-videos-content">
         {showWatchVideoModal && (
