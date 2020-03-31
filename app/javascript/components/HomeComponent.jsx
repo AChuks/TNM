@@ -146,10 +146,10 @@ class HomeComponent extends Component {
                     onClick={() =>
                       this.handleGridListClick(
                         video.vimeo_video_id
-                          ? `/watch?vid=${video.vimeo_video_id};upload=true`
+                          ? `/watch?vid=${video.vimeo_video_id}&upload=true`
                           : !video.vimeo_video_id && !video.is_irl
-                          ? `/watch?url=${video.url};meta_data=${video.meta_data}`
-                          : `/watch?url=${video.url};irl=${true}`
+                          ? `/watch?url=${video.url}&meta_data=${video.meta_data}`
+                          : `/watch?url=${video.url}&irl=${true}`
                       )
                     }
                   >
@@ -158,7 +158,7 @@ class HomeComponent extends Component {
                         <div className="masked" id={video.id}>
                           {video.vimeo_video_id && (
                             <a
-                              href={`/watch?vid=${video.vimeo_video_id};upload=true`}
+                              href={`/watch?vid=${video.vimeo_video_id}&upload=true`}
                             >
                               <LazyLoadImage
                                 alt={`${videoTitle}`}
@@ -174,7 +174,7 @@ class HomeComponent extends Component {
                           )}
                           {!video.vimeo_video_id && !video.is_irl && (
                             <a
-                              href={`/watch?url=${video.url};meta_data=${video.meta_data}`}
+                              href={`/watch?url=${video.url}&meta_data=${video.meta_data}`}
                             >
                               <LazyLoadImage
                                 alt={`${videoTitle}`}
@@ -190,7 +190,7 @@ class HomeComponent extends Component {
                           )}
                           {video.is_irl && (
                             <a
-                              href={`/watch?url=${video.url};irl=${true}`}
+                              href={`/watch?url=${video.url}&irl=${true}`}
                             >
                               <LazyLoadImage
                                 alt={`${videoTitle}`}
