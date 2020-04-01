@@ -148,10 +148,10 @@ class WatchVideos extends Component {
                       onClick={() =>
                         this.handleGridListClick(
                           video.vimeo_video_id
-                            ? `/watch?vid=${video.vimeo_video_id};upload=true`
+                            ? `/watch?vid=${video.vimeo_video_id}&upload=true`
                             : !video.vimeo_video_id && !video.is_irl
-                              ? `/watch?url=${video.url};meta_data=${video.meta_data}`
-                              : `/watch?url=${video.url};irl=${true}`
+                              ? `/watch?url=${video.url}&meta_data=${video.meta_data}`
+                              : `/watch?url=${video.url}&irl=${true}`
                         )
                       }
                     >
@@ -160,17 +160,17 @@ class WatchVideos extends Component {
                           <div className="masked">
                             {video.vimeo_video_id && (
                               <a
-                                href={`watch?vid=${video.vimeo_video_id};upload=true`}
+                                href={`watch?vid=${video.vimeo_video_id}&upload=true`}
                               ></a>
                             )}
                             {!video.vimeo_video_id && !video.is_irl && (
                               <a
-                                href={`watch?url=${video.url};meta_data=${video.meta_data}`}
+                                href={`watch?url=${video.url}&meta_data=${video.meta_data}`}
                               ></a>
                             )}
                             {video.is_irl && (
                               <a
-                                href={`watch?url=${video.url};irl=${true}`}
+                                href={`watch?url=${video.url}&irl=${true}`}
                               ></a>
                             )}
                             {video.vimeo_video_id && (
