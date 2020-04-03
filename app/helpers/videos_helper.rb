@@ -97,7 +97,7 @@ module VideosHelper
         each_channel.videos.each { |e| 
           if (!Youtube.same_url_as(e.id).first)
             Youtube.create(:url => e.id, :title => e.title.tr('#',''), :date => e.published_at, :meta_data => e.channel_id)
-            VideoView.create(:youtube_url => e.id, :views => number_with_delimiter(rand(10000..50000)))
+            VideoView.create(:youtube_url => e.id, :views => number_with_delimiter(rand(2000..20000)))
           end
         }
       }
