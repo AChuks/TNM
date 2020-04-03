@@ -33,8 +33,8 @@ module VideosHelper
     # channel_17 = 'UC2iwgQq9nvW0MkxJn7jI0XQ' # Tyrhee Spivey
     # channel_9 = 'UCg9NadeQbjGL80cDnCf1g-A' # Nollywood skits comedy
     # channel_10 = 'UCSW1uGP-JC2Uir1kR9fFwfA' # Nigeria latest comedy 
-    # return [channel_1, channel_2, channel_3, channel_4, channel_5, channel_6, channel_7, channel_8, channel_9, channel_10, channel_11, channel_12, channel_13, channel_14, channel_15, channel_16, channel_17, channel_18, channel_19, channel_20, channel_21]
-    return [channel_1]
+    return [channel_1, channel_2, channel_3, channel_4, channel_5, channel_6, channel_7, channel_8, channel_9, channel_10, channel_11, channel_12, channel_13, channel_14, channel_15, channel_16, channel_17, channel_18, channel_19, channel_20, channel_21]
+    # return [channel_1]
     # return [channel_10]
   end
 
@@ -75,7 +75,7 @@ module VideosHelper
           if ((Time.current - each_channel_trends.published_at)/1.day).round < 31 
             @youtube_video = Youtube.includes(:video_views).same_url_as(each_channel_trends.id)
             @views = @youtube_video.video_views.first[:views]
-            Trending.create(:url => each_channel_trends.id, :title => each_channel_trends.title.tr('#',''), :date => each_channel_trends.published_at, :meta_data => each_channel_trends.channel_id, views => @views)
+            Trending.create(:url => each_channel_trends.id, :title => each_channel_trends.title.tr('#',''), :date => each_channel_trends.published_at, :meta_data => each_channel_trends.channel_id, :views => @views)
           end
         }
       }
