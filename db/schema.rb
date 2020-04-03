@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_03_18_141312) do
+ActiveRecord::Schema.define(version: 2020_04_02_235739) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -36,6 +36,7 @@ ActiveRecord::Schema.define(version: 2020_03_18_141312) do
     t.string "vimeo_video_id"
     t.string "thumb_nail"
     t.boolean "accepted"
+    t.string "views"
   end
 
   create_table "users", id: :serial, force: :cascade do |t|
@@ -47,6 +48,12 @@ ActiveRecord::Schema.define(version: 2020_03_18_141312) do
     t.string "remember_digest"
     t.boolean "super_admin", default: false
     t.index ["email"], name: "index_users_on_email", unique: true
+  end
+
+  create_table "video_views", force: :cascade do |t|
+    t.string "youtube_url"
+    t.string "video_url"
+    t.string "views"
   end
 
   create_table "videos", id: :serial, force: :cascade do |t|
@@ -68,7 +75,9 @@ ActiveRecord::Schema.define(version: 2020_03_18_141312) do
     t.boolean "agreed_to_vid_sub_policy", default: false
     t.boolean "is_youtube", default: false
     t.boolean "is_irl", default: false
+    t.string "views"
     t.index ["url"], name: "index_videos_on_url", unique: true
+    t.index ["vimeo_video_id"], name: "index_videos_on_vimeo_video_id", unique: true
   end
 
   create_table "youtubes", id: :serial, force: :cascade do |t|
@@ -78,6 +87,10 @@ ActiveRecord::Schema.define(version: 2020_03_18_141312) do
     t.string "meta_data"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string "views"
+    t.index ["url"], name: "index_youtubes_on_url", unique: true
   end
 
+  add_foreign_key "video_views", "videos", column: "video_url", primary_key: "url", on_delete: :cascade
+  add_foreign_key "video_views", "youtubes", column: "youtube_url", primary_key: "url", on_delete: :cascade
 end

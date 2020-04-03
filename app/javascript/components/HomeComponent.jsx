@@ -143,15 +143,15 @@ class HomeComponent extends Component {
                   <GridListTile
                     className="content-videos-header-videos-section-item"
                     key={index}
-                    onClick={() =>
-                      this.handleGridListClick(
-                        video.vimeo_video_id
-                          ? `/watch?vid=${video.vimeo_video_id}&upload=true`
-                          : !video.vimeo_video_id && !video.is_irl
-                          ? `/watch?url=${video.url}&meta_data=${video.meta_data}`
-                          : `/watch?url=${video.url}&irl=${true}`
-                      )
-                    }
+                    // onClick={() =>
+                    //   this.handleGridListClick(
+                    //     video.vimeo_video_id
+                    //       ? `/watch?vid=${video.vimeo_video_id}&upload=true`
+                    //       : !video.vimeo_video_id && !video.is_irl
+                    //       ? `/watch?url=${video.url}&meta_data=${video.meta_data}`
+                    //       : `/watch?url=${video.url}&irl=${true}`
+                    //   )
+                    // }
                   >
                     <div className="hover-effect">
                       <div className="view view-first">
@@ -170,6 +170,7 @@ class HomeComponent extends Component {
                               <div className="video-date-time">
                                 {moment(video.date).format("MMM Do, YYYY")}
                               </div>
+                              <div className='video-views'><i className="fa fa-eye"></i>&nbsp;{video.views} Views</div>
                             </a>
                           )}
                           {!video.vimeo_video_id && !video.is_irl && (
@@ -186,6 +187,7 @@ class HomeComponent extends Component {
                               <div className="video-date-time">
                                 {moment(video.date).format("MMM Do, YYYY")}
                               </div>
+                              <div className='video-views'><i className="fa fa-eye"></i>&nbsp;{video.views} Views</div>
                             </a>
                           )}
                           {video.is_irl && (
@@ -202,6 +204,7 @@ class HomeComponent extends Component {
                               <div className="video-date-time">
                                 {moment(video.date).format("MMM Do, YYYY")}
                               </div>
+                              <div className='video-views'><i className="fa fa-eye"></i>&nbsp;{video.views} Views</div>
                             </a>
                           )}
                         </div>

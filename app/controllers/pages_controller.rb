@@ -11,7 +11,8 @@ class PagesController < ApplicationController
   end
 
   def home
-    @videos_info = view_context.get_all_videos
+    @update = params[:update]
+    @videos_info = view_context.get_all_videos(@update)
     respond_to do |format|
       format.html { render action: 'home' }
       format.json { render json: @videos_info }

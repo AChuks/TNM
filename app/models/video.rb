@@ -1,6 +1,9 @@
 class Video < ActiveRecord::Base
   include PgSearch::Model
 
+  # Association
+  has_many :video_views, :foreign_key => 'video_url', :primary_key => 'url'
+
   # scopes
   scope :has_vimeo_video_id, -> () {where.not(vimeo_video_id: '') }
   scope :is_irl, -> () {where.not(is_irl: false) }
