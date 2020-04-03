@@ -1,4 +1,5 @@
 class VideosController < ApplicationController
+  include ActionView::Helpers::NumberHelper
   skip_before_action :verify_authenticity_token
   before_action :set_video, only: [:show, :edit, :update, :destroy]
   load_and_authorize_resource
@@ -120,8 +121,10 @@ class VideosController < ApplicationController
     @irl = params[:irl]
     @current_video = {}
     if @uploaded
-      @current_video_relation =  Video.same_vimeo_video_id_as(@vid)
-      @current_video = @current_video_relation.first
+      @video_relation =  Video.same_vimeo_video_id_as(@vid).first
+      @current_video_view = VideoView.includes(:video).same_video_url_as(@video_relation[:url]).first
+      @current_video = @current_video_view.video
+      @current_video.views = @current_video_view[:views]
       @related_videos = view_context.get_related_videos(@current_video['author_email'], nil)
     else
       @related_videos  = [];
@@ -130,11 +133,14 @@ class VideosController < ApplicationController
       else
         @related_videos = view_context.get_related_videos(nil, true)
       end
-      @current_video_relation =  @irl ?  Video.same_url_as(@url) : Youtube.same_url_as(@url)
-      @current_video = @current_video_relation.first
+      @current_video_view =  @irl ?  VideoView.includes(:video).same_video_url_as(@url).first : VideoView.includes(:youtube).same_youtube_url_as(@url).first
+      @current_video = @irl ? @current_video_view.video : @current_video_view.youtube
+      @current_video.views = @current_video_view[:views]
     end
     @trending_videos = view_context.get_trending_videos
-    @videos_info = {url: @url, title: @current_video[:title], uploaded: @uploaded, currentVideo: @current_video, relatedVideos: @related_videos}
+    @videos_info = {url: @url, title: @current_video[:title], uploaded: @uploaded, currentVideo: @current_video, relatedVideos: @related_videos, views: @current_video.views}
+    @current_video_view[:views] =  number_with_delimiter(@current_video_view[:views].delete(',').to_i + 1)
+    @current_video_view.save
   end
 
   def accept

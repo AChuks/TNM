@@ -229,9 +229,20 @@ ul.list-inline li a {
         justify-content: center !important;
         overflow: scroll !important
       }
-      .video-title {
+      .video-title, .video-date-time, .video-views {
         font-size:  1.1em;
       }
+      .video-views { 
+        font-size:  1.1em;
+        float: right;
+      }
+      .related-video-views { 
+        font-size:  0.7em;
+        color: wheat;
+        margin-top: 5px;
+        margin-bottom: 20px;
+      }
+
       .MuiGridListTile-root {
         flex-shrink: inherit;
       }
@@ -259,7 +270,7 @@ ul.list-inline li a {
         float: initial;
         margin-bottom: 0px !important;
         margin-left: 0px !important;
-        font-size: 15px;
+        font-size: 1.2em;
       }
       &-videos {
         margin-left: 10px;
@@ -389,19 +400,20 @@ input[type="file"]{
 }
 .video-title, .video-date-time {
   margin-top: 15px;
-  font-weight: 600;
+  font-weight: 500;
   font-size: 1.2em;
   color: darkgrey;
   font-family: 'Roboto, Arial, sans-serif' !important;
   &-watch {
     margin-bottom: 10px;
-    font-size: 15px;
+    font-size: 1.2em;
     color: wheat;
   }
 }
 .video-date-time {
   margin-top: 5px;
-  color: wheat;
+  color: darkgrey !important;
+  font-size: 1.0em;
 }
 .container-upload-video, .container-contact, .container-terms, .container-new-user, .container-admin-videos, .container-admin-users, .container-video-edit {
   margin-top: 60px;
@@ -664,4 +676,10 @@ input[type="file"]{
     color: white !important;
     padding: 5px 5px;
   }
+}
+.video-views {
+  color: wheat;
+  margin-top: 5px;
+  margin-bottom: 20px;
+  font-size: 0.8em;
 }

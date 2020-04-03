@@ -115,6 +115,7 @@ class WatchVideos extends Component {
                       allow="accelerometer; autoPlay; encrypted-media; gyroscope; picture-in-picture"
                       allowFullScreen
                     ></iframe> */}
+                    <div className='video-views'><i className="fa fa-eye"></i>&nbsp;&nbsp;{videosInfo.views} Views</div>
                   </div>
                 )}
               </div>
@@ -191,8 +192,9 @@ class WatchVideos extends Component {
                             )}
                             <div className="video-title">{videoTitle}</div>
                             <div className="video-date-time">
-                              {moment(video.date).format("MMM Do, YYYY")}
+                                {moment(video.date).format("MMM Do, YYYY")}
                             </div>
+                            <div className='related-video-views'><i className="fa fa-eye"></i>&nbsp;{video.views} Views</div>
                           </div>
                         </div>
                       </div>

@@ -1,4 +1,5 @@
 module VideosHelper
+  include ActionView::Helpers::NumberHelper
 
   def getChannels()
     channel_1 = 'UC9YvlExCwL2gh9H8bE63aDA'  # Chief Obi
@@ -32,23 +33,33 @@ module VideosHelper
     # channel_17 = 'UC2iwgQq9nvW0MkxJn7jI0XQ' # Tyrhee Spivey
     # channel_9 = 'UCg9NadeQbjGL80cDnCf1g-A' # Nollywood skits comedy
     # channel_10 = 'UCSW1uGP-JC2Uir1kR9fFwfA' # Nigeria latest comedy 
-    return [channel_1, channel_2, channel_3, channel_4, channel_5, channel_6, channel_7, channel_8, channel_9, channel_10, channel_11, channel_12, channel_13, channel_14, channel_15, channel_16, channel_17, channel_18, channel_19, channel_20, channel_21]
+    # return [channel_1, channel_2, channel_3, channel_4, channel_5, channel_6, channel_7, channel_8, channel_9, channel_10, channel_11, channel_12, channel_13, channel_14, channel_15, channel_16, channel_17, channel_18, channel_19, channel_20, channel_21]
+    return [channel_1]
     # return [channel_10]
   end
 
-	def get_related_youtube_videos(meta_data)
-		@related_videos = Youtube.same_meta_data_as(meta_data)
+  def add_views_to_model_array(model_array)
+    model_array.each { |each_model| 
+      each_model.views = each_model.video_views.first[:views]
+    }
+  end
+
+  def get_related_youtube_videos(meta_data)
+    @related_videos = Youtube.includes(:video_views).same_meta_data_as(meta_data)
+    add_views_to_model_array(@related_videos)
 		return @related_videos
 	end
 
   def get_related_videos(author_email, irl)
     related_uploaded_videos = []
     if irl
-      related_uploaded_videos = Video.is_irl.order("RANDOM()").limit(10)
+      related_uploaded_videos = Video.includes(:video_views).is_irl.order("RANDOM()").limit(10)
     else
-      related_uploaded_videos = Video.same_author_email(author_email).has_vimeo_video_id
+      related_uploaded_videos = Video.includes(:video_views).same_author_email(author_email).has_vimeo_video_id
     end
-    youtube_videos = Youtube.order("RANDOM()").limit(10)
+    youtube_videos = Youtube.includes(:video_views).order("RANDOM()").limit(10)
+    add_views_to_model_array(related_uploaded_videos)
+    add_views_to_model_array(youtube_videos)
     @related_videos = (related_uploaded_videos + youtube_videos)
     return @related_videos
   end
@@ -62,13 +73,15 @@ module VideosHelper
         channel_trends = each_channel.videos.where(order: 'date').map.first(2)
         channel_trends.each {|each_channel_trends|
           if ((Time.current - each_channel_trends.published_at)/1.day).round < 31 
-            Trending.create(:url => each_channel_trends.id, :title => each_channel_trends.title.tr('#',''), :date => each_channel_trends.published_at, :meta_data => each_channel_trends.channel_id)
+            @youtube_video = Youtube.includes(:video_views).same_url_as(each_channel_trends.id)
+            @views = @youtube_video.video_views.first[:views]
+            Trending.create(:url => each_channel_trends.id, :title => each_channel_trends.title.tr('#',''), :date => each_channel_trends.published_at, :meta_data => each_channel_trends.channel_id, views => @views)
           end
         }
       }
-      Video.all.each {|each_video| 
+      Video.includes(:video_views).all.each {|each_video| 
         if ((Time.current - each_video.updated_at)/1.day).round < 14
-          Trending.create(:url => each_video.url, :title => each_video.title.tr('#',''), :date => each_video.created_at, :meta_data => each_video.meta_data, :vimeo_video_id => each_video.vimeo_video_id, :is_irl => each_video.is_irl, :accepted => each_video.accepted, :thumb_nail => each_video.thumb_nail)
+          Trending.create(:url => each_video.url, :title => each_video.title.tr('#',''), :date => each_video.created_at, :meta_data => each_video.meta_data, :vimeo_video_id => each_video.vimeo_video_id, :is_irl => each_video.is_irl, :accepted => each_video.accepted, :thumb_nail => each_video.thumb_nail, :views => each_video.video_views.first[:views])
         end
       }
     end
@@ -76,36 +89,34 @@ module VideosHelper
     return @trending_videos
   end
 
-  def get_all_videos()
+  def get_all_videos(update)
     channels = getChannels()
-    if Youtube.all.blank?
+    if update
       channels.each {|each_channel_item| 
         each_channel = Yt::Channel.new id: each_channel_item
-        if each_channel_item == 'UCg9NadeQbjGL80cDnCf1g-A' || each_channel_item == 'UCSW1uGP-JC2Uir1kR9fFwfA'
-          channel_videos = each_channel.videos.map.to_a
-          sorted_channel_videos = channel_videos.sort_by{|vid| vid.published_at}
-          sorted_channel_videos.each.with_index(1) { |e, i|
-            if i == 1 || (i > 1 && e.published_at.to_date != sorted_channel_videos[i - 1].published_at.to_date)
-              Youtube.create(:url => e.id, :title => e.title.tr('#',''), :date => e.published_at, :meta_data => e.channel_id)
-            end
-          }
-        else
-          each_channel.videos.each { |e| 
-            Youtube.create(:url => e.id, :title => e.title.tr('#',''), :date => e.published_at, :meta_data => e.channel_id)}
-        end
+        each_channel.videos.each { |e| 
+          if (!Youtube.same_url_as(e.id).first)
+            Youtube.create(:url => e.id, :title => e.title.tr('#',''), :date => e.published_at, :meta_data => e.channel_id)
+            VideoView.create(:youtube_url => e.id, :views => number_with_delimiter(rand(10000..50000)))
+          end
+        }
       }
     end
-    @other_videos = Video.all()
-    @youtube_videos = Youtube.all
-    @all_videos = (@other_videos + @youtube_videos).sort_by(&:date).reverse.paginate(page: params[:page],:per_page => 60)
+    @other_videos = Video.includes(:video_views).all
+    @youtube_videos = Youtube.includes(:video_views).all
+    @combined_videos = (@other_videos + @youtube_videos)
+    add_views_to_model_array(@combined_videos)
+    @all_videos = @combined_videos.sort_by(&:date).reverse.paginate(page: params[:page],:per_page => 60)
     @trending_videos = get_trending_videos()
     @videos_info = {allVideos: @all_videos, trendingVideos: @trending_videos, currentPage: @all_videos.current_page, totalPages: @all_videos.total_pages}
     return @videos_info
   end
 
   def get_search_filtered_videos(search_text)
-    @filtered_youtube_videos = Youtube.search(search_text)
-    @filtered_uploaded_videos = Video.search(search_text)
+    @filtered_youtube_videos = Youtube.includes(:video_views).search(search_text)
+    add_views_to_model_array(@filtered_youtube_videos)
+    @filtered_uploaded_videos = Video.includes(:video_views).search(search_text)
+    add_views_to_model_array(@filtered_uploaded_videos)
     @filtered_videos = (@filtered_youtube_videos + @filtered_uploaded_videos).sort_by(&:date).reverse.paginate(page: params[:page],:per_page => 60)
     @videos_info = {searchedVideos: @filtered_videos, searchedText: search_text, currentPage: @filtered_videos.current_page, totalPages: @filtered_videos.total_pages}
   end
