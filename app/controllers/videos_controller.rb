@@ -53,6 +53,7 @@ class VideosController < ApplicationController
 
     respond_to do |format|
       if @video.save
+        VideoView.create(:video_url => @video.url, :views => number_with_delimiter(rand(1000..10000)))
         if !@video['is_youtube']
           # Send video received email
           begin
@@ -129,7 +130,7 @@ class VideosController < ApplicationController
     else
       @related_videos  = [];
       if !@irl
-        @related_videos = view_context.get_related_youtube_videos(@meta_data).order("RANDOM()")[0,20]
+        @related_videos = view_context.get_related_youtube_videos(@meta_data)[0,20]
       else
         @related_videos = view_context.get_related_videos(nil, true)
       end
