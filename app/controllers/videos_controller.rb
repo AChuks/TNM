@@ -121,6 +121,15 @@ class VideosController < ApplicationController
     @uploaded = params[:upload]
     @irl = params[:irl]
     @current_video = {}
+    if (@url.length > 12) 
+      @url.prepend("url=")
+      @ret_val = Rack::Utils.parse_nested_query(@url)
+      @url = @ret_val["url"]
+      @vid ||= @ret_val["vid"]
+      @meta_data ||= @ret_val["meta_data"]
+      @uploaded ||= @ret_val["upload"]
+      @irl ||= @ret_val["irl"]
+    end
     if @uploaded
       @video_relation =  Video.same_vimeo_video_id_as(@vid).first
       @current_video_view = VideoView.includes(:video).same_video_url_as(@video_relation[:url]).first
