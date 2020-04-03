@@ -113,7 +113,7 @@ class HomeComponent extends Component {
                   controls
                   width="1200"
                   height={featuredVideoHeight}
-                  data-setup='{ "techOrder": ["youtube", "html5"], "sources": [{ "type": "video/youtube", "src": "https://www.youtube.com/watch?v=BxfB2KINBSg"}] }'
+                  data-setup='{ "techOrder": ["youtube", "html5"], "sources": [{ "type": "video/youtube", "src": "https://www.youtube.com/watch?v=N0t9W0WOsco"}] }'
                 ></video>
                 {/* <iframe
                   className="featured-video"
