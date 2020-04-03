@@ -78,11 +78,12 @@ class PagesController < ApplicationController
 
     def search_return_action 
       http_referrer = request.referer
-      if http_referrer.include? 'contact'
+      referrer_not_nil = !http_referrer.nil?
+      if referrer_not_nil and http_referrer.include? 'contact'
         return 'contact'
-      elsif http_referrer.include? 'videos'
+      elsif referrer_not_nil and http_referrer.include? 'videos'
         return 'videos'
-      elsif http_referrer.include? 'search'
+      elsif referrer_not_nil and http_referrer.include? 'search'
         return 'search'
       else
         return 'home' 
