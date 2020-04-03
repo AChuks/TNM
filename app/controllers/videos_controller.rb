@@ -42,6 +42,9 @@ class VideosController < ApplicationController
   def edit
   end
 
+  def submit
+  end
+
   # POST /videos
   # POST /videos.json
   def create

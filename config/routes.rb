@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   root 'pages#home'
   match '/contact', to: 'pages#contact', via: 'get'
   match '/pages/contact', to: 'pages#submit_contact_info', via: 'post'
+  match '/pages/contact', to: 'pages#contact_success', via: 'get'
   match '/pages/search', to: 'pages#search', via: 'get'
   match '/pages/status', to: 'pages#status', via: 'get'
   match '/sitemap', to: 'pages#sitemap', via: 'get'
@@ -23,6 +24,7 @@ Rails.application.routes.draw do
   match '/accept', to: 'videos#accept', via: 'get'
   match '/processed', to: 'videos#processed', via: 'get'
   match '/videos/new/manual', to: 'videos#manual', via: 'get'
+  match '/submit', to: 'videos#submit', via: 'get'
 
 
 

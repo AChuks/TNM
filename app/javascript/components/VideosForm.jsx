@@ -95,7 +95,11 @@ class VideosForm extends Component {
         this.setState({
           videosInfo: data
         });
-        this.scrollToTopOfMessage();
+        if (data.videoUploadSuccess === true && !videoID) {
+          window.location.href = '/submit'
+        } else {
+          this.scrollToTopOfMessage();
+        }
       });
   };
 

@@ -22,6 +22,9 @@ class PagesController < ApplicationController
   def contact
   end
 
+  def contact_success
+  end
+
   def submit_contact_info
     respond_to do |format|
       # Send contact form message
