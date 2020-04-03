@@ -466,7 +466,12 @@ input[type="file"]{
     color: wheat;
     margin-bottom: 0px;
   }
+  &-notice-error {
+    color: #b94842;
+    margin-bottom: 0px;
+  }
   &-link {
+    margin-top: 20px;
     text-decoration: none !important;
   }
   .file {

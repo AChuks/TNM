@@ -49,7 +49,11 @@ class ContactForm extends Component {
         this.setState({
           formInfo: data
         });
-        this.scrollToTopOfMessage();
+        if (data.success === true) {
+          window.location.href = '/pages/contact'
+        } else {
+          this.scrollToTopOfMessage();
+        }
       });
   };
 
@@ -121,19 +125,9 @@ class ContactForm extends Component {
               Submit
             </button>
           </div>
-          {formInfo && formInfo.success === true && (
-            <div className="row container-contact-message">
-              <p id="notice" className="container-contact-notice">
-                Message Sent !!!
-              </p>
-              <div className="container-contact-link">
-                <a href="/">Return Home</a>
-              </div>
-            </div>
-          )}
           {formInfo && formInfo.success === false && (
             <div className="row container-contact-message">
-              <p id="notice" className="container-contact-notice">
+              <p id="notice" className="container-contact-notice-error">
                 We encountered some problems sending your message. Please try
                 again later or contact &nbsp;
                 <a href="mailto: support@supercomedian.com">
