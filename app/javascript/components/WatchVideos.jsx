@@ -41,11 +41,13 @@ class WatchVideos extends Component {
     if (watchVideoDiv && watchVideoDiv[0] && window.innerWidth < 500) {
       watchVideoDiv[0].classList.remove("col-xs-8")
       watchVideoDiv[0].classList.add("col-xs-12")
-      relatedVideosDiv[0].style.display = "none";
+      relatedVideosDiv[0].classList.remove("col-xs-4")
+      relatedVideosDiv[0].classList.add("col-xs-12")
     } else {
       watchVideoDiv[0].classList.add("col-xs-8")
       watchVideoDiv[0].classList.remove("col-xs-12")
-      relatedVideosDiv[0].style.display = "block";
+      relatedVideosDiv[0].classList.add("col-xs-4")
+      relatedVideosDiv[0].classList.remove("col-xs-12")
     }
   };
 
@@ -80,12 +82,14 @@ class WatchVideos extends Component {
     const { videosInfo } = this.state;
     const parser = new DOMParser();
     let videoClassName = "col-zero-padding div-video-watch ";
+    let relatedVideosClassName = "col-zero-padding div-related-videos ";
     if (window.innerWidth < 500) {
-      videoClassName = videoClassName + "col-xs-12"
+      videoClassName = videoClassName + "col-xs-12";
+      relatedVideosClassName = relatedVideosClassName + "col-xs-12";
     } else {
-      videoClassName = videoClassName + "col-xs-8"
+      videoClassName = videoClassName + "col-xs-8";
+      relatedVideosClassName = relatedVideosClassName + "col-xs-4"
     }
-    console.log(window.innerWidth)
     return (
       <div className="content">
         <div className="col-xs-12 content-videos content-videos-watch">
@@ -152,7 +156,7 @@ class WatchVideos extends Component {
                 </a>
               </noscript>
             </div>
-            <div className="col-xs-4 col-zero-padding div-related-videos" style={{ display: window.innerWidth < 500 ? 'none' : 'block'}}>
+            <div className="col-xs-4 col-zero-padding div-related-videos">
               <div className="content-videos-header content-videos-header-related">
                 Related Videos
               </div>
