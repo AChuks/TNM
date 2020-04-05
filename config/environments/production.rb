@@ -88,6 +88,7 @@ Rails.application.configure do
     :user_name => ENV.fetch("SMTP_USERNAME")
   }
   config.action_mailer.delivery_method = :smtp
+  config.font_assets.origin = 'https://www.supercomedian.com'
   # config.action_mailer.perform_deliveries = true
   # config.action_mailer.delivery_method = :smtp
   # config.action_mailer.default_url_options = { host: ENV["SMTP_DOMAIN"] }
