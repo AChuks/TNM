@@ -36,6 +36,17 @@ class WatchVideos extends Component {
       let player = videojs("watchVideo");
       player.height(Math.round(document.body.clientWidth / 2.7));
     }
+    let watchVideoDiv = document.getElementsByClassName('div-video-watch')
+    let relatedVideosDiv = document.getElementsByClassName('div-related-videos')
+    if (watchVideoDiv && watchVideoDiv[0] && window.innerWidth < 500) {
+      watchVideoDiv[0].classList.remove("col-xs-8")
+      watchVideoDiv[0].classList.add("col-xs-12")
+      relatedVideosDiv[0].style.display = "none";
+    } else {
+      watchVideoDiv[0].classList.add("col-xs-8")
+      watchVideoDiv[0].classList.remove("col-xs-12")
+      relatedVideosDiv[0].style.display = "block";
+    }
   };
 
   initializeDisqus = () => {
@@ -68,11 +79,18 @@ class WatchVideos extends Component {
   render() {
     const { videosInfo } = this.state;
     const parser = new DOMParser();
+    let videoClassName = "col-zero-padding div-video-watch ";
+    if (window.innerWidth < 500) {
+      videoClassName = videoClassName + "col-xs-12"
+    } else {
+      videoClassName = videoClassName + "col-xs-8"
+    }
+    console.log(window.innerWidth)
     return (
       <div className="content">
         <div className="col-xs-12 content-videos content-videos-watch">
           <div className="col-xs-12 col-zero-padding">
-            <div className="col-xs-9 col-zero-padding">
+            <div className={videoClassName}>
               <div className="col-xs-12 col-zero-padding">
                 <h1 className="video-title-watch">{parser.parseFromString(
                   videosInfo.title, "text/html")
@@ -101,7 +119,8 @@ class WatchVideos extends Component {
                             type: "video/youtube",
                             src: `https://www.youtube.com/watch?v=${videosInfo.url}`
                           }
-                        ]
+                        ],
+                        "youtube": { "ytControls": 1}
                       })}
                     ></video>
                     {/* <iframe
@@ -133,7 +152,7 @@ class WatchVideos extends Component {
                 </a>
               </noscript>
             </div>
-            <div className="col-xs-3 col-zero-padding">
+            <div className="col-xs-4 col-zero-padding div-related-videos" style={{ display: window.innerWidth < 500 ? 'none' : 'block'}}>
               <div className="content-videos-header content-videos-header-related">
                 Related Videos
               </div>

@@ -124,7 +124,7 @@ class VideosController < ApplicationController
     @uploaded = params[:upload]
     @irl = params[:irl]
     @current_video = {}
-    if (@url.length > 12) 
+    if (!@vid and @url.length > 12) 
       @url.prepend("url=")
       @ret_val = Rack::Utils.parse_nested_query(@url)
       @url = @ret_val["url"]
