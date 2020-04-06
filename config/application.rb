@@ -38,6 +38,5 @@ module TNM
         email: 'support@supercomedian.com'
     }
     config.middleware.insert_after ActionDispatch::Static, Rack::Deflater
-    config.font_assets.origin = '*'
   end
 end
