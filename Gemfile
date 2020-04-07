@@ -1,5 +1,5 @@
 source 'https://rubygems.org'
-ruby "2.6.3"
+ruby "2.6.5"
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '5.2.3'
@@ -28,6 +28,7 @@ gem "react_on_rails", "11.0.0"
 gem "webpacker", "~> 3"
 gem 'mini_racer', platforms: :ruby
 gem 'rollbar'
+gem 'pg'
 
 # Use sqlite3 as the database for Active Record
 group :development, :test do
@@ -36,7 +37,6 @@ group :development, :test do
     gem 'pry-rails'
     gem 'pry-byebug'
     gem 'hirb'
-    gem 'pg'
     gem 'dotenv-rails'
     gem 'rb-readline'
     # gem 'guard', '>= 2.15.0', require: false
@@ -85,7 +85,6 @@ end
 
 
 group :production do
-    gem 'pg'
     gem 'rails_12factor'
     gem 'puma'
     gem 'heroku-deflater'
