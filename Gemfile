@@ -15,7 +15,7 @@ gem 'yt'
 gem 'haml'                # or gem 'slim'
 gem 'awesome_nested_set'  # or same gem
 gem 'bcrypt'
-gem 'aws-sdk'
+gem 'aws-sdk-s3'
 gem 'exception_handler'
 gem 'responders'
 gem 'cancancan'
