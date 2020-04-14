@@ -1,5 +1,5 @@
 source 'https://rubygems.org'
-ruby "2.6.5", :engine => 'jruby', :engine_version => '9.1.16.0'
+ruby "2.6.5"
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '5.2.3'
@@ -19,10 +19,10 @@ gem 'aws-sdk-s3'
 gem 'exception_handler'
 gem 'responders'
 gem 'cancancan'
-gem 'sib-api-v3-sdk'
+gem 'sib-api-v3-sdk', git: 'https://github.com/mediprocity/APIv3-ruby-library'
 gem 'sitemap_generator'
 gem 'fog-aws'
-gem 'vimeo_me2'
+gem 'vimeo_me2', :git => "https://github.com/bo-oz/vimeo_me2.git"
 gem 'pg_search'
 gem "react_on_rails", "11.0.0"
 gem "webpacker", "~> 3"
