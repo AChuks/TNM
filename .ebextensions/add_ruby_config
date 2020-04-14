@@ -1,3 +1,9 @@
 packages:
   yum:
     git: []
+    
+container_commands:
+  01_add_webpack:
+    command: sudo yarn install --save-dev webpack
+  02_install_compile:
+    command: RAILS_ENV=production bundle exec rake assets:precompile
