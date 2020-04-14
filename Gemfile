@@ -19,10 +19,10 @@ gem 'aws-sdk-s3'
 gem 'exception_handler'
 gem 'responders'
 gem 'cancancan'
-gem 'sib-api-v3-sdk', git: 'git@github.com:mediprocity/APIv3-ruby-library.git'
+gem 'sib-api-v3-sdk', github: 'mediprocity/APIv3-ruby-library'
 gem 'sitemap_generator'
 gem 'fog-aws'
-gem 'vimeo_me2', :git => "git@github.com:bo-oz/vimeo_me2.git"
+gem 'vimeo_me2', github: "bo-oz/vimeo_me2"
 gem 'pg_search'
 gem "react_on_rails", "11.0.0"
 gem "webpacker", "~> 3"
