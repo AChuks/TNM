@@ -1,6 +1,7 @@
 packages:
   yum:
     git: []
+    patch: []
     
 container_commands:
   01_add_webpack:
