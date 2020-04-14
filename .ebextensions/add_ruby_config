@@ -1,7 +1,3 @@
 packages:
   yum:
     git: []
-
-container_commands:
-  01_add_webpack:
-    command: RAILS_ENV=production bundle exec rake assets:precompile
