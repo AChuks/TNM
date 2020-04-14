@@ -73,13 +73,6 @@ module VideosHelper
         # Filter top three channels by date and select if not older by a month
         channel_trends = each_channel.videos.where(order: 'date').map.first(2)
         channel_trends.each {|each_channel_trends|
-        puts each_channel_item
-        puts each_channel_trends
-        puts each_channel_trends.id
-        puts each_channel_trends[:id]
-        puts Youtube.includes(:video_views).same_url_as(each_channel_trends.id)
-        puts Youtube.includes(:video_views).same_url_as(each_channel_trends[:id])
-        puts Youtube.same_url_as(each_channel_trends[:id])
           if ((Time.current - each_channel_trends.published_at)/1.day).round < 31 
             @youtube_video = Youtube.includes(:video_views).same_url_as(each_channel_trends.id)
             @views =  @youtube_video.first ? @youtube_video.first.video_views.first[:views] : @youtube_video.video_views.first[:views]
