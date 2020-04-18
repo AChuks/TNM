@@ -6,7 +6,7 @@ GIT
       httparty (~> 0.14.0)
 
 GIT
-  remote: https://github.com/mediprocity/APIv3-ruby-library
+  remote: https://github.com/mediprocity/APIv3-ruby-library.git
   revision: 09ea0e7406a1274a6b3d5c5d46fa9b8f0909a4c1
   specs:
     sib-api-v3-sdk (5.2.4)
@@ -174,7 +174,7 @@ GEM
     jquery-ui-rails (6.0.1)
       railties (>= 3.2.16)
     jquery-validation-rails (1.19.0)
-    json (2.2.0)
+    json (2.3.0)
     libv8 (7.3.492.27.1)
     loofah (2.3.0)
       crass (~> 1.0.2)
