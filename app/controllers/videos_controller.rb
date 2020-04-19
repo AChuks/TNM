@@ -158,11 +158,9 @@ class VideosController < ApplicationController
 
   def accept
     @video = Video.find_by(id: params[:id])
+    @video.update({accepted: true})
     # Send video accepted email
-    if @video.accepted 
-      SendinBlueMailer.send_video_accepted_email(@video).deliver_now
-      @video.update({accepted: true})
-    end
+    SendinBlueMailer.send_video_accepted_email(@video).deliver_now
     respond_to do |format|
        @videos = Video.not_irl
       format.html { render action: 'index' }
