@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import SuperComedianLogo from "../../assets/images/super_comedian.svg";
+import super_comedian_favicon from "../../assets/images/super_comedian_favicon.png";
 import ReactSVG from "react-svg";
 import { Form, Input } from "formsy-react-components";
 
@@ -103,7 +104,7 @@ class Header extends Component {
           <ul className={logoClassName}>
             <li>
               <a className="navbar-logo" href="/">
-              <div className='navbar-logo-wrapper'><img src="../../assets/super_comedian_favicon.png" className='logo-img'/></div><ReactSVG src={SuperComedianLogo} />
+              <div className='navbar-logo-wrapper'><img src={super_comedian_favicon} className='logo-img'/></div><ReactSVG src={SuperComedianLogo} />
               </a>
             </li>
           </ul>
