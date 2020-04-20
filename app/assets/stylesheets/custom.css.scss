@@ -152,8 +152,17 @@ ul.list-inline li a {
     font-weight: 900;
     text-decoration: none;
     padding: 0px 0px !important;
-    width: 200px;
+    width: 100%;
     background: none !important;
+    display: flex !important;
+    &-wrapper {
+      width: 40px;
+      height: 40px;
+      overflow: hidden;
+      border: 1px solid wheat !important;
+      border-radius: 10px;
+      margin-right: 9px;
+    }
     svg {
       width: 200px;
       background: none !important;
@@ -687,4 +696,7 @@ input[type="file"]{
   margin-top: 5px;
   margin-bottom: 20px;
   font-size: 0.8em;
+}
+.originals {
+  font-size: 1.7rem !important;
 }

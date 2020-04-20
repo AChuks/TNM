@@ -93,7 +93,7 @@ class HomeComponent extends Component {
             controlsList="nodownload"
           ></video>
           <div className="content-looping-video-overlay">
-            <h2>SuperComedian Originals Coming Soon !!</h2>
+            <h2 className='originals'>SuperComedian Originals Coming Soon !!</h2>
           </div>
         </div>
         <div className="col-xs-12 content-videos">

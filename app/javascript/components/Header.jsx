@@ -79,6 +79,12 @@ class Header extends Component {
     const { loggedIn, showSearchForm } = this.state;
     const navbarToggleVisible = this.isVisibleNavbarToggle();
     const navBar = document.getElementsByClassName("navbar-container")[0];
+    let logoClassName = 'nav navbar-nav pull-left';
+    if (navbarToggleVisible) {
+      logoClassName = logoClassName + ' col-xs-10'
+    } else {
+      logoClassName = logoClassName + ' col-xs-4'
+    }
     return (
       <nav className="navbar" role="navigation">
         <div className="navbar-header col-xs-6 col-zero-padding">
@@ -94,16 +100,16 @@ class Header extends Component {
           </button>
         </div>
         <div className="navbar-container col-xs-6 col-zero-padding">
-          <ul className="nav navbar-nav pull-left col-xs-3">
+          <ul className={logoClassName}>
             <li>
               <a className="navbar-logo" href="/">
-                <ReactSVG src={SuperComedianLogo} />
+              <div className='navbar-logo-wrapper'><img src="../../assets/super_comedian_favicon.png" className='logo-img'/></div><ReactSVG src={SuperComedianLogo} />
               </a>
             </li>
           </ul>
           <div className="collapse navbar-collapse" id="navbar-id">
             <ul
-              className="col-xs-9 nav navbar-nav pull-right"
+              className="col-xs-8 nav navbar-nav pull-right"
               style={{
                 // display: navbarToggleVisible ? "block" : "-webkit-inline-box",
                 marginTop: navbarToggleVisible ? "45px" : "0px"
