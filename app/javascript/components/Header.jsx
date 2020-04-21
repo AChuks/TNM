@@ -113,7 +113,7 @@ class Header extends Component {
               className="col-xs-8 nav navbar-nav pull-right"
               style={{
                 // display: navbarToggleVisible ? "block" : "-webkit-inline-box",
-                marginTop: navbarToggleVisible ? "45px" : "0px"
+                marginTop: navbarToggleVisible ? "0px" : "0px"
               }}
             >
               {loggedIn && (
