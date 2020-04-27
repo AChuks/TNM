@@ -64,6 +64,9 @@ class PagesController < ApplicationController
   def privacy
   end
 
+  def giveaway
+  end
+
   def sitemap
     redirect_to "https://#{ENV['FOG_DIRECTORY']}.s3.us-east-2.amazonaws.com/sitemaps/sitemap.xml.gz"
   end

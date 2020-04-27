@@ -699,6 +699,15 @@ input[type="file"]{
 }
 .originals {
   font-size: 1.7rem !important;
+  a {
+    text-decoration: none;
+    cursor: pointer;
+    color: wheat !important;
+  }
+  a:hover {
+    text-decoration: underline;
+    font-size: 2rem !important;
+  }
 }
 .navbar-collapse.in {
   overflow:visible !important;
