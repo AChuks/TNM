@@ -28,6 +28,7 @@ gem "react_on_rails", "11.0.0"
 gem "webpacker", "~> 3"
 gem 'mini_racer', platforms: :ruby
 gem 'pg'
+gem 'redis-rails'
 
 # Use sqlite3 as the database for Active Record
 group :development, :test do

@@ -134,23 +134,33 @@ class VideosController < ApplicationController
       @irl ||= @ret_val["irl"]
     end
     if @uploaded
-      @video_relation =  Video.same_vimeo_video_id_as(@vid).first
-      @current_video_view = VideoView.includes(:video).same_video_url_as(@video_relation[:url]).first
+      @video_relation = Rails.cache.fetch(@vid, expires_in: 30.minutes) do
+        Video.same_vimeo_video_id_as(@vid).first
+      end
+      @current_video_view = Rails.cache.fetch(@video_relation[:url], expires_in: 30.minutes) do
+        VideoView.includes(:video).same_video_url_as(@video_relation[:url]).first
+      end
       @current_video = @current_video_view.video
       @current_video.views = @current_video_view[:views]
       @related_videos = view_context.get_related_videos(@current_video['author_email'], nil)
     else
       @related_videos  = [];
       if !@irl
-        @related_videos = view_context.get_related_youtube_videos(@meta_data)[0,20]
+        @related_videos = Rails.cache.fetch(@meta_data, expires_in: 30.minutes) do
+          view_context.get_related_youtube_videos(@meta_data)[0,20]
+        end
       else
         @related_videos = view_context.get_related_videos(nil, true)
       end
-      @current_video_view =  @irl ?  VideoView.includes(:video).same_video_url_as(@url).first : VideoView.includes(:youtube).same_youtube_url_as(@url).first
+      @current_video_view = Rails.cache.fetch(@url, expires_in: 30.minutes) do
+        @irl ?  VideoView.includes(:video).same_video_url_as(@url).first : VideoView.includes(:youtube).same_youtube_url_as(@url).first
+      end
       @current_video = @irl ? @current_video_view.video : @current_video_view.youtube
       @current_video.views = @current_video_view[:views]
     end
-    @trending_videos = view_context.get_trending_videos
+    @trending_videos = Rails.cache.fetch('trendings', expires_in: 30.minutes) do
+      view_context.get_trending_videos
+    end
     @videos_info = {url: @url, title: @current_video[:title], uploaded: @uploaded, currentVideo: @current_video, relatedVideos: @related_videos, views: @current_video.views}
     @current_video_view[:views] =  number_with_delimiter(@current_video_view[:views].delete(',').to_i + 1)
     @current_video_view.save

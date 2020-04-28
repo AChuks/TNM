@@ -16,10 +16,12 @@ module SessionsHelper
 	end
 
 	def current_user
-		if (user_id = User.find_by(id: session[:user_id]))
-			user ||= User.find_by(id: user_id)
-		elsif (user_id = User.find_by(id: cookies.signed[:user_id]))
-			user ||= User.find_by(id: user_id) 
+		session_user_id = User.find_by(id: session[:user_id])
+		cookies_user_id = User.find_by(id: cookies.signed[:user_id])
+		if (session_user_id)
+			user ||= session_user_id
+		elsif (cookies_user_id)
+			user ||= cookies_user_id
 		end
 		if user && user.authenticated?(cookies[:remember_token])
 			log_in user

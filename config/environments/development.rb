@@ -51,5 +51,10 @@ Rails.application.configure do
   # config.action_mailer.default_url_options = { host: ENV["SMTP_DOMAIN"] }
   
   # config.middleware.insert_after(ActionDispatch::Static, Rack::LiveReload)
+  config.cache_store = :redis_store, {
+    expires_in: 1.day,
+    namespace: 'cache',
+    redis: { host: 'localhost', port: 6379, db: 0 },
+  }
 
 end
