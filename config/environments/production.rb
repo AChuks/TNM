@@ -91,4 +91,9 @@ Rails.application.configure do
   # config.action_mailer.perform_deliveries = true
   # config.action_mailer.delivery_method = :smtp
   # config.action_mailer.default_url_options = { host: ENV["SMTP_DOMAIN"] }
+  config.cache_store = :redis_store, {
+    expires_in: 1.day,
+    namespace: 'cache',
+    redis: { host: 'cache-supercomedian-dev.8s6hwq.ng.0001.euw1.cache.amazonaws.com', port: 6379, db: 0 },
+  }
 end
