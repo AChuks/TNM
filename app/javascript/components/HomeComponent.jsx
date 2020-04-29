@@ -66,6 +66,10 @@ class HomeComponent extends Component {
     window.location.href = location;
   };
 
+  handleFeaturedVideoClick = ()  => {
+    window.location.href = '/watch?url=4vgEBoScPhA&irl=true';
+  }
+
   scrollToTopOfVideoGrid = () => {
     let scroll = Scroll.animateScroll;
     let gridOffsetTop = document.getElementsByClassName("MuiGridList-root")[0]
@@ -93,7 +97,7 @@ class HomeComponent extends Component {
             controlsList="nodownload"
           ></video>
           <div className="content-looping-video-overlay">
-            <h2 className='originals'>Win <strong>N15,000</strong> Daily In Our Featured Video's Comments Giveaway. <a href='/giveaway'>Learn How!</a></h2>
+            <h2 className='originals'>Win <strong>N15,000</strong> Daily In Our Featured Video's Comments Giveaway. <a href='/giveaway'>Click Here To Learn How!</a></h2>
           </div>
         </div>
         <div className="col-xs-12 content-videos">
@@ -101,7 +105,7 @@ class HomeComponent extends Component {
           <div className="col-xs-12">
             <CarouselVideos carouselVideos={videosInfo.trendingVideos} />
           </div>
-          <div className="content-videos-header content-videos-header-featured">
+          <div className="content-videos-header content-videos-header-featured" onClick={this.handleFeaturedVideoClick}>
             FEATURED VIDEO
           </div>
           <div className="col-xs-12">
