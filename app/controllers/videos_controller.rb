@@ -134,10 +134,10 @@ class VideosController < ApplicationController
       @irl ||= @ret_val["irl"]
     end
     if @uploaded
-      @video_relation = Rails.cache.fetch(@vid, expires_in: 30.minutes) do
+      @video_relation = Rails.cache.fetch(@vid, expires_in: 1.day) do
         Video.same_vimeo_video_id_as(@vid).first
       end
-      @current_video_view = Rails.cache.fetch(@video_relation[:url], expires_in: 30.minutes) do
+      @current_video_view = Rails.cache.fetch(@video_relation[:url], expires_in: 1.day) do
         VideoView.includes(:video).same_video_url_as(@video_relation[:url]).first
       end
       @current_video = @current_video_view.video
@@ -146,19 +146,19 @@ class VideosController < ApplicationController
     else
       @related_videos  = [];
       if !@irl
-        @related_videos = Rails.cache.fetch(@meta_data, expires_in: 30.minutes) do
+        @related_videos = Rails.cache.fetch(@meta_data, expires_in: 1.day) do
           view_context.get_related_youtube_videos(@meta_data)[0,20]
         end
       else
         @related_videos = view_context.get_related_videos(nil, true)
       end
-      @current_video_view = Rails.cache.fetch(@url, expires_in: 30.minutes) do
+      @current_video_view = Rails.cache.fetch(@url, expires_in: 1.day) do
         @irl ?  VideoView.includes(:video).same_video_url_as(@url).first : VideoView.includes(:youtube).same_youtube_url_as(@url).first
       end
       @current_video = @irl ? @current_video_view.video : @current_video_view.youtube
       @current_video.views = @current_video_view[:views]
     end
-    @trending_videos = Rails.cache.fetch('trendings', expires_in: 30.minutes) do
+    @trending_videos = Rails.cache.fetch('trendings', expires_in: 1.day) do
       view_context.get_trending_videos
     end
     @videos_info = {url: @url, title: @current_video[:title], uploaded: @uploaded, currentVideo: @current_video, relatedVideos: @related_videos, views: @current_video.views}
