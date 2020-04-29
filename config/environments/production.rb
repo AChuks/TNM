@@ -91,5 +91,5 @@ Rails.application.configure do
   # config.action_mailer.perform_deliveries = true
   # config.action_mailer.delivery_method = :smtp
   # config.action_mailer.default_url_options = { host: ENV["SMTP_DOMAIN"] }
-  config.cache_store = :redis_cache_store, { url: "redis://cache-supercomedian-dev.8s6hwq.ng.0001.euw1.cache.amazonaws.com:6379/0"}
+  config.cache_store = :redis_cache_store, { url: "redis://cache-supercomedian-prod.8s6hwq.ng.0001.euw1.cache.amazonaws.com:6379/0"}
 end
