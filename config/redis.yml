@@ -5,5 +5,5 @@ test:
  host: localhost
  port: 6379
 production:
- host: cache-supercomedian-prod.8s6hwq.ng.0001.euw1.cache.amazonaws.com
+ host: cache-supercomedian-dev.8s6hwq.ng.0001.euw1.cache.amazonaws.com
  port: 6379
