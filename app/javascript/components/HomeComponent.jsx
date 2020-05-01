@@ -67,7 +67,7 @@ class HomeComponent extends Component {
   };
 
   handleFeaturedVideoClick = ()  => {
-    window.location.href = '/watch?url=4vgEBoScPhA&irl=true';
+    window.location.href = '/watch?url=e4NRPVJetZw&irl=true';
   }
 
   scrollToTopOfVideoGrid = () => {
@@ -110,14 +110,14 @@ class HomeComponent extends Component {
           </div>
           <div className="col-xs-12">
             <div>
-              <div className="col-xs-12">
+              <div className="col-xs-12" onClick={this.handleFeaturedVideoClick}>
                 <video
                   id="featureVideo"
                   className="video-js vjs-default-skin featured-video"
                   controls
                   width="1200"
                   height={featuredVideoHeight}
-                  data-setup='{ "techOrder": ["youtube", "html5"], "sources": [{ "type": "video/youtube", "src": "https://www.youtube.com/watch?v=4vgEBoScPhA" }], "youtube": { "ytControls": 1} }'
+                  data-setup='{ "techOrder": ["youtube", "html5"], "sources": [{ "type": "video/youtube", "src": "https://www.youtube.com/watch?v=e4NRPVJetZw" }], "youtube": { "ytControls": 1} }'
                 ></video>
                 {/* <iframe
                   className="featured-video"
