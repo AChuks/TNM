@@ -34,8 +34,9 @@ class HomeComponent extends Component {
   updateDimensions = () => {
     let responsiveHeight = Math.round(document.body.clientWidth / 2.7);
     // Update videojs height
-    let player = videojs("featureVideo");
-    player.height(responsiveHeight);
+    // let player = videojs("featureVideo");
+    // player.height(responsiveHeight);
+    // player.tech.removeControlsListeners();
 
     // Update iFrame video height
     let iFramePlayer = document.getElementsByClassName("featured-video");
@@ -67,7 +68,7 @@ class HomeComponent extends Component {
   };
 
   handleFeaturedVideoClick = ()  => {
-    window.location.href = '/watch?url=e4NRPVJetZw&irl=true';
+    window.location.href = '/watch?url=lpjXMs_YmZY&irl=true';
   }
 
   scrollToTopOfVideoGrid = () => {
@@ -108,17 +109,19 @@ class HomeComponent extends Component {
           <div className="content-videos-header content-videos-header-featured" onClick={this.handleFeaturedVideoClick}>
             FEATURED VIDEO
           </div>
-          <div className="col-xs-12">
+          <div className="col-xs-12" onClick={this.handleFeaturedVideoClick}>
             <div>
-              <div className="col-xs-12" onClick={this.handleFeaturedVideoClick}>
-                <video
+              <div className="col-xs-12">
+                <img src='https://img.youtube.com/vi/lpjXMs_YmZY/mqdefault.jpg' style={{height: 'inherit', width: 'inherit', cursor: 'pointer'}}/>
+                <h1 className="video-title">Beautiful Nigeria Doctor Breakdown Covid-19 Timeline!</h1>
+                {/* <video
                   id="featureVideo"
                   className="video-js vjs-default-skin featured-video"
                   controls
                   width="1200"
                   height={featuredVideoHeight}
-                  data-setup='{ "techOrder": ["youtube", "html5"], "sources": [{ "type": "video/youtube", "src": "https://www.youtube.com/watch?v=e4NRPVJetZw" }], "youtube": { "ytControls": 1} }'
-                ></video>
+                  data-setup='{ "techOrder": ["youtube", "html5"], "sources": [{ "type": "video/youtube", "src": "https://www.youtube.com/watch?v=lpjXMs_YmZY" }], "youtube": { "ytControls": 1} }'
+                ></video> */}
                 {/* <iframe
                   className="featured-video"
                   width="1200"
