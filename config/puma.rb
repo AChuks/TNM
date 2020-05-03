@@ -9,6 +9,8 @@ threads threads_count, threads_count
 port        ENV.fetch("PORT") { 3000 }
 environment ENV.fetch("RAILS_ENV") { "development" }
 
+preload_app!
+
 on_worker_boot do
     # Valid on Rails up to 4.1 the initializer method of setting `pool` size
     ActiveSupport.on_load(:active_record) do
