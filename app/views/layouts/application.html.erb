@@ -23,10 +23,10 @@
 	</script>
 
 	<title><%= full_title(yield(:title)) %></title>
-	<%= stylesheet_link_tag 'application', media: 'print' %>
+	<%= stylesheet_link_tag 'application', media: 'all' %>
 	<script src="https://use.fontawesome.com/463aa66a5a.js" async></script>
   <%= javascript_pack_tag 'application', :defer => Rails.env == "production" %>
-  <%= stylesheet_pack_tag 'application', media: 'print' %>
+  <%= stylesheet_pack_tag 'application' %>
 	<%= javascript_include_tag 'application', :async => Rails.env == "production" %>
 	<%= csrf_meta_tags %>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
