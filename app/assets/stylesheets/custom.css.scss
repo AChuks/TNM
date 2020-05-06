@@ -102,6 +102,7 @@ ul.list-inline li a {
 }
 
 .navbar {
+  min-height: 55px !important;
   margin-bottom:0;
   border: none !important;
   border-radius: 0px !important;
@@ -118,7 +119,7 @@ ul.list-inline li a {
     float: right;
     display: inline;
     button {
-      margin-top: 18px;
+      margin-top: 10px;
     }
   }
   &-container {
@@ -130,6 +131,9 @@ ul.list-inline li a {
       padding-top: 7px;
       padding-left: 25px;
       // width: 200px;
+    }
+    .pull-left-zero-padding {
+      padding-top: 0px;
     }
     .pull-right {
       text-align: right !important;

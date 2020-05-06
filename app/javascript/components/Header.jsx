@@ -82,7 +82,7 @@ class Header extends Component {
     const navBar = document.getElementsByClassName("navbar-container")[0];
     let logoClassName = 'nav navbar-nav pull-left';
     if (navbarToggleVisible) {
-      logoClassName = logoClassName + ' col-xs-10'
+      logoClassName = logoClassName + ' col-xs-10 pull-left-zero-padding'
     } else {
       logoClassName = logoClassName + ' col-xs-4'
     }
