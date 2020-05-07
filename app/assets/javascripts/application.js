@@ -15,7 +15,6 @@
 //= require jquery.validate
 //= require underscore
 //= require bootstrap-sprockets
-//= require owl.carousel.min
 //= require jquery.ui.widget
 //= require z.jquery.fileupload
 //= require initialize_javascript_helpers
