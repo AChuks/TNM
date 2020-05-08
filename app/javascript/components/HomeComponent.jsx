@@ -65,7 +65,7 @@ class HomeComponent extends Component {
   };
 
   handleFeaturedVideoClick = ()  => {
-    window.location.href = '/watch?url=wnUUsk4MIto&irl=true';
+    window.location.href = '/watch?url=esY2kBfh0-8&irl=true';
   }
 
   scrollToTopOfVideoGrid = () => {
@@ -109,7 +109,7 @@ class HomeComponent extends Component {
           <div className="col-xs-12" onClick={this.handleFeaturedVideoClick}>
             <div>
               <div className="col-xs-12">
-                <img src='https://img.youtube.com/vi/wnUUsk4MIto/mqdefault.jpg' style={{height: 'inherit', width: 'inherit', cursor: 'pointer'}}/>
+                <img src='https://img.youtube.com/vi/esY2kBfh0-8/mqdefault.jpg' style={{height: 'inherit', width: 'inherit', cursor: 'pointer'}}/>
                 <h1 className="video-title">Covid-19: Why Nigeria Politicians Don't Care About Nigerians' Wellbeing</h1>
                 {/* <video
                   id="featureVideo"
