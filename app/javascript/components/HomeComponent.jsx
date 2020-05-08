@@ -110,7 +110,7 @@ class HomeComponent extends Component {
             <div>
               <div className="col-xs-12">
                 <img src='https://img.youtube.com/vi/esY2kBfh0-8/mqdefault.jpg' style={{height: 'inherit', width: 'inherit', cursor: 'pointer'}}/>
-                <h1 className="video-title">Covid-19: Why Nigeria Politicians Don't Care About Nigerians' Wellbeing</h1>
+                <h1 className="video-title">Dangerous: Nigerian Man Pranks Passengers With Corona Virus On Public Bus</h1>
                 {/* <video
                   id="featureVideo"
                   className="video-js vjs-default-skin featured-video"
