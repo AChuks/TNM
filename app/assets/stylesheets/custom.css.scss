@@ -160,15 +160,19 @@ ul.list-inline li a {
     background: none !important;
     display: flex !important;
     &-wrapper {
-      width: 40px;
-      height: 40px;
+      width: 35px;
+      height: 35px;
       overflow: hidden;
       border: 1px solid wheat !important;
       border-radius: 10px;
       margin-right: 9px;
+      img {
+        height: inherit;
+        width: inherit;
+      }
     }
     svg {
-      width: 200px;
+      width: 13rem;
       background: none !important;
     }
     text {
