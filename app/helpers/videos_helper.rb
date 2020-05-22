@@ -113,6 +113,7 @@ module VideosHelper
     @all_videos = Rails.cache.fetch('all_videos', expires_in: 1.day) do
       get_combined_videos(@other_videos, @youtube_videos)
     end
+    @all_videos = @all_videos.reverse.paginate(page: params[:page],:per_page => 60)
     @trending_videos = Rails.cache.fetch('trendings', expires_in: 1.day) do
       get_trending_videos()
     end
@@ -121,9 +122,9 @@ module VideosHelper
   end
 
   def get_combined_videos(other_videos, youtube_videos)
-    @combined_videos = (other_videos + youtube_videos)
+    @combined_videos = (other_videos + youtube_videos).sort_by(&:date)
     add_views_to_model_array(@combined_videos)
-    @combined_videos.sort_by(&:date).reverse.paginate(page: params[:page],:per_page => 60)
+    return @combined_videos
   end
 
   def get_search_filtered_videos(search_text)
