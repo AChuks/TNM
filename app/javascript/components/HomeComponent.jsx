@@ -65,7 +65,8 @@ class HomeComponent extends Component {
   };
 
   handleFeaturedVideoClick = ()  => {
-    window.location.href = '/watch?url=Vx0eJCJkZHM&irl=true';
+    // window.location.href = '/watch?url=9odfgTp3gPQ&irl=true';
+    window.location.href = '/watch?url=y3hythCCbh8&meta_data=UCkKHhORmLc14fmYvOa4Y7Ug';
   }
 
   scrollToTopOfVideoGrid = () => {
@@ -109,8 +110,8 @@ class HomeComponent extends Component {
           <div className="col-xs-12" onClick={this.handleFeaturedVideoClick}>
             <div>
               <div className="col-xs-12">
-                <img src='https://img.youtube.com/vi/Vx0eJCJkZHM/mqdefault.jpg' style={{height: 'inherit', width: 'inherit', cursor: 'pointer'}}/>
-                <h1 className="video-title">Man Thrown Out Of Office, After His Jesus Failed To Compel His Boss To Sign His Contracts. lol</h1>
+                <img src='https://img.youtube.com/vi/y3hythCCbh8/mqdefault.jpg' style={{height: 'inherit', width: 'inherit', cursor: 'pointer'}}/>
+                <h1 className="video-title">KRAKSTERS PRANKED WITH COCOA POWDER | Kruising With Kraksters Ep 1</h1>
                 {/* <video
                   id="featureVideo"
                   className="video-js vjs-default-skin featured-video"
