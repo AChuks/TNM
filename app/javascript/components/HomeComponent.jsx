@@ -90,7 +90,7 @@ class HomeComponent extends Component {
             loop
             muted
             className="content-looping-video"
-            src="https://d7vlh3kvn1ay8.cloudfront.net/background_video.mp4"
+            src="https://d7vlh3kvn1ay8.cloudfront.net/background_video.mov"
             // src="https://sc-assets-test.s3.amazonaws.com/background_video.mov"
             controlsList="nodownload"
           ></video>
