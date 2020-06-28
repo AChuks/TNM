@@ -6,6 +6,7 @@
 @import url(https://fonts.googleapis.com/css?family=PT+Sans:400,700);
 @font-face {
     font-family: 'PT Sans', sans-serif;
+    font-family: 'PT Sans', sans-serif;
     src: url('https://fonts.googleapis.com/css?family=PT+Sans'), url('https://fonts.googleapis.com/css?family=PT+Sans:400,700');
     /* IE9 */
 }
@@ -18,7 +19,7 @@ html {
 }
 body {
     position: initial;
-    font-family: 'Verdana' !important;
+    font-family: 'sans-serif' !important;
     text-decoration: none;
     padding: 0;
     text-align: center;
@@ -123,6 +124,7 @@ ul.list-inline li a {
     }
   }
   &-container {
+    font-family: auto !important;
     position: fixed;
     width: 100%;
     background-color: #1d1818;
@@ -163,8 +165,6 @@ ul.list-inline li a {
       width: 35px;
       height: 35px;
       overflow: hidden;
-      border: 1px solid wheat !important;
-      border-radius: 10px;
       margin-right: 9px;
       img {
         height: inherit;
@@ -178,6 +178,7 @@ ul.list-inline li a {
     text {
       fill: wheat !important;
       background: none !important;
+      font-family: auto !important;
     }
   }
   &-logo:hover {

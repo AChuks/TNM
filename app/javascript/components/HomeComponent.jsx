@@ -94,9 +94,9 @@ class HomeComponent extends Component {
             // src="https://sc-assets-test.s3.amazonaws.com/background_video.mov"
             controlsList="nodownload"
           ></video>
-          <div className="content-looping-video-overlay">
+          {/* <div className="content-looping-video-overlay">
             <h2 className='originals'>Win <strong>N15,000</strong> Daily In Our Featured Video's Comments Giveaway. <a href='/giveaway'>Click Here To Learn How!</a></h2>
-          </div>
+          </div> */}
         </div>
         <div className="col-xs-12 content-videos">
           {/* <div className="content-videos-header">TRENDING</div> */}
