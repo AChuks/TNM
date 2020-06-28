@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
-import CarouselVideos from "./shared/CarouselVideos";
 import { Pagination } from "semantic-ui-react";
 import { LazyLoadImage } from "react-lazy-load-image-component";
 import GridList from "@material-ui/core/GridList";
@@ -91,7 +90,7 @@ class HomeComponent extends Component {
             loop
             muted
             className="content-looping-video"
-            src="https://d7vlh3kvn1ay8.cloudfront.net/background_video.mov"
+            src="https://d7vlh3kvn1ay8.cloudfront.net/background_video.mp4"
             // src="https://sc-assets-test.s3.amazonaws.com/background_video.mov"
             controlsList="nodownload"
           ></video>
