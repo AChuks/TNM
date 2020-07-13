@@ -64,7 +64,7 @@ class HomeComponent extends Component {
   };
 
   handleFeaturedVideoClick = ()  => {
-    window.location.href = '/watch?url=1Hj74UbsiEA&irl=true';
+    window.location.href = '/watch?url=yC-nJa5nF0Y&irl=true';
     // window.location.href = '/watch?url=y3hythCCbh8&meta_data=UCkKHhORmLc14fmYvOa4Y7Ug';
   }
 
@@ -109,8 +109,8 @@ class HomeComponent extends Component {
           <div className="col-xs-12" onClick={this.handleFeaturedVideoClick}>
             <div>
               <div className="col-xs-12">
-                <img src='https://img.youtube.com/vi/1Hj74UbsiEA/mqdefault.jpg' style={{height: 'inherit', width: 'inherit', cursor: 'pointer'}}/>
-                <h1 className="video-title">Opportunity Knocks But Once. (A Short Film)</h1>
+                <img src='https://img.youtube.com/vi/yC-nJa5nF0Y/mqdefault.jpg' style={{height: 'inherit', width: 'inherit', cursor: 'pointer'}}/>
+                <h1 className="video-title">D'Banj's Scandal: If Fela Was Alive, Many Women Would Have 'Accused' Him -- Dr. Jackie Kassim</h1>
                 {/* <video
                   id="featureVideo"
                   className="video-js vjs-default-skin featured-video"
