@@ -24,6 +24,11 @@ module VideosHelper
     channel_20 = 'UCO19VNHQMmIkvIVl-z4UwGw' # Samuel Ajibola Tv
     channel_21 = 'UCkKHhORmLc14fmYvOa4Y7Ug' # Samuel Ajibola Tv
     channel_22 = 'UCpn6YbS5VrcuB0yMDNii2Kw' # TriadsNG
+    channel_23 = 'UCjSzBGfo9gDXP0OerKJ9GZg' # Twyse Ereme
+    channel_24 = 'UCEL7Wa72HieEzSAucyxBdDg' # Manny Nation
+    channel_25 = 'UCLgTL2bGK0VIY2iYJjD5NpA' # Ikorodu boys
+    channel_26 = 'UCKrjM68uzaA3llVdm1MrR-Q' # Kems Mama
+    channel_27 = 'UCxAkiUiL3KnMl0BIFBv6xxA' # Mr Macaroni
     # channel_11 =  'UCCQ-qN-4JcmXe4GcktUsITg' # DC Young Fly
     # channel_12 = 'UC4JoLGDc4qhyP5p6Vgs8qXQ' # Desi Banks
     # channel_13 = 'UCxyCzPY2pjAjrxoSYclpuLg' # Laugh Factory
@@ -34,7 +39,7 @@ module VideosHelper
     # channel_17 = 'UC2iwgQq9nvW0MkxJn7jI0XQ' # Tyrhee Spivey
     # channel_9 = 'UCg9NadeQbjGL80cDnCf1g-A' # Nollywood skits comedy
     # channel_10 = 'UCSW1uGP-JC2Uir1kR9fFwfA' # Nigeria latest comedy 
-    return [channel_1, channel_2, channel_3, channel_4, channel_5, channel_6, channel_7, channel_8, channel_9, channel_10, channel_11, channel_12, channel_13, channel_14, channel_15, channel_16, channel_17, channel_18, channel_19, channel_20, channel_21, channel_22]
+    return [channel_1, channel_2, channel_3, channel_4, channel_5, channel_6, channel_7, channel_8, channel_9, channel_10, channel_11, channel_12, channel_13, channel_14, channel_15, channel_16, channel_17, channel_18, channel_19, channel_20, channel_21, channel_22, channel_23, channel_24, channel_25, channel_26]
     # return [channel_1]
     # return [channel_10]
   end
