@@ -3,32 +3,32 @@ module VideosHelper
 
   def getChannels()
     channel_1 = 'UC9YvlExCwL2gh9H8bE63aDA'  # Chief Obi
-    channel_2 = 'UCY1ZateUFcH6K-UyM3J4PoA' # African Comedians
-    channel_3 = 'UCpSy6fz3rORXNrsodFo3mFQ' # Clifford Owosu
-    channel_4 = 'UCMJsaAgrrwkPgHLKYGGjYlg' # African Ape
-    channel_5 = 'UCTC1SIC5HTcKaLd4eJTmp1w' # Wowo boys
-    channel_6 = 'UCwukLrqPe4ywJTe0RWVlBSA' # Craze Clown
-    channel_7 = 'UCvO4Ym5LjYTo0uZRfUvtc-w' # AY Comedian
-    channel_8 = 'UCwemICO9grnv9xkvFkoRvMA' # Stand up Nigeria
-    channel_9 = 'UC26q7KQxr5TnKm-OT25MyyQ' # House of Ajebo 
-    channel_10 = 'UCQmZ9BIYOBSkxL-eqqg5z-g' # MarkAngel Comedy 
-    channel_11 = 'UCIwUNuYEcZiiJqjU04yN30A' # AyoAjewole Woliagba-YPM 
-    channel_12 = 'UC6AIZZlzcP3csZcPgltF22Q' # Josh 2 funny 
-    channel_13 = 'UCfvmvOEGw6Nqd6E9qMryE3A' # Lasisi Elenu 
-    channel_14 = 'UCdN4aXTrHAtfgbVG9HjBmxQ' # Key & Pele
-    channel_15 = 'UCZu6U2qCp66HIYdmzkvodNQ' # Key & Pele
-    channel_16 = 'UCQi4BT2PqF2aWdW2JwzCFAQ' # Williams Uchembah
-    channel_17 = 'UCE4NfDcKHpZyGhKgNLXISow' # FatBoiz COmedy
-    channel_18 = 'UCXl2NOUg0a77CsOot-hvTrQ' # GhenGhen Jokes
-    channel_19 = 'UC23qbaOP8uK2_eghO-c-jGg' # Splendid TV
-    channel_20 = 'UCO19VNHQMmIkvIVl-z4UwGw' # Samuel Ajibola Tv
-    channel_21 = 'UCkKHhORmLc14fmYvOa4Y7Ug' # Samuel Ajibola Tv
-    channel_22 = 'UCpn6YbS5VrcuB0yMDNii2Kw' # TriadsNG
-    channel_23 = 'UCjSzBGfo9gDXP0OerKJ9GZg' # Twyse Ereme
-    channel_24 = 'UCEL7Wa72HieEzSAucyxBdDg' # Manny Nation
-    channel_25 = 'UCLgTL2bGK0VIY2iYJjD5NpA' # Ikorodu boys
-    channel_26 = 'UCKrjM68uzaA3llVdm1MrR-Q' # Kems Mama
-    channel_27 = 'UCxAkiUiL3KnMl0BIFBv6xxA' # Mr Macaroni
+    # channel_2 = 'UCY1ZateUFcH6K-UyM3J4PoA' # African Comedians
+    channel_2 = 'UCpSy6fz3rORXNrsodFo3mFQ' # Clifford Owosu
+    channel_3 = 'UCMJsaAgrrwkPgHLKYGGjYlg' # African Ape
+    channel_4 = 'UCTC1SIC5HTcKaLd4eJTmp1w' # Wowo boys
+    channel_5 = 'UCwukLrqPe4ywJTe0RWVlBSA' # Craze Clown
+    channel_6 = 'UCvO4Ym5LjYTo0uZRfUvtc-w' # AY Comedian
+    # channel_8 = 'UCwemICO9grnv9xkvFkoRvMA' # Stand up Nigeria
+    channel_7 = 'UC26q7KQxr5TnKm-OT25MyyQ' # House of Ajebo 
+    channel_8 = 'UCQmZ9BIYOBSkxL-eqqg5z-g' # MarkAngel Comedy 
+    channel_9 = 'UCIwUNuYEcZiiJqjU04yN30A' # AyoAjewole Woliagba-YPM 
+    channel_10 = 'UC6AIZZlzcP3csZcPgltF22Q' # Josh 2 funny 
+    channel_11 = 'UCfvmvOEGw6Nqd6E9qMryE3A' # Lasisi Elenu 
+    # channel_14 = 'UCdN4aXTrHAtfgbVG9HjBmxQ' # Key & Pele
+    channel_12 = 'UCZu6U2qCp66HIYdmzkvodNQ' # Z Fancy
+    channel_13 = 'UCQi4BT2PqF2aWdW2JwzCFAQ' # Williams Uchembah
+    channel_14 = 'UCE4NfDcKHpZyGhKgNLXISow' # FatBoiz COmedy
+    channel_15 = 'UCXl2NOUg0a77CsOot-hvTrQ' # GhenGhen Jokes
+    channel_16 = 'UC23qbaOP8uK2_eghO-c-jGg' # Splendid TV
+    channel_17 = 'UCO19VNHQMmIkvIVl-z4UwGw' # Samuel Ajibola Tv
+    channel_18 = 'UCkKHhORmLc14fmYvOa4Y7Ug' # Samuel Ajibola Tv
+    channel_19 = 'UCpn6YbS5VrcuB0yMDNii2Kw' # TriadsNG
+    channel_20 = 'UCjSzBGfo9gDXP0OerKJ9GZg' # Twyse Ereme
+    channel_21 = 'UCEL7Wa72HieEzSAucyxBdDg' # Manny Nation
+    channel_22 = 'UCLgTL2bGK0VIY2iYJjD5NpA' # Ikorodu boys
+    channel_23 = 'UCKrjM68uzaA3llVdm1MrR-Q' # Kems Mama
+    channel_24 = 'UCxAkiUiL3KnMl0BIFBv6xxA' # Mr Macaroni
     # channel_11 =  'UCCQ-qN-4JcmXe4GcktUsITg' # DC Young Fly
     # channel_12 = 'UC4JoLGDc4qhyP5p6Vgs8qXQ' # Desi Banks
     # channel_13 = 'UCxyCzPY2pjAjrxoSYclpuLg' # Laugh Factory
@@ -39,7 +39,7 @@ module VideosHelper
     # channel_17 = 'UC2iwgQq9nvW0MkxJn7jI0XQ' # Tyrhee Spivey
     # channel_9 = 'UCg9NadeQbjGL80cDnCf1g-A' # Nollywood skits comedy
     # channel_10 = 'UCSW1uGP-JC2Uir1kR9fFwfA' # Nigeria latest comedy 
-    return [channel_1, channel_2, channel_3, channel_4, channel_5, channel_6, channel_7, channel_8, channel_9, channel_10, channel_11, channel_12, channel_13, channel_14, channel_15, channel_16, channel_17, channel_18, channel_19, channel_20, channel_21, channel_22, channel_23, channel_24, channel_25, channel_26]
+    return [channel_1, channel_2, channel_3, channel_4, channel_5, channel_6, channel_7, channel_8, channel_9, channel_10, channel_11, channel_12, channel_13, channel_14, channel_15, channel_16, channel_17, channel_18, channel_19, channel_20, channel_21, channel_22, channel_23, channel_24]
     # return [channel_1]
     # return [channel_10]
   end
