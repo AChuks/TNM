@@ -64,7 +64,7 @@ class HomeComponent extends Component {
   };
 
   handleFeaturedVideoClick = ()  => {
-    window.location.href = '/watch?url=Hs9mDj1Ozwc&irl=true';
+    window.location.href = '/watch?url=z6Y3GEnNulw&irl=true';
     // window.location.href = '/watch?url=y3hythCCbh8&meta_data=UCkKHhORmLc14fmYvOa4Y7Ug';
   }
 
@@ -109,8 +109,8 @@ class HomeComponent extends Component {
           <div className="col-xs-12" onClick={this.handleFeaturedVideoClick}>
             <div>
               <div className="col-xs-12">
-                <img src='https://img.youtube.com/vi/Hs9mDj1Ozwc/mqdefault.jpg' style={{height: 'inherit', width: 'inherit', cursor: 'pointer'}}/>
-                <h1 className="video-title">Prophet Tibetan Reveals Shocking Prophecies in New Sermon Titled "Background Checking"</h1>
+                <img src='https://img.youtube.com/vi/z6Y3GEnNulw/mqdefault.jpg' style={{height: 'inherit', width: 'inherit', cursor: 'pointer'}}/>
+                <h1 className="video-title">Why We Will Keep Struggling In A Rat Race PART 2 (Se La Ma'a S'aku) -- Prophet Tibetan</h1>
                 {/* <video
                   id="featureVideo"
                   className="video-js vjs-default-skin featured-video"
