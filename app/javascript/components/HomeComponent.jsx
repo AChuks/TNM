@@ -64,8 +64,8 @@ class HomeComponent extends Component {
   };
 
   handleFeaturedVideoClick = ()  => {
-    window.location.href = '/watch?url=z6Y3GEnNulw&irl=true';
-    // window.location.href = '/watch?url=y3hythCCbh8&meta_data=UCkKHhORmLc14fmYvOa4Y7Ug';
+    // window.location.href = '/watch?url=z6Y3GEnNulw&irl=true';
+    window.location.href = '/watch?url=fwJV6-zlp8Y&meta_data=UCxAkiUiL3KnMl0BIFBv6xxA';
   }
 
   scrollToTopOfVideoGrid = () => {
@@ -109,8 +109,8 @@ class HomeComponent extends Component {
           <div className="col-xs-12" onClick={this.handleFeaturedVideoClick}>
             <div>
               <div className="col-xs-12">
-                <img src='https://img.youtube.com/vi/z6Y3GEnNulw/mqdefault.jpg' style={{height: 'inherit', width: 'inherit', cursor: 'pointer'}}/>
-                <h1 className="video-title">Why We Will Keep Struggling In A Rat Race PART 2 (Se La Ma'a S'aku) -- Prophet Tibetan</h1>
+                <img src='https://img.youtube.com/vi/fwJV6-zlp8Y/mqdefault.jpg' style={{height: 'inherit', width: 'inherit', cursor: 'pointer'}}/>
+                <h1 className="video-title">@Mrmacaroni1 - Special Package! 🤦🏾‍♂️😩🤣🙆🏾‍♂️</h1>
                 {/* <video
                   id="featureVideo"
                   className="video-js vjs-default-skin featured-video"
