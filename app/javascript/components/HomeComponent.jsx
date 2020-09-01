@@ -65,7 +65,7 @@ class HomeComponent extends Component {
 
   handleFeaturedVideoClick = ()  => {
     // window.location.href = '/watch?url=z6Y3GEnNulw&irl=true';
-    window.location.href = '/watch?url=fwJV6-zlp8Y&meta_data=UCxAkiUiL3KnMl0BIFBv6xxA';
+    window.location.href = '/watch?url=DFFpCFWQNy8&meta_data=UCfvmvOEGw6Nqd6E9qMryE3A';
   }
 
   scrollToTopOfVideoGrid = () => {
@@ -109,8 +109,8 @@ class HomeComponent extends Component {
           <div className="col-xs-12" onClick={this.handleFeaturedVideoClick}>
             <div>
               <div className="col-xs-12">
-                <img src='https://img.youtube.com/vi/fwJV6-zlp8Y/mqdefault.jpg' style={{height: 'inherit', width: 'inherit', cursor: 'pointer'}}/>
-                <h1 className="video-title">@Mrmacaroni1 - Special Package! 🤦🏾‍♂️😩🤣🙆🏾‍♂️</h1>
+                <img src='https://img.youtube.com/vi/DFFpCFWQNy8/mqdefault.jpg' style={{height: 'inherit', width: 'inherit', cursor: 'pointer'}}/>
+                <h1 className="video-title">BRINGING FAKE MONEY TO AN AMERICAN HOME VS A NIGERIAN HOME!! DEATH!! 🤦🏾‍♂️😩🤣🙆🏾‍♂️</h1>
                 {/* <video
                   id="featureVideo"
                   className="video-js vjs-default-skin featured-video"
