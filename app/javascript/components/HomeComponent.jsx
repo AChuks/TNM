@@ -65,7 +65,7 @@ class HomeComponent extends Component {
 
   handleFeaturedVideoClick = ()  => {
     // window.location.href = '/watch?url=z6Y3GEnNulw&irl=true';
-    window.location.href = '/watch?url=vGmYI_nwanM&meta_data=UC6AIZZlzcP3csZcPgltF22Q';
+    window.location.href = '/watch?url=4iG_XyyVlLQ&meta_data=UCjSzBGfo9gDXP0OerKJ9GZg';
   }
 
   scrollToTopOfVideoGrid = () => {
@@ -109,8 +109,8 @@ class HomeComponent extends Component {
           <div className="col-xs-12" onClick={this.handleFeaturedVideoClick}>
             <div>
               <div className="col-xs-12">
-                <img src='https://img.youtube.com/vi/vGmYI_nwanM/mqdefault.jpg' style={{height: 'inherit', width: 'inherit', cursor: 'pointer'}}/>
-                <h1 className="video-title">DAVIDO IS JUGA’s FRIEND 🤦🏾‍🤣</h1>
+                <img src='https://img.youtube.com/vi/4iG_XyyVlLQ/mqdefault.jpg' style={{height: 'inherit', width: 'inherit', cursor: 'pointer'}}/>
+                <h1 className="video-title">DADDY GOES TO PRISON (Full Video) 🤦🏾‍🤣</h1>
                 {/* <video
                   id="featureVideo"
                   className="video-js vjs-default-skin featured-video"
