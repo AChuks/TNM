@@ -64,7 +64,7 @@ class HomeComponent extends Component {
   };
 
   handleFeaturedVideoClick = ()  => {
-    window.location.href = '/watch?url=9OuOcdnzgdY&irl=true';
+    window.location.href = '/watch?url=AU1woNn0b9g&irl=true';
     // window.location.href = '/watch?url=4iG_XyyVlLQ&meta_data=UCjSzBGfo9gDXP0OerKJ9GZg';
   }
 
@@ -109,8 +109,8 @@ class HomeComponent extends Component {
           <div className="col-xs-12" onClick={this.handleFeaturedVideoClick}>
             <div>
               <div className="col-xs-12">
-                <img src='https://img.youtube.com/vi/9OuOcdnzgdY/mqdefault.jpg' style={{height: 'inherit', width: 'inherit', cursor: 'pointer'}}/>
-                <h1 className="video-title">#EndSARS: I won’t sign 2021 budget without provisions for SARS’ victims – Gbajabiamila</h1>
+                <img src='https://img.youtube.com/vi/AU1woNn0b9g/mqdefault.jpg' style={{height: 'inherit', width: 'inherit', cursor: 'pointer'}}/>
+                <h1 className="video-title">'Our Camera Stopped Recording, Didn't Capture Shooting,' Lekki Concession Company Tells Lagos Panel</h1>
                 {/* <video
                   id="featureVideo"
                   className="video-js vjs-default-skin featured-video"
