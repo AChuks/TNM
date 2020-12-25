@@ -65,7 +65,7 @@ class HomeComponent extends Component {
 
   handleFeaturedVideoClick = ()  => {
     // window.location.href = '/watch?url=AU1woNn0b9g&irl=true';
-    window.location.href = '/watch?url=zkP_HN5Zdik&meta_data=UCvO4Ym5LjYTo0uZRfUvtc-w';
+    window.location.href = '/watch?url=OyQ2qj9WfiI&meta_data=UCjSzBGfo9gDXP0OerKJ9GZg';
   }
 
   scrollToTopOfVideoGrid = () => {
@@ -109,8 +109,8 @@ class HomeComponent extends Component {
           <div className="col-xs-12" onClick={this.handleFeaturedVideoClick}>
             <div>
               <div className="col-xs-12">
-                <img src='https://img.youtube.com/vi/zkP_HN5Zdik/mqdefault.jpg' style={{height: 'inherit', width: 'inherit', cursor: 'pointer'}}/>
-                <h1 className="video-title">AY'S CRIB COMEDY SERIES (AY COMEDIAN) (SEASON 2, EPISODE 10) (KEEPING UP WITH MIMI)</h1>
+                <img src='https://img.youtube.com/vi/OyQ2qj9WfiI/mqdefault.jpg' style={{height: 'inherit', width: 'inherit', cursor: 'pointer'}}/>
+                <h1 className="video-title">CHRISTMAS SPECIAL - Twyse and Family</h1>
                 {/* <video
                   id="featureVideo"
                   className="video-js vjs-default-skin featured-video"
