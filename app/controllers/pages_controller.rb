@@ -12,6 +12,10 @@ class PagesController < ApplicationController
 
   def home
     @update = params[:update]
+    @fetch_tweets = params[:fetch_tweets]
+    if (@fetch_tweets)
+      view_context.fetch_tweets()
+    end
     @videos_info = view_context.get_all_videos(@update)
     respond_to do |format|
       format.html { render action: 'home' }

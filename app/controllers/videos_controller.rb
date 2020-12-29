@@ -120,11 +120,12 @@ class VideosController < ApplicationController
   def watch
     @url = params[:url]
     @vid = params[:vid]
+    @video_id = params[:id]
     @meta_data = params[:meta_data]
     @uploaded = params[:upload]
     @irl = params[:irl]
     @current_video = {}
-    if (!@vid and @url.length > 12) 
+    if (!@vid and @url and @url.length > 12) 
       @url.prepend("url=")
       @ret_val = Rack::Utils.parse_nested_query(@url)
       @url = @ret_val["url"]
@@ -145,23 +146,31 @@ class VideosController < ApplicationController
       @related_videos = view_context.get_related_videos(@current_video['author_email'], nil)
     else
       @related_videos  = [];
-      if !@irl
+      if (!@irl && !@video_id)
         @related_videos = Rails.cache.fetch(@meta_data, expires_in: 1.day) do
           view_context.get_related_youtube_videos(@meta_data)[0,20]
         end
-      else
+      elsif (@irl || @video_id)
         @related_videos = view_context.get_related_videos(nil, true)
       end
-      @current_video_view = Rails.cache.fetch(@url, expires_in: 1.day) do
-        @irl ?  VideoView.includes(:video).same_video_url_as(@url).first : VideoView.includes(:youtube).same_youtube_url_as(@url).first
+      @current_video_view = nil;
+      if (@irl || @url)
+        @current_video_view = Rails.cache.fetch(@url, expires_in: 1.day) do
+          @irl ?  VideoView.includes(:video).same_video_url_as(@url).first : VideoView.includes(:youtube).same_youtube_url_as(@url).first
+        end
       end
-      @current_video = @irl ? @current_video_view.video : @current_video_view.youtube
+      if @video_id
+        @current_video_view = Rails.cache.fetch(@video_id, expires_in: 1.day) do
+          VideoView.includes(:video).same_video_id_as(@video_id).first
+        end
+      end
+      @current_video = (@irl || @video_id) ? @current_video_view.video : @current_video_view.youtube
       @current_video.views = @current_video_view[:views]
     end
     @trending_videos = Rails.cache.fetch('trendings', expires_in: 1.day) do
       view_context.get_trending_videos
     end
-    @videos_info = {url: @url, title: @current_video[:title], uploaded: @uploaded, currentVideo: @current_video, relatedVideos: @related_videos, views: @current_video.views}
+    @videos_info = {url: (@url || @current_video[:url]), title: @current_video[:title], uploaded: @uploaded, currentVideo: @current_video, relatedVideos: @related_videos, views: @current_video.views}
     @current_video_view[:views] =  number_with_delimiter(@current_video_view[:views].delete(',').to_i + 1)
     @current_video_view.save
   end

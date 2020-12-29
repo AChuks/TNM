@@ -44,6 +44,15 @@ module VideosHelper
     # return [channel_10]
   end
 
+  def getTwitterhandles()
+    handle_1 = "instablog9ja"
+    handle_2 = "FunnyAfrica"
+    handle_3 = "yabaleftonline"
+    handle_4 = "GistReel"
+    return [handle_1, handle_2, handle_3, handle_4]
+  end
+
+
   def add_views_to_model_array(model_array)
     model_array.each { |each_model| 
       each_model.views = each_model.video_views.first[:views]
@@ -110,7 +119,7 @@ module VideosHelper
       }
     end
     @other_videos = Rails.cache.fetch('videos', expires_in: 1.day) do
-      Video.includes(:video_views).all
+      Video.includes(:video_views).where(is_irl: true).or(Video.includes(:video_views).where(accepted: true))
     end
     @youtube_videos = Rails.cache.fetch('youtubes', expires_in: 1.day) do
       Youtube.includes(:video_views).all
@@ -139,5 +148,32 @@ module VideosHelper
     add_views_to_model_array(@filtered_uploaded_videos)
     @filtered_videos = (@filtered_youtube_videos + @filtered_uploaded_videos).sort_by(&:date).reverse.paginate(page: params[:page],:per_page => 60)
     @videos_info = {searchedVideos: @filtered_videos, searchedText: search_text, currentPage: @filtered_videos.current_page, totalPages: @filtered_videos.total_pages}
+  end
+
+  def fetch_tweets
+    twitter_handles = getTwitterhandles();
+    twitter_handles.each {|each_twitter_handle|
+      each_handle_tweets = TwitterClient.user_timeline(each_twitter_handle, count: 200, exclude_replies: true)
+      each_handle_tweets.each {|each_tweet|
+        if each_tweet.media?
+          each_tweet_media = each_tweet.media[0]
+          if each_tweet_media && each_tweet_media.type == "video"
+            video_variants = each_tweet_media.video_info.variants
+            video_variants_length = video_variants.length
+            desired_video_index = video_variants_length - 2;
+            if desired_video_index < 0
+              desired_video_index = 0
+            end
+            desired_video = video_variants[desired_video_index];
+            if (!Video.same_url_as(desired_video.url.to_s).first)
+              @video = Video.new(:url => desired_video.url.to_s, :thumb_nail => each_tweet_media.media_url_https.to_s, :title => each_tweet.text.to_s, :description => each_tweet.text.to_s, :date => each_tweet.created_at, :author => 'Abe Chuk', :author_email => 'abechuk@gmail.com', :agreed_to_vid_sub_policy => true, :is_twitter => true)
+              if @video.save
+                VideoView.create(:video_url => @video.url, :video_id => @video.id, :views => number_with_delimiter(rand(1000..10000)))
+              end
+            end
+          end
+        end
+      }
+    }
   end
 end

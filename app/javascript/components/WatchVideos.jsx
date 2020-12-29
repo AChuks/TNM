@@ -117,11 +117,11 @@ class WatchVideos extends Component {
                       width="1200"
                       height="700"
                       data-setup={JSON.stringify({
-                        techOrder: ["youtube", "html5"],
+                        techOrder: videosInfo.currentVideo.is_twitter ? undefined : ["youtube", "html5"],
                         sources: [
                           {
-                            type: "video/youtube",
-                            src: `https://www.youtube.com/watch?v=${videosInfo.url}`
+                            type: videosInfo.currentVideo.is_twitter ? "video/mp4" : "video/youtube",
+                            src: videosInfo.currentVideo.is_twitter ? videosInfo.url : `https://www.youtube.com/watch?v=${videosInfo.url}`
                           }
                         ],
                         "youtube": { "ytControls": 1}

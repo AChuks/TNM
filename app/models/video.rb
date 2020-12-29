@@ -3,6 +3,7 @@ class Video < ActiveRecord::Base
 
   # Association
   has_many :video_views, :foreign_key => 'video_url', :primary_key => 'url'
+  # has_many :video_views, :foreign_key => 'video_id', :primary_key => 'id'
 
   # scopes
   scope :has_vimeo_video_id, -> () {where.not(vimeo_video_id: '') }

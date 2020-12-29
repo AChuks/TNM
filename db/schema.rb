@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_04_02_235739) do
+ActiveRecord::Schema.define(version: 2020_12_25_223004) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -54,6 +54,7 @@ ActiveRecord::Schema.define(version: 2020_04_02_235739) do
     t.string "youtube_url"
     t.string "video_url"
     t.string "views"
+    t.integer "video_id"
   end
 
   create_table "videos", id: :serial, force: :cascade do |t|
@@ -76,6 +77,7 @@ ActiveRecord::Schema.define(version: 2020_04_02_235739) do
     t.boolean "is_youtube", default: false
     t.boolean "is_irl", default: false
     t.string "views"
+    t.boolean "is_twitter", default: false
     t.index ["url"], name: "index_videos_on_url", unique: true
     t.index ["vimeo_video_id"], name: "index_videos_on_vimeo_video_id", unique: true
   end
@@ -92,5 +94,6 @@ ActiveRecord::Schema.define(version: 2020_04_02_235739) do
   end
 
   add_foreign_key "video_views", "videos", column: "video_url", primary_key: "url", on_delete: :cascade
+  add_foreign_key "video_views", "videos", on_delete: :cascade
   add_foreign_key "video_views", "youtubes", column: "youtube_url", primary_key: "url", on_delete: :cascade
 end
