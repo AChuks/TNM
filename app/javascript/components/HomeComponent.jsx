@@ -65,7 +65,7 @@ class HomeComponent extends Component {
 
   handleFeaturedVideoClick = ()  => {
     // window.location.href = '/watch?url=AU1woNn0b9g&irl=true';
-    window.location.href = '/watch?url=w9ajOAy7w8g&meta_data=UCxAkiUiL3KnMl0BIFBv6xxA';
+    window.location.href = '/watch?url=NdeHE1nQBf8&meta_data=UCxAkiUiL3KnMl0BIFBv6xxA';
   }
 
   scrollToTopOfVideoGrid = () => {
@@ -109,8 +109,8 @@ class HomeComponent extends Component {
           <div className="col-xs-12" onClick={this.handleFeaturedVideoClick}>
             <div>
               <div className="col-xs-12">
-                <img src='https://img.youtube.com/vi/w9ajOAy7w8g/mqdefault.jpg' style={{height: 'inherit', width: 'inherit', cursor: 'pointer'}}/>
-                <h1 className="video-title">DADDY WANTS TO LOSE WEIGHT</h1>
+                <img src='https://img.youtube.com/vi/NdeHE1nQBf8/mqdefault.jpg' style={{height: 'inherit', width: 'inherit', cursor: 'pointer'}}/>
+                <h1 className="video-title">NEW YEAR COMPILATION FROM MR MACARONI</h1>
                 {/* <video
                   id="featureVideo"
                   className="video-js vjs-default-skin featured-video"
