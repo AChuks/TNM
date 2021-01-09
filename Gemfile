@@ -24,8 +24,8 @@ gem 'sitemap_generator'
 gem 'fog-aws'
 gem 'vimeo_me2', :git => "https://github.com/bo-oz/vimeo_me2.git"
 gem 'pg_search'
-gem "react_on_rails", "11.0.0"
-gem "webpacker", "~> 3"
+gem "react_on_rails", "12.0.4"
+gem 'webpacker', "6.0.0.pre.2"
 gem 'mini_racer', platforms: :ruby
 gem 'pg'
 gem 'redis'

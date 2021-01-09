@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import PropTypes from "prop-types";
 import Formsy from "formsy-react";
 import FormsyInput from "./shared/FormsyComponents";
-const path = require("path");
 import * as Scroll from "react-scroll";
 
 class ContactForm extends Component {

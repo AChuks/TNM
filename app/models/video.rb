@@ -9,7 +9,6 @@ class Video < ActiveRecord::Base
   scope :has_vimeo_video_id, -> () {where.not(vimeo_video_id: '') }
   scope :is_irl, -> () {where.not(is_irl: false) }
   scope :not_irl, -> () {where(is_irl: false) }
-  scope :is_youtube, -> () {where.not(is_youtube: false) }
   scope :same_vimeo_video_id_as, -> (vimeo_video_id) {where vimeo_video_id: vimeo_video_id}
   scope :same_url_as, -> (url) {where url: url}
   scope :same_author_email, -> (author_email) {where author_email: author_email}
