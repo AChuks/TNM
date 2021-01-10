@@ -1,8 +1,8 @@
 import React from 'react';
 import GridList from "@material-ui/core/GridList";
 import GridListTile from "@material-ui/core/GridListTile";
-import moment from 'moment';
 import { LazyLoadImage } from 'react-lazy-load-image-component';
+import { parseDate } from './shared/utils'
 
 function VideoList(props) {
     const parser = new DOMParser();
@@ -15,7 +15,7 @@ function VideoList(props) {
                 (video.accepted && (!video.is_irl || video.is_twitter))
             ) {
                 let videoTitle = parser.parseFromString(video.title, "text/html").body.textContent;
-                let videoDate = moment(video.date).format("MMM Do, YYYY");
+                let videoDate = parseDate(video.date)
                 return (        
                     <GridListTile
                         className="content-videos-header-videos-section-item"

@@ -1,9 +1,9 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
-import moment from "moment";
 import { BootstrapTable, TableHeaderColumn } from "react-bootstrap-table";
 import "react-bootstrap-table/dist/react-bootstrap-table-all.min.css";
 import WatchVideo from "./shared/WatchVideo";
+import { parseDate } from './shared/utils'
 
 class Videos extends Component {
   static propTypes = {
@@ -65,7 +65,7 @@ class Videos extends Component {
     };
 
     const dateTimeFormatter = cell => (
-      <span>{moment(cell).format("MM/DD/YYYY HH:mm:ss")}</span>
+      <span>{parseDate(cell)}</span>
     );
     const acceptedFormatter = (cell, row) => (
       <span>

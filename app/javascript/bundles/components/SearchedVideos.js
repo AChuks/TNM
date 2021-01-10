@@ -4,7 +4,7 @@ import { LazyLoadImage } from "react-lazy-load-image-component";
 import { Pagination } from "semantic-ui-react";
 import GridList from "@material-ui/core/GridList";
 import GridListTile from "@material-ui/core/GridListTile";
-import moment from "moment";
+import { parseDate } from './shared/utils'
 import * as Scroll from "react-scroll";
 
 class SearchedVideos extends Component {
@@ -66,6 +66,7 @@ class SearchedVideos extends Component {
                 video.is_irl ||
                 (video.accepted && !video.is_irl)
               ) {
+                let videoDate = parseDate(video.date)
                 return (
                   <GridListTile
                     className="content-videos-header-videos-section-item"
@@ -95,7 +96,7 @@ class SearchedVideos extends Component {
                               />
                               <div className="video-title">{video.title}</div>
                               <div className="video-date-time">
-                                {moment(video.date).format("MMM Do, YYYY")}
+                                {videoDate}
                               </div>
                               <div className='video-views'><i className="fa fa-eye"></i>&nbsp;{video.views} Views</div>
                             </a>
@@ -112,7 +113,7 @@ class SearchedVideos extends Component {
                               />
                               <div className="video-title">{video.title}</div>
                               <div className="video-date-time">
-                                {moment(video.date).format("MMM Do, YYYY")}
+                                {videoDate}
                               </div>
                               <div className='video-views'><i className="fa fa-eye"></i>&nbsp;{video.views} Views</div>
                             </a>
@@ -129,7 +130,7 @@ class SearchedVideos extends Component {
                               />
                               <div className="video-title">{video.title}</div>
                               <div className="video-date-time">
-                                {moment(video.date).format("MMM Do, YYYY")}
+                                {videoDate}
                               </div>
                               <div className='video-views'><i className="fa fa-eye"></i>&nbsp;{video.views} Views</div>
                             </a>

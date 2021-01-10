@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
-import moment from "moment";
 import { BootstrapTable, TableHeaderColumn } from "react-bootstrap-table";
+import { parseDate } from './shared/utils'
 import "react-bootstrap-table/dist/react-bootstrap-table-all.min.css";
 
 class Users extends Component {
@@ -30,7 +30,7 @@ class Users extends Component {
     };
 
     const dateTimeFormatter = cell => (
-      <span>{moment(cell).format("MM/DD/YYYY HH:mm:ss")}</span>
+      <span>{parseDate(cell)}</span>
     );
 
     const idFormatter = (cell, row) => (

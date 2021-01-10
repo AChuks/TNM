@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
-import moment from "moment";
+import { parseDate } from './shared/utils'
 
 class CarouselVideos extends Component {
   static propTypes = {
@@ -49,7 +49,7 @@ class CarouselVideos extends Component {
                       />
                       <div className="video-title">{videoTitle || ''}</div>
                       <div className="video-date-time">
-                        {moment(carouselVideo.date).format("MMM Do, YYYY")}
+                        {parseDate(carouselVideo.date)}
                       </div>
                       <div className='video-views'><i className="fa fa-eye"></i>&nbsp;{carouselVideo.views} Views</div>
                     </a>

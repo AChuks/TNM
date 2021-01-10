@@ -1,12 +1,9 @@
-import React, { Component } from "react";
+import React, { Component, Suspense } from "react";
 import PropTypes from "prop-types";
 import { LazyLoadImage } from "react-lazy-load-image-component";
 import GridList from "@material-ui/core/GridList";
 import GridListTile from "@material-ui/core/GridListTile";
-import moment from "moment";
-import videojs from "video.js";
-import "video.js/dist/video-js.min.css";
-import "videojs-youtube";
+import { parseDate } from './shared/utils'
 
 class WatchVideos extends Component {
   static propTypes = {
@@ -20,37 +17,6 @@ class WatchVideos extends Component {
     };
   }
 
-  componentDidMount = () => {
-    window.addEventListener("resize", this.updateDimensions);
-    window.addEventListener("scroll", this.handleScroll);
-    this.updateDimensions();
-  };
-
-  componentWillUnmount = () => {
-    window.removeEventListener("resize", this.updateDimensions);
-    window.removeEventListener("scroll", this.handleScroll);
-  };
-
-  updateDimensions = () => {
-    if (!this.state.videosInfo.uploaded) {
-      let player = videojs("watchVideo");
-      player.height(Math.round(document.body.clientWidth / 2.7));
-    }
-    let watchVideoDiv = document.getElementsByClassName('div-video-watch')
-    let relatedVideosDiv = document.getElementsByClassName('div-related-videos')
-    if (watchVideoDiv && watchVideoDiv[0] && window.innerWidth < 500) {
-      watchVideoDiv[0].classList.remove("col-xs-8")
-      watchVideoDiv[0].classList.add("col-xs-12")
-      relatedVideosDiv[0].classList.remove("col-xs-4")
-      relatedVideosDiv[0].classList.add("col-xs-12")
-    } else {
-      watchVideoDiv[0].classList.add("col-xs-8")
-      watchVideoDiv[0].classList.remove("col-xs-12")
-      relatedVideosDiv[0].classList.add("col-xs-4")
-      relatedVideosDiv[0].classList.remove("col-xs-12")
-    }
-  };
-
   initializeDisqus = () => {
     (function () {
       // DON'T EDIT BELOW THIS LINE
@@ -60,18 +26,6 @@ class WatchVideos extends Component {
       s.setAttribute("data-timestamp", +new Date());
       (d.head || d.body).appendChild(s);
     })();
-  };
-
-  handleScroll = () => {
-    var relatedVideo = document.getElementsByClassName("MuiGridList-root")[0];
-    var disqusThread = document.getElementsByClassName("disqus-thread")[0];
-    if (
-      relatedVideo &&
-      disqusThread &&
-      relatedVideo.offsetHeight !== disqusThread.scrollHeight
-    ) {
-      relatedVideo.style.height = disqusThread.scrollHeight + "px";
-    }
   };
 
   handleGridListClick = location => {
@@ -90,6 +44,11 @@ class WatchVideos extends Component {
       videoClassName = videoClassName + "col-xs-8";
       relatedVideosClassName = relatedVideosClassName + "col-xs-4"
     }
+
+    const VideoViewComponent = React.lazy(() =>
+      import(`./VideoView`)
+    );
+
     return (
       <div className="content">
         <div className="col-xs-12 content-videos content-videos-watch">
@@ -109,24 +68,9 @@ class WatchVideos extends Component {
                 )}
                 {!videosInfo.uploaded && (
                   <div className="col-xs-12 col-zero-padding">
-                    <video
-                      id="watchVideo"
-                      autoPlay={true}
-                      className="video-js vjs-default-skin featured-video"
-                      controls
-                      width="1200"
-                      height="700"
-                      data-setup={JSON.stringify({
-                        techOrder: videosInfo.currentVideo.is_twitter ? undefined : ["youtube", "html5"],
-                        sources: [
-                          {
-                            type: videosInfo.currentVideo.is_twitter ? "video/mp4" : "video/youtube",
-                            src: videosInfo.currentVideo.is_twitter ? videosInfo.url : `https://www.youtube.com/watch?v=${videosInfo.url}`
-                          }
-                        ],
-                        "youtube": { "ytControls": 1}
-                      })}
-                    ></video>
+                    <Suspense fallback={<div>Loading...</div>}>
+                      <VideoViewComponent videosInfo={videosInfo} />
+                    </Suspense>    
                     {/* <iframe
                       id="watchVideo"
                       className="iframe-watch-video"
@@ -215,7 +159,7 @@ class WatchVideos extends Component {
                             )}
                             <div className="video-title">{videoTitle}</div>
                             <div className="video-date-time">
-                                {moment(video.date).format("MMM Do, YYYY")}
+                                {parseDate(video.date)}
                             </div>
                             <div className='related-video-views'><i className="fa fa-eye"></i>&nbsp;{video.views} Views</div>
                           </div>
