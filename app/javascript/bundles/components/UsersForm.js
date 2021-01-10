@@ -2,7 +2,8 @@ import React, { Component } from "react";
 import PropTypes from "prop-types";
 import Formsy from "formsy-react";
 import FormsyInput from "./shared/FormsyComponents";
-const path = require("path");
+// const path = require("path");
+const path = require("path-browserify");
 import * as Scroll from "react-scroll";
 
 class UsersForm extends Component {

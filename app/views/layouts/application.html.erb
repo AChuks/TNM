@@ -25,7 +25,9 @@
 	<title><%= full_title(yield(:title)) %></title>
 	<%= stylesheet_link_tag 'application', media: 'all' %>
 	<script src="https://use.fontawesome.com/463aa66a5a.js" async></script>
-  <%= javascript_pack_tag 'application' %>
+  <%= javascript_packs_with_chunks_tag 'application', :defer => Rails.env == "production" %>
+  <%= stylesheet_packs_with_chunks_tag 'application' %>
+   <%= javascript_include_tag 'application', :async => Rails.env == "production" %> 
 	<%= csrf_meta_tags %>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta name="google-site-verification" content="Vey2AcN92WhAXmZ3SAcgJ3k3xFelrafnYim0Bh4xeYA">

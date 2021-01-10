@@ -1,8 +1,8 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
-import GridListTile from "@material-ui/core/GridListTile";
 import * as Scroll from "react-scroll";
 import "semantic-ui-css/semantic.min.css";
+import Loadable from 'react-loadable';
 
 class HomeComponent extends Component {
   static propTypes = {
@@ -63,7 +63,23 @@ class HomeComponent extends Component {
   render() {
     const { videosInfo } = this.state;
     let featuredVideoHeight = document.body.clientWidth / 2.7;
-    const parser = new DOMParser();
+
+
+    const Pagination = Loadable({
+      loader: () => import('./Pagination'),
+      loading() {
+        return <div>Loading...</div>
+      }
+    });
+
+    // const VideoList = Loadable({
+    //   loader: () => import('./VideoList'),
+    //   loading() {
+    //     return <div>Loading...</div>
+    //   }
+    // });
+
+
     return (
       <div className="content">
         <div className="content-looping-video-div">
@@ -117,145 +133,9 @@ class HomeComponent extends Component {
           <div className="content-videos-header content-videos-header-featured">
             ALL VIDEOS
           </div>
-          {
-            import("@material-ui/core/GridList").then(GridList => {
-              return (
-                <GridList className="col-xs-12">
-                  {videosInfo.allVideos.map((video, index) => {
-                    if (
-                      video.meta_data ||
-                      video.is_irl ||
-                      (video.accepted && (!video.is_irl || video.is_twitter))
-                    ) {
-                      let videoTitle = parser.parseFromString(video.title, "text/html")
-                        .body.textContent;
-                      let videoDate = moment(video.date).format("MMM Do, YYYY");
-                      return (
-                        import("@material-ui/core/GridListTile").then(GridListTile => {
-                          return (
-                        <GridListTile
-                          className="content-videos-header-videos-section-item"
-                          key={index}
-                        >
-                          <div className="hover-effect">
-                            <div className="view view-first">
-                              <div className="masked" id={video.id}>
-                                {video.vimeo_video_id && (
-                                  <a
-                                    href={`/watch?vid=${video.vimeo_video_id}&upload=true`}
-                                  >
-                                    {
-                                      import("react-lazy-load-image-component").then(LazyLoadImage => {
-                                        return (
-                                          <LazyLoadImage
-                                            alt={`${videoTitle}`}
-                                            height="auto"
-                                            src={`${video.thumb_nail}`}
-                                            width="100%"
-                                          />
-                                        )
-                                      })
-                                    }
-                                    <div className="video-title">{videoTitle}</div>
-                                    <div className="video-date-time">
-                                      {videoDate}
-                                    </div>
-                                    <div className='video-views'><i className="fa fa-eye"></i>&nbsp;{video.views} Views</div>
-                                  </a>
-                                )}
-                                {video.is_twitter && (
-                                  <a
-                                    href={`/watch?id=${video.id}`}
-                                  >
-                                    {
-                                      import("react-lazy-load-image-component").then(LazyLoadImage => {
-                                        return (
-                                          <LazyLoadImage
-                                            alt={`${videoTitle}`}
-                                            height="auto"
-                                            src={`${video.thumb_nail}`}
-                                            width="100%"
-                                          />
-                                        )
-
-                                      })
-                                    }
-                                    <div className="video-title">{videoTitle}</div>
-                                    <div className="video-date-time">
-                                      {videoDate}
-                                    </div>
-                                    <div className='video-views'><i className="fa fa-eye"></i>&nbsp;{video.views} Views</div>
-                                  </a>
-                                )}
-                                {!video.vimeo_video_id && !video.is_irl && !video.is_twitter && (
-                                  <a
-                                    href={`/watch?url=${video.url}&meta_data=${video.meta_data}`}
-                                  >
-                                    {
-                                      import("react-lazy-load-image-component").then(LazyLoadImage => {
-                                        return (
-                                          <LazyLoadImage
-                                            alt={`${videoTitle}`}
-                                            height="auto"
-                                            src={`https://i.ytimg.com/vi/${video.url}/mqdefault.jpg`}
-                                            width="100%"
-                                          />
-                                        )
-                                      })
-                                    }
-                                    <h1 className="video-title">{videoTitle}</h1>
-                                    <div className="video-date-time">
-                                      {videoDate}
-                                    </div>
-                                    <div className='video-views'><i className="fa fa-eye"></i>&nbsp;{video.views} Views</div>
-                                  </a>
-                                )}
-                                {video.is_irl && (
-                                  <a
-                                    href={`/watch?url=${video.url}&irl=${true}`}
-                                  >
-                                    {
-                                      import("react-lazy-load-image-component").then(LazyLoadImage => {
-                                        return (
-                                          <LazyLoadImage
-                                            alt={`${videoTitle}`}
-                                            height="auto"
-                                            src={`https://i.ytimg.com/vi/${video.url}/mqdefault.jpg`}
-                                            width="100%"
-                                          />
-                                        )
-                                      })
-                                    }
-                                    <div className="video-title">{videoTitle}</div>
-                                    <div className="video-date-time">
-                                      {videoDate}
-                                    </div>
-                                    <div className='video-views'><i className="fa fa-eye"></i>&nbsp;{video.views} Views</div>
-                                  </a>
-                                )}
-                              </div>
-                            </div>
-                          </div>
-                        </GridListTile>)})
-                      );
-                    }
-                  })}
-                </GridList>)
-            })}
+          {/* <VideoList videosInfo={videosInfo}/>         */}
           <div className="col-xs-12">
-            {
-              import("semantic-ui-react").then(Pagination => {
-                return (
-                  <Pagination
-                    onPageChange={this.handlePageChange}
-                    defaultActivePage={videosInfo.currentPage}
-                    siblingRange={3}
-                    size="mini"
-                    totalPages={videosInfo.totalPages}
-                  />
-                )
-              })
-            }
+            <Pagination handlePageChange={this.handlePageChange} videosInfo={videosInfo}/>
           </div>
         </div>
       </div>

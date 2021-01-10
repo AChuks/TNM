@@ -1,14 +1,15 @@
 {
     "presets": [
       [
-        "@babel/env",
+         "@babel/preset-env",
         {
           "modules": false,
           "targets": {
             "browsers": "> 1%",
             "uglify": true
           },
-          "useBuiltIns": true
+          "useBuiltIns": "usage",
+          "corejs": 3
         }
       ],
       "@babel/react"

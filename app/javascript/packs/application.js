@@ -8,27 +8,27 @@
 // layout file, like app/views/layouts/application.html.erb
 
 import ReactOnRails from "react-on-rails";
+import React, { Component } from "react";
 import HomeComponent from "../bundles/components/HomeComponent";
-// import './application.css'
-import Header from '../bundles/Header/components/Header';
+// import HomeComponentLazy from "../bundles/components/HomeComponentLazy";
+import Header from "../bundles/components/Header";
 import SearchedVideos from "../bundles/components/SearchedVideos";
 import VideosForm from "../bundles/components/VideosForm";
 import ContactForm from "../bundles/components/ContactForm";
-// import WatchVideos from "../bundles/components/WatchVideos";
-// import Videos from "../bundles/components/Videos";
-// import Users from "../bundles/components/Users";
-// import UsersForm from "../bundles/components/UsersForm";
+import WatchVideos from "../bundles/components/WatchVideos";
+import Videos from "../bundles/components/Videos";
+import Users from "../bundles/components/Users";
+import UsersForm from "../bundles/components/UsersForm";
 
-// const HomeComponent = React.lazy(() => import('../components/HomeComponent'));
-
+// const HomeComponent = React.lazy(() => import("../bundles/components/HomeComponent"));
 ReactOnRails.register({
-  // HomeComponent,
+  HomeComponent,
   Header,
-  // SearchedVideos,
-  // VideosForm,
-  // ContactForm,
-  // WatchVideos,
-  // Videos,
-  // Users,
-  // UsersForm
+  SearchedVideos,
+  VideosForm,
+  ContactForm,
+  WatchVideos,
+  Videos,
+  Users,
+  UsersForm
 });
