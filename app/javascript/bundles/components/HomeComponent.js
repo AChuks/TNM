@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { Component, Suspense } from "react";
 import PropTypes from "prop-types";
 import * as Scroll from "react-scroll";
 import "semantic-ui-css/semantic.min.css";
@@ -64,20 +64,13 @@ class HomeComponent extends Component {
     const { videosInfo } = this.state;
     let featuredVideoHeight = document.body.clientWidth / 2.7;
 
+    const VideoListComponent = React.lazy(() =>
+      import(`./VideoList`)
+    );
 
-    const Pagination = Loadable({
-      loader: () => import('./Pagination'),
-      loading() {
-        return <div>Loading...</div>
-      }
-    });
-
-    const VideoList = Loadable({
-      loader: () => import('./VideoList'),
-      loading() {
-        return <div>Loading...</div>
-      }
-    });
+    const PaginationComponent = React.lazy(() =>
+      import(`./Pagination`)
+    );
 
 
     return (
@@ -133,9 +126,13 @@ class HomeComponent extends Component {
           <div className="content-videos-header content-videos-header-featured">
             ALL VIDEOS
           </div>
-          <VideoList videosInfo={videosInfo}/>        
+          <Suspense fallback={<div>Loading...</div>}>
+            <VideoListComponent videosInfo={videosInfo}/>   
+          </Suspense>     
           <div className="col-xs-12">
-            <Pagination handlePageChange={this.handlePageChange} videosInfo={videosInfo}/>
+              <Suspense fallback={<div>Loading...</div>}>
+                <PaginationComponent handlePageChange={this.handlePageChange} videosInfo={videosInfo}/>
+              </Suspense>
           </div>
         </div>
       </div>
