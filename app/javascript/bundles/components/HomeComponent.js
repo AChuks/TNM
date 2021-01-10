@@ -72,12 +72,12 @@ class HomeComponent extends Component {
       }
     });
 
-    // const VideoList = Loadable({
-    //   loader: () => import('./VideoList'),
-    //   loading() {
-    //     return <div>Loading...</div>
-    //   }
-    // });
+    const VideoList = Loadable({
+      loader: () => import('./VideoList'),
+      loading() {
+        return <div>Loading...</div>
+      }
+    });
 
 
     return (
@@ -133,7 +133,7 @@ class HomeComponent extends Component {
           <div className="content-videos-header content-videos-header-featured">
             ALL VIDEOS
           </div>
-          {/* <VideoList videosInfo={videosInfo}/>         */}
+          <VideoList videosInfo={videosInfo}/>        
           <div className="col-xs-12">
             <Pagination handlePageChange={this.handlePageChange} videosInfo={videosInfo}/>
           </div>
