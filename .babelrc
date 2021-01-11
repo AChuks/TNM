@@ -7,9 +7,9 @@
           "targets": {
             "browsers": "> 1%",
             "uglify": true
-          },
-          "useBuiltIns": "usage",
-          "corejs": 3
+          }
+          // "useBuiltIns": "usage"
+          // "corejs": 3
         }
       ],
       "@babel/react"

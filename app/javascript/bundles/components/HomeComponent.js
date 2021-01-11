@@ -1,8 +1,6 @@
 import React, { Component, Suspense } from "react";
 import PropTypes from "prop-types";
 import * as Scroll from "react-scroll";
-import "semantic-ui-css/semantic.min.css";
-import Loadable from 'react-loadable';
 
 class HomeComponent extends Component {
   static propTypes = {
