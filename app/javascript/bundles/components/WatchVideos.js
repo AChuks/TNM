@@ -1,8 +1,6 @@
 import React, { Component, Suspense } from "react";
 import PropTypes from "prop-types";
 import { LazyLoadImage } from "react-lazy-load-image-component";
-import GridList from "@material-ui/core/GridList";
-import GridListTile from "@material-ui/core/GridListTile";
 import { parseDate } from './shared/utils'
 
 class WatchVideos extends Component {
@@ -104,14 +102,14 @@ class WatchVideos extends Component {
               <div className="content-videos-header content-videos-header-related">
                 Related Videos
               </div>
-              <GridList className="col-xs-12">
+              <ul className="MuiGridList-root col-xs-12">
                 {videosInfo.relatedVideos.map((video, index) => {
                   let videoTitle = parser.parseFromString(
                     video.title, "text/html")
                     .body.textContent;
                   return (
-                    <GridListTile
-                      className="content-videos-header-videos-section-item"
+                    <li
+                      className="MuiGridListTile-root content-videos-header-videos-section-item"
                       key={index}
                       onClick={() =>
                         this.handleGridListClick(
@@ -123,6 +121,7 @@ class WatchVideos extends Component {
                         )
                       }
                     >
+                    <div className="MuiGridListTile-tile">
                       <div className="hover-effect">
                         <div className="view view-first">
                           <div className="masked">
@@ -165,10 +164,11 @@ class WatchVideos extends Component {
                           </div>
                         </div>
                       </div>
-                    </GridListTile>
+                      </div>
+                    </li>
                   );
                 })}
-              </GridList>
+              </ul>
             </div>
           </div>
         </div>

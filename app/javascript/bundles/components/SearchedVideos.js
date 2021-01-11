@@ -2,8 +2,6 @@ import React, { Component } from "react";
 import PropTypes from "prop-types";
 import { LazyLoadImage } from "react-lazy-load-image-component";
 import { Pagination } from "semantic-ui-react";
-import GridList from "@material-ui/core/GridList";
-import GridListTile from "@material-ui/core/GridListTile";
 import { parseDate } from './shared/utils'
 import * as Scroll from "react-scroll";
 
@@ -59,7 +57,7 @@ class SearchedVideos extends Component {
           <div className="content-videos-header content-videos-header-searched">
             {`ALL "${videosInfo.searchedText}" VIDEOS`}
           </div>
-          <GridList className="col-xs-12">
+          <ul className="MuiGridList-root col-xs-12">
             {videosInfo.searchedVideos.map((video, index) => {
               if (
                 video.meta_data ||
@@ -68,8 +66,8 @@ class SearchedVideos extends Component {
               ) {
                 let videoDate = parseDate(video.date)
                 return (
-                  <GridListTile
-                    className="content-videos-header-videos-section-item"
+                  <li
+                    className="MuiGridListTile-root content-videos-header-videos-section-item"
                     key={index}
                     // onClick={() =>
                     //   this.handleGridListClick(
@@ -81,6 +79,7 @@ class SearchedVideos extends Component {
                     //   )
                     // }
                   >
+                  <div className="MuiGridListTile-tile">
                     <div className="hover-effect">
                       <div className="view view-first">
                         <div className="masked">
@@ -138,11 +137,12 @@ class SearchedVideos extends Component {
                         </div>
                       </div>
                     </div>
-                  </GridListTile>
+                    </div>
+                  </li>
                 );
               }
             })}
-          </GridList>
+          </ul>
           <div className="col-xs-12">
             <Pagination
               onPageChange={this.handlePageChange}

@@ -317,11 +317,27 @@ ul.list-inline li a {
       }
     }
     .MuiGridList-root {
+      margin: -2px;
       justify-content: space-between;
       margin-left: 10px !important;
       overflow: hidden;
-      width: calc(100% - 20px)
+      width: calc(100% - 20px);
+      display: flex;
+      padding: 0;
+      flex-wrap: wrap;
+      list-style: none;
     }
+    .MuiGridListTile-root {
+      box-sizing: border-box;
+      flex-shrink: 0;
+    }
+    .MuiGridListTile-tile {
+      height: 100%;
+      display: block;
+      overflow: hidden;
+      position: relative;
+    }
+    
     @media (max-width: 640px) { 
      .MuiGridList-root {
         justify-content: center;
@@ -719,4 +735,8 @@ input[type="file"]{
 }
 .navbar-collapse.in {
   overflow:visible !important;
+}
+
+.grid-root {
+
 }

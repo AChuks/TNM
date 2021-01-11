@@ -1,13 +1,11 @@
 import React from 'react';
-import GridList from "@material-ui/core/GridList";
-import GridListTile from "@material-ui/core/GridListTile";
 import { LazyLoadImage } from 'react-lazy-load-image-component';
 import { parseDate } from './shared/utils'
 
 function VideoList(props) {
     const parser = new DOMParser();
     return (
-        <GridList className="col-xs-12">
+        <ul className="MuiGridList-root col-xs-12">
         {props.videosInfo.allVideos.map((video, index) => {
             if (
                 video.meta_data ||
@@ -17,10 +15,11 @@ function VideoList(props) {
                 let videoTitle = parser.parseFromString(video.title, "text/html").body.textContent;
                 let videoDate = parseDate(video.date)
                 return (        
-                    <GridListTile
-                        className="content-videos-header-videos-section-item"
+                    <li
+                        className="MuiGridListTile-root content-videos-header-videos-section-item"
                         key={index}
                     >
+                        <div className="MuiGridListTile-tile">
                         <div className="hover-effect">
                             <div className="view view-first">
                                 <div className="masked" id={video.id}>
@@ -86,11 +85,12 @@ function VideoList(props) {
                                 )}
                             </div>
                         </div>
+                        </div>
                     </div>
-                </GridListTile>)
+                </li>)
                 }
             })}
-        </GridList>
+        </ul>
     );
 }
 
