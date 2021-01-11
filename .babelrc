@@ -12,7 +12,7 @@
           // "corejs": 3
         }
       ],
-      "@babel/react"
+      "@babel/preset-react"
     ],
     "plugins": [
       "syntax-dynamic-import",

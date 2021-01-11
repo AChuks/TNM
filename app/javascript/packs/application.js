@@ -8,9 +8,7 @@
 // layout file, like app/views/layouts/application.html.erb
 
 import ReactOnRails from "react-on-rails";
-import React, { Component } from "react";
 import HomeComponent from "../bundles/components/HomeComponent";
-// import HomeComponentLazy from "../bundles/components/HomeComponentLazy";
 import Header from "../bundles/components/Header";
 import SearchedVideos from "../bundles/components/SearchedVideos";
 import VideosForm from "../bundles/components/VideosForm";
@@ -20,7 +18,6 @@ import Videos from "../bundles/components/Videos";
 import Users from "../bundles/components/Users";
 import UsersForm from "../bundles/components/UsersForm";
 
-// const HomeComponent = React.lazy(() => import("../bundles/components/HomeComponent"));
 ReactOnRails.register({
   HomeComponent,
   Header,
