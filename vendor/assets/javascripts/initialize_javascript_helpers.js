@@ -84,23 +84,5 @@ $(window).on("load", function() {
           }
         });
       });
-    // $(".owl-carousel").owlCarousel({
-    //   // rtl: true,
-    //   margin: 10,
-    //   autoWidth: true,
-    //   loop: true,
-    //   navText: [
-    //     "<i class='fa fa-chevron-left'></i>",
-    //     "<i class='fa fa-chevron-right'></i>"
-    //   ],
-
-    //   autoplay: true,
-    //   autoplayHoverPause: true,
-    //   autoplayTimeout: 4000,
-
-    //   touchDrag: true,
-    //   nav: true,
-    //   dots: false
-    // });
   });
 });
