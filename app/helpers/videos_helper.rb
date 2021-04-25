@@ -79,31 +79,6 @@ module VideosHelper
     return @related_videos
   end
 
-  def get_trending_videos()
-    channels = getChannels()
-    if Trending.all.blank?
-      channels.each { |each_channel_item|
-        each_channel= Yt::Channel.new id: each_channel_item
-        # Filter top three channels by date and select if not older by a month
-        channel_trends = each_channel.videos.where(order: 'date').map.first(2)
-        channel_trends.each {|each_channel_trends|
-          if ((Time.current - each_channel_trends.published_at)/1.day).round < 31 
-            @youtube_video = Youtube.includes(:video_views).same_url_as(each_channel_trends.id)
-            puts each_channel_trends.id
-            @views =  !@youtube_video.first.nil? ? @youtube_video.first.video_views.first[:views] : @youtube_video.video_views.first[:views]
-            Trending.create(:url => each_channel_trends.id, :title => each_channel_trends.title.tr('#',''), :date => each_channel_trends.published_at, :meta_data => each_channel_trends.channel_id, :views => @views)
-          end
-        }
-      }
-      Video.includes(:video_views).all.each {|each_video| 
-        if ((Time.current - each_video.updated_at)/1.day).round < 14
-          Trending.create(:url => each_video.url, :title => each_video.title.tr('#',''), :date => each_video.created_at, :meta_data => each_video.meta_data, :vimeo_video_id => each_video.vimeo_video_id, :is_irl => each_video.is_irl, :accepted => each_video.accepted, :thumb_nail => each_video.thumb_nail, :views => each_video.video_views.first[:views])
-        end
-      }
-    end
-    @trending_videos = Trending.all.shuffle
-    return @trending_videos
-  end
 
   def get_all_videos(update)
     channels = getChannels()
@@ -128,10 +103,8 @@ module VideosHelper
       get_combined_videos(@other_videos, @youtube_videos)
     end
     @all_videos = @all_videos.reverse.paginate(page: params[:page],:per_page => 60)
-    @trending_videos = Rails.cache.fetch('trendings', expires_in: 1.day) do
-      get_trending_videos()
-    end
-    @videos_info = {allVideos: @all_videos, trendingVideos: @trending_videos, currentPage: @all_videos.current_page, totalPages: @all_videos.total_pages}
+
+    @videos_info = {allVideos: @all_videos, currentPage: @all_videos.current_page, totalPages: @all_videos.total_pages}
     return @videos_info
   end
 

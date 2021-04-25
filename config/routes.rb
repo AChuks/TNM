@@ -3,7 +3,6 @@ Rails.application.routes.draw do
   resources :users
   resources :videos
   resources :youtubes
-  resources :trendings
 
   #  Pages routes
   root 'pages#home'

@@ -89,10 +89,7 @@ class HomeComponent extends Component {
           </div> */}
         </div>
         <div className="col-xs-12 content-videos">
-          {/* <div className="content-videos-header">TRENDING</div> */}
-          {/* <div className="col-xs-12">
-            <CarouselVideos carouselVideos={videosInfo.trendingVideos} />
-          </div> */}
+         
           <div className="content-videos-header content-videos-header-featured" onClick={this.handleFeaturedVideoClick}>
             FEATURED VIDEO
           </div>

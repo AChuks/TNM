@@ -34,7 +34,7 @@ class Ability
 
     if user.nil?
         p 'User is not logged in'
-        cannot :manage, [Trending, Youtube, User]
+        cannot :manage, [Youtube, User]
     end
     if user && user.super_admin
         p 'User is a super admin'
@@ -43,8 +43,8 @@ class Ability
 
     if user && !user.super_admin
         p 'User is not a super admin'
-        can :read, [Trending, Youtube, User]
-        cannot [:create, :modify], [Trending, Youtube, User]
+        can :read, [Youtube, User]
+        cannot [:create, :modify], [Youtube, User]
     end
   end
 end

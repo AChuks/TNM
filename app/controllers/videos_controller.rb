@@ -167,9 +167,7 @@ class VideosController < ApplicationController
       @current_video = (@irl || @video_id) ? @current_video_view.video : @current_video_view.youtube
       @current_video.views = @current_video_view[:views]
     end
-    @trending_videos = Rails.cache.fetch('trendings', expires_in: 1.day) do
-      view_context.get_trending_videos
-    end
+   
     @videos_info = {url: (@url || @current_video[:url]), title: @current_video[:title], uploaded: @uploaded, currentVideo: @current_video, relatedVideos: @related_videos, views: @current_video.views}
     @current_video_view[:views] =  number_with_delimiter(@current_video_view[:views].delete(',').to_i + 1)
     @current_video_view.save
