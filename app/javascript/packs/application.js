@@ -10,22 +10,22 @@
 import ReactOnRails from "react-on-rails";
 import HomeComponent from "../bundles/components/HomeComponent";
 import Header from "../bundles/components/Header";
-// import SearchedVideos from "../bundles/components/SearchedVideos";
-// import VideosForm from "../bundles/components/VideosForm";
-// import ContactForm from "../bundles/components/ContactForm";
+import SearchedVideos from "../bundles/components/SearchedVideos";
+import VideosForm from "../bundles/components/VideosForm";
+import ContactForm from "../bundles/components/ContactForm";
 import WatchVideos from "../bundles/components/WatchVideos";
 import Videos from "../bundles/components/Videos";
 import Users from "../bundles/components/Users";
-// import UsersForm from "../bundles/components/UsersForm";
+import UsersForm from "../bundles/components/UsersForm";
 
 ReactOnRails.register({
   HomeComponent,
   Header,
-  // SearchedVideos,
-  // VideosForm,
-  // ContactForm,
+  SearchedVideos,
+  VideosForm,
+  ContactForm,
   WatchVideos,
   Videos,
   Users,
-  // UsersForm
+  UsersForm
 });
