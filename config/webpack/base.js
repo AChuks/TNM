@@ -1,3 +1,3 @@
 const { webpackConfig } = require('@rails/webpacker')
-webpackConfig.devtool = "(none)";
+webpackConfig.devtool = "hidden-source-map";
 module.exports = webpackConfig
