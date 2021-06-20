@@ -15,9 +15,11 @@ class Header extends Component {
   }
 
   componentDidMount = () => {
+    this.setState({documentLoaded:true});
     this.getAdminStatus();
     window.addEventListener("scroll", this.handleScroll);
     window.addEventListener("resize", this.updateDimensions);
+    document.getElementsByClassName('navbar-links-search')[0].addEventListener('click', this.handleSearchIcon)
   };
 
   componentWillUnmount = () => {
@@ -29,7 +31,8 @@ class Header extends Component {
   };
 
   handleScroll = () => {
-    var navBar = document.getElementsByClassName("navbar-container");
+    if (this.state.documentLoaded) {
+      var navBar = document.getElementsByClassName("navbar-container");
     if (navBar && navBar[0]) {
       var scrollPos = document.scrollingElement.scrollTop;
       if (scrollPos > 0) {
@@ -38,6 +41,7 @@ class Header extends Component {
       } else if (scrollPos === 0) {
         navBar[0].style.background = "transparent";
       }
+    }
     }
   };
 
@@ -62,22 +66,28 @@ class Header extends Component {
   };
 
   isVisibleNavbarToggle = () => {
-    let navbarToggleVisible = document.getElementsByClassName("navbar-toggle");
-    if (navbarToggleVisible && navbarToggleVisible[0]) {
-      return navbarToggleVisible[0].offsetHeight > 0;
+    if (this.state.documentLoaded) {
+      let navbarToggleVisible = document.getElementsByClassName("navbar-toggle");
+      if (navbarToggleVisible && navbarToggleVisible[0]) {
+        return navbarToggleVisible[0].offsetHeight > 0;
+      }
+      return false;
     }
-    return false;
   };
 
   handleSearchIcon = () => {
     const { showSearchForm } = this.state;
+    console.log('testing')
     this.setState({ showSearchForm: !showSearchForm });
   };
 
   render() {
     const { loggedIn, showSearchForm } = this.state;
-    const navbarToggleVisible = this.isVisibleNavbarToggle();
-    const navBar = document.getElementsByClassName("navbar-container")[0];
+    let navbarToggleVisible = this.isVisibleNavbarToggle();
+    let navBar = '';
+    if (this.state.documentLoaded) {
+      navBar = document.getElementsByClassName("navbar-container")[0];
+    }
     let logoClassName = 'nav navbar-nav pull-left';
     if (navbarToggleVisible) {
       logoClassName = logoClassName + ' col-xs-10 pull-left-zero-padding'

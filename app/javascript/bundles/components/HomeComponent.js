@@ -1,6 +1,8 @@
 import React, { Component, Suspense } from "react";
 import PropTypes from "prop-types";
 import * as Scroll from "react-scroll";
+import VideoList from './VideoList';
+import Pagination from './Pagination';
 
 class HomeComponent extends Component {
   static propTypes = {
@@ -15,6 +17,7 @@ class HomeComponent extends Component {
   }
 
   componentDidMount = () => {
+    this.setState({documentLoaded:true});
     window.addEventListener("resize", this.updateDimensions);
   };
   componentWillUnmount = () => {
@@ -59,8 +62,12 @@ class HomeComponent extends Component {
   };
 
   render() {
-    const { videosInfo } = this.state;
-    let featuredVideoHeight = document.body.clientWidth / 2.7;
+    const { videosInfo, documentLoaded } = this.state;
+    let featuredVideoHeight = 100;
+    if (documentLoaded) {
+      featuredVideoHeight = document.body.clientWidth / 2.7;
+    }
+    
 
     const VideoListComponent = React.lazy(() =>
       import(`./VideoList`)
@@ -121,13 +128,9 @@ class HomeComponent extends Component {
           <div className="content-videos-header content-videos-header-featured">
             ALL VIDEOS
           </div>
-          <Suspense fallback={<div>Loading...</div>}>
-            <VideoListComponent videosInfo={videosInfo}/>   
-          </Suspense>     
+            <VideoList videosInfo={videosInfo}/>   
           <div className="col-xs-12">
-              <Suspense fallback={<div>Loading...</div>}>
-                <PaginationComponent handlePageChange={this.handlePageChange} videosInfo={videosInfo}/>
-              </Suspense>
+                <Pagination handlePageChange={this.handlePageChange} videosInfo={videosInfo}/>
           </div>
         </div>
       </div>

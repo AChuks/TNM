@@ -1,7 +1,7 @@
 import React, { Component, Suspense } from "react";
 import PropTypes from "prop-types";
-import { LazyLoadImage } from "react-lazy-load-image-component";
 import { parseDate } from './shared/utils'
+import VideoView from './VideoView';
 
 class WatchVideos extends Component {
   static propTypes = {
@@ -15,15 +15,21 @@ class WatchVideos extends Component {
     };
   }
 
+  componentDidMount = () => {
+    this.setState({documentLoaded:true});
+  };
+
   initializeDisqus = () => {
-    (function () {
-      // DON'T EDIT BELOW THIS LINE
-      var d = document,
-        s = d.createElement("script");
-      s.src = "//supercomedian.disqus.com/embed.js";
-      s.setAttribute("data-timestamp", +new Date());
-      (d.head || d.body).appendChild(s);
-    })();
+    if (this.state.documentLoaded) {
+      (function () {
+        // DON'T EDIT BELOW THIS LINE
+        var d = document,
+          s = d.createElement("script");
+        s.src = "//supercomedian.disqus.com/embed.js";
+        s.setAttribute("data-timestamp", +new Date());
+        (d.head || d.body).appendChild(s);
+      })();
+    }
   };
 
   handleGridListClick = location => {
@@ -31,11 +37,10 @@ class WatchVideos extends Component {
   };
 
   render() {
-    const { videosInfo } = this.state;
-    const parser = new DOMParser();
+    const { videosInfo, documentLoaded } = this.state;
     let videoClassName = "col-zero-padding div-video-watch ";
     let relatedVideosClassName = "col-zero-padding div-related-videos ";
-    if (window.innerWidth < 500) {
+    if (documentLoaded && window.innerWidth < 500) {
       videoClassName = videoClassName + "col-xs-12";
       relatedVideosClassName = relatedVideosClassName + "col-xs-12";
     } else {
@@ -43,19 +48,13 @@ class WatchVideos extends Component {
       relatedVideosClassName = relatedVideosClassName + "col-xs-4"
     }
 
-    const VideoViewComponent = React.lazy(() =>
-      import(`./VideoView`)
-    );
-
     return (
       <div className="content">
         <div className="col-xs-12 content-videos content-videos-watch">
           <div className="col-xs-12 col-zero-padding">
             <div className={videoClassName}>
               <div className="col-xs-12 col-zero-padding">
-                <h1 className="video-title-watch">{parser.parseFromString(
-                  videosInfo.title, "text/html")
-                  .body.textContent}
+                <h1 className="video-title-watch">{videosInfo.title.replace(/<\/?[^>]+(>|$)/g, "")}
                 </h1>
                 {videosInfo.uploaded && (
                   <div
@@ -66,9 +65,7 @@ class WatchVideos extends Component {
                 )}
                 {!videosInfo.uploaded && (
                   <div className="col-xs-12 col-zero-padding">
-                    <Suspense fallback={<div>Loading...</div>}>
-                      <VideoViewComponent videosInfo={videosInfo} />
-                    </Suspense>    
+                    <VideoView videosInfo={videosInfo} />
                     {/* <iframe
                       id="watchVideo"
                       className="iframe-watch-video"
@@ -104,9 +101,7 @@ class WatchVideos extends Component {
               </div>
               <ul className="MuiGridList-root col-xs-12">
                 {videosInfo.relatedVideos.map((video, index) => {
-                  let videoTitle = parser.parseFromString(
-                    video.title, "text/html")
-                    .body.textContent;
+                  let videoTitle = video.title.replace(/<\/?[^>]+(>|$)/g, "");
                   return (
                     <li
                       className="MuiGridListTile-root content-videos-header-videos-section-item"
@@ -141,7 +136,7 @@ class WatchVideos extends Component {
                               ></a>
                             )}
                             {video.vimeo_video_id && (
-                              <LazyLoadImage
+                              <img
                                 alt={`${videoTitle}`}
                                 height="auto"
                                 src={`${video.thumb_nail}`}
@@ -149,7 +144,7 @@ class WatchVideos extends Component {
                               />
                             )}
                             {!video.vimeo_video_id && (
-                              <LazyLoadImage
+                              <img
                                 alt={`${videoTitle}`}
                                 height="auto"
                                 src={`https://i.ytimg.com/vi/${video.url}/mqdefault.jpg`}

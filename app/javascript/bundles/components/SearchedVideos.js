@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
-import { LazyLoadImage } from "react-lazy-load-image-component";
 import { Pagination } from "semantic-ui-react";
 import { parseDate } from './shared/utils'
 import * as Scroll from "react-scroll";
@@ -87,7 +86,7 @@ class SearchedVideos extends Component {
                             <a
                               href={`/watch?vid=${video.vimeo_video_id}&upload=true`}
                             >
-                              <LazyLoadImage
+                              <img
                                 alt={`${video.title}`}
                                 height="auto"
                                 src={`${video.thumb_nail}`}
@@ -104,7 +103,7 @@ class SearchedVideos extends Component {
                             <a
                               href={`/watch?url=${video.url}&meta_data=${video.meta_data}`}
                             >
-                              <LazyLoadImage
+                              <img
                                 alt={`${video.title}`}
                                 height="auto"
                                 src={`https://i.ytimg.com/vi/${video.url}/mqdefault.jpg`}
@@ -121,7 +120,7 @@ class SearchedVideos extends Component {
                             <a
                               href={`/watch?url=${video.url}&irl=${true}`}
                             >
-                              <LazyLoadImage
+                              <img
                                 alt={`${video.title}`}
                                 height="auto"
                                 src={`https://i.ytimg.com/vi/${video.url}/mqdefault.jpg`}

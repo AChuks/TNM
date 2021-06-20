@@ -1,2 +1,2 @@
 <% provide(:title, @title)%>
-<%= react_component("WatchVideos",  props: { videosInfo: @videos_info }) %>
+<%= react_component("WatchVideos",  props: { videosInfo: @videos_info }, prerender: true) %>

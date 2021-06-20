@@ -1,9 +1,7 @@
 import React from 'react';
-import { LazyLoadImage } from 'react-lazy-load-image-component';
 import { parseDate } from './shared/utils'
 
 function VideoList(props) {
-    const parser = new DOMParser();
     return (
         <ul className="MuiGridList-root col-xs-12">
         {props.videosInfo.allVideos.map((video, index) => {
@@ -12,7 +10,7 @@ function VideoList(props) {
                 video.is_irl ||
                 (video.accepted && (!video.is_irl || video.is_twitter))
             ) {
-                let videoTitle = parser.parseFromString(video.title, "text/html").body.textContent;
+                let videoTitle = video.title.replace(/<\/?[^>]+(>|$)/g, "");
                 let videoDate = parseDate(video.date)
                 return (        
                     <li
@@ -25,7 +23,7 @@ function VideoList(props) {
                                 <div className="masked" id={video.id}>
                                 {video.vimeo_video_id && (
                                 <a href={`/watch?vid=${video.vimeo_video_id}&upload=true`}>
-                                    <LazyLoadImage
+                                    <img
                                         alt={`${videoTitle}`}
                                         height="auto"
                                         src={`${video.thumb_nail}`}
@@ -40,7 +38,7 @@ function VideoList(props) {
                                 )}
                                 {video.is_twitter && (
                                     <a href={`/watch?id=${video.id}`}>
-                                        <LazyLoadImage
+                                        <img
                                             alt={`${videoTitle}`}
                                             height="auto"
                                             src={`${video.thumb_nail}`}
@@ -55,7 +53,7 @@ function VideoList(props) {
                                 )}
                                 {!video.vimeo_video_id && !video.is_irl && !video.is_twitter && (
                                     <a href={`/watch?url=${video.url}&meta_data=${video.meta_data}`}>
-                                        <LazyLoadImage
+                                        <img
                                             alt={`${videoTitle}`}
                                             height="auto"
                                             src={`https://i.ytimg.com/vi/${video.url}/mqdefault.jpg`}
@@ -70,7 +68,7 @@ function VideoList(props) {
                                 )}
                                 {video.is_irl && (
                                     <a href={`/watch?url=${video.url}&irl=${true}`}>
-                                        <LazyLoadImage
+                                        <img
                                             alt={`${videoTitle}`}
                                             height="auto"
                                             src={`https://i.ytimg.com/vi/${video.url}/mqdefault.jpg`}

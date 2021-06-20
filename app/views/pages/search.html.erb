@@ -1,2 +1,2 @@
 <% provide(:title, 'Search')%>
-<%= react_component("SearchedVideos", props: { videosInfo: @videos_info }) %>
+<%= react_component("SearchedVideos", props: { videosInfo: @videos_info }, prerender: true) %>
